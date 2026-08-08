@@ -1,0 +1,159 @@
+import type { Metadata } from "next";
+import { LegalShell } from "@/components/legal/LegalShell";
+
+export const metadata: Metadata = {
+  title: "Terms of Service — Buddy",
+  description:
+    "Read the Terms of Service for using Buddy, the AI assistant for listening, notes, tasks, and Spaces.",
+};
+
+const sections = [
+  {
+    id: "agreement",
+    title: "1. Agreement to these Terms",
+    body: [
+      "These Terms of Service (“Terms”) govern your access to and use of Buddy, including our website, mobile application, and related services.",
+      "By creating an account or using Buddy, you agree to these Terms. If you do not agree, do not use Buddy.",
+    ],
+  },
+  {
+    id: "service",
+    title: "2. The Buddy service",
+    body: [
+      "Buddy helps you organize conversations into Spaces, listen to discussions, generate notes and tasks, and chat with an AI assistant using your workspace context.",
+      "Features may change over time as we improve the product. We may add, modify, or discontinue features with or without notice where permitted.",
+    ],
+  },
+  {
+    id: "accounts",
+    title: "3. Accounts and eligibility",
+    body: [
+      "You must provide accurate account information and keep your login credentials secure. You are responsible for activity under your account.",
+      "You must be legally able to enter this agreement in your jurisdiction. Buddy is not intended for children under 13 (or the higher age required locally).",
+    ],
+  },
+  {
+    id: "acceptable",
+    title: "4. Acceptable use",
+    body: [
+      "You agree not to misuse Buddy, including by attempting to break security, reverse engineer the service unlawfully, overload systems, or use Buddy for illegal, harmful, or deceptive purposes.",
+      "You must not use listening or recording features in violation of applicable laws. You are responsible for obtaining required consents before recording other people.",
+    ],
+  },
+  {
+    id: "content",
+    title: "5. Your content",
+    body: [
+      "You retain rights to the content you submit, including voice input, notes, tasks, and Space materials (“Your Content”).",
+      "You grant Buddy a limited license to host, process, transmit, and display Your Content as needed to operate and improve the service you request.",
+      "You represent that you have the rights necessary to use and share Your Content with Buddy.",
+    ],
+  },
+  {
+    id: "ai",
+    title: "6. AI-generated results",
+    body: [
+      "Buddy uses automated systems that may generate transcripts, notes, tasks, summaries, and chat answers. These outputs can be incomplete or incorrect.",
+      "You should review important outputs before relying on them. Buddy is not a substitute for professional advice.",
+    ],
+  },
+  {
+    id: "privacy",
+    title: "7. Privacy",
+    body: [
+      "Our collection and use of personal information is described in our Privacy Policy. By using Buddy, you also acknowledge that Policy.",
+    ],
+  },
+  {
+    id: "availability",
+    title: "8. Availability and changes",
+    body: [
+      "We aim to keep Buddy reliable, but we do not guarantee uninterrupted or error-free service. Maintenance, outages, or updates may occur.",
+      "We may suspend or terminate access if needed to protect users, comply with law, or address Terms violations.",
+    ],
+  },
+  {
+    id: "disclaimer",
+    title: "9. Disclaimers",
+    body: [
+      "Buddy is provided on an “as is” and “as available” basis to the fullest extent permitted by law. We disclaim warranties of merchantability, fitness for a particular purpose, and non-infringement.",
+    ],
+  },
+  {
+    id: "liability",
+    title: "10. Limitation of liability",
+    body: [
+      "To the fullest extent permitted by law, Buddy and its providers will not be liable for indirect, incidental, special, consequential, or punitive damages, or for loss of data, profits, or business arising from your use of the service.",
+      "Our total liability for any claim relating to Buddy will not exceed the greater of amounts you paid us in the 12 months before the claim or USD $50, if no fees were paid.",
+    ],
+  },
+  {
+    id: "indemnity",
+    title: "11. Indemnity",
+    body: [
+      "You agree to defend and indemnify Buddy against claims arising from your use of the service, Your Content, or your violation of these Terms or applicable law.",
+    ],
+  },
+  {
+    id: "governing",
+    title: "12. Governing law",
+    body: [
+      "These Terms are governed by applicable laws of the jurisdiction in which Buddy operates its primary business, without regard to conflict-of-law rules, unless mandatory local consumer laws provide otherwise.",
+    ],
+  },
+  {
+    id: "changes",
+    title: "13. Changes to these Terms",
+    body: [
+      "We may update these Terms from time to time. We will post updates on this page and revise the “Last updated” date. Continued use after changes become effective constitutes acceptance.",
+    ],
+  },
+  {
+    id: "contact",
+    title: "14. Contact",
+    body: [
+      "Questions about these Terms? Contact us at hello@buddy.ai.",
+    ],
+  },
+];
+
+export default function TermsPage() {
+  return (
+    <LegalShell>
+      <article className="legal-page">
+        <header className="legal-hero">
+          <p className="eyebrow">Legal</p>
+          <h1>Terms of Service</h1>
+          <p className="legal-intro">
+            Clear rules for using Buddy—so conversations, notes, and tasks stay
+            useful and responsible.
+          </p>
+          <p className="legal-meta">Last updated: August 8, 2026</p>
+        </header>
+
+        <nav className="legal-toc" aria-label="Terms of Service sections">
+          {sections.map((section) => (
+            <a key={section.id} href={`#${section.id}`}>
+              {section.title.replace(/^\d+\.\s*/, "")}
+            </a>
+          ))}
+        </nav>
+
+        <div className="legal-content">
+          {sections.map((section) => (
+            <section key={section.id} id={section.id} className="legal-section">
+              <h2>{section.title}</h2>
+              {section.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </section>
+          ))}
+        </div>
+
+        <p className="legal-related">
+          Also read our <a href="/privacy">Privacy Policy</a>.
+        </p>
+      </article>
+    </LegalShell>
+  );
+}
