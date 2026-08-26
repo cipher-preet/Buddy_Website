@@ -79,6 +79,10 @@ export const metadata: Metadata = {
     distribution: "global",
     language: siteConfig.language,
     "available-on": siteConfig.platforms.join(", "),
+    "al:android:url": siteConfig.playStoreUrl,
+    "al:android:package": siteConfig.androidPackage,
+    "al:android:app_name": siteConfig.name,
+    "google-play-app": `app-id=${siteConfig.androidPackage}`,
   },
 };
 

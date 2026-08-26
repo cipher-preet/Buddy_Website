@@ -1,6 +1,7 @@
 "use client";
 
 import { faqItems } from "@/lib/home-data";
+import { siteConfig } from "@/lib/site";
 import { motion } from "framer-motion";
 import { AppFrame } from "./AppFrame";
 import { ProductTheater } from "./ProductTheater";
@@ -102,7 +103,12 @@ export function BuddyLanding() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.24, ease }}
           >
-            <a className="studio-btn studio-btn-ink" href="mailto:hello@buddy.ai?subject=Get%20Buddy">
+            <a
+              className="studio-btn studio-btn-ink"
+              href={siteConfig.playStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Get Buddy
             </a>
             <a className="studio-text-link" href="#product">
@@ -307,8 +313,13 @@ export function BuddyLanding() {
           <p className="studio-kicker">Available on iOS & Android</p>
           <h2>Your next conversation, already useful.</h2>
           <p>Bring Buddy into the rooms where work actually happens, and leave with the day still intact.</p>
-          <a className="studio-btn studio-btn-accent" href="mailto:hello@buddy.ai?subject=Get%20Buddy">
-            Get Buddy
+          <a
+            className="studio-btn studio-btn-accent"
+            href={siteConfig.playStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get it on Google Play
           </a>
         </Reveal>
       </section>

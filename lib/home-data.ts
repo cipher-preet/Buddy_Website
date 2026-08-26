@@ -106,7 +106,7 @@ export const faqItems = [
   },
   {
     q: "Is Buddy available worldwide?",
-    a: "Yes. Buddy is built for iOS and Android and is available to people worldwide. Contact hello@buddy.ai to get Buddy.",
+    a: "Yes. Buddy is built for iOS and Android and is available worldwide. Download the Android app on Google Play, or contact hello@buddy.ai for access.",
   },
   {
     q: "What can I share with someone else?",

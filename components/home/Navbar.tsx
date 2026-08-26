@@ -1,7 +1,7 @@
 "use client";
 
 import { navItems } from "@/lib/home-data";
-import Link from "next/link";
+import { siteConfig } from "@/lib/site";
 import { useEffect, useState } from "react";
 import { BrandMark } from "./BrandMark";
 
@@ -42,10 +42,16 @@ export function Navbar() {
           ))}
         </div>
         <div className="nav-end">
-          <Link className="nav-cta" href="/#cta" onClick={() => setOpen(false)}>
+          <a
+            className="nav-cta"
+            href={siteConfig.playStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+          >
             <span>Get Buddy</span>
             <i aria-hidden="true">↗</i>
-          </Link>
+          </a>
           <button
             type="button"
             className="nav-menu-btn"
@@ -65,9 +71,15 @@ export function Navbar() {
             {item.label}
           </a>
         ))}
-        <Link className="nav-drawer-cta" href="/#cta" onClick={() => setOpen(false)}>
+        <a
+          className="nav-drawer-cta"
+          href={siteConfig.playStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setOpen(false)}
+        >
           Get Buddy
-        </Link>
+        </a>
       </div>
     </header>
   );

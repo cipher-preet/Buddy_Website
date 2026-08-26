@@ -10,6 +10,9 @@ export const siteConfig = {
   language: "en",
   email: "hello@buddy.ai",
   creator: "Buddy",
+  playStoreUrl:
+    "https://play.google.com/store/apps/details?id=com.aiassistantapp",
+  androidPackage: "com.aiassistantapp",
   keywords: [
     "Buddy AI",
     "AI companion app",
@@ -22,6 +25,8 @@ export const siteConfig = {
     "personal AI assistant",
     "iOS Android notes app",
     "AI spaces",
+    "Buddy Google Play",
+    "Buddy Android app",
   ],
   platforms: ["iOS", "Android"],
   features: [

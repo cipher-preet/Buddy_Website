@@ -14,6 +14,7 @@ export function organizationJsonLd() {
     email: siteConfig.email,
     logo: absoluteUrl("/icon.svg"),
     description: siteConfig.description,
+    sameAs: [siteConfig.playStoreUrl],
     areaServed: {
       "@type": "Place",
       name: "Worldwide",
@@ -48,6 +49,10 @@ export function softwareApplicationJsonLd() {
     applicationCategory: "ProductivityApplication",
     applicationSubCategory: "Personal AI assistant",
     operatingSystem: siteConfig.platforms.join(", "),
+    installUrl: siteConfig.playStoreUrl,
+    downloadUrl: siteConfig.playStoreUrl,
+    identifier: siteConfig.androidPackage,
+    sameAs: [siteConfig.playStoreUrl],
     description: siteConfig.description,
     featureList: [...siteConfig.features],
     inLanguage: siteConfig.language,
@@ -55,7 +60,7 @@ export function softwareApplicationJsonLd() {
     publisher: { "@id": organizationId },
     offers: {
       "@type": "Offer",
-      url: `${siteConfig.url}/#cta`,
+      url: siteConfig.playStoreUrl,
       availability: "https://schema.org/OnlineOnly",
       areaServed: "Worldwide",
     },

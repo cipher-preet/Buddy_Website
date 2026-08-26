@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BuddyFooter } from "./BuddyFooter";
 import { Navbar } from "./Navbar";
+import { siteConfig } from "@/lib/site";
 
 const shortcuts = [
   { href: "/#product", label: "Product" },
@@ -29,6 +30,14 @@ export function NotFoundView() {
             <Link className="studio-text-link" href="/#product">
               See the product <span>↗</span>
             </Link>
+            <a
+              className="studio-text-link"
+              href={siteConfig.playStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Play <span>↗</span>
+            </a>
           </div>
           <nav className="not-found-links" aria-label="Helpful links">
             {shortcuts.map((item) => (

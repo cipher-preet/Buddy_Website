@@ -21,6 +21,7 @@ Listening is not always on. Capture starts when the user decides a conversation 
 ## Availability
 
 - Platforms: iOS and Android
+- Android: https://play.google.com/store/apps/details?id=com.aiassistantapp
 - Audience: worldwide
 - Language: English
 - Contact: hello@buddy.ai
