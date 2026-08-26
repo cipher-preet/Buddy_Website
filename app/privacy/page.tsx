@@ -2,11 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalDocument } from "@/components/legal/LegalDocument";
 import { LegalShell } from "@/components/legal/LegalShell";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { legalJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Buddy",
+  title: "Privacy Policy",
   description:
     "Learn how Buddy collects, uses, and protects your information when you use our AI listening, notes, and tasks app.",
+  alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy Policy | Buddy",
+    url: "/privacy",
+    type: "website",
+  },
 };
 
 const sections = [
@@ -117,6 +125,13 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <LegalShell>
+      <JsonLd
+        data={legalJsonLd(
+          "Privacy Policy",
+          "/privacy",
+          "Learn how Buddy collects, uses, and protects your information when you use our AI listening, notes, and tasks app.",
+        )}
+      />
       <LegalDocument
         title="Privacy Policy"
         intro="Your conversations, notes, and tasks deserve careful handling. This Policy explains how Buddy protects them."

@@ -1,5 +1,6 @@
 "use client";
 
+import { faqItems } from "@/lib/home-data";
 import { motion } from "framer-motion";
 import { AppFrame } from "./AppFrame";
 import { ProductTheater } from "./ProductTheater";
@@ -58,25 +59,6 @@ const prompts = [
   "What did we decide in this morning’s sync?",
   "What are my open tasks in Product Launch?",
   "Help me plan tomorrow from today’s notes.",
-];
-
-const questions = [
-  {
-    q: "What is a Buddy space?",
-    a: "A space is a focused home for one project, relationship, meeting series, or part of your life—where its notes, tasks, goals, and conversations stay connected.",
-  },
-  {
-    q: "Does Buddy listen all the time?",
-    a: "No. Listening starts when you choose to capture a conversation, and it stays attached to a specific space. You decide when a moment is worth keeping.",
-  },
-  {
-    q: "What can I share with someone else?",
-    a: "The share flow lets you select the relevant tasks and notes from a space, so a handoff can be focused instead of overwhelming.",
-  },
-  {
-    q: "How does the daily briefing help?",
-    a: "It gives you one starting view of planned meetings, available focus time, and the priorities waiting for your attention.",
-  },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -302,13 +284,13 @@ export function BuddyLanding() {
         </div>
       </section>
 
-      <section className="studio-faq" aria-labelledby="faq-title">
+      <section className="studio-faq" id="faq" aria-labelledby="faq-title">
         <Reveal>
           <p className="studio-kicker">Good to know</p>
           <h2 id="faq-title">A few questions, answered plainly.</h2>
         </Reveal>
         <div className="studio-faq-list">
-          {questions.map((item, index) => (
+          {faqItems.map((item, index) => (
             <details key={item.q} open={index === 0}>
               <summary>
                 {item.q}

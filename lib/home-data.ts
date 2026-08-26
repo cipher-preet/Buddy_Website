@@ -91,6 +91,33 @@ export const workflowSteps = [
   },
 ];
 
+export const faqItems = [
+  {
+    q: "What is Buddy?",
+    a: "Buddy is a personal AI companion for iOS and Android. It listens to conversations when you choose, then turns them into notes, tasks, goals, a calendar, and a daily briefing inside Spaces.",
+  },
+  {
+    q: "What is a Buddy space?",
+    a: "A space is a focused home for one project, relationship, meeting series, or part of your life—where its notes, tasks, goals, and conversations stay connected.",
+  },
+  {
+    q: "Does Buddy listen all the time?",
+    a: "No. Listening starts when you choose to capture a conversation, and it stays attached to a specific space. You decide when a moment is worth keeping.",
+  },
+  {
+    q: "Is Buddy available worldwide?",
+    a: "Yes. Buddy is built for iOS and Android and is available to people worldwide. Contact hello@buddy.ai to get Buddy.",
+  },
+  {
+    q: "What can I share with someone else?",
+    a: "The share flow lets you select the relevant tasks and notes from a space, so a handoff can be focused instead of overwhelming.",
+  },
+  {
+    q: "How does the daily briefing help?",
+    a: "It gives you one starting view of planned meetings, available focus time, and the priorities waiting for your attention.",
+  },
+];
+
 export const appScreens = [
   {
     title: "Daily briefing",

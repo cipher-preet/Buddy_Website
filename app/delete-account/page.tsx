@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalShell } from "@/components/legal/LegalShell";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { legalJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   title: "Delete Your Buddy Account",
   description:
     "Request permanent deletion of your Buddy account and associated data. Required web resource for Google Play account deletion.",
+  alternates: { canonical: "/delete-account" },
+  openGraph: {
+    title: "Delete Your Buddy Account | Buddy",
+    url: "/delete-account",
+    type: "website",
+  },
 };
 
 const deleteMailto =
@@ -14,6 +22,13 @@ const deleteMailto =
 export default function DeleteAccountPage() {
   return (
     <LegalShell>
+      <JsonLd
+        data={legalJsonLd(
+          "Delete Your Buddy Account",
+          "/delete-account",
+          "Request permanent deletion of your Buddy account and associated data. Required web resource for Google Play account deletion.",
+        )}
+      />
       <article className="legal-page delete-account-page">
         <header className="legal-hero">
           <p className="studio-kicker">Account</p>

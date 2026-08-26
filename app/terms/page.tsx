@@ -2,11 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalDocument } from "@/components/legal/LegalDocument";
 import { LegalShell } from "@/components/legal/LegalShell";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { legalJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Buddy",
+  title: "Terms of Service",
   description:
     "Read the Terms of Service for using Buddy, the AI assistant for listening, notes, tasks, and Spaces.",
+  alternates: { canonical: "/terms" },
+  openGraph: {
+    title: "Terms of Service | Buddy",
+    url: "/terms",
+    type: "website",
+  },
 };
 
 const sections = [
@@ -122,6 +130,13 @@ const sections = [
 export default function TermsPage() {
   return (
     <LegalShell>
+      <JsonLd
+        data={legalJsonLd(
+          "Terms of Service",
+          "/terms",
+          "Read the Terms of Service for using Buddy, the AI assistant for listening, notes, tasks, and Spaces.",
+        )}
+      />
       <LegalDocument
         title="Terms of Service"
         intro="Clear rules for using Buddy—so conversations, notes, and tasks stay useful and responsible."

@@ -1,0 +1,41 @@
+# Buddy
+
+> Buddy is a personal AI companion for iOS and Android. It listens to conversations when you choose, then turns them into notes, tasks, goals, a calendar, and a daily briefing inside Spaces.
+
+Buddy helps people keep the day they actually lived: capture what was said, remember it in context, and act on the next useful step.
+
+## Product
+
+- Daily briefing: start the day with priorities, focus time, and upcoming meetings
+- Live listening: opt-in capture for meetings, walks, and working sessions
+- Notes: searchable conversation knowledge with confidence and space context
+- Tasks: commitments extracted with priority, dates, and original context
+- Spaces: separate homes for projects, people, and parts of life
+- Goals: outcomes attached to spaces, not just folders
+- Calendar: a time-blocked view of the working day
+- Ask Buddy: answers grounded in what Buddy already heard
+- Sharing: select the exact notes and tasks someone else should see
+
+Listening is not always on. Capture starts when the user decides a conversation is worth keeping.
+
+## Availability
+
+- Platforms: iOS and Android
+- Audience: worldwide
+- Language: English
+- Contact: hello@buddy.ai
+
+## Site
+
+- Home: /
+- Privacy policy: /privacy
+- Terms of service: /terms
+- Delete account: /delete-account
+
+## Citation facts
+
+- Product name: Buddy
+- Category: personal AI companion / productivity app
+- Core loop: listen → remember → act
+- Differentiation: conversation context stays inside Spaces, then becomes notes, tasks, and a daily plan
+- Privacy: users control when listening starts and what is shared
