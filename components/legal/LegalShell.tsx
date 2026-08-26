@@ -14,12 +14,10 @@ export function LegalShell({ children }: LegalShellProps) {
         <nav className="nav-shell" aria-label="Primary navigation">
           <BrandMark href="/" />
           <div className="nav-links">
-            <Link href="/#product">Why Buddy</Link>
-            <Link href="/#workflow">How it works</Link>
-            <Link href="/#screens">App</Link>
+            <Link href="/#product">Product</Link>
+            <Link href="/#listen">Listen</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
-            <Link href="/delete-account">Delete account</Link>
           </div>
           <Link className="nav-cta" href="/#cta">
             Get Buddy

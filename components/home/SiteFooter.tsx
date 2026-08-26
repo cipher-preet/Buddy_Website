@@ -17,9 +17,9 @@ export function SiteFooter() {
         </div>
 
         <nav className="site-footer-links" aria-label="Footer">
-          <Link href="/#product">Why Buddy</Link>
-          <Link href="/#workflow">How it works</Link>
-          <Link href="/#screens">App</Link>
+          <Link href="/#product">Product</Link>
+          <Link href="/#listen">Listen</Link>
+          <Link href="/#spaces">Spaces</Link>
           <Link href="/#cta">Get Buddy</Link>
           <Link href="/privacy">Privacy Policy</Link>
           <Link href="/terms">Terms of Service</Link>

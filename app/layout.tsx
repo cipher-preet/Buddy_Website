@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Outfit, Source_Sans_3 } from "next/font/google";
+import { Sora, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const sora = Sora({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${outfit.variable} ${sourceSans.variable} h-full antialiased`}>
+    <html lang="en" className={`${sora.variable} ${sourceSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

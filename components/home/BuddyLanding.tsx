@@ -2,187 +2,310 @@
 
 import { motion } from "framer-motion";
 import { AppFrame } from "./AppFrame";
+import { ProductTheater } from "./ProductTheater";
+import { Reveal } from "./Reveal";
 
-const chapters = [
+const dayBeats = [
+  { time: "07:45", label: "Daily briefing ready" },
+  { time: "10:30", label: "Listening in Product Launch" },
+  { time: "14:10", label: "Notes captured" },
+  { time: "16:40", label: "Tasks extracted" },
+];
+
+const captureSteps = [
   {
-    id: "day",
-    eyebrow: "DAILY BRIEFING",
-    title: "Know what deserves your attention today.",
-    copy: "Buddy brings your focus time, priorities, and upcoming meetings into one calm starting point—so your day has a shape before it gets busy.",
-    points: ["Top priorities", "Focus time", "Upcoming meetings"],
-    image: "/screenshots/daily-briefing.jpeg",
-    alt: "Buddy daily briefing screen",
-    tone: "peach",
+    number: "01",
+    title: "Listen when it matters",
+    copy: "Start capture for a meeting, a walk, or a working session. Listening is a choice, not a background habit.",
+    image: "/screenshots/listen.png",
+    alt: "Buddy live listening on the home screen",
+    meta: "Opt-in capture",
   },
   {
-    id: "organize",
-    eyebrow: "CALENDAR",
-    title: "Give every commitment a place to land.",
-    copy: "See your working day as a simple visual plan. Buddy keeps meetings, deep work, and the things you promised to do in one clear timeline.",
-    points: ["Time-blocked day", "Today at a glance", "Meeting context"],
-    image: "/screenshots/calendar.jpeg",
-    alt: "Buddy calendar screen",
-    tone: "sky",
+    number: "02",
+    title: "Keep the useful parts",
+    copy: "Buddy turns the conversation into notes with confidence, dates, and the space they belong to.",
+    image: "/screenshots/notes-board.jpeg",
+    alt: "Buddy notes with confidence and space context",
+    meta: "Searchable memory",
   },
   {
-    id: "goals",
-    eyebrow: "GOAL MONITOR",
-    title: "Turn spaces into outcomes, not just folders.",
-    copy: "Set a meaningful outcome for every project, team, or life area. Keep its progress visible and give the work a direction to move toward.",
-    points: ["Space outcomes", "Momentum tracking", "Goal dates"],
-    image: "/screenshots/goal-monitor.jpeg",
-    alt: "Buddy goal monitor screen",
-    tone: "mint",
-  },
-  {
-    id: "capture",
-    eyebrow: "NOTES & TASKS",
-    title: "Keep the context. Make the next move obvious.",
-    copy: "Conversations become useful knowledge and action items. Review clear notes, see confidence at a glance, and move priorities forward without losing the why.",
-    points: ["Smart notes", "Prioritized tasks", "Space context"],
+    number: "03",
+    title: "Move the next step",
+    copy: "Commitments become prioritized tasks, still attached to the original context so follow-through stays honest.",
     image: "/screenshots/tasks-board.jpeg",
-    companion: "/screenshots/notes-board.jpeg",
-    alt: "Buddy tasks screen",
-    tone: "lilac",
-  },
-  {
-    id: "share",
-    eyebrow: "SHARE SPACES",
-    title: "Share the useful parts, not the whole mess.",
-    copy: "Select the right notes and tasks, then turn a space into a focused handoff for a teammate, client, or collaborator.",
-    points: ["Choose content", "Focused handoffs", "Clear shared context"],
-    image: "/screenshots/share-space.jpeg",
-    alt: "Buddy share space screen",
-    tone: "butter",
+    alt: "Buddy tasks with priority and space context",
+    meta: "Clear next actions",
   },
 ];
 
+const spacePrinciples = [
+  {
+    title: "One space, one context",
+    copy: "A project, a person, a meeting series, or a part of life gets its own home—so notes do not bleed across work.",
+  },
+  {
+    title: "Everything stays connected",
+    copy: "Briefing, calendar, notes, tasks, and goals all point back to the same space instead of living in separate tools.",
+  },
+  {
+    title: "Sharing stays selective",
+    copy: "You choose the exact notes and tasks that belong in a handoff. The rest stays private to the space.",
+  },
+];
+
+const prompts = [
+  "What did we decide in this morning’s sync?",
+  "What are my open tasks in Product Launch?",
+  "Help me plan tomorrow from today’s notes.",
+];
+
+const questions = [
+  {
+    q: "What is a Buddy space?",
+    a: "A space is a focused home for one project, relationship, meeting series, or part of your life—where its notes, tasks, goals, and conversations stay connected.",
+  },
+  {
+    q: "Does Buddy listen all the time?",
+    a: "No. Listening starts when you choose to capture a conversation, and it stays attached to a specific space. You decide when a moment is worth keeping.",
+  },
+  {
+    q: "What can I share with someone else?",
+    a: "The share flow lets you select the relevant tasks and notes from a space, so a handoff can be focused instead of overwhelming.",
+  },
+  {
+    q: "How does the daily briefing help?",
+    a: "It gives you one starting view of planned meetings, available focus time, and the priorities waiting for your attention.",
+  },
+];
+
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export function BuddyLanding() {
   return (
-    <main className="buddy-landing">
-      <section className="buddy-hero" id="top">
-        <div className="buddy-hero-copy">
-          <motion.p className="buddy-pill" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-            <span /> YOUR DAY, WITH CONTEXT
+    <main className="studio">
+      <section className="studio-hero" id="top">
+        <div className="studio-hero-copy">
+          <motion.p
+            className="studio-kicker"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease }}
+          >
+            Personal context, kept
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}>
-            Make space for<br /><em>what matters.</em>
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.06, ease }}
+          >
+            Listen.
+            <br />
+            Remember.
+            <br />
+            <em>Act.</em>
           </motion.h1>
-          <motion.p className="buddy-hero-lead" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.18 }}>
-            Buddy turns the conversations, plans, and promises that fill your day into notes, tasks, goals, and a plan you can trust.
+          <motion.p
+            className="studio-hero-lead"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.16, ease }}
+          >
+            Buddy captures the conversations that fill your day, then turns them
+            into notes, tasks, and a plan you can actually use.
           </motion.p>
-          <motion.div className="buddy-hero-actions" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.28 }}>
-            <a href="#day" className="buddy-button buddy-button-dark">Explore Buddy <span>↓</span></a>
-            <a href="#app" className="buddy-text-link">See every screen <span>↗</span></a>
+          <motion.div
+            className="studio-hero-actions"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.24, ease }}
+          >
+            <a className="studio-btn studio-btn-ink" href="mailto:hello@buddy.ai?subject=Get%20Buddy">
+              Get Buddy
+            </a>
+            <a className="studio-text-link" href="#product">
+              See the product <span aria-hidden="true">→</span>
+            </a>
           </motion.div>
         </div>
-        <motion.div className="buddy-hero-art" initial={{ opacity: 0, scale: 0.93, rotate: 3 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 0.85, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}>
-          <div className="buddy-sun buddy-sun-a" />
-          <div className="buddy-sun buddy-sun-b" />
-          <div className="buddy-hero-phone"><AppFrame src="/screenshots/daily-briefing.jpeg" alt="Buddy daily briefing" size="hero" /></div>
-          <div className="buddy-hero-note buddy-hero-note-top"><b>4h 30m</b><span>focus time available</span></div>
-          <div className="buddy-hero-note buddy-hero-note-bottom"><i>✦</i><span>Today is ready</span></div>
+
+        <motion.div
+          className="studio-hero-visual"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.12, ease }}
+        >
+          <ol className="studio-dayline" aria-label="A day with Buddy">
+            {dayBeats.map((beat) => (
+              <li key={beat.time}>
+                <time>{beat.time}</time>
+                <span>{beat.label}</span>
+              </li>
+            ))}
+          </ol>
+
+          <div className="studio-hero-stage">
+            <AppFrame src="/screenshots/daily-briefing.jpeg" alt="Buddy daily briefing" size="hero" />
+            <div className="studio-hero-chips">
+              <div className="studio-chip studio-chip-live">
+                <i />
+                Listening
+              </div>
+              <div className="studio-chip studio-chip-focus">
+                <b>4h 30m</b>
+                <span>focus time</span>
+              </div>
+              <div className="studio-chip studio-chip-priority">
+                <b>3</b>
+                <span>priorities</span>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </section>
 
-      <section className="buddy-statement">
-        <p>MEET BUDDY</p>
-        <h2>One place for the thoughts you need to remember, the work you need to move, and the life you want to make room for.</h2>
-        <div className="buddy-statement-tags"><span>Plan</span><span>Capture</span><span>Organize</span><span>Share</span><span>Grow</span></div>
+      <section className="studio-strip" aria-label="What Buddy holds">
+        <p>Built for the shape of a real day</p>
+        <ul>
+          <li>Daily briefing</li>
+          <li>Live listening</li>
+          <li>Notes with context</li>
+          <li>Prioritized tasks</li>
+          <li>Space goals</li>
+          <li>Selective sharing</li>
+        </ul>
       </section>
 
-      <section className="buddy-system" aria-labelledby="buddy-system-title">
-        <div className="buddy-system-intro">
-          <p>THE BUDDY SYSTEM</p>
-          <h2 id="buddy-system-title">From a busy moment to a useful next step.</h2>
-          <p>Buddy is designed around the real rhythm of a day: capture what happens, understand why it matters, and keep moving with the right context close by.</p>
-        </div>
-        <ol className="buddy-system-steps">
-          <li><span>01</span><div><h3>Make a space</h3><p>Give a project, person, meeting, or life area a place of its own.</p></div></li>
-          <li><span>02</span><div><h3>Capture the moment</h3><p>Listen, add a note, or bring a task into the space while it is still fresh.</p></div></li>
-          <li><span>03</span><div><h3>Keep what matters</h3><p>Turn the useful parts into clear notes, priorities, and meaningful goals.</p></div></li>
-          <li><span>04</span><div><h3>Move with clarity</h3><p>Use your briefing and calendar to decide what deserves attention next.</p></div></li>
-        </ol>
-      </section>
+      <ProductTheater />
 
-      {chapters.map((chapter, index) => (
-        <section className={`buddy-chapter buddy-chapter-${chapter.tone} ${index % 2 ? "is-reversed" : ""}`} id={chapter.id} key={chapter.id}>
-          <motion.div className="buddy-chapter-copy" initial={{ opacity: 0, x: index % 2 ? 34 : -34 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}>
-            <p className="buddy-chapter-eyebrow">{chapter.eyebrow}</p>
-            <h2>{chapter.title}</h2>
-            <p className="buddy-chapter-lead">{chapter.copy}</p>
-            <ul>{chapter.points.map((point) => <li key={point}>{point}</li>)}</ul>
-            <a href="#app" className="buddy-text-link">Explore this feature <span>↗</span></a>
-          </motion.div>
-          <motion.div className="buddy-chapter-art" initial={{ opacity: 0, scale: 0.94 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.68, ease: [0.22, 1, 0.36, 1] }}>
-            <div className="buddy-chapter-orb" />
-            <AppFrame src={chapter.image} alt={chapter.alt} size="hero" />
-            {chapter.companion && <div className="buddy-companion"><AppFrame src={chapter.companion} alt="Buddy notes screen" size="compact" /></div>}
-          </motion.div>
-        </section>
-      ))}
+      <section className="studio-capture" id="listen" aria-labelledby="capture-title">
+        <Reveal className="studio-capture-intro">
+          <p className="studio-kicker">From conversation to next step</p>
+          <h2 id="capture-title">Capture once. Stay oriented.</h2>
+          <p>
+            When a conversation matters, Buddy listens with you, then keeps the
+            details where the rest of your day already lives.
+          </p>
+        </Reveal>
 
-      <section className="buddy-intelligence" id="intelligence">
-        <div className="buddy-intelligence-copy">
-          <p>BUDDY INTELLIGENCE</p>
-          <h2>Less searching.<br />More remembering.</h2>
-          <span className="buddy-intelligence-star">✦</span>
-          <p className="buddy-intelligence-lead">Start listening when a conversation matters. Buddy helps you preserve the useful details, then gives those details a place in your day.</p>
-          <div className="buddy-intelligence-list"><span>Live listening</span><span>Context-rich notes</span><span>Ask Buddy</span></div>
-        </div>
-        <div className="buddy-intelligence-art">
-          <div className="buddy-wave"><i /><i /><i /><i /><i /><i /><i /></div>
-          <AppFrame src="/screenshots/listen.png" alt="Buddy live listening screen" size="hero" />
-          <div className="buddy-ai-card"><span>Capturing context</span><b>Meeting notes are ready to review.</b></div>
+        <div className="studio-capture-track">
+          {captureSteps.map((step, index) => (
+            <Reveal key={step.number} className="studio-capture-step" delay={index * 0.08}>
+              <div className="studio-capture-meta">
+                <span>{step.number}</span>
+                <small>{step.meta}</small>
+              </div>
+              <h3>{step.title}</h3>
+              <p>{step.copy}</p>
+              <div className="studio-capture-frame">
+                <AppFrame src={step.image} alt={step.alt} size="showcase" />
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
-      <section className="buddy-ai-capabilities" aria-labelledby="ai-capabilities-title">
-        <div className="buddy-ai-capabilities-heading">
-          <p>WHAT BUDDY INTELLIGENCE HELPS WITH</p>
-          <h2 id="ai-capabilities-title">Context should do more than sit in a folder.</h2>
-        </div>
-        <div className="buddy-ai-capability-grid">
-          <article><span className="buddy-capability-icon">01</span><h3>Capture a conversation</h3><p>Keep a meeting or brainstorm moving while Buddy helps preserve the details that would otherwise disappear.</p><b>Live listening</b></article>
-          <article><span className="buddy-capability-icon">02</span><h3>Find the signal</h3><p>Bring notes, commitments, and discussion points back to their original space instead of scattering them across tools.</p><b>Context-rich notes</b></article>
-          <article><span className="buddy-capability-icon">03</span><h3>Prepare the next move</h3><p>Use Buddy as a place to orient yourself before a meeting, a task, or the start of a new day.</p><b>Ask Buddy</b></article>
+      <section className="studio-spaces" id="spaces" aria-labelledby="spaces-title">
+        <Reveal className="studio-spaces-copy">
+          <p className="studio-kicker">Spaces</p>
+          <h2 id="spaces-title">Give each part of your life a place to land.</h2>
+          <p>
+            Buddy is organized around spaces, not a single infinite feed. Context
+            stays where it belongs, and the rest of the app can stay quiet.
+          </p>
+          <ol>
+            {spacePrinciples.map((item, index) => (
+              <li key={item.title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+        <Reveal className="studio-spaces-stage" variant="scale" delay={0.08}>
+          <AppFrame src="/screenshots/home.png" alt="Buddy home with spaces and live listening" size="hero" />
+        </Reveal>
+      </section>
+
+      <section className="studio-ask" id="ask" aria-labelledby="ask-title">
+        <Reveal className="studio-ask-stage" variant="scale">
+          <AppFrame src="/screenshots/chat.png" alt="Buddy AI chat grounded in your spaces" size="hero" />
+        </Reveal>
+        <Reveal className="studio-ask-copy" delay={0.08}>
+          <p className="studio-kicker">Ask Buddy</p>
+          <h2 id="ask-title">Ask from what you already lived, not a blank chat.</h2>
+          <p>
+            Questions are answered from the spaces, notes, and tasks Buddy already
+            holds—so you spend less time reconstructing the day.
+          </p>
+          <ul className="studio-prompts">
+            {prompts.map((prompt) => (
+              <li key={prompt}>{prompt}</li>
+            ))}
+          </ul>
+        </Reveal>
+      </section>
+
+      <section className="studio-charter" aria-labelledby="charter-title">
+        <Reveal>
+          <p className="studio-kicker">You stay in control</p>
+          <h2 id="charter-title">Useful only when it respects the room.</h2>
+        </Reveal>
+        <div className="studio-charter-grid">
+          <Reveal delay={0.04}>
+            <article>
+              <span>01</span>
+              <h3>Listening is opt-in</h3>
+              <p>Capture starts when you decide a conversation is worth keeping, and it belongs to a specific space.</p>
+            </article>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <article>
+              <span>02</span>
+              <h3>Spaces stay separate</h3>
+              <p>Projects, people, and personal planning do not collapse into one stream of memory.</p>
+            </article>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <article>
+              <span>03</span>
+              <h3>Sharing is a choice</h3>
+              <p>Select the exact notes and tasks someone else should see. Nothing else leaves the space.</p>
+            </article>
+          </Reveal>
         </div>
       </section>
 
-      <section className="buddy-app-explorer" id="app">
-        <p className="buddy-app-pretitle">THE BUDDY APP</p>
-        <div className="buddy-app-showcase">
-          <motion.div className="buddy-app-copy" initial={{ opacity: 0, x: -28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
-            <p>YOUR EVERYDAY COMPANION</p>
-            <h2>Every mode of your day,<br /><em>in your pocket.</em></h2>
-            <p className="buddy-app-lead">A gentle place to begin your day, remember what happened, and stay close to the work and people that matter to you.</p>
-            <a className="buddy-button buddy-button-dark" href="mailto:hello@buddy.ai?subject=Get%20Buddy">Get Buddy <span>↗</span></a>
-            <div className="buddy-app-availability"><span>Available for</span><b>iOS & Android</b></div>
-          </motion.div>
-          <motion.div className="buddy-app-device" initial={{ opacity: 0, scale: 0.93, rotate: 3 }} whileInView={{ opacity: 1, scale: 1, rotate: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}>
-            <div className="buddy-app-device-halo" /><AppFrame src="/screenshots/daily-briefing.jpeg" alt="Buddy daily briefing in the mobile app" size="hero" />
-            <div className="buddy-app-device-chip buddy-chip-one"><i>✦</i><span>Plan your day</span></div>
-            <div className="buddy-app-device-chip buddy-chip-two"><b>3</b><span>priorities ready</span></div>
-          </motion.div>
-        </div>
-        <div className="buddy-app-benefits">
-          <article><span>01</span><h3>Start in one clear place</h3><p>See your priorities, focus time, and upcoming moments before the day takes over.</p></article>
-          <article><span>02</span><h3>Keep every detail connected</h3><p>Move naturally from a conversation to its notes, tasks, space, and goal.</p></article>
-          <article><span>03</span><h3>Return whenever you need clarity</h3><p>Your day stays available as a quiet, useful reference in your pocket.</p></article>
+      <section className="studio-faq" aria-labelledby="faq-title">
+        <Reveal>
+          <p className="studio-kicker">Good to know</p>
+          <h2 id="faq-title">A few questions, answered plainly.</h2>
+        </Reveal>
+        <div className="studio-faq-list">
+          {questions.map((item, index) => (
+            <details key={item.q} open={index === 0}>
+              <summary>
+                {item.q}
+                <span aria-hidden="true" />
+              </summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
         </div>
       </section>
 
-      <section className="buddy-control">
-        <div className="buddy-control-copy"><p>BUILT AROUND YOUR CONTEXT</p><h2>You decide what becomes part of the picture.</h2><p>Buddy is most useful when it respects the boundaries of your work and life. Create separate spaces, choose when listening begins, and share only the notes or tasks that belong in a handoff.</p><a href="#share" className="buddy-text-link">See how sharing works <span>↗</span></a></div>
-        <div className="buddy-control-cards"><div><span>01</span><b>Separate spaces</b><p>Keep projects, people, and personal planning distinct.</p></div><div><span>02</span><b>Intentional capture</b><p>Start listening only when a conversation needs to be remembered.</p></div><div><span>03</span><b>Focused sharing</b><p>Select the exact notes and tasks you want someone else to see.</p></div></div>
-      </section>
-
-      <section className="buddy-questions" aria-labelledby="questions-title"><div><p>GOOD TO KNOW</p><h2 id="questions-title">Questions, already considered.</h2></div><div className="buddy-question-list"><details open><summary>What is a Buddy space?<span>+</span></summary><p>A space is a focused home for one project, relationship, meeting series, or part of your life—where its notes, tasks, goals, and conversations can stay connected.</p></details><details><summary>What can I share with someone else?<span>+</span></summary><p>Buddy’s sharing flow lets you select the relevant tasks and notes from a space, so a handoff can be focused instead of overwhelming.</p></details><details><summary>How does the daily briefing help?<span>+</span></summary><p>It gives you one starting view of planned meetings, available focus time, and the priorities waiting for your attention.</p></details></div></section>
-
-      <section className="buddy-closing" id="cta">
-        <p>YOUR NEXT DAY STARTS HERE</p>
-        <h2>Clear head.<br /><em>Full context.</em></h2>
-        <a className="buddy-button buddy-button-light" href="mailto:hello@buddy.ai?subject=Get%20Buddy">Get Buddy <span>↗</span></a>
+      <section className="studio-invite" id="cta">
+        <Reveal>
+          <p className="studio-kicker">Available on iOS & Android</p>
+          <h2>Your next conversation, already useful.</h2>
+          <p>Bring Buddy into the rooms where work actually happens, and leave with the day still intact.</p>
+          <a className="studio-btn studio-btn-accent" href="mailto:hello@buddy.ai?subject=Get%20Buddy">
+            Get Buddy
+          </a>
+        </Reveal>
       </section>
     </main>
   );

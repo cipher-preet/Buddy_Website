@@ -1,9 +1,8 @@
 export const navItems = [
-  { label: "Your day", href: "#day" },
-  { label: "Organize", href: "#organize" },
-  { label: "Buddy AI", href: "#intelligence" },
-  { label: "App", href: "#app" },
-  { label: "Get Buddy", href: "#cta" },
+  { label: "Product", href: "#product" },
+  { label: "Listen", href: "#listen" },
+  { label: "Spaces", href: "#spaces" },
+  { label: "Ask", href: "#ask" },
 ];
 
 export const smartListItems = [

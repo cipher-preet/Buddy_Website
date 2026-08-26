@@ -25,10 +25,10 @@ export function AppFrame({
             height={1024}
             sizes={
               size === "hero"
-                ? "(max-width: 640px) 280px, 320px"
+                ? "(max-width: 430px) 196px, (max-width: 640px) 220px, (max-width: 980px) 250px, 320px"
                 : size === "compact"
                   ? "180px"
-                  : "(max-width: 980px) 220px, 240px"
+                  : "(max-width: 640px) 160px, (max-width: 980px) 188px, 240px"
             }
             className="app-frame-image"
             priority={size === "hero"}

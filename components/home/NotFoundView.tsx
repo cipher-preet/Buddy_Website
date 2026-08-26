@@ -92,7 +92,7 @@ export function NotFoundView() {
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
             >
-              Why Buddy
+              See the product
             </MotionLink>
           </motion.div>
 
@@ -103,8 +103,8 @@ export function NotFoundView() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.55 }}
           >
-            <Link href="/#workflow">How it works</Link>
-            <Link href="/#screens">App</Link>
+            <Link href="/#listen">Listen</Link>
+            <Link href="/#product">Product</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
           </motion.nav>
