@@ -164,6 +164,29 @@ export function BuddyLanding() {
         </motion.div>
       </section>
 
+      <section className="studio-briefing" aria-labelledby="briefing-title">
+        <Reveal className="studio-briefing-copy">
+          <p className="studio-kicker">Daily briefing</p>
+          <h2 id="briefing-title">Know what deserves your attention today.</h2>
+          <p>
+            Buddy brings focus time, priorities, and upcoming meetings into one
+            opening view—so the day has a shape before it gets busy.
+          </p>
+          <ul>
+            <li>Today’s priorities</li>
+            <li>Available focus time</li>
+            <li>Upcoming meetings</li>
+          </ul>
+        </Reveal>
+        <Reveal className="studio-briefing-stage" variant="scale" delay={0.08}>
+          <AppFrame
+            src="/screenshots/daily-briefing.jpeg"
+            alt="Buddy daily briefing with priorities and upcoming meetings"
+            size="hero"
+          />
+        </Reveal>
+      </section>
+
       <section className="studio-strip" aria-label="What Buddy holds">
         <p>Built for the shape of a real day</p>
         <ul>

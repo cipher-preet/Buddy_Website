@@ -1,8 +1,8 @@
 export const navItems = [
-  { label: "Product", href: "#product" },
-  { label: "Listen", href: "#listen" },
-  { label: "Spaces", href: "#spaces" },
-  { label: "Ask", href: "#ask" },
+  { label: "Product", href: "/#product" },
+  { label: "Listen", href: "/#listen" },
+  { label: "Spaces", href: "/#spaces" },
+  { label: "Ask", href: "/#ask" },
 ];
 
 export const smartListItems = [

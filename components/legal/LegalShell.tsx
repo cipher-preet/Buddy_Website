@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
-import { BrandMark } from "@/components/home/BrandMark";
-import { SiteFooter } from "@/components/home/SiteFooter";
+import { BuddyFooter } from "@/components/home/BuddyFooter";
+import { Navbar } from "@/components/home/Navbar";
+import { LegalNav } from "./LegalNav";
 
 type LegalShellProps = {
   children: ReactNode;
@@ -9,23 +9,13 @@ type LegalShellProps = {
 
 export function LegalShell({ children }: LegalShellProps) {
   return (
-    <div className="site-shell legal-shell">
-      <header className="site-header legal-header">
-        <nav className="nav-shell" aria-label="Primary navigation">
-          <BrandMark href="/" />
-          <div className="nav-links">
-            <Link href="/#product">Product</Link>
-            <Link href="/#listen">Listen</Link>
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
-          </div>
-          <Link className="nav-cta" href="/#cta">
-            Get Buddy
-          </Link>
-        </nav>
-      </header>
-      <main className="legal-main">{children}</main>
-      <SiteFooter />
+    <div className="site-shell studio-page legal-shell">
+      <Navbar />
+      <main className="legal-main">
+        <LegalNav />
+        {children}
+      </main>
+      <BuddyFooter />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalShell } from "@/components/legal/LegalShell";
 
 export const metadata: Metadata = {
@@ -15,7 +16,7 @@ export default function DeleteAccountPage() {
     <LegalShell>
       <article className="legal-page delete-account-page">
         <header className="legal-hero">
-          <p className="eyebrow">Buddy · Google Play</p>
+          <p className="studio-kicker">Account</p>
           <h1>Delete your Buddy account</h1>
           <p className="legal-intro">
             Use this page to request permanent deletion of your Buddy account
@@ -25,24 +26,45 @@ export default function DeleteAccountPage() {
           <p className="legal-meta">Last updated: August 8, 2026</p>
         </header>
 
-        <section className="delete-request" id="request" aria-labelledby="request-title">
-          <h2 id="request-title">Request account deletion</h2>
-          <p>
-            Email us from the address tied to your Buddy account. We will verify
-            the request and permanently delete your account and associated data.
-          </p>
-          <a className="primary-button" href={deleteMailto}>
-            Email deletion request
-          </a>
-          <p className="delete-request-note">
-            Or write to{" "}
-            <a href="mailto:hello@buddy.ai">hello@buddy.ai</a> with the subject
-            line <strong>Buddy account deletion request</strong> and include the
-            email used for your Buddy account.
-          </p>
-        </section>
+        <div className="delete-layout">
+          <section className="delete-request" id="request" aria-labelledby="request-title">
+            <p className="studio-kicker">Start here</p>
+            <h2 id="request-title">Request account deletion</h2>
+            <p>
+              Email us from the address tied to your Buddy account. We will verify
+              the request and permanently delete your account and associated data.
+            </p>
+            <a className="studio-btn studio-btn-ink" href={deleteMailto}>
+              Email deletion request
+            </a>
+            <p className="delete-request-note">
+              Or write to{" "}
+              <a href="mailto:hello@buddy.ai">hello@buddy.ai</a> with the subject
+              line <strong>Buddy account deletion request</strong> and include the
+              email used for your Buddy account.
+            </p>
+          </section>
 
-        <nav className="legal-toc" aria-label="Delete account sections">
+          <aside className="delete-facts" aria-label="How deletion works">
+            <article>
+              <span>01</span>
+              <h3>Email from your account</h3>
+              <p>Send the request from the address you use to sign in to Buddy.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>We verify ownership</h3>
+              <p>We confirm it is your account before anything is permanently removed.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Deleted within 30 days</h3>
+              <p>Verified requests are processed within 30 days, with confirmation when possible.</p>
+            </article>
+          </aside>
+        </div>
+
+        <nav className="legal-toc legal-toc-inline" aria-label="Delete account sections">
           <a href="#request">Request deletion</a>
           <a href="#in-app">In the app</a>
           <a href="#what-we-delete">What we delete</a>
@@ -139,8 +161,8 @@ export default function DeleteAccountPage() {
         <p className="legal-related">
           Questions? Contact{" "}
           <a href="mailto:hello@buddy.ai">hello@buddy.ai</a>. Also see our{" "}
-          <a href="/privacy">Privacy Policy</a> and{" "}
-          <a href="/terms">Terms of Service</a>.
+          <Link href="/privacy">Privacy Policy</Link> and{" "}
+          <Link href="/terms">Terms of Service</Link>.
         </p>
       </article>
     </LegalShell>

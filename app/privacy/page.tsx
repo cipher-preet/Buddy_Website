@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { LegalDocument } from "@/components/legal/LegalDocument";
 import { LegalShell } from "@/components/legal/LegalShell";
 
 export const metadata: Metadata = {
@@ -115,41 +117,19 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <LegalShell>
-      <article className="legal-page">
-        <header className="legal-hero">
-          <p className="eyebrow">Legal</p>
-          <h1>Privacy Policy</h1>
-          <p className="legal-intro">
-            Your conversations, notes, and tasks deserve careful handling. This
-            Policy explains how Buddy protects them.
-          </p>
-          <p className="legal-meta">Last updated: August 8, 2026</p>
-        </header>
-
-        <nav className="legal-toc" aria-label="Privacy Policy sections">
-          {sections.map((section) => (
-            <a key={section.id} href={`#${section.id}`}>
-              {section.title.replace(/^\d+\.\s*/, "")}
-            </a>
-          ))}
-        </nav>
-
-        <div className="legal-content">
-          {sections.map((section) => (
-            <section key={section.id} id={section.id} className="legal-section">
-              <h2>{section.title}</h2>
-              {section.body.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </section>
-          ))}
-        </div>
-
-        <p className="legal-related">
-          Also read our <a href="/terms">Terms of Service</a> or{" "}
-          <a href="/delete-account">delete your Buddy account</a>.
-        </p>
-      </article>
+      <LegalDocument
+        title="Privacy Policy"
+        intro="Your conversations, notes, and tasks deserve careful handling. This Policy explains how Buddy protects them."
+        updated="August 8, 2026"
+        tocLabel="Privacy Policy sections"
+        sections={sections}
+        related={
+          <>
+            Also read our <Link href="/terms">Terms of Service</Link> or{" "}
+            <Link href="/delete-account">delete your Buddy account</Link>.
+          </>
+        }
+      />
     </LegalShell>
   );
 }

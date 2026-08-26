@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { LegalDocument } from "@/components/legal/LegalDocument";
 import { LegalShell } from "@/components/legal/LegalShell";
 
 export const metadata: Metadata = {
@@ -120,40 +122,18 @@ const sections = [
 export default function TermsPage() {
   return (
     <LegalShell>
-      <article className="legal-page">
-        <header className="legal-hero">
-          <p className="eyebrow">Legal</p>
-          <h1>Terms of Service</h1>
-          <p className="legal-intro">
-            Clear rules for using Buddy—so conversations, notes, and tasks stay
-            useful and responsible.
-          </p>
-          <p className="legal-meta">Last updated: August 8, 2026</p>
-        </header>
-
-        <nav className="legal-toc" aria-label="Terms of Service sections">
-          {sections.map((section) => (
-            <a key={section.id} href={`#${section.id}`}>
-              {section.title.replace(/^\d+\.\s*/, "")}
-            </a>
-          ))}
-        </nav>
-
-        <div className="legal-content">
-          {sections.map((section) => (
-            <section key={section.id} id={section.id} className="legal-section">
-              <h2>{section.title}</h2>
-              {section.body.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </section>
-          ))}
-        </div>
-
-        <p className="legal-related">
-          Also read our <a href="/privacy">Privacy Policy</a>.
-        </p>
-      </article>
+      <LegalDocument
+        title="Terms of Service"
+        intro="Clear rules for using Buddy—so conversations, notes, and tasks stay useful and responsible."
+        updated="August 8, 2026"
+        tocLabel="Terms of Service sections"
+        sections={sections}
+        related={
+          <>
+            Also read our <Link href="/privacy">Privacy Policy</Link>.
+          </>
+        }
+      />
     </LegalShell>
   );
 }
