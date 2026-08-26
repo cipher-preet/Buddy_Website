@@ -54,14 +54,13 @@ export function SmartList() {
       </Reveal>
 
       <div className="smart-list-layout">
-        <div className="smart-list" role="list">
+        <div className="smart-list">
           {smartListItems.map((item, index) => {
             const isActive = index === active;
             return (
               <button
                 key={item.id}
                 type="button"
-                role="listitem"
                 className={`smart-list-item accent-${item.accent} ${isActive ? "is-active" : ""}`}
                 onMouseEnter={() => selectItem(index)}
                 onFocus={() => setActive(index)}

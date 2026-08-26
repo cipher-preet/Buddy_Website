@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { BrandMark } from "./BrandMark";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const MotionLink = motion.create(Link);
 
 export function NotFoundView() {
   return (
@@ -11,9 +13,9 @@ export function NotFoundView() {
       <header className="site-header not-found-header">
         <nav className="nav-shell" aria-label="Primary navigation">
           <BrandMark href="/" />
-          <a className="nav-cta" href="/">
+          <Link className="nav-cta" href="/">
             Back home
-          </a>
+          </Link>
         </nav>
       </header>
 
@@ -76,22 +78,22 @@ export function NotFoundView() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease }}
           >
-            <motion.a
+            <MotionLink
               className="primary-button"
               href="/"
               whileHover={{ y: -3, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               Back to home
-            </motion.a>
-            <motion.a
+            </MotionLink>
+            <MotionLink
               className="secondary-button"
               href="/#product"
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
             >
               Why Buddy
-            </motion.a>
+            </MotionLink>
           </motion.div>
 
           <motion.nav
@@ -101,10 +103,10 @@ export function NotFoundView() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.55 }}
           >
-            <a href="/#workflow">How it works</a>
-            <a href="/#screens">App</a>
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
+            <Link href="/#workflow">How it works</Link>
+            <Link href="/#screens">App</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
           </motion.nav>
         </div>
       </main>

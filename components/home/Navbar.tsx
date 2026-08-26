@@ -1,4 +1,5 @@
 import { navItems } from "@/lib/home-data";
+import Link from "next/link";
 import { BrandMark } from "./BrandMark";
 
 export function Navbar() {
@@ -13,9 +14,9 @@ export function Navbar() {
             </a>
           ))}
         </div>
-        <a className="nav-cta" href="/#cta">
-          Get Buddy
-        </a>
+        <Link className="nav-cta" href="/#cta">
+          <span>Get Buddy</span><i aria-hidden="true">↗</i>
+        </Link>
       </nav>
     </header>
   );

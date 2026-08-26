@@ -21,7 +21,8 @@ export function AppFrame({
           <Image
             src={src}
             alt={alt}
-            fill
+            width={453}
+            height={1024}
             sizes={
               size === "hero"
                 ? "(max-width: 640px) 280px, 320px"

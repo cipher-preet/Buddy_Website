@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function SiteFooter() {
   return (
     <footer className="site-footer">
@@ -15,13 +17,13 @@ export function SiteFooter() {
         </div>
 
         <nav className="site-footer-links" aria-label="Footer">
-          <a href="/#product">Why Buddy</a>
-          <a href="/#workflow">How it works</a>
-          <a href="/#screens">App</a>
-          <a href="/#cta">Get Buddy</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-          <a href="/delete-account">Delete Account</a>
+          <Link href="/#product">Why Buddy</Link>
+          <Link href="/#workflow">How it works</Link>
+          <Link href="/#screens">App</Link>
+          <Link href="/#cta">Get Buddy</Link>
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/terms">Terms of Service</Link>
+          <Link href="/delete-account">Delete Account</Link>
         </nav>
 
         <p className="site-footer-copy">© {new Date().getFullYear()} Buddy. All rights reserved.</p>

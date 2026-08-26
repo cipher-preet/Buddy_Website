@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { BrandMark } from "@/components/home/BrandMark";
 import { SiteFooter } from "@/components/home/SiteFooter";
 
@@ -13,16 +14,16 @@ export function LegalShell({ children }: LegalShellProps) {
         <nav className="nav-shell" aria-label="Primary navigation">
           <BrandMark href="/" />
           <div className="nav-links">
-            <a href="/#product">Why Buddy</a>
-            <a href="/#workflow">How it works</a>
-            <a href="/#screens">App</a>
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-            <a href="/delete-account">Delete account</a>
+            <Link href="/#product">Why Buddy</Link>
+            <Link href="/#workflow">How it works</Link>
+            <Link href="/#screens">App</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+            <Link href="/delete-account">Delete account</Link>
           </div>
-          <a className="nav-cta" href="/#cta">
+          <Link className="nav-cta" href="/#cta">
             Get Buddy
-          </a>
+          </Link>
         </nav>
       </header>
       <main className="legal-main">{children}</main>

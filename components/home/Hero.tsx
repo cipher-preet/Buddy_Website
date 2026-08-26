@@ -7,6 +7,7 @@ import {
   useSpring,
 } from "framer-motion";
 import type { MouseEvent } from "react";
+import Image from "next/image";
 import { AppFrame } from "./AppFrame";
 
 export function Hero() {
@@ -43,15 +44,17 @@ export function Hero() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
+      <div className="hero-grid" aria-hidden="true" />
+
       <div className="hero-inner">
         <div className="hero-copy">
           <motion.p
-            className="brand-lockup"
+            className="hero-kicker"
             initial={{ opacity: 0, y: 28, clipPath: "inset(0 0 100% 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)" }}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           >
-            Buddy
+            <span /> THE CONTEXT ENGINE FOR REAL LIFE
           </motion.p>
 
           <motion.h1
@@ -59,7 +62,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
           >
-            Listens to conversations. Delivers notes and tasks.
+            Your day, <em>in focus.</em>
           </motion.h1>
 
           <motion.p
@@ -68,8 +71,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.7, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
           >
-            Create a space, start listening, and let Buddy turn what was said
-            into clear notes, useful tasks, and answers you can act on.
+            Buddy catches the ideas, commitments, and details that move through
+            your day—then turns them into a workspace you can actually use.
           </motion.p>
 
           <motion.div
@@ -84,7 +87,7 @@ export function Hero() {
               whileHover={{ y: -3, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Explore the smart list
+              See how it works <span aria-hidden="true">↗</span>
             </motion.a>
             <motion.a
               className="secondary-button"
@@ -92,8 +95,18 @@ export function Hero() {
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
             >
-              View the app
+              Explore the app
             </motion.a>
+          </motion.div>
+
+          <motion.div
+            className="hero-proof"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="proof-avatars" aria-hidden="true"><i>R</i><i>M</i><i>J</i></div>
+            <p><strong>One space for every thought.</strong><br />From the conversation to the next move.</p>
           </motion.div>
         </div>
 
@@ -104,13 +117,20 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <motion.div style={{ transform: phoneTransform }}>
+          <motion.div className="hero-phone-main" style={{ transform: phoneTransform }}>
             <AppFrame
               src="/screenshots/home.png"
               alt="Buddy home screen showing spaces and listening"
               size="hero"
             />
           </motion.div>
+          <motion.div className="hero-orbit hero-orbit-notes" aria-hidden="true">
+            <Image src="/screenshots/notes.png" alt="" fill sizes="130px" />
+          </motion.div>
+          <motion.div className="hero-orbit hero-orbit-listen" aria-hidden="true">
+            <Image src="/screenshots/listen.png" alt="" fill sizes="116px" />
+          </motion.div>
+          <motion.div className="hero-signal" aria-hidden="true"><span>LIVE CONTEXT</span><b>●</b></motion.div>
         </motion.div>
       </div>
     </section>
