@@ -3,21 +3,24 @@ import Link from "next/link";
 import { LegalShell } from "@/components/legal/LegalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { legalJsonLd } from "@/lib/json-ld";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Delete Your Buddy Account",
   description:
     "Request permanent deletion of your Buddy account and associated data. Required web resource for Google Play account deletion.",
+  keywords: ["delete Buddy account", "Buddy account deletion", "delete AI app account", "Google Play account deletion"],
   alternates: { canonical: "/delete-account" },
   openGraph: {
     title: "Delete Your Buddy Account | Buddy",
     url: "/delete-account",
     type: "website",
+    description:
+      "Request permanent deletion of your Buddy account, Spaces, notes, tasks, voice recordings, transcripts, and related data.",
   },
 };
 
-const deleteMailto =
-  "mailto:hello@buddy.ai?subject=Buddy%20account%20deletion%20request&body=Please%20delete%20my%20Buddy%20account%20and%20associated%20data.%0A%0AAccount%20email%3A%20%0AAdditional%20details%20(optional)%3A%20";
+const deleteMailto = `mailto:${siteConfig.email}?subject=Buddy%20account%20deletion%20request&body=Please%20delete%20my%20Buddy%20account%20and%20associated%20data.%0A%0AAccount%20email%3A%20%0AAdditional%20details%20(optional)%3A%20`;
 
 export default function DeleteAccountPage() {
   return (
@@ -54,7 +57,7 @@ export default function DeleteAccountPage() {
             </a>
             <p className="delete-request-note">
               Or write to{" "}
-              <a href="mailto:hello@buddy.ai">hello@buddy.ai</a> with the subject
+              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> with the subject
               line <strong>Buddy account deletion request</strong> and include the
               email used for your Buddy account.
             </p>
@@ -175,7 +178,7 @@ export default function DeleteAccountPage() {
 
         <p className="legal-related">
           Questions? Contact{" "}
-          <a href="mailto:hello@buddy.ai">hello@buddy.ai</a>. Also see our{" "}
+          <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>. Also see our{" "}
           <Link href="/privacy">Privacy Policy</Link> and{" "}
           <Link href="/terms">Terms of Service</Link>.
         </p>

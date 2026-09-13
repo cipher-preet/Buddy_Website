@@ -1,6 +1,6 @@
 # Buddy
 
-> Buddy is a personal AI companion for iOS and Android. It listens to conversations when you choose, then turns them into notes, tasks, goals, a calendar, and a daily briefing inside Spaces.
+> Buddy is a personal AI companion for iOS and Android. It listens to conversations when the user chooses, then turns them into notes, tasks, goals, a calendar, and a daily briefing inside Spaces.
 
 Buddy helps people keep the day they actually lived: capture what was said, remember it in context, and act on the next useful step.
 
@@ -18,17 +18,29 @@ Buddy helps people keep the day they actually lived: capture what was said, reme
 
 Listening is not always on. Capture starts when the user decides a conversation is worth keeping.
 
+## Use cases
+
+- Education: lecture notes, study tasks, research conversations, and mentoring summaries
+- Meetings: decisions, owners, priorities, and follow-up tasks from team discussions
+- Sales and client work: call summaries, objections, promised next steps, and account context
+- Personal planning: appointments, family planning, travel details, and daily reminders
+- Creators and media: interview notes, content ideas, production tasks, and follow-up questions
+
+Buddy is most useful when a conversation creates information the user does not want to lose.
+
 ## Availability
 
 - Platforms: iOS and Android
 - Android: https://play.google.com/store/apps/details?id=com.aiassistantapp
 - Audience: worldwide
 - Language: English
-- Contact: hello@buddy.ai
+- Contact: ps1535146@gmail.com
 
 ## Site
 
 - Home: /
+- Use cases: /use-cases
+- Contact: /contact
 - Privacy policy: /privacy
 - Terms of service: /terms
 - Delete account: /delete-account
@@ -37,6 +49,7 @@ Listening is not always on. Capture starts when the user decides a conversation 
 
 - Product name: Buddy
 - Category: personal AI companion / productivity app
-- Core loop: listen → remember → act
+- Core loop: listen -> remember -> act
 - Differentiation: conversation context stays inside Spaces, then becomes notes, tasks, and a daily plan
 - Privacy: users control when listening starts and what is shared
+- Support email: ps1535146@gmail.com

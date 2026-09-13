@@ -39,6 +39,14 @@ export const metadata: Metadata = {
       "text/plain": "/llms.txt",
     },
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/manifest.webmanifest",
   robots: {
     index: true,
     follow: true,
@@ -57,11 +65,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Buddy AI companion app" }],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
+    images: ["/opengraph-image"],
   },
   appleWebApp: {
     capable: true,
@@ -83,6 +93,7 @@ export const metadata: Metadata = {
     "al:android:package": siteConfig.androidPackage,
     "al:android:app_name": siteConfig.name,
     "google-play-app": `app-id=${siteConfig.androidPackage}`,
+    "ai-content-declaration": "Buddy product pages are written for people and describe app features, privacy controls, use cases, and support paths.",
   },
 };
 

@@ -4,16 +4,20 @@ import { LegalDocument } from "@/components/legal/LegalDocument";
 import { LegalShell } from "@/components/legal/LegalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { legalJsonLd } from "@/lib/json-ld";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
     "Read the Terms of Service for using Buddy, the AI assistant for listening, notes, tasks, and Spaces.",
+  keywords: ["Buddy terms", "Buddy terms of service", "AI assistant app terms", "AI notes app terms"],
   alternates: { canonical: "/terms" },
   openGraph: {
     title: "Terms of Service | Buddy",
     url: "/terms",
     type: "website",
+    description:
+      "Clear rules for using Buddy's AI listening, notes, tasks, Spaces, and chat features.",
   },
 };
 
@@ -122,7 +126,7 @@ const sections = [
     id: "contact",
     title: "14. Contact",
     body: [
-      "Questions about these Terms? Contact us at hello@buddy.ai.",
+      `Questions about these Terms? Contact us at ${siteConfig.email}.`,
     ],
   },
 ];

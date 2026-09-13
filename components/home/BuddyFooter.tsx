@@ -26,6 +26,7 @@ export function BuddyFooter() {
             <div>
               <p>PRODUCT</p>
               <Link href="/#product">Inside the app</Link>
+              <Link href="/use-cases">Use cases</Link>
               <Link href="/#listen">Live listening</Link>
               <Link href="/#spaces">Spaces</Link>
               <Link href="/#ask">Ask Buddy</Link>
@@ -35,7 +36,7 @@ export function BuddyFooter() {
               <a href={siteConfig.playStoreUrl} target="_blank" rel="noopener noreferrer">
                 Google Play
               </a>
-              <a href={`mailto:${siteConfig.email}`}>Contact</a>
+              <Link href="/contact">Contact</Link>
             </div>
             <div>
               <p>LEGAL</p>

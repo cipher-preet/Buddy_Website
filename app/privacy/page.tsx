@@ -4,16 +4,20 @@ import { LegalDocument } from "@/components/legal/LegalDocument";
 import { LegalShell } from "@/components/legal/LegalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { legalJsonLd } from "@/lib/json-ld";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Learn how Buddy collects, uses, and protects your information when you use our AI listening, notes, and tasks app.",
+  keywords: ["Buddy privacy", "AI notes app privacy", "AI listening app privacy", "Buddy data deletion"],
   alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy Policy | Buddy",
     url: "/privacy",
     type: "website",
+    description:
+      "Learn how Buddy handles voice, conversation, notes, tasks, and account data.",
   },
 };
 
@@ -87,8 +91,8 @@ const sections = [
     title: "8. Your choices and rights",
     body: [
       "Depending on where you live, you may have rights to access, correct, delete, export, or restrict certain personal data, or to object to certain processing.",
-      "You can usually manage Spaces and content in the app. For account or privacy requests, contact us at hello@buddy.ai.",
-      "To permanently delete your Buddy account and associated data, visit our Delete Account page or email hello@buddy.ai with the subject “Buddy account deletion request”.",
+      `You can usually manage Spaces and content in the app. For account or privacy requests, contact us at ${siteConfig.email}.`,
+      `To permanently delete your Buddy account and associated data, visit our Delete Account page or email ${siteConfig.email} with the subject “Buddy account deletion request”.`,
       "You may also control microphone and notification permissions through your device settings.",
     ],
   },
@@ -117,7 +121,7 @@ const sections = [
     id: "contact",
     title: "12. Contact us",
     body: [
-      "If you have questions about this Privacy Policy or your data, contact us at hello@buddy.ai.",
+      `If you have questions about this Privacy Policy or your data, contact us at ${siteConfig.email}.`,
     ],
   },
 ];

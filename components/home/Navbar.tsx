@@ -2,6 +2,7 @@
 
 import { navItems } from "@/lib/home-data";
 import { siteConfig } from "@/lib/site";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BrandMark } from "./BrandMark";
 
@@ -36,9 +37,9 @@ export function Navbar() {
         <BrandMark />
         <div className="nav-links">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
+            <Link key={item.href} href={item.href}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
         <div className="nav-end">
@@ -67,9 +68,9 @@ export function Navbar() {
       </nav>
       <div className="nav-drawer" id="studio-mobile-nav" hidden={!open}>
         {navItems.map((item) => (
-          <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+          <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
             {item.label}
-          </a>
+          </Link>
         ))}
         <a
           className="nav-drawer-cta"

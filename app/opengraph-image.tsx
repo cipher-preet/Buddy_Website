@@ -1,9 +1,33 @@
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt = "Buddy — Listen. Remember. Act.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const buddyIcon = `data:image/svg+xml;utf8,${encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="body" x1="216" y1="142" x2="792" y2="855" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#312e9f"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="714" y1="364" x2="922" y2="678" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="176" fill="#f6f3ff"/>
+  <path d="M246 806C166 725 135 613 149 493c23-205 186-349 376-372 128-15 256 9 354 62-26 34-60 59-103 75 30 15 59 34 86 56-22 26-49 46-82 61 72 52 118 130 118 221 0 120-78 205-194 232-64 15-147 8-218 26-66 16-112 51-171 102-31 27-69 4-69-37V806Z" fill="url(#body)"/>
+  <path d="M784 359c72 51 114 127 114 215 0 109-63 189-164 224-67 23-164 18-239 49 92-62 196-62 277-111 83-50 113-141 82-238-13-42-37-88-70-139Z" fill="url(#shine)" opacity="0.78"/>
+  <path d="M279 494c0-110 68-161 237-169 151-8 218 30 234 128 22 135-39 205-206 219-177 15-265-45-265-178Z" fill="#fbfaff"/>
+  <ellipse cx="405" cy="497" rx="31" ry="44" fill="#292080"/>
+  <ellipse cx="600" cy="497" rx="31" ry="44" fill="#292080"/>
+  <path d="M456 568c30 47 94 47 124 0" fill="none" stroke="#292080" stroke-width="18" stroke-linecap="round"/>
+  <path d="M827 202l48 96 105 49-104 46-51 108-50-107-103-46 104-50 51-96Z" fill="#29bfd0" stroke="#fbfaff" stroke-width="16" stroke-linejoin="round"/>
+</svg>
+`)}`;
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -21,23 +45,16 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <div
+          <img
+            src={buddyIcon}
+            alt="Buddy mascot icon"
             style={{
               width: 48,
               height: 48,
               borderRadius: 14,
-              background: "linear-gradient(145deg, #4336d6, #5b4cff)",
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "center",
-              gap: 4,
-              paddingBottom: 10,
+              objectFit: "cover",
             }}
-          >
-            <div style={{ width: 6, height: 12, borderRadius: 99, background: "#fff" }} />
-            <div style={{ width: 6, height: 22, borderRadius: 99, background: "#fff" }} />
-            <div style={{ width: 6, height: 16, borderRadius: 99, background: "#fff" }} />
-          </div>
+          />
           <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: -0.8 }}>Buddy</div>
         </div>
 

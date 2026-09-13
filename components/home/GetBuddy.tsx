@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { siteConfig } from "@/lib/site";
 import { Reveal } from "./Reveal";
 
 const perks = [
@@ -35,7 +36,7 @@ export function GetBuddy() {
             <div className="get-buddy-actions">
               <motion.a
                 className="primary-button light"
-                href="mailto:hello@buddy.ai?subject=Get%20Buddy"
+                href={`mailto:${siteConfig.email}?subject=Get%20Buddy`}
                 whileHover={{ y: -3, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

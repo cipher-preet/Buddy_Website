@@ -13,8 +13,30 @@ export const metadata: Metadata = {
     absolute: siteConfig.title,
   },
   description: siteConfig.description,
+  keywords: [
+    "Buddy AI assistant",
+    "AI meeting notes app",
+    "AI conversation notes",
+    "AI task manager from conversations",
+    "daily briefing app",
+    "voice notes to tasks",
+    "personal AI companion",
+  ],
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: "/",
+    type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Buddy AI companion app" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: ["/opengraph-image"],
   },
 };
 

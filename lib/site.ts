@@ -8,7 +8,7 @@ export const siteConfig = {
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddy.ai").replace(/\/$/, ""),
   locale: "en_US",
   language: "en",
-  email: "hello@buddy.ai",
+  email: "ps1535146@gmail.com",
   creator: "Buddy",
   playStoreUrl:
     "https://play.google.com/store/apps/details?id=com.aiassistantapp",

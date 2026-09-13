@@ -1,8 +1,65 @@
+import { siteConfig } from "./site";
+
 export const navItems = [
   { label: "Product", href: "/#product" },
+  { label: "Use Cases", href: "/use-cases" },
   { label: "Listen", href: "/#listen" },
   { label: "Spaces", href: "/#spaces" },
   { label: "Ask", href: "/#ask" },
+  { label: "Contact", href: "/contact" },
+];
+
+export const useCaseItems = [
+  {
+    title: "Students & educators",
+    eyebrow: "Education",
+    summary: "Lectures, study sessions, and mentoring become organized notes and study tasks.",
+    bestFor: "Classes, coaching calls, research discussions, and group projects.",
+    buddyDoes: "Records only when you start listening, summarizes key ideas, and keeps follow-up tasks inside the right space.",
+    outcome: "A searchable study memory with deadlines, decisions, and revision prompts ready after class.",
+    visual: ["Lecture", "Notes", "Study task"],
+    accent: "violet",
+  },
+  {
+    title: "Founders & teams",
+    eyebrow: "Meetings",
+    summary: "Turn planning calls into decisions, owners, priorities, and next actions.",
+    bestFor: "Product reviews, daily syncs, client calls, and investor prep.",
+    buddyDoes: "Captures the useful parts of a conversation, extracts action items, and keeps them tied to the project space.",
+    outcome: "Clear meeting memory, fewer lost commitments, and a cleaner handoff after every conversation.",
+    visual: ["Sync", "Decision", "Owner"],
+    accent: "indigo",
+  },
+  {
+    title: "Sales & client work",
+    eyebrow: "Follow-up",
+    summary: "Keep client context, objections, requests, and promised next steps in one place.",
+    bestFor: "Discovery calls, demos, onboarding sessions, and account check-ins.",
+    buddyDoes: "Summarizes the call, pulls out commitments, and helps you ask what happened before the next meeting.",
+    outcome: "Better follow-ups that sound specific because they are grounded in the actual conversation.",
+    visual: ["Client call", "Need", "Follow-up"],
+    accent: "cyan",
+  },
+  {
+    title: "Personal planning",
+    eyebrow: "Life admin",
+    summary: "Use Buddy for family plans, appointments, ideas, goals, and day-to-day reminders.",
+    bestFor: "Doctor visits, home projects, travel planning, and personal goal tracking.",
+    buddyDoes: "Keeps each life area in a separate space with notes, tasks, calendar context, and daily briefing support.",
+    outcome: "Less mental load because the details stop living only in your head.",
+    visual: ["Appointment", "Plan", "Reminder"],
+    accent: "green",
+  },
+  {
+    title: "Creators & media",
+    eyebrow: "Content",
+    summary: "Interviews and brainstorms become themes, quotes to revisit, and production tasks.",
+    bestFor: "Podcast interviews, video planning, writing sessions, and content research.",
+    buddyDoes: "Keeps raw conversation context connected to notes, ideas, tasks, and follow-up questions.",
+    outcome: "A content pipeline that starts from real conversations instead of scattered voice memos.",
+    visual: ["Interview", "Idea", "Publish"],
+    accent: "rose",
+  },
 ];
 
 export const smartListItems = [
@@ -106,7 +163,7 @@ export const faqItems = [
   },
   {
     q: "Is Buddy available worldwide?",
-    a: "Yes. Buddy is built for iOS and Android and is available worldwide. Download the Android app on Google Play, or contact hello@buddy.ai for access.",
+    a: `Yes. Buddy is built for iOS and Android and is available worldwide. Download the Android app on Google Play, or contact ${siteConfig.email} for access.`,
   },
   {
     q: "What can I share with someone else?",
