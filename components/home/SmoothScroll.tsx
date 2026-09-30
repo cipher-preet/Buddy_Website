@@ -43,6 +43,20 @@ export function SmoothScroll() {
         Boolean(node.closest(".studio-theater-tabs, .studio-dayline, .nav-drawer")),
     });
 
+    lenis.on("scroll", (e: any) => {
+      window.dispatchEvent(
+        new CustomEvent("lenis-scroll", {
+          detail: {
+            scroll: e.scroll,
+            direction: e.direction,
+            velocity: e.velocity,
+          },
+        })
+      );
+    });
+
+    (window as any).__lenis = lenis;
+
     if (isReload()) {
       lenis.scrollTo(0, { immediate: true });
     }
@@ -55,6 +69,7 @@ export function SmoothScroll() {
       window.removeEventListener("load", refresh);
       window.removeEventListener("orientationchange", refresh);
       lenis.destroy();
+      delete (window as any).__lenis;
     };
   }, []);
 

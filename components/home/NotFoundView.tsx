@@ -5,10 +5,8 @@ import { siteConfig } from "@/lib/site";
 
 const shortcuts = [
   { href: "/#product", label: "Product" },
-  { href: "/#listen", label: "Listen" },
-  { href: "/#spaces", label: "Spaces" },
-  { href: "/#ask", label: "Ask Buddy" },
-  { href: "/privacy", label: "Privacy" },
+  { href: "/use-cases", label: "Use cases" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function NotFoundView() {

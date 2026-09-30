@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { productSectionLinks } from "@/lib/home-data";
 
 export function SiteFooter() {
   return (
@@ -18,8 +19,13 @@ export function SiteFooter() {
 
         <nav className="site-footer-links" aria-label="Footer">
           <Link href="/#product">Product</Link>
-          <Link href="/#listen">Listen</Link>
-          <Link href="/#spaces">Spaces</Link>
+          <Link href="/use-cases">Use cases</Link>
+          <Link href="/contact">Contact</Link>
+          {productSectionLinks.slice(1).map((item) => (
+            <Link key={item.href} href={item.href}>
+              {item.label}
+            </Link>
+          ))}
           <Link href="/#cta">Get Buddy</Link>
           <Link href="/privacy">Privacy Policy</Link>
           <Link href="/terms">Terms of Service</Link>

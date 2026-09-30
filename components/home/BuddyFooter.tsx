@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { productSectionLinks } from "@/lib/home-data";
 import { siteConfig } from "@/lib/site";
 
 export function BuddyFooter() {
@@ -8,7 +9,11 @@ export function BuddyFooter() {
         <div className="footer-main">
           <div className="footer-intro">
             <Link className="site-footer-brand" href="/" aria-label="Buddy home">
-              <span className="brand-icon" aria-hidden="true"><span /><span /><span /></span>
+              <span className="brand-icon" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </span>
               <strong>Buddy</strong>
             </Link>
             <h2>Keep the day you actually lived.</h2>
@@ -22,21 +27,26 @@ export function BuddyFooter() {
               Get Buddy
             </a>
           </div>
+
           <nav className="footer-columns" aria-label="Footer">
             <div>
               <p>PRODUCT</p>
-              <Link href="/#product">Inside the app</Link>
-              <Link href="/use-cases">Use cases</Link>
-              <Link href="/#listen">Live listening</Link>
-              <Link href="/#spaces">Spaces</Link>
-              <Link href="/#ask">Ask Buddy</Link>
+              {productSectionLinks.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  {item.label}
+                </Link>
+              ))}
             </div>
             <div>
-              <p>COMPANY</p>
-              <a href={siteConfig.playStoreUrl} target="_blank" rel="noopener noreferrer">
-                Google Play
-              </a>
+              <p>ROUTES</p>
+              <Link href="/#product">Product</Link>
+              <Link href="/use-cases">Use cases</Link>
+              <Link href="/get-buddy">Get Buddy</Link>
+              <Link href="/pricing">Pricing</Link>
               <Link href="/contact">Contact</Link>
+              <a href={siteConfig.playStoreUrl} target="_blank" rel="noopener noreferrer">
+                Google Play ↗
+              </a>
             </div>
             <div>
               <p>LEGAL</p>
@@ -46,6 +56,7 @@ export function BuddyFooter() {
             </div>
           </nav>
         </div>
+
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} Buddy. All rights reserved.</p>
           <p>Listen · Remember · Act</p>

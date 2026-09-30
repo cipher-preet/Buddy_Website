@@ -11,6 +11,16 @@ import { useCasesJsonLd } from "@/lib/json-ld";
 import { siteConfig } from "@/lib/site";
 import { useCaseItems } from "@/lib/home-data";
 
+// ─── Official React Icons ───────────────────────────────────────────────────
+import {
+  FaGraduationCap,
+  FaUsers,
+  FaHandshake,
+  FaCalendarCheck,
+  FaPodcast,
+} from "react-icons/fa6";
+import { HiArrowRight, HiSparkles } from "react-icons/hi2";
+
 export const metadata: Metadata = {
   title: "Use Cases for AI Notes, Tasks, Meetings, Study, and Personal Planning",
   description:
@@ -59,6 +69,23 @@ const journeySteps = [
   },
 ];
 
+function CategoryIcon({ accent }: { accent: string }) {
+  switch (accent) {
+    case "violet":
+      return <FaGraduationCap className="use-case-cat-icon" />;
+    case "indigo":
+      return <FaUsers className="use-case-cat-icon" />;
+    case "cyan":
+      return <FaHandshake className="use-case-cat-icon" />;
+    case "green":
+      return <FaCalendarCheck className="use-case-cat-icon" />;
+    case "rose":
+      return <FaPodcast className="use-case-cat-icon" />;
+    default:
+      return <HiSparkles className="use-case-cat-icon" />;
+  }
+}
+
 export default function UseCasesPage() {
   return (
     <div className="site-shell studio-page">
@@ -67,6 +94,7 @@ export default function UseCasesPage() {
       <ScrollProgress />
       <Navbar />
       <main className="studio use-cases-page">
+        {/* ── Hero ── */}
         <section className="use-cases-hero" aria-labelledby="use-cases-title">
           <Reveal className="use-cases-hero-copy">
             <p className="studio-kicker">Use cases</p>
@@ -101,6 +129,7 @@ export default function UseCasesPage() {
           </Reveal>
         </section>
 
+        {/* ── Journey Steps ── */}
         <section className="use-cases-map" aria-label="How Buddy is used">
           {journeySteps.map((step, index) => (
             <Reveal key={step.label} className="use-cases-map-step" delay={index * 0.06}>
@@ -111,6 +140,7 @@ export default function UseCasesPage() {
           ))}
         </section>
 
+        {/* ── Use Cases List with Editorial Visuals ── */}
         <section
           className="use-cases-list"
           id="use-case-list"
@@ -132,14 +162,17 @@ export default function UseCasesPage() {
                 className={`use-case-card accent-${item.accent}`}
                 delay={index * 0.05}
               >
+                {/* Left Side: Copy & Structured Details */}
                 <div className="use-case-copy">
                   <div className="use-case-card-top">
-                    <span className="use-case-icon" aria-hidden="true" />
-                    <p>{item.eyebrow}</p>
+                    <span className="use-case-icon-badge" aria-hidden="true">
+                      <CategoryIcon accent={item.accent} />
+                    </span>
+                    <p className="use-case-eyebrow-text">{item.eyebrow}</p>
                   </div>
                   <h3>{item.title}</h3>
                   <p className="use-case-summary">{item.summary}</p>
-                  <dl>
+                  <dl className="use-case-dl">
                     <div>
                       <dt>Best for</dt>
                       <dd>{item.bestFor}</dd>
@@ -154,27 +187,25 @@ export default function UseCasesPage() {
                     </div>
                   </dl>
                 </div>
-                <div className="use-case-frame" aria-hidden="true">
-                  <div className="use-case-graphic">
-                    <div className="use-case-graphic-core">
-                      <span />
-                      <span />
-                      <span />
+
+                {/* Right Side: High-Resolution Dedicated UI Visual */}
+                <div className="use-case-visual-container" aria-label={item.alt}>
+                  <div className="use-case-image-wrapper">
+                    <img
+                      src={item.image}
+                      alt={item.alt}
+                      className="use-case-image"
+                      loading="lazy"
+                    />
+                    <div className="use-case-image-overlay" />
+                    <div className="use-case-chips-overlay" aria-hidden="true">
+                      {item.visual.map((tag, tagIndex) => (
+                        <span key={tag} className={`use-case-chip-badge chip-${tagIndex + 1}`}>
+                          <span className="chip-dot" />
+                          <span>{tag}</span>
+                        </span>
+                      ))}
                     </div>
-                    <div className="use-case-graphic-line" />
-                    <div className="use-case-graphic-card primary">
-                      <i />
-                      <span>{item.visual[0]}</span>
-                    </div>
-                    <div className="use-case-graphic-card secondary">
-                      <i />
-                      <span>{item.visual[1]}</span>
-                    </div>
-                    <div className="use-case-graphic-card tertiary">
-                      <i />
-                      <span>{item.visual[2]}</span>
-                    </div>
-                    <div className="use-case-graphic-badge">Ready</div>
                   </div>
                 </div>
               </Reveal>
@@ -182,6 +213,7 @@ export default function UseCasesPage() {
           </div>
         </section>
 
+        {/* ── Final Direct CTA ── */}
         <section className="use-cases-final" aria-labelledby="use-cases-final-title">
           <Reveal>
             <p className="studio-kicker">Direct use cases</p>
@@ -196,7 +228,8 @@ export default function UseCasesPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Get Buddy
+              <span>Get Buddy for Android</span>
+              <HiArrowRight style={{ marginLeft: 8 }} />
             </a>
           </Reveal>
         </section>

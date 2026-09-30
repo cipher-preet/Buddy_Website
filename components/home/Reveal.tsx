@@ -9,6 +9,7 @@ type RevealProps = {
   variant?: "fade-up" | "fade-left" | "fade-right" | "scale" | "clip-up" | "blur";
   delay?: number;
   once?: boolean;
+  style?: React.CSSProperties;
 };
 
 const variants = {
@@ -44,16 +45,18 @@ export function Reveal({
   variant = "fade-up",
   delay = 0,
   once = true,
+  style,
 }: RevealProps) {
   const reduceMotion = useReducedMotion();
 
   if (reduceMotion) {
-    return <div className={className}>{children}</div>;
+    return <div className={className} style={style}>{children}</div>;
   }
 
   return (
     <motion.div
       className={className}
+      style={style}
       variants={variants[variant]}
       initial="hidden"
       whileInView="show"

@@ -9,7 +9,7 @@ const views = [
     id: "briefing",
     label: "Briefing",
     kicker: "Start of day",
-    title: "Know what deserves you before the day gets loud.",
+    title: "Know what deserves your attention before the day gets loud.",
     copy: "Focus time, priorities, and the next meetings sit in one opening view—so you begin oriented, not reconstructing.",
     points: ["Today’s priorities", "Available focus time", "Upcoming meetings"],
     image: "/screenshots/daily-briefing.jpeg",

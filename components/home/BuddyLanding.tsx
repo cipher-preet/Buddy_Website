@@ -4,6 +4,7 @@ import { faqItems } from "@/lib/home-data";
 import { siteConfig } from "@/lib/site";
 import { motion } from "framer-motion";
 import { AppFrame } from "./AppFrame";
+import { FaqItem } from "./FaqItem";
 import { ProductTheater } from "./ProductTheater";
 import { Reveal } from "./Reveal";
 
@@ -297,13 +298,7 @@ export function BuddyLanding() {
         </Reveal>
         <div className="studio-faq-list">
           {faqItems.map((item, index) => (
-            <details key={item.q} open={index === 0}>
-              <summary>
-                {item.q}
-                <span aria-hidden="true" />
-              </summary>
-              <p>{item.a}</p>
-            </details>
+            <FaqItem key={item.q} q={item.q} a={item.a} defaultOpen={index === 0} />
           ))}
         </div>
       </section>

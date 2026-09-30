@@ -3,10 +3,16 @@ import { siteConfig } from "./site";
 export const navItems = [
   { label: "Product", href: "/#product" },
   { label: "Use Cases", href: "/use-cases" },
-  { label: "Listen", href: "/#listen" },
-  { label: "Spaces", href: "/#spaces" },
-  { label: "Ask", href: "/#ask" },
+  { label: "Get Buddy", href: "/get-buddy" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
+];
+
+export const productSectionLinks = [
+  { label: "Inside the app", href: "/#product" },
+  { label: "Live listening", href: "/#listen" },
+  { label: "Spaces", href: "/#spaces" },
+  { label: "Ask Buddy", href: "/#ask" },
 ];
 
 export const useCaseItems = [
@@ -19,6 +25,8 @@ export const useCaseItems = [
     outcome: "A searchable study memory with deadlines, decisions, and revision prompts ready after class.",
     visual: ["Lecture", "Notes", "Study task"],
     accent: "violet",
+    image: "/use-cases/education.jpg",
+    alt: "AI lecture notes and study tasks dashboard for students and educators",
   },
   {
     title: "Founders & teams",
@@ -29,6 +37,8 @@ export const useCaseItems = [
     outcome: "Clear meeting memory, fewer lost commitments, and a cleaner handoff after every conversation.",
     visual: ["Sync", "Decision", "Owner"],
     accent: "indigo",
+    image: "/use-cases/meetings.jpg",
+    alt: "Startup meeting takeaways, sprint action items, and roadmap interface",
   },
   {
     title: "Sales & client work",
@@ -39,6 +49,8 @@ export const useCaseItems = [
     outcome: "Better follow-ups that sound specific because they are grounded in the actual conversation.",
     visual: ["Client call", "Need", "Follow-up"],
     accent: "cyan",
+    image: "/use-cases/sales.jpg",
+    alt: "Client meeting intelligence dashboard with sentiment, commitments, and follow-up timeline",
   },
   {
     title: "Personal planning",
@@ -49,6 +61,8 @@ export const useCaseItems = [
     outcome: "Less mental load because the details stop living only in your head.",
     visual: ["Appointment", "Plan", "Reminder"],
     accent: "green",
+    image: "/use-cases/personal.jpg",
+    alt: "Personal life admin dashboard with daily briefing, calendar blocks, and life spaces",
   },
   {
     title: "Creators & media",
@@ -59,6 +73,8 @@ export const useCaseItems = [
     outcome: "A content pipeline that starts from real conversations instead of scattered voice memos.",
     visual: ["Interview", "Idea", "Publish"],
     accent: "rose",
+    image: "/use-cases/creators.jpg",
+    alt: "Creator studio AI dashboard with podcast waveform, quotes, story themes, and content pipeline",
   },
 ];
 
