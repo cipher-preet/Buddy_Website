@@ -22,34 +22,36 @@ import {
 import { HiArrowRight, HiSparkles } from "react-icons/hi2";
 
 export const metadata: Metadata = {
-  title: "Use Cases for AI Notes, Tasks, Meetings, Study, and Personal Planning",
+  title: "Use Cases — AI Note Taker & Meeting Recorder for Students, Teams, Sales & Creators",
   description:
-    "See how Buddy helps students, teams, sales calls, personal planning, and creators turn conversations into AI notes, tasks, summaries, and useful next steps.",
+    "Discover how Buddy AI powers lecture note-taking for students, meeting recording and action item tracking for teams, call intelligence for sales, and daily planning.",
   keywords: [
-    "Buddy use cases",
-    "AI meeting notes use cases",
-    "AI notes for students",
-    "AI task extraction",
+    "AI note taker for students",
+    "AI meeting recorder for teams",
     "AI sales call notes",
-    "AI personal planning app",
-    "conversation intelligence app",
+    "lecture transcription app",
+    "AI task extractor from conversations",
+    "second brain personal planning",
+    "creator interview notes AI",
+    "meeting summary app without bots",
+    "Buddy AI use cases",
   ],
   alternates: {
     canonical: "/use-cases",
   },
   openGraph: {
-    title: "Buddy Use Cases for AI Notes, Tasks, and Conversations",
+    title: "Buddy AI Use Cases — AI Note Taker & Meeting Recorder for Real Work",
     description:
-      "Practical ways to use Buddy for meetings, education, sales follow-up, personal planning, and content work.",
+      "Turn lectures, team syncs, sales calls, and daily conversations into structured notes, prioritized tasks, and executive summaries.",
     url: "/use-cases",
     type: "website",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Buddy AI assistant use cases" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Buddy Use Cases for AI Notes and Tasks",
+    title: "Buddy AI Use Cases — AI Notes, Tasks & Meeting Intelligence",
     description:
-      "How Buddy turns conversations into notes, tasks, summaries, and plans across work, study, sales, and life admin.",
+      "How students, founders, sales executives, and creators use Buddy AI for seamless meeting notes and task extraction.",
     images: ["/opengraph-image"],
   },
 };

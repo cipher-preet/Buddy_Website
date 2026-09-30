@@ -166,28 +166,40 @@ export const workflowSteps = [
 
 export const faqItems = [
   {
-    q: "What is Buddy?",
-    a: "Buddy is a personal AI companion for iOS and Android. It listens to conversations when you choose, then turns them into notes, tasks, goals, a calendar, and a daily briefing inside Spaces.",
+    q: "What is Buddy AI and how does it work as a personal AI assistant?",
+    a: "Buddy AI is a private personal AI assistant, AI note taker, and meeting recorder available on Android, desktop, and web. It helps you capture real-world conversations and meetings, auto-generates structured notes with source evidence, extracts prioritized action items, and organizes your life into dedicated Spaces with an intelligent daily briefing.",
   },
   {
-    q: "What is a Buddy space?",
-    a: "A space is a focused home for one project, relationship, meeting series, or part of your life—where its notes, tasks, goals, and conversations stay connected.",
+    q: "How does Buddy AI record meetings and take notes without an invite bot?",
+    a: "Unlike tools that send awkward third-party recording bots into your Zoom or Google Meet calls, Buddy operates on-device and opt-in. You simply start listening whenever a meeting, class, or discussion begins. Buddy securely transcribes the audio, generates bulleted executive summaries, and isolates commitments without intruding into the meeting invite.",
   },
   {
-    q: "Does Buddy listen all the time?",
-    a: "No. Listening starts when you choose to capture a conversation, and it stays attached to a specific space. You decide when a moment is worth keeping.",
+    q: "Can Buddy AI transcribe Hindi, English, and other Indian languages?",
+    a: "Yes. Buddy AI natively supports Hindi, English, and mixed Hinglish code-switching out of the box. In addition, the Business plan unlocks an 11 Indian regional languages pack (including Marathi, Gujarati, Tamil, Telugu, Kannada, Bengali, and Punjabi) for seamless regional meeting recording and speech-to-text intelligence.",
   },
   {
-    q: "Is Buddy available worldwide?",
-    a: `Yes. Buddy is built for iOS and Android and is available worldwide. Download the Android app on Google Play, or contact ${siteConfig.email} for access.`,
+    q: "How is Buddy AI different from tools like Otter.ai, Fireflies, or Granola?",
+    a: "While legacy note takers focus solely on meeting transcripts and require calendar-bot invites, Buddy is a complete second brain and daily companion. It connects meeting notes directly to prioritized task boards, calendar focus blocks, goal monitors, and an AI chat that answers questions grounded in your historical conversations—with zero awkward bots.",
   },
   {
-    q: "What can I share with someone else?",
-    a: "The share flow lets you select the relevant tasks and notes from a space, so a handoff can be focused instead of overwhelming.",
+    q: "Is Buddy AI free to use?",
+    a: "Yes. Buddy is completely free to start on Android with 5 dedicated spaces, 5 hours of monthly meeting recording, and unlimited note and task extraction. Users requiring extensive capacity can upgrade to Buddy Pro (100 recording hours) or Business (unlimited recording & 11 Indian languages) anytime.",
   },
   {
-    q: "How does the daily briefing help?",
-    a: "It gives you one starting view of planned meetings, available focus time, and the priorities waiting for your attention.",
+    q: "Does Buddy AI listen to my conversations all the time?",
+    a: "No. Privacy is Buddy's primary design principle. Listening is strictly opt-in and only captures audio when you explicitly tap 'Start Listening'. When capture is inactive, the microphone is off, and no audio leaves your device.",
+  },
+  {
+    q: "What is a Buddy Space and how does it organize notes and tasks?",
+    a: "A Space is a dedicated contextual workspace for a specific project, client, meeting series, or life area. Each space keeps its own notes, prioritized action items, goals, and conversations isolated, preventing unrelated work threads from bleeding together.",
+  },
+  {
+    q: "How does Buddy extract action items and tasks from conversations?",
+    a: "Buddy's AI identifies verbal commitments, deadlines, and assigned owners during conversation analysis. It extracts them into an interactive task board with priority badges and direct links back to the note evidence so you can verify exactly what was promised.",
+  },
+  {
+    q: "How does the daily briefing feature help plan the day?",
+    a: "Every morning, Buddy synthesizes your upcoming calendar schedule, open action items across all Spaces, and available uninterrupted focus time into a clear executive briefing so you start each day oriented and prepared.",
   },
 ];
 

@@ -20,14 +20,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.title,
-    template: "%s | Buddy",
+    template: "%s | Buddy AI",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [...siteConfig.keywords],
   authors: [{ name: siteConfig.creator, url: siteConfig.url }],
   creator: siteConfig.creator,
-  publisher: siteConfig.creator,
+  publisher: siteConfig.publisher,
   category: "productivity",
   alternates: {
     canonical: "/",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Buddy AI companion app" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Buddy AI - Personal AI Assistant & Meeting Note Taker" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -93,6 +93,8 @@ export const metadata: Metadata = {
     "al:android:package": siteConfig.androidPackage,
     "al:android:app_name": siteConfig.name,
     "google-play-app": `app-id=${siteConfig.androidPackage}`,
+    "revisit-after": "1 days",
+    rating: "General",
     "ai-content-declaration": "Buddy product pages are written for people and describe app features, privacy controls, use cases, and support paths.",
   },
 };
