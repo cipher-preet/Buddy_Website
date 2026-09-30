@@ -105,7 +105,7 @@ export default function GetBuddyPage() {
               Available wherever you<br />
               talk, think, and work.
             </h1>
-            <p className="get-buddy-hero-lead">
+            <p className="studio-section-lead get-buddy-hero-lead">
               Capture live conversations, auto-generate action items, and sync
               dedicated spaces seamlessly across your phone, desktop, browser, and cloud.
             </p>
@@ -278,7 +278,7 @@ export default function GetBuddyPage() {
           <Reveal className="get-buddy-ecosystem-header">
             <p className="studio-kicker">Unified Architecture</p>
             <h2 id="ecosystem-title">One Buddy. Everywhere you go.</h2>
-            <p>
+            <p className="studio-section-lead">
               Your conversations are never locked to a single device. Start recording on
               Chrome during a team standup, review your action list on your Android commute,
               and organize long-term space goals on Desktop.
@@ -315,7 +315,7 @@ export default function GetBuddyPage() {
           <Reveal className="get-buddy-specs-header">
             <p className="studio-kicker">Specifications</p>
             <h2 id="specs-title">System & Compatibility Guide</h2>
-            <p>
+            <p className="studio-section-lead">
               Engineered for low battery impact, lightweight memory footprint, and high-speed local processing.
             </p>
           </Reveal>
@@ -361,36 +361,34 @@ export default function GetBuddyPage() {
           </Reveal>
         </section>
 
-        {/* ── 100% Full-Width CTA Band ── */}
-        <section className="pricing-cta-fullwidth" aria-labelledby="get-buddy-cta-title">
-          <div className="pricing-cta-container">
-            <Reveal className="pricing-cta-inner" variant="scale">
-              <p className="studio-kicker pricing-cta-kicker">Get Started in Seconds</p>
-              <h2 id="get-buddy-cta-title" className="pricing-cta-heading">
-                Ready to bring Buddy into your next conversation?
-              </h2>
-              <p className="pricing-cta-description">
-                Install Buddy on Android and experience the power of opt-in AI listening, automated note synthesis, and structured space memory.
-              </p>
-              <div className="pricing-cta-button-group">
-                <a
-                  className="pricing-cta-btn-primary"
-                  href={siteConfig.playStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="get-buddy-bottom-download"
-                >
-                  <FaGooglePlay className="pricing-cta-icon-googleplay" />
-                  <span>Download on Google Play</span>
-                  <HiArrowUpRight className="pricing-cta-icon-arrow" />
-                </a>
-                <Link className="pricing-cta-btn-secondary" href="/pricing" id="get-buddy-bottom-pricing">
-                  <span>Explore Pro & Business Plans</span>
-                  <HiArrowRight className="pricing-cta-icon-arrow" />
-                </Link>
-              </div>
-            </Reveal>
-          </div>
+        {/* ── Bottom CTA Card ── */}
+        <section className="studio-invite-section" aria-labelledby="get-buddy-cta-title">
+          <Reveal className="studio-invite-card" variant="scale">
+            <p className="studio-kicker studio-invite-kicker">Get Started in Seconds</p>
+            <h2 id="get-buddy-cta-title">
+              Ready to bring Buddy into your next conversation?
+            </h2>
+            <p className="studio-invite-lead">
+              Install Buddy on Android and experience the power of opt-in AI listening, automated note synthesis, and structured space memory.
+            </p>
+            <div className="studio-invite-actions">
+              <a
+                className="studio-btn studio-btn-accent"
+                href={siteConfig.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                id="get-buddy-bottom-download"
+              >
+                <FaGooglePlay style={{ marginRight: 8, fontSize: "1.1rem" }} />
+                <span>Download on Google Play</span>
+                <HiArrowUpRight style={{ marginLeft: 6 }} />
+              </a>
+              <Link className="studio-btn studio-btn-ink" href="/pricing" id="get-buddy-bottom-pricing">
+                <span>Explore Pro & Business Plans</span>
+                <HiArrowRight style={{ marginLeft: 6 }} />
+              </Link>
+            </div>
+          </Reveal>
         </section>
 
       </main>

@@ -232,11 +232,7 @@ export function Navbar() {
               >
                 <span className="nav-drawer-link-label">{item.label}</span>
                 <span className="nav-drawer-link-end" aria-hidden="true">
-                  {active ? (
-                    <span className="nav-drawer-active-pill">Active</span>
-                  ) : (
-                    <HiChevronRight className="nav-drawer-chevron" />
-                  )}
+                  <HiChevronRight className={`nav-drawer-chevron${active ? " is-active" : ""}`} />
                 </span>
               </Link>
             );

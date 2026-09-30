@@ -153,15 +153,16 @@ export function BuddyLanding() {
         </motion.div>
       </section>
 
+      {/* ── Daily Briefing ── */}
       <section className="studio-briefing" aria-labelledby="briefing-title">
         <Reveal className="studio-briefing-copy">
           <p className="studio-kicker">Daily briefing</p>
           <h2 id="briefing-title">Know what deserves your attention today.</h2>
-          <p>
+          <p className="studio-section-lead">
             Buddy brings focus time, priorities, and upcoming meetings into one
             opening view—so the day has a shape before it gets busy.
           </p>
-          <ul>
+          <ul className="studio-feature-list">
             <li>Today’s priorities</li>
             <li>Available focus time</li>
             <li>Upcoming meetings</li>
@@ -176,9 +177,10 @@ export function BuddyLanding() {
         </Reveal>
       </section>
 
+      {/* ── Capability Strip ── */}
       <section className="studio-strip" aria-label="What Buddy holds">
-        <p>Built for the shape of a real day</p>
-        <ul>
+        <p className="studio-strip-label">Built for the shape of a real day</p>
+        <ul className="studio-strip-list">
           <li>Daily briefing</li>
           <li>Live listening</li>
           <li>Notes with context</li>
@@ -188,13 +190,15 @@ export function BuddyLanding() {
         </ul>
       </section>
 
+      {/* ── Product Theater ── */}
       <ProductTheater />
 
+      {/* ── Capture Sequence ── */}
       <section className="studio-capture" id="listen" aria-labelledby="capture-title">
         <Reveal className="studio-capture-intro">
           <p className="studio-kicker">From conversation to next step</p>
           <h2 id="capture-title">Capture once. Stay oriented.</h2>
-          <p>
+          <p className="studio-section-lead">
             When a conversation matters, Buddy listens with you, then keeps the
             details where the rest of your day already lives.
           </p>
@@ -217,15 +221,16 @@ export function BuddyLanding() {
         </div>
       </section>
 
+      {/* ── Spaces ── */}
       <section className="studio-spaces" id="spaces" aria-labelledby="spaces-title">
         <Reveal className="studio-spaces-copy">
           <p className="studio-kicker">Spaces</p>
           <h2 id="spaces-title">Give each part of your life a place to land.</h2>
-          <p>
+          <p className="studio-section-lead">
             Buddy is organized around spaces, not a single infinite feed. Context
             stays where it belongs, and the rest of the app can stay quiet.
           </p>
-          <ol>
+          <ol className="studio-spaces-list">
             {spacePrinciples.map((item, index) => (
               <li key={item.title}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
@@ -242,29 +247,36 @@ export function BuddyLanding() {
         </Reveal>
       </section>
 
+      {/* ── Ask Buddy ── */}
       <section className="studio-ask" id="ask" aria-labelledby="ask-title">
-        <Reveal className="studio-ask-stage" variant="scale">
-          <AppFrame src="/screenshots/chat.png" alt="Buddy AI chat grounded in your spaces" size="hero" />
-        </Reveal>
-        <Reveal className="studio-ask-copy" delay={0.08}>
-          <p className="studio-kicker">Ask Buddy</p>
-          <h2 id="ask-title">Ask from what you already lived, not a blank chat.</h2>
-          <p>
-            Questions are answered from the spaces, notes, and tasks Buddy already
-            holds—so you spend less time reconstructing the day.
-          </p>
-          <ul className="studio-prompts">
-            {prompts.map((prompt) => (
-              <li key={prompt}>{prompt}</li>
-            ))}
-          </ul>
-        </Reveal>
+        <div className="studio-ask-card">
+          <Reveal className="studio-ask-stage" variant="scale">
+            <AppFrame src="/screenshots/chat.png" alt="Buddy AI chat grounded in your spaces" size="hero" />
+          </Reveal>
+          <Reveal className="studio-ask-copy" delay={0.08}>
+            <p className="studio-kicker">Ask Buddy</p>
+            <h2 id="ask-title">Ask from what you already lived, not a blank chat.</h2>
+            <p className="studio-section-lead">
+              Questions are answered from the spaces, notes, and tasks Buddy already
+              holds—so you spend less time reconstructing the day.
+            </p>
+            <ul className="studio-prompts">
+              {prompts.map((prompt) => (
+                <li key={prompt}>{prompt}</li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
       </section>
 
+      {/* ── Charter / Principles ── */}
       <section className="studio-charter" aria-labelledby="charter-title">
-        <Reveal>
+        <Reveal className="studio-charter-head">
           <p className="studio-kicker">You stay in control</p>
           <h2 id="charter-title">Useful only when it respects the room.</h2>
+          <p className="studio-section-lead">
+            Privacy and agency are built into every level of Buddy&apos;s interaction model.
+          </p>
         </Reveal>
         <div className="studio-charter-grid">
           <Reveal delay={0.04}>
@@ -291,10 +303,14 @@ export function BuddyLanding() {
         </div>
       </section>
 
+      {/* ── FAQ ── */}
       <section className="studio-faq" id="faq" aria-labelledby="faq-title">
-        <Reveal>
+        <Reveal className="studio-faq-head">
           <p className="studio-kicker">Good to know</p>
           <h2 id="faq-title">A few questions, answered plainly.</h2>
+          <p className="studio-section-lead">
+            Everything you need to know about how Buddy captures, remembers, and acts on your conversations.
+          </p>
         </Reveal>
         <div className="studio-faq-list">
           {faqItems.map((item, index) => (
@@ -303,19 +319,24 @@ export function BuddyLanding() {
         </div>
       </section>
 
-      <section className="studio-invite" id="cta">
-        <Reveal>
-          <p className="studio-kicker">Available on iOS & Android</p>
-          <h2>Your next conversation, already useful.</h2>
-          <p>Bring Buddy into the rooms where work actually happens, and leave with the day still intact.</p>
-          <a
-            className="studio-btn studio-btn-accent"
-            href={siteConfig.playStoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Get it on Google Play
-          </a>
+      {/* ── Invite / Bottom CTA Card ── */}
+      <section className="studio-invite-section" id="cta" aria-labelledby="invite-title">
+        <Reveal className="studio-invite-card" variant="scale">
+          <p className="studio-kicker studio-invite-kicker">Available on iOS & Android</p>
+          <h2 id="invite-title">Your next conversation, already useful.</h2>
+          <p className="studio-invite-lead">
+            Bring Buddy into the rooms where work actually happens, and leave with the day still intact.
+          </p>
+          <div className="studio-invite-actions">
+            <a
+              className="studio-btn studio-btn-accent"
+              href={siteConfig.playStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get it on Google Play
+            </a>
+          </div>
         </Reveal>
       </section>
     </main>

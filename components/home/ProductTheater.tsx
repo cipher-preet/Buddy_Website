@@ -92,7 +92,7 @@ export function ProductTheater() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="studio-theater-head">
-        <p>INSIDE THE APP</p>
+        <p className="studio-kicker">Inside the app</p>
         <h2 id="theater-title">One product. A full working day.</h2>
         <p className="studio-theater-lead">
           Briefing, calendar, goals, notes, tasks, and sharing—each view has its own job in the day.

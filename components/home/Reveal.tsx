@@ -60,8 +60,8 @@ export function Reveal({
       variants={variants[variant]}
       initial="hidden"
       whileInView="show"
-      viewport={{ once, amount: 0.25 }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once, amount: 0.08, margin: "0px 0px -40px 0px" }}
+      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>

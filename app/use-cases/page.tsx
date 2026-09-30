@@ -101,7 +101,7 @@ export default function UseCasesPage() {
           <Reveal className="use-cases-hero-copy">
             <p className="studio-kicker">Use cases</p>
             <h1 id="use-cases-title">Something useful for every conversation.</h1>
-            <p>
+            <p className="studio-section-lead">
               Buddy works best when a real conversation creates information you do
               not want to lose. Pick a space, let Buddy listen, then leave with
               notes, tasks, and answers that are easy to understand the first time.
@@ -151,7 +151,7 @@ export default function UseCasesPage() {
           <Reveal className="use-cases-section-heading">
             <p className="studio-kicker">Something for everyone</p>
             <h2 id="use-cases-list-title">Find where Buddy fits into your day.</h2>
-            <p>
+            <p className="studio-section-lead">
               Each use case follows the same simple pattern: capture the moment,
               understand the useful parts, and move the next step forward.
             </p>
@@ -215,24 +215,26 @@ export default function UseCasesPage() {
           </div>
         </section>
 
-        {/* ── Final Direct CTA ── */}
-        <section className="use-cases-final" aria-labelledby="use-cases-final-title">
-          <Reveal>
-            <p className="studio-kicker">Direct use cases</p>
+        {/* ── Final Direct CTA Card ── */}
+        <section className="studio-invite-section" aria-labelledby="use-cases-final-title">
+          <Reveal className="studio-invite-card" variant="scale">
+            <p className="studio-kicker studio-invite-kicker">Direct use cases</p>
             <h2 id="use-cases-final-title">If people talk, Buddy can help you remember what matters.</h2>
-            <p>
+            <p className="studio-invite-lead">
               Meetings, lectures, interviews, family planning, and client calls all
               become easier when the important parts are saved in the right place.
             </p>
-            <a
-              className="studio-btn studio-btn-accent"
-              href={siteConfig.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Get Buddy for Android</span>
-              <HiArrowRight style={{ marginLeft: 8 }} />
-            </a>
+            <div className="studio-invite-actions">
+              <a
+                className="studio-btn studio-btn-accent"
+                href={siteConfig.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Get Buddy for Android</span>
+                <HiArrowRight style={{ marginLeft: 8 }} />
+              </a>
+            </div>
           </Reveal>
         </section>
       </main>

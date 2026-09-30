@@ -65,13 +65,13 @@ export default function PricingPage() {
 
         {/* ── Hero ── */}
         <section className="pricing-hero" aria-labelledby="pricing-title">
-          <Reveal className="pricing-hero-copy" style={{ textAlign: "center", margin: "0 auto" }}>
-            <p className="studio-kicker" style={{ textAlign: "center" }}>Simple, Transparent Pricing</p>
-            <h1 id="pricing-title" style={{ textAlign: "center" }}>
+          <Reveal className="pricing-hero-copy">
+            <p className="studio-kicker">Simple, Transparent Pricing</p>
+            <h1 id="pricing-title">
               Start free.<br />
               Upgrade when you&apos;re ready.
             </h1>
-            <p className="pricing-hero-lead" style={{ textAlign: "center", marginLeft: "auto", marginRight: "auto", display: "block" }}>
+            <p className="studio-section-lead pricing-hero-lead">
               Capture conversations, extract actions, and organize spaces.
               Start completely free on Android, upgrade for unlimited intelligence.
             </p>
@@ -247,7 +247,7 @@ export default function PricingPage() {
                 11 Indian languages,<br />
                 one seamless memory.
               </h2>
-              <p>
+              <p className="studio-section-lead">
                 Business plan unlocks Buddy&apos;s multilingual speech understanding.
                 Listen, transcribe, and extract structured notes natively in your preferred regional language.
               </p>
@@ -277,7 +277,7 @@ export default function PricingPage() {
           <Reveal className="pricing-compare-header">
             <p className="studio-kicker">Full Feature Breakdown</p>
             <h2 id="pricing-compare-title">Compare every detail.</h2>
-            <p>
+            <p className="studio-section-lead">
               Explore capacity, AI capabilities, language support, and team features across each plan.
             </p>
           </Reveal>
@@ -355,36 +355,34 @@ export default function PricingPage() {
           </Reveal>
         </section>
 
-        {/* ── CTA Band (100% Full Width Section) ── */}
-        <section className="pricing-cta-fullwidth" aria-labelledby="pricing-cta-title">
-          <div className="pricing-cta-container">
-            <Reveal className="pricing-cta-inner" variant="scale">
-              <p className="studio-kicker pricing-cta-kicker">Get started today</p>
-              <h2 id="pricing-cta-title" className="pricing-cta-heading">
-                Ready to give your conversations a reliable memory?
-              </h2>
-              <p className="pricing-cta-description">
-                Download Buddy on Android and start organizing your work, projects, and ideas with intelligent listening.
-              </p>
-              <div className="pricing-cta-button-group">
-                <a
-                  className="pricing-cta-btn-primary"
-                  href={siteConfig.playStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="pricing-cta-download"
-                >
-                  <FaGooglePlay className="pricing-cta-icon-googleplay" />
-                  <span>Download Buddy for Android</span>
-                  <HiArrowUpRight className="pricing-cta-icon-arrow" />
-                </a>
-                <Link className="pricing-cta-btn-secondary" href="/contact" id="pricing-cta-contact">
-                  <span>Have custom team requirements? Contact us</span>
-                  <HiArrowRight className="pricing-cta-icon-arrow" />
-                </Link>
-              </div>
-            </Reveal>
-          </div>
+        {/* ── Bottom CTA Card ── */}
+        <section className="studio-invite-section" aria-labelledby="pricing-cta-title">
+          <Reveal className="studio-invite-card" variant="scale">
+            <p className="studio-kicker studio-invite-kicker">Get started today</p>
+            <h2 id="pricing-cta-title">
+              Ready to give your conversations a reliable memory?
+            </h2>
+            <p className="studio-invite-lead">
+              Download Buddy on Android and start organizing your work, projects, and ideas with intelligent listening.
+            </p>
+            <div className="studio-invite-actions">
+              <a
+                className="studio-btn studio-btn-accent"
+                href={siteConfig.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                id="pricing-cta-download"
+              >
+                <FaGooglePlay style={{ marginRight: 8, fontSize: "1.1rem" }} />
+                <span>Download Buddy for Android</span>
+                <HiArrowUpRight style={{ marginLeft: 6 }} />
+              </a>
+              <Link className="studio-btn studio-btn-ink" href="/contact" id="pricing-cta-contact">
+                <span>Custom team requirements? Contact us</span>
+                <HiArrowRight style={{ marginLeft: 6 }} />
+              </Link>
+            </div>
+          </Reveal>
         </section>
 
       </main>

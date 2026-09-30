@@ -75,7 +75,7 @@ export default function ContactPage() {
           <Reveal className="contact-hero-copy">
             <p className="studio-kicker">Contact Buddy</p>
             <h1 id="contact-title">Tell us what you want Buddy to help with.</h1>
-            <p>
+            <p className="studio-section-lead">
               Questions, feedback, support, partnerships, or privacy requests all
               start in the same place. Send the team a clear note and we will route
               it to the right person.
