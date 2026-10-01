@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Source_Sans_3 } from "next/font/google";
 import Script from "next/script";
+import { ScrollToTop } from "@/components/home/ScrollToTop";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.title,
-    template: "%s | Buddy AI",
+    template: siteConfig.titleTemplate,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
@@ -39,14 +40,14 @@ export const metadata: Metadata = {
       "text/plain": "/llms.txt",
     },
   },
-  icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
-  },
   manifest: "/manifest.webmanifest",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
   robots: {
     index: true,
     follow: true,
@@ -65,7 +66,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Buddy AI - Personal AI Assistant & Meeting Note Taker" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "KukuNotes - Personal AI Assistant & Meeting Note Taker" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -93,16 +94,15 @@ export const metadata: Metadata = {
     "al:android:package": siteConfig.androidPackage,
     "al:android:app_name": siteConfig.name,
     "google-play-app": `app-id=${siteConfig.androidPackage}`,
-    "revisit-after": "1 days",
     rating: "General",
-    "ai-content-declaration": "Buddy product pages are written for people and describe app features, privacy controls, use cases, and support paths.",
+    "ai-content-declaration": "KukuNotes product pages are written for people and describe app features, privacy controls, use cases, and support paths.",
   },
 };
 
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f4f3ef" },
-    { media: "(prefers-color-scheme: dark)", color: "#16171d" },
+    { media: "(prefers-color-scheme: dark)", color: "#08103a" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -119,6 +119,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Script id="scroll-to-top-on-reload" strategy="beforeInteractive">
           {`(function(){try{if("scrollRestoration"in history)history.scrollRestoration="manual";var n=performance.getEntriesByType("navigation")[0];if(n&&n.type==="reload"){if(location.hash)history.replaceState(null,"",location.pathname+location.search);window.scrollTo(0,0);}}catch(e){}})();`}
         </Script>
+        <ScrollToTop />
         {children}
       </body>
     </html>

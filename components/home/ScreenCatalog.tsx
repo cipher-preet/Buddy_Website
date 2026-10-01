@@ -15,13 +15,13 @@ export function ScreenCatalog() {
     <section id="screens" className="screen-catalog-section">
       <div className="catalog-heading">
         <div>
-          <p className="eyebrow">The Buddy catalogue</p>
+          <p className="eyebrow">The KukuNotes catalogue</p>
           <h2>Every part of your day, beautifully connected.</h2>
         </div>
         <div className="catalog-intro">
           <span className="catalog-screen-count"><b>{String(appScreens.length).padStart(2, "0")}</b> mobile screens</span>
           <p>
-            Move through the complete Buddy experience: from the first thought to a
+            Move through the complete KukuNotes experience: from the first thought to a
             clear decision, with the context still attached.
           </p>
         </div>

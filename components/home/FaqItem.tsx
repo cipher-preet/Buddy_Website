@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 type FaqItemProps = {
   q: string;
@@ -27,20 +27,16 @@ export function FaqItem({ q, a, defaultOpen = false }: FaqItemProps) {
         </span>
       </button>
 
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-            style={{ overflow: "hidden" }}
-          >
-            <p className="faq-accordion-answer">{a}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Answers stay in the DOM when collapsed so crawlers and AI engines can read them. */}
+      <motion.div
+        initial={false}
+        animate={open ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        style={{ overflow: "hidden" }}
+        aria-hidden={!open}
+      >
+        <p className="faq-accordion-answer">{a}</p>
+      </motion.div>
     </div>
   );
 }

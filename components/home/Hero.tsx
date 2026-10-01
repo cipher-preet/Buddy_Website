@@ -71,7 +71,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.7, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
           >
-            Buddy catches the ideas, commitments, and details that move through
+            KukuNotes catches the ideas, commitments, and details that move through
             your day—then turns them into a workspace you can actually use.
           </motion.p>
 
@@ -112,7 +112,7 @@ export function Hero() {
 
         <motion.div
           className="hero-visual"
-          aria-label="Buddy app preview"
+          aria-label="KukuNotes app preview"
           initial={{ opacity: 0, scale: 0.9, rotate: -4 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -120,7 +120,7 @@ export function Hero() {
           <motion.div className="hero-phone-main" style={{ transform: phoneTransform }}>
             <AppFrame
               src="/screenshots/home.png"
-              alt="Buddy home screen showing spaces and listening"
+              alt="KukuNotes home screen showing spaces and listening"
               size="hero"
             />
           </motion.div>

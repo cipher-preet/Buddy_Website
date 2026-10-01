@@ -12,8 +12,10 @@ export function SiteFooter() {
             <span />
           </span>
           <div>
-            <strong>Buddy</strong>
-            <p>Listen. Remember. Act.</p>
+            <strong>
+              Kuku<span className="brand-word-accent">Notes</span>
+            </strong>
+            <p>Capture. Organize. Grow.</p>
           </div>
         </div>
 
@@ -26,13 +28,13 @@ export function SiteFooter() {
               {item.label}
             </Link>
           ))}
-          <Link href="/#cta">Get Buddy</Link>
+          <Link href="/#cta">Get KukuNotes</Link>
           <Link href="/privacy">Privacy Policy</Link>
           <Link href="/terms">Terms of Service</Link>
           <Link href="/delete-account">Delete Account</Link>
         </nav>
 
-        <p className="site-footer-copy">© {new Date().getFullYear()} Buddy. All rights reserved.</p>
+        <p className="site-footer-copy">© {new Date().getFullYear()} KukuNotes. All rights reserved.</p>
       </div>
     </footer>
   );

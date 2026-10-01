@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { BuddyFooter } from "@/components/home/BuddyFooter";
+import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
@@ -69,7 +69,7 @@ export default function PricingPage() {
             <p className="studio-kicker">Simple, Transparent Pricing</p>
             <h1 id="pricing-title">
               Start free.<br />
-              Upgrade when you&apos;re ready.
+              Upgrade when you&apos;re <span className="brand-gradient-text">ready.</span>
             </h1>
             <p className="studio-section-lead pricing-hero-lead">
               Capture conversations, extract actions, and organize spaces.
@@ -248,7 +248,7 @@ export default function PricingPage() {
                 one seamless memory.
               </h2>
               <p className="studio-section-lead">
-                Business plan unlocks Buddy&apos;s multilingual speech understanding.
+                Business plan unlocks KukuNotes&apos; multilingual speech understanding.
                 Listen, transcribe, and extract structured notes natively in your preferred regional language.
               </p>
               <a
@@ -258,7 +258,7 @@ export default function PricingPage() {
                 rel="noopener noreferrer"
                 id="pricing-lang-cta"
               >
-                <span>Try Buddy free on Android</span>
+                <span>Try KukuNotes free on Android</span>
                 <HiArrowUpRight className="pricing-btn-arrow" />
               </a>
             </div>
@@ -346,7 +346,7 @@ export default function PricingPage() {
         <section className="pricing-faq-section" aria-labelledby="pricing-faq-title">
           <Reveal className="pricing-faq-header">
             <p className="studio-kicker">Frequently Asked</p>
-            <h2 id="pricing-faq-title">Got questions about Buddy plans?</h2>
+            <h2 id="pricing-faq-title">Got questions about KukuNotes plans?</h2>
           </Reveal>
           <Reveal className="pricing-faq-list" delay={0.06}>
             {pricingFaqs.map((faq) => (
@@ -363,7 +363,7 @@ export default function PricingPage() {
               Ready to give your conversations a reliable memory?
             </h2>
             <p className="studio-invite-lead">
-              Download Buddy on Android and start organizing your work, projects, and ideas with intelligent listening.
+              Download KukuNotes on Android and start organizing your work, projects, and ideas with intelligent listening.
             </p>
             <div className="studio-invite-actions">
               <a
@@ -374,7 +374,7 @@ export default function PricingPage() {
                 id="pricing-cta-download"
               >
                 <FaGooglePlay style={{ marginRight: 8, fontSize: "1.1rem" }} />
-                <span>Download Buddy for Android</span>
+                <span>Download KukuNotes for Android</span>
                 <HiArrowUpRight style={{ marginLeft: 6 }} />
               </a>
               <Link className="studio-btn studio-btn-ink" href="/contact" id="pricing-cta-contact">
@@ -386,7 +386,7 @@ export default function PricingPage() {
         </section>
 
       </main>
-      <BuddyFooter />
+      <KukuNotesFooter />
     </div>
   );
 }

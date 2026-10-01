@@ -1,122 +1,100 @@
 import type { MetadataRoute } from "next";
+import { comparePages, topicPages } from "@/lib/seo-pages";
 import { siteConfig } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+// Bump when page content meaningfully changes; a per-request date makes Google ignore lastmod.
+const lastModified = new Date("2026-10-01");
 
+const url = (path: string) => `${siteConfig.url}${path}`;
+
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: siteConfig.url,
+      url: url("/"),
       lastModified,
-      changeFrequency: "daily",
+      changeFrequency: "weekly",
       priority: 1.0,
-      alternates: {
-        languages: {
-          en: siteConfig.url,
-          "x-default": siteConfig.url,
-        },
-      },
       images: [
-        `${siteConfig.url}/opengraph-image`,
-        `${siteConfig.url}/screenshots/daily-briefing.jpeg`,
-        `${siteConfig.url}/screenshots/home.png`,
+        url("/brand/kukunotes-logo-banner.png"),
+        url("/screenshots/daily-briefing.jpeg"),
+        url("/screenshots/home.png"),
       ],
     },
     {
-      url: `${siteConfig.url}/pricing`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.95,
-      alternates: {
-        languages: {
-          en: `${siteConfig.url}/pricing`,
-          "x-default": `${siteConfig.url}/pricing`,
-        },
-      },
-      images: [`${siteConfig.url}/opengraph-image`],
-    },
-    {
-      url: `${siteConfig.url}/get-buddy`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.95,
-      alternates: {
-        languages: {
-          en: `${siteConfig.url}/get-buddy`,
-          "x-default": `${siteConfig.url}/get-buddy`,
-        },
-      },
-      images: [
-        `${siteConfig.url}/screenshots/home.png`,
-        `${siteConfig.url}/screenshots/notes-board.jpeg`,
-      ],
-    },
-    {
-      url: `${siteConfig.url}/use-cases`,
+      url: url("/pricing"),
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-      alternates: {
-        languages: {
-          en: `${siteConfig.url}/use-cases`,
-          "x-default": `${siteConfig.url}/use-cases`,
-        },
-      },
-      images: [
-        `${siteConfig.url}/use-cases/meetings.jpg`,
-        `${siteConfig.url}/use-cases/education.jpg`,
-        `${siteConfig.url}/use-cases/sales.jpg`,
-        `${siteConfig.url}/use-cases/personal.jpg`,
-        `${siteConfig.url}/use-cases/creators.jpg`,
-      ],
     },
     {
-      url: `${siteConfig.url}/contact`,
+      url: url("/get-kukunotes"),
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [url("/screenshots/home.png"), url("/screenshots/notes-board.jpeg")],
+    },
+    {
+      url: url("/use-cases"),
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+      images: [
+        url("/use-cases/meetings.jpg"),
+        url("/use-cases/education.jpg"),
+        url("/use-cases/sales.jpg"),
+        url("/use-cases/personal.jpg"),
+        url("/use-cases/creators.jpg"),
+      ],
+    },
+    ...topicPages.map((page) => ({
+      url: url(`/${page.slug}`),
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+      images: [url(page.image.src)],
+    })),
+    {
+      url: url("/compare"),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
-      alternates: {
-        languages: {
-          en: `${siteConfig.url}/contact`,
-          "x-default": `${siteConfig.url}/contact`,
-        },
-      },
     },
+    ...comparePages.map((page) => ({
+      url: url(`/compare/${page.slug}`),
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+      images: [url(page.image.src)],
+    })),
     {
-      url: `${siteConfig.url}/privacy`,
+      url: url("/about"),
       lastModified,
       changeFrequency: "monthly",
-      priority: 0.3,
-      alternates: {
-        languages: {
-          en: `${siteConfig.url}/privacy`,
-          "x-default": `${siteConfig.url}/privacy`,
-        },
-      },
+      priority: 0.7,
     },
     {
-      url: `${siteConfig.url}/terms`,
+      url: url("/contact"),
       lastModified,
       changeFrequency: "monthly",
-      priority: 0.3,
-      alternates: {
-        languages: {
-          en: `${siteConfig.url}/terms`,
-          "x-default": `${siteConfig.url}/terms`,
-        },
-      },
+      priority: 0.6,
     },
     {
-      url: `${siteConfig.url}/delete-account`,
+      url: url("/privacy"),
       lastModified,
-      changeFrequency: "monthly",
+      changeFrequency: "yearly",
       priority: 0.3,
-      alternates: {
-        languages: {
-          en: `${siteConfig.url}/delete-account`,
-          "x-default": `${siteConfig.url}/delete-account`,
-        },
-      },
+    },
+    {
+      url: url("/terms"),
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: url("/delete-account"),
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.2,
     },
   ];
 }

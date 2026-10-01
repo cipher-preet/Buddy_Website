@@ -215,7 +215,7 @@ export function Navbar() {
             <span className="nav-drawer-badge-dot" aria-hidden="true" />
             <span>Navigation</span>
           </div>
-          <span className="nav-drawer-version">Buddy for Android</span>
+          <span className="nav-drawer-version">KukuNotes for Android</span>
         </div>
 
         <div className="nav-drawer-links" role="list">

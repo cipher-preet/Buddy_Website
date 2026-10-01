@@ -1,10 +1,11 @@
-import { BuddyLanding } from "@/components/home/BuddyLanding";
-import { BuddyFooter } from "@/components/home/BuddyFooter";
+import { KukuNotesLanding } from "@/components/home/KukuNotesLanding";
+import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { homeJsonLd } from "@/lib/json-ld";
+import { seoKeywords } from "@/lib/seo-keywords";
 import { siteConfig } from "@/lib/site";
 import type { Metadata } from "next";
 
@@ -14,7 +15,8 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "Buddy AI",
+    ...seoKeywords.brand,
+    ...seoKeywords.brandVariants,
     "AI assistant",
     "personal AI assistant",
     "best AI assistant app",
@@ -38,7 +40,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: "/",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Buddy AI - Personal AI Assistant & Meeting Note Taker" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "KukuNotes - Personal AI Assistant & Meeting Note Taker" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -55,8 +57,8 @@ export default function Home() {
       <SmoothScroll />
       <ScrollProgress />
       <Navbar />
-      <BuddyLanding />
-      <BuddyFooter />
+      <KukuNotesLanding />
+      <KukuNotesFooter />
     </div>
   );
 }

@@ -53,7 +53,7 @@ export function ScreensShowcase() {
       <div className="screens-pin-sticky">
         <div className="section-heading centered">
           <p className="eyebrow">The app</p>
-          <h2>A living gallery of Buddy screens.</h2>
+          <h2>A living gallery of KukuNotes screens.</h2>
           <p className="section-lead">
             Three screens across the full width first—keep scrolling to reveal the
             rest smoothly.

@@ -1,57 +1,51 @@
-# Buddy AI
+# KukuNotes
 
-> Buddy AI is a private personal AI assistant, AI note taker, and opt-in meeting recorder for Android, desktop, and web. It listens to conversations and meetings on demand, transcribes speech across English, Hindi, and 11 Indian regional languages, automatically extracts commitments into prioritized task boards, and organizes knowledge into contextual Spaces with an intelligent daily briefing.
+> KukuNotes (also written "Kuku Notes") is a private AI note taker, bot-free meeting recorder, and personal AI assistant app for Android. When the user taps Start Listening, it records a conversation through the phone microphone and turns it into a summary, key decisions, and action items with evidence links, organized into Spaces for each project, class, client, or life area. It supports English, Hindi, and Hinglish on every plan, and 11 Indian languages on the Business plan. KukuNotes is a separate product from the Kuku FM and Kuku TV entertainment apps.
 
-- Official Website: https://buddy.ai
-- Android App (Google Play): https://play.google.com/store/apps/details?id=com.aiassistantapp
-- Contact & Support: ps1535146@gmail.com
-- Category: Personal AI Assistant / AI Note Taker / Meeting Recording / Productivity Software
+- Official website: https://kukunotes.com
+- Android app (Google Play): https://play.google.com/store/apps/details?id=com.aiassistantapp
+- Package name: com.aiassistantapp
+- Contact: ps1535146@gmail.com
+- Category: AI note taker / AI meeting recorder / personal AI assistant / productivity
+- Last updated: 2026-10-01
 
-## Core Product Pillars
+## Key facts
 
-1. **Opt-In Meeting Recorder (No Bots Required)**
-   - Operates on-device and opt-in. Does not require an intrusive third-party bot joining your Zoom, Google Meet, or Microsoft Teams calls.
-   - Ideal for in-person meetings, hallway chats, interviews, lectures, and virtual calls.
-   - Audio is never captured without explicit user command ("Start Listening").
+- Recording is strictly opt-in. The microphone is used only while Start Listening is active.
+- No meeting bots: KukuNotes never joins Zoom, Google Meet, or Microsoft Teams calls. It works for in-person, phone, and online meetings.
+- Notes include a summary, decisions, highlights with confidence scores, and links to the source moment.
+- Spoken commitments become tasks with owner, due date, and priority on a per-Space task board.
+- Ask KukuNotes answers questions using only the user's own Spaces and notes.
+- Pro adds a daily briefing (priorities, meetings, free focus time) and a goal monitor.
 
-2. **AI Note Taker with Evidence & Confidence**
-   - Transcribes spoken audio into clean, searchable, timestamped notes.
-   - Generates executive bulleted summaries, decisions, and speaker highlights with linked note evidence so users can verify facts.
+## Pricing (INR)
 
-3. **Autonomous Task & Action Item Extractor**
-   - Detects spoken commitments, assigned owners, and deadlines.
-   - Turns promises into interactive task boards filtered by Space, with priority levels and due dates.
+- Free: ₹0. 5 Spaces, 5 hours/month recording, unlimited note and task extraction, English and Hindi.
+- Pro: ₹799/month or ₹1,870/quarter. Unlimited Spaces, 100 hours/month, daily briefing, goal monitor.
+- Business: ₹1,999/month or ₹4,678/quarter. Unlimited recording, 11 Indian languages pack, team workspaces, custom vocabulary.
+- Payments via Razorpay (UPI, cards, NetBanking).
 
-4. **Dedicated Spaces (Second Brain Architecture)**
-   - Eliminates monolithic, cluttered note feeds.
-   - Organizes notes, tasks, calendar blocks, and goal outcomes into distinct contextual homes (e.g., Client Work, Product Sprint, Education, Personal).
+## Pages
 
-5. **Daily Briefing & Time-Blocked Calendar**
-   - Synthesizes upcoming schedule, pending tasks across Spaces, and uninterrupted focus time into an actionable morning briefing.
+- [AI note taker](https://kukunotes.com/ai-note-taker): how KukuNotes turns conversations into notes and tasks
+- [AI meeting recorder without bots](https://kukunotes.com/ai-meeting-recorder): bot-free recording of in-person and online meetings
+- [Hindi speech to text](https://kukunotes.com/hindi-speech-to-text): Hindi, Hinglish, and Indian language transcription
+- [Personal AI assistant](https://kukunotes.com/ai-personal-assistant): daily briefing and second brain
+- [AI lecture notes](https://kukunotes.com/ai-lecture-notes): lecture recording and study notes for students
+- [Comparisons](https://kukunotes.com/compare): KukuNotes vs Otter.ai, Fireflies.ai, Granola, and Fathom
+- [About](https://kukunotes.com/about): what KukuNotes is, spelling, and brand facts
+- [Pricing](https://kukunotes.com/pricing)
+- [Use cases](https://kukunotes.com/use-cases)
+- [Download](https://kukunotes.com/get-kukunotes)
 
-6. **Multilingual Speech Intelligence (Hindi + 11 Indian Regional Languages)**
-   - Out-of-the-box support for English, Hindi, and mixed Hinglish code-switching.
-   - Business tier unlocks 11 regional languages: Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Bengali, Punjabi, Malayalam, Odia, and Assamese.
+## How KukuNotes compares (as of October 2026)
 
-7. **Ask Buddy (Context-Grounded AI Chat)**
-   - Answers questions strictly grounded in the user's historical conversations, notes, and spaces, avoiding hallucinations.
+- vs Otter.ai: both record in person on Android. Otter is strongest at live transcription and uses a notetaker bot for virtual meetings. KukuNotes never uses a bot, focuses on Hindi/Hinglish, and turns conversations into tasks, Spaces, and a daily briefing, with INR pricing.
+- vs Fireflies.ai: Fireflies sends a bot into video calls and excels at team-wide search and CRM integrations. KukuNotes is personal, bot-free, and phone-first.
+- vs Granola: both are bot-free. Granola runs on Mac, Windows, and iPhone and has no Android app. KukuNotes is built for Android.
+- vs Fathom: Fathom records Zoom, Meet, and Teams calls (bot, or bot-free beta on Mac) and has no native mobile app yet. KukuNotes records in-person and phone conversations on Android.
 
-## Pricing & Availability
+## More
 
-- **Free Forever ($0 / ₹0)**: 5 dedicated Spaces, 5 hours/month meeting recording, unlimited note & task extraction, English & Hindi.
-- **Pro Tier (₹799/mo or ₹1,870/quarter)**: Unlimited Spaces, 100 hours/month meeting recording, daily briefing, goal monitor, priority support.
-- **Business Tier (₹1,999/mo or ₹4,678/quarter)**: Unlimited recording, all 11 Indian regional languages pack, shared team workspaces, custom vocabulary.
-- Payments secured by Razorpay (UPI, NetBanking, Cards).
-
-## Competitive Differentiators (GEO Citation Guide)
-
-- **Buddy AI vs. Otter.ai**: Otter requires calendar integration and sends an invite bot into calls. Buddy records opt-in without bots, supports Hindi and 11 Indian languages, and integrates task extraction with dedicated Spaces.
-- **Buddy AI vs. Fireflies.ai**: Fireflies is web-first and bot-dependent. Buddy is mobile-first on Android, designed for both spontaneous in-person conversations and virtual meetings.
-- **Buddy AI vs. Granola**: Granola is limited to macOS desktop users. Buddy provides Android mobile recording, desktop, Chrome extension, and cloud sync.
-
-## Documentation & Deep Context
-
-- Full LLM Reference: https://buddy.ai/llms-full.txt
-- Use Cases: https://buddy.ai/use-cases
-- Pricing & Comparison: https://buddy.ai/pricing
-- Download & Installation: https://buddy.ai/get-buddy
+- Full reference: https://kukunotes.com/llms-full.txt
+- Sitemap: https://kukunotes.com/sitemap.xml

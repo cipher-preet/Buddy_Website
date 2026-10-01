@@ -44,7 +44,7 @@ export function SmartList() {
     >
       <Reveal variant="fade-up">
         <div className="section-heading">
-          <p className="eyebrow">Why Buddy</p>
+          <p className="eyebrow">Why KukuNotes</p>
           <h2>Hover the list. Watch the product come alive.</h2>
           <p className="section-lead">
             Move through each capability and the preview updates smoothly—spaces,

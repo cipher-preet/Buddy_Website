@@ -1,12 +1,33 @@
 import { faqItems } from "@/lib/home-data";
 import { pricingFaqs, pricingPlans } from "@/lib/pricing-data";
-import { getBuddyFaqs } from "@/lib/get-buddy-data";
+import { getKukuNotesFaqs } from "@/lib/get-kukunotes-data";
+import { entityKeywords } from "@/lib/seo-keywords";
+import type { SeoPage } from "@/lib/seo-pages";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
-const organizationId = `${siteConfig.url}/#organization`;
-const websiteId = `${siteConfig.url}/#website`;
-const appId = `${siteConfig.url}/#app`;
+export const organizationId = `${siteConfig.url}/#organization`;
+export const websiteId = `${siteConfig.url}/#website`;
+export const appId = `${siteConfig.url}/#app`;
 const mobileAppId = `${siteConfig.url}/#mobile-app`;
+
+const disambiguatingDescription =
+  "KukuNotes is an AI note taker, meeting recorder, and personal assistant app. It is a separate product from the Kuku FM and Kuku TV entertainment apps.";
+
+// Google penalizes ratings that users cannot verify, so only emit them when real Play Store numbers are configured.
+function playStoreRating() {
+  const ratingValue = process.env.NEXT_PUBLIC_PLAY_RATING;
+  const ratingCount = process.env.NEXT_PUBLIC_PLAY_RATING_COUNT;
+  if (!ratingValue || !ratingCount) return {};
+  return {
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue,
+      ratingCount,
+      bestRating: "5",
+      worstRating: "1",
+    },
+  };
+}
 
 type BreadcrumbItem = {
   name: string;
@@ -18,11 +39,12 @@ export function organizationJsonLd() {
     "@type": "Organization",
     "@id": organizationId,
     name: siteConfig.brandName,
-    alternateName: ["Buddy AI", "Buddy App", "Buddy AI Assistant"],
+    alternateName: [...siteConfig.alternateNames],
     url: siteConfig.url,
     email: siteConfig.email,
-    logo: absoluteUrl("/icon.svg"),
+    logo: absoluteUrl("/brand/kukunotes-icon-512.png"),
     description: siteConfig.description,
+    disambiguatingDescription,
     sameAs: [siteConfig.playStoreUrl],
     foundingDate: "2025",
     knowsAbout: [
@@ -56,15 +78,10 @@ export function websiteJsonLd() {
     "@id": websiteId,
     url: siteConfig.url,
     name: siteConfig.name,
-    alternateName: ["Buddy AI", "Buddy Assistant", "Buddy Meeting Recorder"],
+    alternateName: [...siteConfig.alternateNames],
     description: siteConfig.description,
     inLanguage: siteConfig.language,
     publisher: { "@id": organizationId },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${siteConfig.url}/?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
@@ -72,33 +89,29 @@ export function softwareApplicationJsonLd() {
   return {
     "@type": "SoftwareApplication",
     "@id": appId,
-    name: "Buddy AI",
-    alternateName: "Buddy AI Assistant & Meeting Note Taker",
+    name: "KukuNotes",
+    alternateName: ["KukuNotes Assistant & Meeting Note Taker", ...siteConfig.alternateNames],
+    disambiguatingDescription,
     url: siteConfig.url,
     applicationCategory: "ProductivityApplication",
-    applicationSubCategory: "AI Assistant & Meeting Recorder",
-    operatingSystem: "Android, iOS, Windows, macOS, Chrome, Web",
+    applicationSubCategory: "AI Note Taker & Meeting Recorder",
+    operatingSystem: "Android, Windows, macOS, Chrome, Web",
     installUrl: siteConfig.playStoreUrl,
     downloadUrl: siteConfig.playStoreUrl,
     identifier: siteConfig.androidPackage,
     sameAs: [siteConfig.playStoreUrl],
     description: siteConfig.description,
     featureList: [...siteConfig.features],
-    keywords: siteConfig.keywords.join(", "),
+    keywords: entityKeywords.join(", "),
     inLanguage: ["en", "hi"],
     countriesSupported: "Worldwide",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1280",
-      bestRating: "5",
-      worstRating: "1",
-    },
+    dateModified: siteConfig.contentUpdated,
+    ...playStoreRating(),
     publisher: { "@id": organizationId },
     offers: [
       {
         "@type": "Offer",
-        name: "Buddy Free Forever",
+        name: "KukuNotes Free Forever",
         price: "0",
         priceCurrency: "INR",
         availability: "https://schema.org/InStock",
@@ -106,7 +119,7 @@ export function softwareApplicationJsonLd() {
       },
       {
         "@type": "Offer",
-        name: "Buddy Pro Monthly",
+        name: "KukuNotes Pro Monthly",
         price: "799",
         priceCurrency: "INR",
         availability: "https://schema.org/InStock",
@@ -114,7 +127,7 @@ export function softwareApplicationJsonLd() {
       },
       {
         "@type": "Offer",
-        name: "Buddy Business Monthly",
+        name: "KukuNotes Business Monthly",
         price: "1999",
         priceCurrency: "INR",
         availability: "https://schema.org/InStock",
@@ -128,22 +141,15 @@ export function mobileApplicationJsonLd() {
   return {
     "@type": "MobileApplication",
     "@id": mobileAppId,
-    name: "Buddy AI: Note Taker & Assistant",
-    operatingSystem: "Android 8.0 and up",
+    name: "KukuNotes: Note Taker & Assistant",
+    operatingSystem: "Android 9.0 and up",
     applicationCategory: "ProductivityApplication",
     installUrl: siteConfig.playStoreUrl,
     downloadUrl: siteConfig.playStoreUrl,
-    fileSize: "18MB",
-    softwareVersion: "2.4.0",
-    carrierRequirements: "Microphone permission for opt-in meeting audio",
+    identifier: siteConfig.androidPackage,
+    permissions: "Microphone (only while Start Listening is active)",
     author: { "@id": organizationId },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1280",
-      bestRating: "5",
-      worstRating: "1",
-    },
+    ...playStoreRating(),
     offers: {
       "@type": "Offer",
       price: "0",
@@ -199,6 +205,7 @@ export function homeJsonLd() {
         isPartOf: { "@id": websiteId },
         about: { "@id": appId },
         primaryImageOfPage: absoluteUrl("/opengraph-image"),
+        dateModified: siteConfig.contentUpdated,
         breadcrumb: breadcrumbJsonLd([{ name: "Home", path: "/" }]),
         speakable: {
           "@type": "SpeakableSpecification",
@@ -225,9 +232,9 @@ export function pricingJsonLd() {
       {
         "@type": "Product",
         "@id": `${absoluteUrl(path)}#product`,
-        name: "Buddy AI Subscription Plans",
+        name: "KukuNotes Subscription Plans",
         description:
-          "Simple, transparent pricing for Buddy AI personal assistant, meeting recording, and note taking. Start free or upgrade to Pro and Business.",
+          "Simple, transparent pricing for KukuNotes personal assistant, meeting recording, and note taking. Start free or upgrade to Pro and Business.",
         brand: { "@id": organizationId },
         offers: {
           "@type": "AggregateOffer",
@@ -250,8 +257,8 @@ export function pricingJsonLd() {
   };
 }
 
-export function getBuddyJsonLd() {
-  const path = "/get-buddy";
+export function getKukuNotesJsonLd() {
+  const path = "/get-kukunotes";
 
   return {
     "@context": "https://schema.org",
@@ -261,16 +268,16 @@ export function getBuddyJsonLd() {
       mobileApplicationJsonLd(),
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
-        { name: "Get Buddy", path },
+        { name: "Get KukuNotes", path },
       ]),
-      faqJsonLd(getBuddyFaqs),
+      faqJsonLd(getKukuNotesFaqs),
       {
         "@type": "WebPage",
         "@id": `${absoluteUrl(path)}#webpage`,
         url: absoluteUrl(path),
-        name: "Download Buddy AI | Android App, Desktop, Chrome & Web",
+        name: "Download KukuNotes | Android App, Desktop, Chrome & Web",
         description:
-          "Download Buddy AI for Android on Google Play or access on Desktop, Chrome, and Web. Zero-bot meeting recording, note taking, and cross-platform sync.",
+          "Download KukuNotes for Android on Google Play or access on Desktop, Chrome, and Web. Zero-bot meeting recording, note taking, and cross-platform sync.",
         inLanguage: siteConfig.language,
         isPartOf: { "@id": websiteId },
         about: { "@id": appId },
@@ -295,15 +302,15 @@ export function useCasesJsonLd() {
         "@type": "CollectionPage",
         "@id": `${absoluteUrl(path)}#webpage`,
         url: absoluteUrl(path),
-        name: "Buddy AI Use Cases: Note Taker, Meetings, Students, Sales & Creators",
+        name: "KukuNotes Use Cases: Note Taker, Meetings, Students, Sales & Creators",
         description:
-          "Practical ways to use Buddy AI for lecture notes, meeting recording, sales intelligence, daily life admin, and content creation.",
+          "Practical ways to use KukuNotes for lecture notes, meeting recording, sales intelligence, daily life admin, and content creation.",
         inLanguage: siteConfig.language,
         isPartOf: { "@id": websiteId },
         about: { "@id": appId },
         mainEntity: {
           "@type": "ItemList",
-          name: "Buddy AI use cases",
+          name: "KukuNotes use cases",
           itemListElement: [
             "Students and educators (lecture notes & study tasks)",
             "Founders and teams (meeting recording & action items)",
@@ -336,9 +343,9 @@ export function contactJsonLd() {
         "@type": "ContactPage",
         "@id": `${absoluteUrl(path)}#webpage`,
         url: absoluteUrl(path),
-        name: "Contact Buddy AI Support & Partnerships",
+        name: "Contact KukuNotes Support & Partnerships",
         description:
-          "Contact the Buddy team for product support, meeting recording queries, enterprise partnerships, and feedback.",
+          "Contact the KukuNotes team for product support, meeting recording queries, enterprise partnerships, and feedback.",
         inLanguage: siteConfig.language,
         isPartOf: { "@id": websiteId },
         about: { "@id": organizationId },
@@ -355,6 +362,106 @@ export function contactJsonLd() {
             areaServed: "Worldwide",
           },
         },
+      },
+    ],
+  };
+}
+
+export function seoPageJsonLd(page: SeoPage, path: string, parent?: BreadcrumbItem) {
+  const url = absoluteUrl(path);
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      organizationJsonLd(),
+      softwareApplicationJsonLd(),
+      breadcrumbJsonLd([
+        { name: "Home", path: "/" },
+        ...(parent ? [parent] : []),
+        { name: page.kicker, path },
+      ]),
+      faqJsonLd(page.faqs),
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: page.title,
+        description: page.description,
+        inLanguage: page.localized ? [siteConfig.language, page.localized.lang] : siteConfig.language,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": appId },
+        ...(page.comparison
+          ? { mentions: { "@type": "SoftwareApplication", name: page.comparison.competitor } }
+          : {}),
+        primaryImageOfPage: absoluteUrl(page.image.src),
+        datePublished: "2026-10-01",
+        dateModified: siteConfig.contentUpdated,
+        keywords: page.keywords.join(", "),
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: [".seo-hero h1", ".seo-answer"],
+        },
+      },
+    ],
+  };
+}
+
+export function compareHubJsonLd(pages: SeoPage[]) {
+  const path = "/compare";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      organizationJsonLd(),
+      breadcrumbJsonLd([
+        { name: "Home", path: "/" },
+        { name: "Compare", path },
+      ]),
+      {
+        "@type": "CollectionPage",
+        "@id": `${absoluteUrl(path)}#webpage`,
+        url: absoluteUrl(path),
+        name: "KukuNotes vs Otter, Fireflies, Granola & Fathom",
+        inLanguage: siteConfig.language,
+        isPartOf: { "@id": websiteId },
+        dateModified: siteConfig.contentUpdated,
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: pages.map((page, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: page.title,
+            url: absoluteUrl(`/compare/${page.slug}`),
+          })),
+        },
+      },
+    ],
+  };
+}
+
+export function aboutJsonLd(faqs: { q: string; a: string }[]) {
+  const path = "/about";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      organizationJsonLd(),
+      softwareApplicationJsonLd(),
+      breadcrumbJsonLd([
+        { name: "Home", path: "/" },
+        { name: "About", path },
+      ]),
+      faqJsonLd(faqs),
+      {
+        "@type": "AboutPage",
+        "@id": `${absoluteUrl(path)}#webpage`,
+        url: absoluteUrl(path),
+        name: "About KukuNotes — What It Is and How to Spell It",
+        inLanguage: siteConfig.language,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": organizationId },
+        mainEntity: { "@id": appId },
+        dateModified: siteConfig.contentUpdated,
       },
     ],
   };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactReasonDropdown } from "@/components/contact/ContactReasonDropdown";
-import { BuddyFooter } from "@/components/home/BuddyFooter";
+import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
@@ -11,33 +11,33 @@ import { contactJsonLd } from "@/lib/json-ld";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact Buddy Support, Product, and Partnerships",
+  title: "Contact KukuNotes Support, Product, and Partnerships",
   description:
-    "Contact the Buddy team for AI assistant product questions, customer support, partnerships, privacy requests, and feedback.",
+    "Contact the KukuNotes team for AI assistant product questions, customer support, partnerships, privacy requests, and feedback.",
   keywords: [
-    "contact Buddy",
-    "Buddy support",
-    "Buddy AI support",
+    "contact KukuNotes",
+    "KukuNotes support",
+    "KukuNotes support",
     "AI notes app support",
-    "Buddy partnerships",
-    "Buddy privacy request",
+    "KukuNotes partnerships",
+    "KukuNotes privacy request",
   ],
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Buddy Support and Product Team",
+    title: "Contact KukuNotes Support and Product Team",
     description:
-      "Reach the Buddy team for support, product questions, partnerships, and feedback.",
+      "Reach the KukuNotes team for support, product questions, partnerships, and feedback.",
     url: "/contact",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Contact Buddy" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Contact KukuNotes" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Buddy",
+    title: "Contact KukuNotes",
     description:
-      "Reach Buddy for product questions, support, partnerships, privacy requests, and feedback.",
+      "Reach KukuNotes for product questions, support, partnerships, privacy requests, and feedback.",
     images: ["/opengraph-image"],
   },
 };
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 const contactReasons = [
   {
     title: "Product questions",
-    copy: "Ask how Buddy works, where it fits, or what is coming next.",
+    copy: "Ask how KukuNotes works, where it fits, or what is coming next.",
   },
   {
     title: "Support",
@@ -58,9 +58,9 @@ const contactReasons = [
 ];
 
 const expectationItems = [
-  "Tell us what you are trying to do with Buddy.",
+  "Tell us what you are trying to do with KukuNotes.",
   "Include your device, platform, or app version if it is a support issue.",
-  "Use the same email address you use with Buddy when possible.",
+  "Use the same email address you use with KukuNotes when possible.",
 ];
 
 export default function ContactPage() {
@@ -73,8 +73,8 @@ export default function ContactPage() {
       <main className="studio contact-page">
         <section className="contact-hero" aria-labelledby="contact-title">
           <Reveal className="contact-hero-copy">
-            <p className="studio-kicker">Contact Buddy</p>
-            <h1 id="contact-title">Tell us what you want Buddy to help with.</h1>
+            <p className="studio-kicker">Contact KukuNotes</p>
+            <h1 id="contact-title">Tell us what you want <span className="brand-gradient-text">KukuNotes</span> to help with.</h1>
             <p className="studio-section-lead">
               Questions, feedback, support, partnerships, or privacy requests all
               start in the same place. Send the team a clear note and we will route
@@ -111,7 +111,7 @@ export default function ContactPage() {
           </Reveal>
         </section>
 
-        <section className="contact-options" aria-label="Reasons to contact Buddy">
+        <section className="contact-options" aria-label="Reasons to contact KukuNotes">
           {contactReasons.map((reason, index) => (
             <Reveal key={reason.title} className="contact-option" delay={index * 0.06}>
               <span>{String(index + 1).padStart(2, "0")}</span>
@@ -148,7 +148,7 @@ export default function ContactPage() {
                 <textarea
                   name="message"
                   rows={6}
-                  placeholder="Tell us what happened, what you need, or what you are hoping to build with Buddy."
+                  placeholder="Tell us what happened, what you need, or what you are hoping to build with KukuNotes."
                 />
               </label>
               <button className="studio-btn studio-btn-accent" type="submit">
@@ -177,7 +177,7 @@ export default function ContactPage() {
           </Reveal>
         </section>
       </main>
-      <BuddyFooter />
+      <KukuNotesFooter />
     </div>
   );
 }

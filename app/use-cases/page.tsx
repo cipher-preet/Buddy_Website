@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AppFrame } from "@/components/home/AppFrame";
-import { BuddyFooter } from "@/components/home/BuddyFooter";
+import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
@@ -24,7 +24,7 @@ import { HiArrowRight, HiSparkles } from "react-icons/hi2";
 export const metadata: Metadata = {
   title: "Use Cases — AI Note Taker & Meeting Recorder for Students, Teams, Sales & Creators",
   description:
-    "Discover how Buddy AI powers lecture note-taking for students, meeting recording and action item tracking for teams, call intelligence for sales, and daily planning.",
+    "Discover how KukuNotes powers lecture note-taking for students, meeting recording and action item tracking for teams, call intelligence for sales, and daily planning.",
   keywords: [
     "AI note taker for students",
     "AI meeting recorder for teams",
@@ -34,24 +34,24 @@ export const metadata: Metadata = {
     "second brain personal planning",
     "creator interview notes AI",
     "meeting summary app without bots",
-    "Buddy AI use cases",
+    "KukuNotes use cases",
   ],
   alternates: {
     canonical: "/use-cases",
   },
   openGraph: {
-    title: "Buddy AI Use Cases — AI Note Taker & Meeting Recorder for Real Work",
+    title: "KukuNotes Use Cases — AI Note Taker & Meeting Recorder for Real Work",
     description:
       "Turn lectures, team syncs, sales calls, and daily conversations into structured notes, prioritized tasks, and executive summaries.",
     url: "/use-cases",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Buddy AI assistant use cases" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "KukuNotes assistant use cases" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Buddy AI Use Cases — AI Notes, Tasks & Meeting Intelligence",
+    title: "KukuNotes Use Cases — AI Notes, Tasks & Meeting Intelligence",
     description:
-      "How students, founders, sales executives, and creators use Buddy AI for seamless meeting notes and task extraction.",
+      "How students, founders, sales executives, and creators use KukuNotes for seamless meeting notes and task extraction.",
     images: ["/opengraph-image"],
   },
 };
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
 const journeySteps = [
   {
     label: "Choose a space",
-    copy: "Start with the project, class, client, or life area you want Buddy to remember.",
+    copy: "Start with the project, class, client, or life area you want KukuNotes to remember.",
   },
   {
     label: "Listen with intent",
@@ -67,7 +67,7 @@ const journeySteps = [
   },
   {
     label: "Act from context",
-    copy: "Review notes, finish tasks, ask Buddy questions, or share only the parts that matter.",
+    copy: "Review notes, finish tasks, ask KukuNotes questions, or share only the parts that matter.",
   },
 ];
 
@@ -100,10 +100,10 @@ export default function UseCasesPage() {
         <section className="use-cases-hero" aria-labelledby="use-cases-title">
           <Reveal className="use-cases-hero-copy">
             <p className="studio-kicker">Use cases</p>
-            <h1 id="use-cases-title">Something useful for every conversation.</h1>
+            <h1 id="use-cases-title">Something useful for <span className="brand-gradient-text">every conversation.</span></h1>
             <p className="studio-section-lead">
-              Buddy works best when a real conversation creates information you do
-              not want to lose. Pick a space, let Buddy listen, then leave with
+              KukuNotes works best when a real conversation creates information you do
+              not want to lose. Pick a space, let KukuNotes listen, then leave with
               notes, tasks, and answers that are easy to understand the first time.
             </p>
             <div className="use-cases-hero-actions">
@@ -125,14 +125,14 @@ export default function UseCasesPage() {
             </div>
             <AppFrame
               src="/screenshots/home.png"
-              alt="Buddy home screen showing spaces"
+              alt="KukuNotes home screen showing spaces"
               size="hero"
             />
           </Reveal>
         </section>
 
         {/* ── Journey Steps ── */}
-        <section className="use-cases-map" aria-label="How Buddy is used">
+        <section className="use-cases-map" aria-label="How KukuNotes is used">
           {journeySteps.map((step, index) => (
             <Reveal key={step.label} className="use-cases-map-step" delay={index * 0.06}>
               <span>{String(index + 1).padStart(2, "0")}</span>
@@ -150,7 +150,7 @@ export default function UseCasesPage() {
         >
           <Reveal className="use-cases-section-heading">
             <p className="studio-kicker">Something for everyone</p>
-            <h2 id="use-cases-list-title">Find where Buddy fits into your day.</h2>
+            <h2 id="use-cases-list-title">Find where KukuNotes fits into your day.</h2>
             <p className="studio-section-lead">
               Each use case follows the same simple pattern: capture the moment,
               understand the useful parts, and move the next step forward.
@@ -180,8 +180,8 @@ export default function UseCasesPage() {
                       <dd>{item.bestFor}</dd>
                     </div>
                     <div>
-                      <dt>Buddy does</dt>
-                      <dd>{item.buddyDoes}</dd>
+                      <dt>KukuNotes does</dt>
+                      <dd>{item.kukuNotesDoes}</dd>
                     </div>
                     <div>
                       <dt>Outcome</dt>
@@ -219,7 +219,7 @@ export default function UseCasesPage() {
         <section className="studio-invite-section" aria-labelledby="use-cases-final-title">
           <Reveal className="studio-invite-card" variant="scale">
             <p className="studio-kicker studio-invite-kicker">Direct use cases</p>
-            <h2 id="use-cases-final-title">If people talk, Buddy can help you remember what matters.</h2>
+            <h2 id="use-cases-final-title">If people talk, KukuNotes can help you remember what matters.</h2>
             <p className="studio-invite-lead">
               Meetings, lectures, interviews, family planning, and client calls all
               become easier when the important parts are saved in the right place.
@@ -231,14 +231,14 @@ export default function UseCasesPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span>Get Buddy for Android</span>
+                <span>Get KukuNotes for Android</span>
                 <HiArrowRight style={{ marginLeft: 8 }} />
               </a>
             </div>
           </Reveal>
         </section>
       </main>
-      <BuddyFooter />
+      <KukuNotesFooter />
     </div>
   );
 }

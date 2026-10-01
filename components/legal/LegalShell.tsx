@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { BuddyFooter } from "@/components/home/BuddyFooter";
+import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { LegalNav } from "./LegalNav";
 
@@ -15,7 +15,7 @@ export function LegalShell({ children }: LegalShellProps) {
         <LegalNav />
         {children}
       </main>
-      <BuddyFooter />
+      <KukuNotesFooter />
     </div>
   );
 }

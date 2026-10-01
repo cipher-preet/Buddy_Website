@@ -6,40 +6,40 @@ import { legalJsonLd } from "@/lib/json-ld";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Delete Your Buddy Account",
+  title: "Delete Your KukuNotes Account",
   description:
-    "Request permanent deletion of your Buddy account and associated data. Required web resource for Google Play account deletion.",
-  keywords: ["delete Buddy account", "Buddy account deletion", "delete AI app account", "Google Play account deletion"],
+    "Request permanent deletion of your KukuNotes account and associated data. Required web resource for Google Play account deletion.",
+  keywords: ["delete KukuNotes account", "KukuNotes account deletion", "delete AI app account", "Google Play account deletion"],
   alternates: { canonical: "/delete-account" },
   openGraph: {
-    title: "Delete Your Buddy Account | Buddy",
+    title: "Delete Your KukuNotes Account | KukuNotes",
     url: "/delete-account",
     type: "website",
     description:
-      "Request permanent deletion of your Buddy account, Spaces, notes, tasks, voice recordings, transcripts, and related data.",
+      "Request permanent deletion of your KukuNotes account, Spaces, notes, tasks, voice recordings, transcripts, and related data.",
   },
 };
 
-const deleteMailto = `mailto:${siteConfig.email}?subject=Buddy%20account%20deletion%20request&body=Please%20delete%20my%20Buddy%20account%20and%20associated%20data.%0A%0AAccount%20email%3A%20%0AAdditional%20details%20(optional)%3A%20`;
+const deleteMailto = `mailto:${siteConfig.email}?subject=KukuNotes%20account%20deletion%20request&body=Please%20delete%20my%20KukuNotes%20account%20and%20associated%20data.%0A%0AAccount%20email%3A%20%0AAdditional%20details%20(optional)%3A%20`;
 
 export default function DeleteAccountPage() {
   return (
     <LegalShell>
       <JsonLd
         data={legalJsonLd(
-          "Delete Your Buddy Account",
+          "Delete Your KukuNotes Account",
           "/delete-account",
-          "Request permanent deletion of your Buddy account and associated data. Required web resource for Google Play account deletion.",
+          "Request permanent deletion of your KukuNotes account and associated data. Required web resource for Google Play account deletion.",
         )}
       />
       <article className="legal-page delete-account-page">
         <header className="legal-hero">
           <p className="studio-kicker">Account</p>
-          <h1>Delete your Buddy account</h1>
+          <h1>Delete your KukuNotes account</h1>
           <p className="legal-intro">
-            Use this page to request permanent deletion of your Buddy account
+            Use this page to request permanent deletion of your KukuNotes account
             and the data linked to it. This web resource is provided so you can
-            request deletion even if you no longer have the Buddy app installed.
+            request deletion even if you no longer have the KukuNotes app installed.
           </p>
           <p className="legal-meta">Last updated: August 8, 2026</p>
         </header>
@@ -49,7 +49,7 @@ export default function DeleteAccountPage() {
             <p className="studio-kicker">Start here</p>
             <h2 id="request-title">Request account deletion</h2>
             <p>
-              Email us from the address tied to your Buddy account. We will verify
+              Email us from the address tied to your KukuNotes account. We will verify
               the request and permanently delete your account and associated data.
             </p>
             <a className="studio-btn studio-btn-ink" href={deleteMailto}>
@@ -58,8 +58,8 @@ export default function DeleteAccountPage() {
             <p className="delete-request-note">
               Or write to{" "}
               <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> with the subject
-              line <strong>Buddy account deletion request</strong> and include the
-              email used for your Buddy account.
+              line <strong>KukuNotes account deletion request</strong> and include the
+              email used for your KukuNotes account.
             </p>
           </section>
 
@@ -67,7 +67,7 @@ export default function DeleteAccountPage() {
             <article>
               <span>01</span>
               <h3>Email from your account</h3>
-              <p>Send the request from the address you use to sign in to Buddy.</p>
+              <p>Send the request from the address you use to sign in to KukuNotes.</p>
             </article>
             <article>
               <span>02</span>
@@ -93,27 +93,27 @@ export default function DeleteAccountPage() {
 
         <div className="legal-content">
           <section id="in-app" className="legal-section">
-            <h2>Delete from inside the Buddy app</h2>
+            <h2>Delete from inside the KukuNotes app</h2>
             <p>
-              If you still have Buddy installed, you can also start deletion from
+              If you still have KukuNotes installed, you can also start deletion from
               the app:
             </p>
             <ol className="delete-steps">
-              <li>Open Buddy and sign in to your account.</li>
+              <li>Open KukuNotes and sign in to your account.</li>
               <li>Go to Settings (or your profile).</li>
               <li>Select Delete account (or Account → Delete account).</li>
               <li>Confirm the deletion when prompted.</li>
             </ol>
             <p>
               If you cannot find the in-app option, use the email request above.
-              Both paths permanently delete your Buddy account.
+              Both paths permanently delete your KukuNotes account.
             </p>
           </section>
 
           <section id="what-we-delete" className="legal-section">
             <h2>What we delete</h2>
             <p>
-              When your Buddy account is deleted, we delete the account and
+              When your KukuNotes account is deleted, we delete the account and
               associated user data, including:
             </p>
             <ul className="delete-list">
@@ -126,7 +126,7 @@ export default function DeleteAccountPage() {
             <p>
               Freezing, disabling, or temporarily deactivating an account is not
               treated as deletion. A completed deletion request removes your
-              Buddy account.
+              KukuNotes account.
             </p>
           </section>
 
@@ -165,12 +165,12 @@ export default function DeleteAccountPage() {
           <section id="after" className="legal-section">
             <h2>After your account is deleted</h2>
             <p>
-              You will no longer be able to sign in to Buddy with that account.
+              You will no longer be able to sign in to KukuNotes with that account.
               Spaces, notes, tasks, and conversation history linked to the
               account will no longer be available.
             </p>
             <p>
-              If you use Buddy again later, you will need to create a new
+              If you use KukuNotes again later, you will need to create a new
               account. Previous data will not be restored.
             </p>
           </section>

@@ -21,15 +21,15 @@ const captureSteps = [
     title: "Listen when it matters",
     copy: "Start capture for a meeting, a walk, or a working session. Listening is a choice, not a background habit.",
     image: "/screenshots/listen.png",
-    alt: "Buddy live listening on the home screen",
+    alt: "KukuNotes live listening on the home screen",
     meta: "Opt-in capture",
   },
   {
     number: "02",
     title: "Keep the useful parts",
-    copy: "Buddy turns the conversation into notes with confidence, dates, and the space they belong to.",
+    copy: "KukuNotes turns the conversation into notes with confidence, dates, and the space they belong to.",
     image: "/screenshots/notes-board.jpeg",
-    alt: "Buddy notes with confidence and space context",
+    alt: "KukuNotes notes with confidence and space context",
     meta: "Searchable memory",
   },
   {
@@ -37,7 +37,7 @@ const captureSteps = [
     title: "Move the next step",
     copy: "Commitments become prioritized tasks, still attached to the original context so follow-through stays honest.",
     image: "/screenshots/tasks-board.jpeg",
-    alt: "Buddy tasks with priority and space context",
+    alt: "KukuNotes tasks with priority and space context",
     meta: "Clear next actions",
   },
 ];
@@ -65,7 +65,7 @@ const prompts = [
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-export function BuddyLanding() {
+export function KukuNotesLanding() {
   return (
     <main className="studio">
       <section className="studio-hero" id="top">
@@ -83,11 +83,11 @@ export function BuddyLanding() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.06, ease }}
           >
-            Listen.
+            Capture.
             <br />
-            Remember.
+            Organize.
             <br />
-            <em>Act.</em>
+            <em>Grow.</em>
           </motion.h1>
           <motion.p
             className="studio-hero-lead"
@@ -95,7 +95,7 @@ export function BuddyLanding() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.16, ease }}
           >
-            Buddy captures the conversations that fill your day, then turns them
+            KukuNotes captures the conversations that fill your day, then turns them
             into notes, tasks, and a plan you can actually use.
           </motion.p>
           <motion.div
@@ -110,7 +110,7 @@ export function BuddyLanding() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Get Buddy
+              Get KukuNotes
             </a>
             <a className="studio-text-link" href="#product">
               See the product <span aria-hidden="true">→</span>
@@ -124,7 +124,7 @@ export function BuddyLanding() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.12, ease }}
         >
-          <ol className="studio-dayline" aria-label="A day with Buddy">
+          <ol className="studio-dayline" aria-label="A day with KukuNotes">
             {dayBeats.map((beat) => (
               <li key={beat.time}>
                 <time>{beat.time}</time>
@@ -134,7 +134,7 @@ export function BuddyLanding() {
           </ol>
 
           <div className="studio-hero-stage">
-            <AppFrame src="/screenshots/daily-briefing.jpeg" alt="Buddy daily briefing" size="hero" />
+            <AppFrame src="/screenshots/daily-briefing.jpeg" alt="KukuNotes daily briefing" size="hero" />
             <div className="studio-hero-chips">
               <div className="studio-chip studio-chip-live">
                 <i />
@@ -159,7 +159,7 @@ export function BuddyLanding() {
           <p className="studio-kicker">Daily briefing</p>
           <h2 id="briefing-title">Know what deserves your attention today.</h2>
           <p className="studio-section-lead">
-            Buddy brings focus time, priorities, and upcoming meetings into one
+            KukuNotes brings focus time, priorities, and upcoming meetings into one
             opening view—so the day has a shape before it gets busy.
           </p>
           <ul className="studio-feature-list">
@@ -171,14 +171,14 @@ export function BuddyLanding() {
         <Reveal className="studio-briefing-stage" variant="scale" delay={0.08}>
           <AppFrame
             src="/screenshots/daily-briefing.jpeg"
-            alt="Buddy daily briefing with priorities and upcoming meetings"
+            alt="KukuNotes daily briefing with priorities and upcoming meetings"
             size="hero"
           />
         </Reveal>
       </section>
 
       {/* ── Capability Strip ── */}
-      <section className="studio-strip" aria-label="What Buddy holds">
+      <section className="studio-strip" aria-label="What KukuNotes holds">
         <p className="studio-strip-label">Built for the shape of a real day</p>
         <ul className="studio-strip-list">
           <li>Daily briefing</li>
@@ -199,7 +199,7 @@ export function BuddyLanding() {
           <p className="studio-kicker">From conversation to next step</p>
           <h2 id="capture-title">Capture once. Stay oriented.</h2>
           <p className="studio-section-lead">
-            When a conversation matters, Buddy listens with you, then keeps the
+            When a conversation matters, KukuNotes listens with you, then keeps the
             details where the rest of your day already lives.
           </p>
         </Reveal>
@@ -227,7 +227,7 @@ export function BuddyLanding() {
           <p className="studio-kicker">Spaces</p>
           <h2 id="spaces-title">Give each part of your life a place to land.</h2>
           <p className="studio-section-lead">
-            Buddy is organized around spaces, not a single infinite feed. Context
+            KukuNotes is organized around spaces, not a single infinite feed. Context
             stays where it belongs, and the rest of the app can stay quiet.
           </p>
           <ol className="studio-spaces-list">
@@ -243,21 +243,21 @@ export function BuddyLanding() {
           </ol>
         </Reveal>
         <Reveal className="studio-spaces-stage" variant="scale" delay={0.08}>
-          <AppFrame src="/screenshots/home.png" alt="Buddy home with spaces and live listening" size="hero" />
+          <AppFrame src="/screenshots/home.png" alt="KukuNotes home with spaces and live listening" size="hero" />
         </Reveal>
       </section>
 
-      {/* ── Ask Buddy ── */}
+      {/* ── Ask KukuNotes ── */}
       <section className="studio-ask" id="ask" aria-labelledby="ask-title">
         <div className="studio-ask-card">
           <Reveal className="studio-ask-stage" variant="scale">
-            <AppFrame src="/screenshots/chat.png" alt="Buddy AI chat grounded in your spaces" size="hero" />
+            <AppFrame src="/screenshots/chat.png" alt="KukuNotes chat grounded in your spaces" size="hero" />
           </Reveal>
           <Reveal className="studio-ask-copy" delay={0.08}>
-            <p className="studio-kicker">Ask Buddy</p>
+            <p className="studio-kicker">Ask KukuNotes</p>
             <h2 id="ask-title">Ask from what you already lived, not a blank chat.</h2>
             <p className="studio-section-lead">
-              Questions are answered from the spaces, notes, and tasks Buddy already
+              Questions are answered from the spaces, notes, and tasks KukuNotes already
               holds—so you spend less time reconstructing the day.
             </p>
             <ul className="studio-prompts">
@@ -275,7 +275,7 @@ export function BuddyLanding() {
           <p className="studio-kicker">You stay in control</p>
           <h2 id="charter-title">Useful only when it respects the room.</h2>
           <p className="studio-section-lead">
-            Privacy and agency are built into every level of Buddy&apos;s interaction model.
+            Privacy and agency are built into every level of KukuNotes&apos; interaction model.
           </p>
         </Reveal>
         <div className="studio-charter-grid">
@@ -309,7 +309,7 @@ export function BuddyLanding() {
           <p className="studio-kicker">Good to know</p>
           <h2 id="faq-title">A few questions, answered plainly.</h2>
           <p className="studio-section-lead">
-            Everything you need to know about how Buddy captures, remembers, and acts on your conversations.
+            Everything you need to know about how KukuNotes captures, remembers, and acts on your conversations.
           </p>
         </Reveal>
         <div className="studio-faq-list">
@@ -325,7 +325,7 @@ export function BuddyLanding() {
           <p className="studio-kicker studio-invite-kicker">Available on iOS & Android</p>
           <h2 id="invite-title">Your next conversation, already useful.</h2>
           <p className="studio-invite-lead">
-            Bring Buddy into the rooms where work actually happens, and leave with the day still intact.
+            Bring KukuNotes into the rooms where work actually happens, and leave with the day still intact.
           </p>
           <div className="studio-invite-actions">
             <a

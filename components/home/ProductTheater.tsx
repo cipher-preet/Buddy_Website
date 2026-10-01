@@ -13,7 +13,7 @@ const views = [
     copy: "Focus time, priorities, and the next meetings sit in one opening view—so you begin oriented, not reconstructing.",
     points: ["Today’s priorities", "Available focus time", "Upcoming meetings"],
     image: "/screenshots/daily-briefing.jpeg",
-    alt: "Buddy daily briefing with priorities and upcoming meetings",
+    alt: "KukuNotes daily briefing with priorities and upcoming meetings",
   },
   {
     id: "calendar",
@@ -23,7 +23,7 @@ const views = [
     copy: "A simple time-blocked day keeps meetings, deep work, and follow-ups in one timeline you can actually read.",
     points: ["Time-blocked agenda", "Today at a glance", "Meeting context"],
     image: "/screenshots/calendar.jpeg",
-    alt: "Buddy calendar showing a time-blocked day",
+    alt: "KukuNotes calendar showing a time-blocked day",
   },
   {
     id: "goals",
@@ -33,7 +33,7 @@ const views = [
     copy: "Projects stop being folders. Each space can hold a meaningful result, a date, and a sense of whether you are still moving.",
     points: ["Space outcomes", "Momentum", "Goal dates"],
     image: "/screenshots/goal-monitor.jpeg",
-    alt: "Buddy goal monitor for tracking space outcomes",
+    alt: "KukuNotes goal monitor for tracking space outcomes",
   },
   {
     id: "notes",
@@ -43,7 +43,7 @@ const views = [
     copy: "Conversations become searchable knowledge with confidence, dates, and the space they belong to.",
     points: ["Conversation notes", "Confidence at a glance", "Linked spaces"],
     image: "/screenshots/notes-board.jpeg",
-    alt: "Buddy notes list with confidence and space filters",
+    alt: "KukuNotes notes list with confidence and space filters",
   },
   {
     id: "tasks",
@@ -53,7 +53,7 @@ const views = [
     copy: "Action items arrive with priority, status, and the original context—so follow-through does not depend on memory.",
     points: ["Prioritized work", "Due dates", "Space context"],
     image: "/screenshots/tasks-board.jpeg",
-    alt: "Buddy task list with spaces and priority cards",
+    alt: "KukuNotes task list with spaces and priority cards",
   },
   {
     id: "share",
@@ -63,7 +63,7 @@ const views = [
     copy: "Choose the notes and tasks that belong in a handoff. A teammate or client gets a focused picture, not an inbox dump.",
     points: ["Select content", "Focused packages", "Clear shared context"],
     image: "/screenshots/share-space.jpeg",
-    alt: "Buddy share space flow for selecting tasks and notes",
+    alt: "KukuNotes share space flow for selecting tasks and notes",
   },
 ];
 
@@ -99,7 +99,7 @@ export function ProductTheater() {
         </p>
       </div>
 
-      <div className="studio-theater-tabs" role="tablist" aria-label="Buddy product views">
+      <div className="studio-theater-tabs" role="tablist" aria-label="KukuNotes product views">
         {views.map((item, index) => (
           <button
             key={item.id}

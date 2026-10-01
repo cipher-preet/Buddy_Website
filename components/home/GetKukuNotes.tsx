@@ -15,32 +15,32 @@ const perks = [
     text: "Walk away with clear memory and next actions ready.",
   },
   {
-    title: "Ask Buddy",
+    title: "Ask KukuNotes",
     text: "Chat with context grounded in your spaces.",
   },
 ];
 
-export function GetBuddy() {
+export function GetKukuNotes() {
   return (
-    <section id="cta" className="get-buddy-section">
+    <section id="cta" className="get-kukunotes-section">
       <Reveal variant="fade-up">
-        <div className="get-buddy-shell">
-          <div className="get-buddy-copy">
-            <p className="eyebrow light">Get Buddy</p>
+        <div className="get-kukunotes-shell">
+          <div className="get-kukunotes-copy">
+            <p className="eyebrow light">Get KukuNotes</p>
             <h2>Ready for your next conversation.</h2>
-            <p className="section-lead get-buddy-lead">
-              Bring Buddy into meetings, brainstorms, and everyday talk—and leave
+            <p className="section-lead get-kukunotes-lead">
+              Bring KukuNotes into meetings, brainstorms, and everyday talk—and leave
               with notes and tasks already waiting.
             </p>
 
-            <div className="get-buddy-actions">
+            <div className="get-kukunotes-actions">
               <motion.a
                 className="primary-button light"
-                href={`mailto:${siteConfig.email}?subject=Get%20Buddy`}
+                href={`mailto:${siteConfig.email}?subject=Get%20KukuNotes`}
                 whileHover={{ y: -3, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Get Buddy
+                Get KukuNotes
               </motion.a>
               <motion.a
                 className="secondary-button ghost"
@@ -52,7 +52,7 @@ export function GetBuddy() {
               </motion.a>
             </div>
 
-            <ul className="get-buddy-perks">
+            <ul className="get-kukunotes-perks">
               {perks.map((perk, index) => (
                 <motion.li
                   key={perk.title}
@@ -69,26 +69,26 @@ export function GetBuddy() {
           </div>
 
           <motion.div
-            className="get-buddy-visual"
+            className="get-kukunotes-visual"
             initial={{ opacity: 0, y: 28, scale: 0.96 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="get-buddy-phone">
+            <div className="get-kukunotes-phone">
               <Image
                 src="/screenshots/home.png"
-                alt="Buddy app home screen"
+                alt="KukuNotes app home screen"
                 fill
                 sizes="260px"
-                className="get-buddy-phone-image"
+                className="get-kukunotes-phone-image"
               />
             </div>
-            <div className="get-buddy-float get-buddy-float-a">
+            <div className="get-kukunotes-float get-kukunotes-float-a">
               <strong>Listening</strong>
               <span>Weekly Sync</span>
             </div>
-            <div className="get-buddy-float get-buddy-float-b">
+            <div className="get-kukunotes-float get-kukunotes-float-b">
               <strong>3 notes</strong>
               <span>Ready to review</span>
             </div>

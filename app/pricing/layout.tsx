@@ -4,14 +4,14 @@ import { pricingJsonLd } from "@/lib/json-ld";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Pricing — Free, Pro & Business Plans for AI Meeting Notes & Assistant",
+  title: "Pricing — Free, Pro & Business Plans in ₹",
   description:
-    "Explore Buddy AI plans: Start completely free on Android, or upgrade to Pro (₹799/mo) and Business (₹1,999/mo) for 100+ recording hours, 11 Indian regional languages, and team spaces.",
+    "Explore KukuNotes plans: Start completely free on Android, or upgrade to Pro (₹799/mo) and Business (₹1,999/mo) for 100+ recording hours, 11 Indian regional languages, and team spaces.",
   keywords: [
-    "Buddy AI pricing",
+    "KukuNotes pricing",
     "AI note taker pricing",
     "AI meeting recorder cost",
-    "Buddy Pro subscription",
+    "KukuNotes Pro subscription",
     "free AI assistant Android",
     "meeting transcription price",
     "multilingual AI pricing",
@@ -21,16 +21,16 @@ export const metadata: Metadata = {
     canonical: "/pricing",
   },
   openGraph: {
-    title: "Buddy AI Pricing — Simple, Transparent Plans for Every Workflow",
+    title: "KukuNotes Pricing — Simple, Transparent Plans for Every Workflow",
     description:
       "Start free on Android. Upgrade for 100 hours of meeting recording, 11 Indian languages, and unlimited intelligence.",
     url: "/pricing",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Buddy AI Pricing Plans" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "KukuNotes Pricing Plans" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Buddy AI Pricing — Simple, Transparent Plans",
+    title: "KukuNotes Pricing — Simple, Transparent Plans",
     description:
       "Capture conversations, extract action items, and organize spaces. Free forever tier available on Android.",
     images: ["/opengraph-image"],

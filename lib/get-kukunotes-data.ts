@@ -20,10 +20,10 @@ export type PlatformItem = {
   metrics: string;
 };
 
-export const getBuddyPlatforms: PlatformItem[] = [
+export const getKukuNotesPlatforms: PlatformItem[] = [
   {
     id: "android",
-    title: "Buddy for Android",
+    title: "KukuNotes for Android",
     category: "Mobile App",
     tagline: "Your daily conversation companion. Capture voice notes, meeting audio, and morning briefings on the go.",
     badge: "Official Release",
@@ -49,7 +49,7 @@ export const getBuddyPlatforms: PlatformItem[] = [
   },
   {
     id: "desktop",
-    title: "Buddy for Desktop",
+    title: "KukuNotes for Desktop",
     category: "macOS & Windows",
     tagline: "Capture Zoom, Teams, and Slack Huddles with system audio without inviting annoying meeting bots.",
     badge: "Power Users",
@@ -58,7 +58,7 @@ export const getBuddyPlatforms: PlatformItem[] = [
     metrics: "Zero-Bot Audio Capture",
     highlights: [
       "Direct system sound recording with crystal-clear stereo audio",
-      "Global shortcut (Cmd+K / Ctrl+K) to query Buddy anytime",
+      "Global shortcut (Cmd+K / Ctrl+K) to query KukuNotes anytime",
       "Auto-detects calendar events and links transcripts to spaces",
       "Local caching with instant full-text search",
     ],
@@ -75,7 +75,7 @@ export const getBuddyPlatforms: PlatformItem[] = [
   },
   {
     id: "chrome",
-    title: "Buddy for Chrome",
+    title: "KukuNotes for Chrome",
     category: "Browser Extension",
     tagline: "One-click meeting transcriptions and live takeaways inside Google Meet, Microsoft Teams, and Zoom Web.",
     badge: "Meeting Assistant",
@@ -85,7 +85,7 @@ export const getBuddyPlatforms: PlatformItem[] = [
     highlights: [
       "Zero bot joins — records audio directly from your active browser tab",
       "Floating live notes sidebar with real-time commitment extraction",
-      "Instant push to your Buddy spaces the moment the call ends",
+      "Instant push to your KukuNotes spaces the moment the call ends",
       "Works seamlessly across Google Meet & Teams Web",
     ],
     primaryCta: {
@@ -101,7 +101,7 @@ export const getBuddyPlatforms: PlatformItem[] = [
   },
   {
     id: "web",
-    title: "Buddy Web Workspace",
+    title: "KukuNotes Web Workspace",
     category: "Cloud Dashboard",
     tagline: "Review spaces, query past meetings, refine extracted tasks, and collaborate with your team from any browser.",
     badge: "Zero Install",
@@ -127,7 +127,7 @@ export const getBuddyPlatforms: PlatformItem[] = [
   },
 ];
 
-export const getBuddyEcosystemFeatures = [
+export const getKukuNotesEcosystemFeatures = [
   {
     title: "Unified Memory Sync",
     description:
@@ -137,7 +137,7 @@ export const getBuddyEcosystemFeatures = [
   {
     title: "Zero-Bot Privacy",
     description:
-      "Buddy never invites awkward bot avatars to your meetings. Audio is captured locally and opt-in via your verified device microphone or tab audio.",
+      "KukuNotes never invites awkward bot avatars to your meetings. Audio is captured locally and opt-in via your verified device microphone or tab audio.",
     icon: "shield",
   },
   {
@@ -154,26 +154,26 @@ export const getBuddyEcosystemFeatures = [
   },
 ];
 
-export const getBuddyFaqs = [
+export const getKukuNotesFaqs = [
   {
-    q: "How does Buddy capture audio without inviting a meeting bot?",
-    a: "Unlike traditional AI note-takers that send bot attendees into your calls, Buddy operates as a native companion on your device or browser. It captures incoming audio directly from your audio device or browser tab with your permission, keeping your meetings natural and private.",
+    q: "How does KukuNotes capture audio without inviting a meeting bot?",
+    a: "Unlike traditional AI note-takers that send bot attendees into your calls, KukuNotes operates as a native companion on your device or browser. It captures incoming audio directly from your audio device or browser tab with your permission, keeping your meetings natural and private.",
   },
   {
     q: "Do I need separate accounts for mobile, desktop, and Chrome?",
-    a: "No. A single Buddy account works across all platforms. Any meeting recorded on Chrome or Desktop is immediately synchronized to your Android app and Web workspace.",
+    a: "No. A single KukuNotes account works across all platforms. Any meeting recorded on Chrome or Desktop is immediately synchronized to your Android app and Web workspace.",
   },
   {
-    q: "Can I use Buddy offline?",
-    a: "Yes. Buddy's mobile and desktop apps can record audio offline. As soon as your device reconnects to the internet, Buddy processes the transcript, generates notes and tasks, and syncs everything across your spaces.",
+    q: "Can I use KukuNotes offline?",
+    a: "Yes. KukuNotes' mobile and desktop apps can record audio offline. As soon as your device reconnects to the internet, KukuNotes processes the transcript, generates notes and tasks, and syncs everything across your spaces.",
   },
   {
-    q: "What permissions does Buddy require?",
-    a: "Buddy only requests access to microphone/audio capture strictly when you tap Start Listening. We never access your contacts, private files, or location, and microphone access is entirely opt-in.",
+    q: "What permissions does KukuNotes require?",
+    a: "KukuNotes only requests access to microphone/audio capture strictly when you tap Start Listening. We never access your contacts, private files, or location, and microphone access is entirely opt-in.",
   },
 ];
 
-export const getBuddyRequirements = [
+export const getKukuNotesRequirements = [
   {
     platform: "Android App",
     spec: "Android 9.0 (Pie) or higher",

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BuddyFooter } from "./BuddyFooter";
+import { KukuNotesFooter } from "./KukuNotesFooter";
 import { Navbar } from "./Navbar";
 import { siteConfig } from "@/lib/site";
 
@@ -16,10 +16,10 @@ export function NotFoundView() {
       <main className="not-found-main">
         <section className="not-found-copy">
           <p className="studio-kicker">404</p>
-          <h1>This page didn’t make it into your notes.</h1>
+          <h1>This page didn’t make it into <span className="brand-gradient-text">your notes.</span></h1>
           <p className="not-found-lead">
             The link may be outdated, or the page moved. Let’s get you back to
-            something Buddy can help with.
+            something KukuNotes can help with.
           </p>
           <div className="not-found-actions">
             <Link className="studio-btn studio-btn-ink" href="/">
@@ -51,11 +51,11 @@ export function NotFoundView() {
           <article className="not-found-card">
             <span>Empty space</span>
             <strong>No note captured</strong>
-            <p>Buddy looked. Nothing here to listen to, remember, or act on.</p>
+            <p>KukuNotes looked. Nothing here to capture, organize, or grow.</p>
           </article>
         </aside>
       </main>
-      <BuddyFooter />
+      <KukuNotesFooter />
     </div>
   );
 }

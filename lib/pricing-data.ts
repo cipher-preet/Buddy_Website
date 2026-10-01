@@ -56,7 +56,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: "free",
     name: "Free",
-    tagline: "Start capturing conversations and experiencing Buddy.",
+    tagline: "Start capturing conversations and experiencing KukuNotes.",
     prices: {
       monthly: 0,
       quarterly: 0,
@@ -130,7 +130,7 @@ export const pricingPlans: PricingPlan[] = [
       { text: "Team shared workspaces", included: false },
     ],
     languages: CORE_LANGUAGES,
-    ctaLabel: "Get Buddy Pro",
+    ctaLabel: "Get KukuNotes Pro",
     ctaHref: "https://play.google.com/store/apps/details?id=com.aiassistantapp",
     isExternal: true,
   },
@@ -240,7 +240,7 @@ export const comparisonCategories: CompareCategory[] = [
         business: true,
       },
       {
-        name: "Ask Buddy Chat",
+        name: "Ask KukuNotes Chat",
         description: "Query past meetings and spaces with contextual AI retrieval",
         free: "Standard",
         pro: "Priority",
@@ -326,7 +326,7 @@ export const comparisonCategories: CompareCategory[] = [
 export const pricingFaqs = [
   {
     q: "Can I change or cancel my plan anytime?",
-    a: "Yes. You can switch between Free, Pro, and Business anytime from inside the Buddy app or website. If you downgrade, your existing spaces, notes, and recordings always remain safe with you.",
+    a: "Yes. You can switch between Free, Pro, and Business anytime from inside the KukuNotes app or website. If you downgrade, your existing spaces, notes, and recordings always remain safe with you.",
   },
   {
     q: "How does quarterly billing work?",
@@ -334,18 +334,18 @@ export const pricingFaqs = [
   },
   {
     q: "Which languages are included in the Business plan?",
-    a: "Business unlocks 11 Indian languages: English, Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, and Odia. Buddy listens natively in these languages and produces organized summaries and action tasks.",
+    a: "Business unlocks 11 Indian languages: English, Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, and Odia. KukuNotes listens natively in these languages and produces organized summaries and action tasks.",
   },
   {
     q: "What payment methods are supported?",
     a: "All payments are processed securely through Razorpay. You can pay with UPI (Google Pay, PhonePe, Paytm, etc.), credit cards, debit cards, net banking across all major banks, and digital wallets.",
   },
   {
-    q: "Does Buddy record in the background without my consent?",
-    a: "Never. Buddy operates on a strict opt-in model. Listening only begins when you deliberately choose to tap Start Listening, and it always binds to the specific space you selected.",
+    q: "Does KukuNotes record in the background without my consent?",
+    a: "Never. KukuNotes operates on a strict opt-in model. Listening only begins when you deliberately choose to tap Start Listening, and it always binds to the specific space you selected.",
   },
   {
-    q: "What is a Buddy Space and how do limits apply?",
+    q: "What is a KukuNotes Space and how do limits apply?",
     a: "A space is a dedicated container for a specific project, client, meeting series, or life area. On the Free plan you can create up to 5 spaces; on Pro and Business, you can create unlimited spaces.",
   },
 ];

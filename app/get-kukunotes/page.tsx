@@ -2,19 +2,19 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { BuddyFooter } from "@/components/home/BuddyFooter";
+import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { siteConfig } from "@/lib/site";
 import {
-  getBuddyPlatforms,
-  getBuddyEcosystemFeatures,
-  getBuddyFaqs,
-  getBuddyRequirements,
+  getKukuNotesPlatforms,
+  getKukuNotesEcosystemFeatures,
+  getKukuNotesFaqs,
+  getKukuNotesRequirements,
   type PlatformItem,
-} from "@/lib/get-buddy-data";
+} from "@/lib/get-kukunotes-data";
 
 // ─── Official React Icons ───────────────────────────────────────────────────
 import {
@@ -78,13 +78,13 @@ function PlatformBrandIcon({ id }: { id: PlatformItem["id"] }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function GetBuddyPage() {
+export default function GetKukuNotesPage() {
   const [activeFilter, setActiveFilter] = useState<"all" | "android" | "desktop" | "chrome" | "web">("all");
 
   const filteredPlatforms =
     activeFilter === "all"
-      ? getBuddyPlatforms
-      : getBuddyPlatforms.filter((p) => p.id === activeFilter);
+      ? getKukuNotesPlatforms
+      : getKukuNotesPlatforms.filter((p) => p.id === activeFilter);
 
   return (
     <div className="site-shell studio-page">
@@ -92,31 +92,31 @@ export default function GetBuddyPage() {
       <ScrollProgress />
       <Navbar />
 
-      <main className="studio get-buddy-page">
+      <main className="studio get-kukunotes-page">
 
         {/* ── Hero ── */}
-        <section className="get-buddy-hero" aria-labelledby="get-buddy-title">
-          <Reveal className="get-buddy-hero-copy">
-            <div className="get-buddy-kicker-wrap">
-              <span className="get-buddy-beacon" aria-hidden="true" />
+        <section className="get-kukunotes-hero" aria-labelledby="get-kukunotes-title">
+          <Reveal className="get-kukunotes-hero-copy">
+            <div className="get-kukunotes-kicker-wrap">
+              <span className="get-kukunotes-beacon" aria-hidden="true" />
               <p className="studio-kicker">Cross-Platform AI Companion</p>
             </div>
-            <h1 id="get-buddy-title">
+            <h1 id="get-kukunotes-title">
               Available wherever you<br />
-              talk, think, and work.
+              <span className="brand-gradient-text">talk, think, and work.</span>
             </h1>
-            <p className="studio-section-lead get-buddy-hero-lead">
+            <p className="studio-section-lead get-kukunotes-hero-lead">
               Capture live conversations, auto-generate action items, and sync
               dedicated spaces seamlessly across your phone, desktop, browser, and cloud.
             </p>
           </Reveal>
 
           {/* Platform Filters */}
-          <Reveal className="get-buddy-filter-bar" variant="scale" delay={0.06}>
-            <div className="get-buddy-filters" role="group" aria-label="Filter platforms">
+          <Reveal className="get-kukunotes-filter-bar" variant="scale" delay={0.06}>
+            <div className="get-kukunotes-filters" role="group" aria-label="Filter platforms">
               <button
                 type="button"
-                className={`get-buddy-filter-btn${activeFilter === "all" ? " is-active" : ""}`}
+                className={`get-kukunotes-filter-btn${activeFilter === "all" ? " is-active" : ""}`}
                 onClick={() => setActiveFilter("all")}
               >
                 <TbDevices className="filter-icon" />
@@ -124,7 +124,7 @@ export default function GetBuddyPage() {
               </button>
               <button
                 type="button"
-                className={`get-buddy-filter-btn${activeFilter === "android" ? " is-active" : ""}`}
+                className={`get-kukunotes-filter-btn${activeFilter === "android" ? " is-active" : ""}`}
                 onClick={() => setActiveFilter("android")}
               >
                 <FaGooglePlay className="filter-icon" />
@@ -132,7 +132,7 @@ export default function GetBuddyPage() {
               </button>
               <button
                 type="button"
-                className={`get-buddy-filter-btn${activeFilter === "desktop" ? " is-active" : ""}`}
+                className={`get-kukunotes-filter-btn${activeFilter === "desktop" ? " is-active" : ""}`}
                 onClick={() => setActiveFilter("desktop")}
               >
                 <HiComputerDesktop className="filter-icon" />
@@ -140,7 +140,7 @@ export default function GetBuddyPage() {
               </button>
               <button
                 type="button"
-                className={`get-buddy-filter-btn${activeFilter === "chrome" ? " is-active" : ""}`}
+                className={`get-kukunotes-filter-btn${activeFilter === "chrome" ? " is-active" : ""}`}
                 onClick={() => setActiveFilter("chrome")}
               >
                 <FaChrome className="filter-icon" />
@@ -148,7 +148,7 @@ export default function GetBuddyPage() {
               </button>
               <button
                 type="button"
-                className={`get-buddy-filter-btn${activeFilter === "web" ? " is-active" : ""}`}
+                className={`get-kukunotes-filter-btn${activeFilter === "web" ? " is-active" : ""}`}
                 onClick={() => setActiveFilter("web")}
               >
                 <TbWorld className="filter-icon" />
@@ -158,23 +158,23 @@ export default function GetBuddyPage() {
           </Reveal>
 
           {/* Quick Value Metrics */}
-          <Reveal className="get-buddy-trust-row" delay={0.1}>
-            <div className="get-buddy-trust-pill">
+          <Reveal className="get-kukunotes-trust-row" delay={0.1}>
+            <div className="get-kukunotes-trust-pill">
               <HiShieldCheck className="trust-icon" />
               <span>Zero-Bot Privacy</span>
             </div>
-            <span className="get-buddy-trust-dot" aria-hidden="true">•</span>
-            <div className="get-buddy-trust-pill">
+            <span className="get-kukunotes-trust-dot" aria-hidden="true">•</span>
+            <div className="get-kukunotes-trust-pill">
               <HiGlobeAlt className="trust-icon" />
               <span>11 Indian Languages</span>
             </div>
-            <span className="get-buddy-trust-dot" aria-hidden="true">•</span>
-            <div className="get-buddy-trust-pill">
+            <span className="get-kukunotes-trust-dot" aria-hidden="true">•</span>
+            <div className="get-kukunotes-trust-pill">
               <RiRefreshLine className="trust-icon" />
               <span>Real-Time Cloud Sync</span>
             </div>
-            <span className="get-buddy-trust-dot" aria-hidden="true">•</span>
-            <div className="get-buddy-trust-pill">
+            <span className="get-kukunotes-trust-dot" aria-hidden="true">•</span>
+            <div className="get-kukunotes-trust-pill">
               <HiSparkles className="trust-icon" />
               <span>Free to Start</span>
             </div>
@@ -182,22 +182,22 @@ export default function GetBuddyPage() {
         </section>
 
         {/* ── 4 Platform Showcase Cards Grid ── */}
-        <section className="get-buddy-grid-section" aria-label="Download options">
-          <div className="get-buddy-grid">
+        <section className="get-kukunotes-grid-section" aria-label="Download options">
+          <div className="get-kukunotes-grid">
             {filteredPlatforms.map((platform, i) => (
               <Reveal
                 key={platform.id}
-                className={`get-buddy-card get-buddy-card--${platform.id}${
-                  platform.id === "android" ? " get-buddy-card--featured" : ""
+                className={`get-kukunotes-card get-kukunotes-card--${platform.id}${
+                  platform.id === "android" ? " get-kukunotes-card--featured" : ""
                 }`}
                 variant="scale"
                 delay={i * 0.08}
               >
                 {/* Header with platform brand icon & status badge */}
-                <div className="get-buddy-card-top">
+                <div className="get-kukunotes-card-top">
                   <PlatformBrandIcon id={platform.id} />
-                  <div className="get-buddy-badge-wrap">
-                    <span className={`get-buddy-badge get-buddy-badge--${platform.badgeType}`}>
+                  <div className="get-kukunotes-badge-wrap">
+                    <span className={`get-kukunotes-badge get-kukunotes-badge--${platform.badgeType}`}>
                       {platform.badgeType === "live" && <span className="badge-beacon-dot" />}
                       {platform.badge}
                     </span>
@@ -205,29 +205,29 @@ export default function GetBuddyPage() {
                 </div>
 
                 {/* Title & Platform Tagline */}
-                <div className="get-buddy-card-header">
-                  <p className="get-buddy-card-category">{platform.category}</p>
-                  <h2 className="get-buddy-card-title">{platform.title}</h2>
-                  <p className="get-buddy-card-tagline">{platform.tagline}</p>
+                <div className="get-kukunotes-card-header">
+                  <p className="get-kukunotes-card-category">{platform.category}</p>
+                  <h2 className="get-kukunotes-card-title">{platform.title}</h2>
+                  <p className="get-kukunotes-card-tagline">{platform.tagline}</p>
                 </div>
 
                 {/* Metrics / Compatibility banner */}
-                <div className="get-buddy-card-meta">
-                  <span className="get-buddy-meta-highlight">{platform.metrics}</span>
-                  <span className="get-buddy-meta-compat">{platform.compatibility}</span>
+                <div className="get-kukunotes-card-meta">
+                  <span className="get-kukunotes-meta-highlight">{platform.metrics}</span>
+                  <span className="get-kukunotes-meta-compat">{platform.compatibility}</span>
                 </div>
 
                 {/* Primary CTA Button */}
-                <div className="get-buddy-card-actions">
+                <div className="get-kukunotes-card-actions">
                   <a
-                    className={`get-buddy-cta-btn${
+                    className={`get-kukunotes-cta-btn${
                       platform.id === "android"
-                        ? " get-buddy-cta-btn--primary"
+                        ? " get-kukunotes-cta-btn--primary"
                         : platform.id === "desktop"
-                        ? " get-buddy-cta-btn--desktop"
+                        ? " get-kukunotes-cta-btn--desktop"
                         : platform.id === "chrome"
-                        ? " get-buddy-cta-btn--chrome"
-                        : " get-buddy-cta-btn--ghost"
+                        ? " get-kukunotes-cta-btn--chrome"
+                        : " get-kukunotes-cta-btn--ghost"
                     }`}
                     href={platform.primaryCta.href}
                     target={platform.primaryCta.isExternal ? "_blank" : undefined}
@@ -244,11 +244,11 @@ export default function GetBuddyPage() {
                 </div>
 
                 {/* Feature Highlights */}
-                <div className="get-buddy-highlights-wrap">
-                  <p className="get-buddy-highlights-title">Key Capabilities</p>
-                  <ul className="get-buddy-highlights-list" role="list">
+                <div className="get-kukunotes-highlights-wrap">
+                  <p className="get-kukunotes-highlights-title">Key Capabilities</p>
+                  <ul className="get-kukunotes-highlights-list" role="list">
                     {platform.highlights.map((item) => (
-                      <li key={item} className="get-buddy-highlight-item">
+                      <li key={item} className="get-kukunotes-highlight-item">
                         <span className="highlight-check-wrap" aria-hidden="true">
                           <HiCheck className="highlight-check-icon" />
                         </span>
@@ -259,10 +259,10 @@ export default function GetBuddyPage() {
                 </div>
 
                 {/* Tags Footer */}
-                <div className="get-buddy-card-footer">
-                  <div className="get-buddy-tags">
+                <div className="get-kukunotes-card-footer">
+                  <div className="get-kukunotes-tags">
                     {platform.tags.map((tag) => (
-                      <span key={tag} className="get-buddy-tag-pill">
+                      <span key={tag} className="get-kukunotes-tag-pill">
                         {tag}
                       </span>
                     ))}
@@ -274,10 +274,10 @@ export default function GetBuddyPage() {
         </section>
 
         {/* ── Unified Ecosystem Architecture Strip ── */}
-        <section className="get-buddy-ecosystem-section" aria-labelledby="ecosystem-title">
-          <Reveal className="get-buddy-ecosystem-header">
+        <section className="get-kukunotes-ecosystem-section" aria-labelledby="ecosystem-title">
+          <Reveal className="get-kukunotes-ecosystem-header">
             <p className="studio-kicker">Unified Architecture</p>
-            <h2 id="ecosystem-title">One Buddy. Everywhere you go.</h2>
+            <h2 id="ecosystem-title">Your notes. Everywhere you go.</h2>
             <p className="studio-section-lead">
               Your conversations are never locked to a single device. Start recording on
               Chrome during a team standup, review your action list on your Android commute,
@@ -285,11 +285,11 @@ export default function GetBuddyPage() {
             </p>
           </Reveal>
 
-          <div className="get-buddy-ecosystem-grid">
-            {getBuddyEcosystemFeatures.map((feat, i) => (
+          <div className="get-kukunotes-ecosystem-grid">
+            {getKukuNotesEcosystemFeatures.map((feat, i) => (
               <Reveal
                 key={feat.title}
-                className="get-buddy-ecosystem-card"
+                className="get-kukunotes-ecosystem-card"
                 variant="fade-up"
                 delay={i * 0.06}
               >
@@ -309,10 +309,10 @@ export default function GetBuddyPage() {
         {/* ── System Requirements Matrix ── */}
         <section
           id="system-requirements"
-          className="get-buddy-specs-section"
+          className="get-kukunotes-specs-section"
           aria-labelledby="specs-title"
         >
-          <Reveal className="get-buddy-specs-header">
+          <Reveal className="get-kukunotes-specs-header">
             <p className="studio-kicker">Specifications</p>
             <h2 id="specs-title">System & Compatibility Guide</h2>
             <p className="studio-section-lead">
@@ -320,15 +320,15 @@ export default function GetBuddyPage() {
             </p>
           </Reveal>
 
-          <Reveal className="get-buddy-specs-table-wrap" delay={0.06}>
-            <div className="get-buddy-specs-table" role="table" aria-label="System requirements">
+          <Reveal className="get-kukunotes-specs-table-wrap" delay={0.06}>
+            <div className="get-kukunotes-specs-table" role="table" aria-label="System requirements">
               <div className="specs-table-row specs-table-row--head" role="row">
                 <div className="specs-col specs-col--platform" role="columnheader">Platform</div>
                 <div className="specs-col specs-col--spec" role="columnheader">Min Operating System</div>
                 <div className="specs-col specs-col--size" role="columnheader">App Footprint</div>
                 <div className="specs-col specs-col--perms" role="columnheader">Audio & Permissions</div>
               </div>
-              {getBuddyRequirements.map((req) => (
+              {getKukuNotesRequirements.map((req) => (
                 <div key={req.platform} className="specs-table-row" role="row">
                   <div className="specs-col specs-col--platform" role="cell">
                     <strong>{req.platform}</strong>
@@ -349,27 +349,27 @@ export default function GetBuddyPage() {
         </section>
 
         {/* ── FAQ Section ── */}
-        <section id="faq-permissions" className="pricing-faq-section" aria-labelledby="get-buddy-faq-title">
+        <section id="faq-permissions" className="pricing-faq-section" aria-labelledby="get-kukunotes-faq-title">
           <Reveal className="pricing-faq-header">
             <p className="studio-kicker">Got Questions?</p>
-            <h2 id="get-buddy-faq-title">Installation & Privacy FAQ</h2>
+            <h2 id="get-kukunotes-faq-title">Installation & Privacy FAQ</h2>
           </Reveal>
           <Reveal className="pricing-faq-list" delay={0.06}>
-            {getBuddyFaqs.map((faq) => (
+            {getKukuNotesFaqs.map((faq) => (
               <FaqItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </Reveal>
         </section>
 
         {/* ── Bottom CTA Card ── */}
-        <section className="studio-invite-section" aria-labelledby="get-buddy-cta-title">
+        <section className="studio-invite-section" aria-labelledby="get-kukunotes-cta-title">
           <Reveal className="studio-invite-card" variant="scale">
             <p className="studio-kicker studio-invite-kicker">Get Started in Seconds</p>
-            <h2 id="get-buddy-cta-title">
-              Ready to bring Buddy into your next conversation?
+            <h2 id="get-kukunotes-cta-title">
+              Ready to bring KukuNotes into your next conversation?
             </h2>
             <p className="studio-invite-lead">
-              Install Buddy on Android and experience the power of opt-in AI listening, automated note synthesis, and structured space memory.
+              Install KukuNotes on Android and experience the power of opt-in AI listening, automated note synthesis, and structured space memory.
             </p>
             <div className="studio-invite-actions">
               <a
@@ -377,13 +377,13 @@ export default function GetBuddyPage() {
                 href={siteConfig.playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                id="get-buddy-bottom-download"
+                id="get-kukunotes-bottom-download"
               >
                 <FaGooglePlay style={{ marginRight: 8, fontSize: "1.1rem" }} />
                 <span>Download on Google Play</span>
                 <HiArrowUpRight style={{ marginLeft: 6 }} />
               </a>
-              <Link className="studio-btn studio-btn-ink" href="/pricing" id="get-buddy-bottom-pricing">
+              <Link className="studio-btn studio-btn-ink" href="/pricing" id="get-kukunotes-bottom-pricing">
                 <span>Explore Pro & Business Plans</span>
                 <HiArrowRight style={{ marginLeft: 6 }} />
               </Link>
@@ -392,7 +392,7 @@ export default function GetBuddyPage() {
         </section>
 
       </main>
-      <BuddyFooter />
+      <KukuNotesFooter />
     </div>
   );
 }

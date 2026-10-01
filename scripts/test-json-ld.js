@@ -17,7 +17,7 @@ async function testRoute(path) {
 async function run() {
   await testRoute("/");
   await testRoute("/pricing");
-  await testRoute("/get-buddy");
+  await testRoute("/get-kukunotes");
   await testRoute("/use-cases");
   await testRoute("/contact");
 }
