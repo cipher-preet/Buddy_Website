@@ -1,3 +1,5 @@
+import { siteConfig } from "./site";
+
 export type PlatformItem = {
   id: "android" | "desktop" | "chrome" | "web";
   title: string;
@@ -116,7 +118,7 @@ export const getKukuNotesPlatforms: PlatformItem[] = [
     ],
     primaryCta: {
       label: "Open Web Workspace",
-      href: "https://play.google.com/store/apps/details?id=com.aiassistantapp",
+      href: siteConfig.platformUrl,
       isExternal: true,
     },
     secondaryAction: {

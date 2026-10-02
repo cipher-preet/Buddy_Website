@@ -1,3 +1,5 @@
+import { siteConfig } from "./site";
+
 export type BillingCycle = "monthly" | "quarterly";
 
 export type PricingPlan = {
@@ -89,7 +91,7 @@ export const pricingPlans: PricingPlan[] = [
     ],
     languages: CORE_LANGUAGES,
     ctaLabel: "Start for free",
-    ctaHref: "https://play.google.com/store/apps/details?id=com.aiassistantapp",
+    ctaHref: siteConfig.platformUrl,
     isExternal: true,
   },
   {
@@ -131,7 +133,7 @@ export const pricingPlans: PricingPlan[] = [
     ],
     languages: CORE_LANGUAGES,
     ctaLabel: "Get KukuNotes Pro",
-    ctaHref: "https://play.google.com/store/apps/details?id=com.aiassistantapp",
+    ctaHref: siteConfig.platformUrl,
     isExternal: true,
   },
   {
@@ -172,7 +174,7 @@ export const pricingPlans: PricingPlan[] = [
     ],
     languages: ALL_INDIAN_LANGUAGES,
     ctaLabel: "Upgrade to Business",
-    ctaHref: "https://play.google.com/store/apps/details?id=com.aiassistantapp",
+    ctaHref: siteConfig.platformUrl,
     isExternal: true,
   },
 ];

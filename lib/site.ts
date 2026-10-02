@@ -18,6 +18,7 @@ export const siteConfig = {
   playStoreUrl:
     "https://play.google.com/store/apps/details?id=com.aiassistantapp",
   androidPackage: "com.aiassistantapp",
+  platformUrl: "https://platform.kukunotes.com",
   keywords: allSeoKeywords,
   alternateNames: ["Kuku Notes", "KukuNotes AI", "KukuNotes App", "KukuNotes AI Note Taker", "KukuNote"],
   contentUpdated: "2026-10-01",

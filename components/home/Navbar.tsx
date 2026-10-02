@@ -178,17 +178,16 @@ export function Navbar() {
           })}
         </div>
         <div className="nav-end">
-          <Link
-            className={`nav-login${isRouteActive("/login") ? " is-active" : ""}`}
-            href="/login"
-            aria-current={isRouteActive("/login") ? "page" : undefined}
+          <a
+            className="nav-login"
+            href={siteConfig.platformUrl}
             onClick={() => setOpen(false)}
           >
             Login
-          </Link>
+          </a>
           <a
             className="nav-cta"
-            href={siteConfig.playStoreUrl}
+            href={siteConfig.platformUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
@@ -240,19 +239,18 @@ export function Navbar() {
         </div>
 
         <div className="nav-drawer-actions">
-          <Link
-            className={`nav-drawer-login${isRouteActive("/login") ? " is-active" : ""}`}
-            href="/login"
-            aria-current={isRouteActive("/login") ? "page" : undefined}
+          <a
+            className="nav-drawer-login"
+            href={siteConfig.platformUrl}
             onClick={() => setOpen(false)}
           >
             <span>Login to Web Studio</span>
             <HiArrowUpRight className="nav-drawer-action-arrow" aria-hidden="true" />
-          </Link>
+          </a>
 
           <a
             className="nav-drawer-cta"
-            href={siteConfig.playStoreUrl}
+            href={siteConfig.platformUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
