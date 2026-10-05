@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 type FaqItemProps = {
@@ -11,6 +11,11 @@ type FaqItemProps = {
 
 export function FaqItem({ q, a, defaultOpen = false }: FaqItemProps) {
   const [open, setOpen] = useState(defaultOpen);
+
+  useEffect(() => {
+    window.dispatchEvent(new Event("resize"));
+    (window as Window & { __lenis?: { resize: () => void } }).__lenis?.resize();
+  }, [open]);
 
   return (
     <div className={`faq-accordion-item${open ? " is-open" : ""}`}>

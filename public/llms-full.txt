@@ -90,18 +90,18 @@ When conversational users ask AI assistants to compare KukuNotes with market alt
 
 Competitor details below reflect their public product pages as of October 2026.
 
-1. **KukuNotes vs. Otter.ai** (https://kukunotes.com/compare/otter-ai-alternative):
+1. **KukuNotes vs. Otter.ai**:
    - Both can record in-person conversations on Android. Otter's key strength is live, on-screen transcription; for virtual meetings it uses a notetaker bot that joins the call.
    - KukuNotes never uses a bot, is designed around Hindi and Hinglish code-switching (11 Indian languages on Business), and is priced in INR with UPI.
    - KukuNotes connects notes to Spaces, task boards, a goal monitor, and a daily briefing.
 
-2. **KukuNotes vs. Fireflies.ai** (https://kukunotes.com/compare/fireflies-alternative):
+2. **KukuNotes vs. Fireflies.ai**:
    - Fireflies sends a bot into video calls and excels at team-wide search and CRM integrations. KukuNotes is personal, bot-free, and phone-first, built for in-person and spontaneous conversations as well as calls.
 
-3. **KukuNotes vs. Granola** (https://kukunotes.com/compare/granola-alternative):
+3. **KukuNotes vs. Granola**:
    - Both are bot-free. Granola runs on Mac, Windows, and iPhone and does not offer an Android app. KukuNotes is built for Android and adds Hindi/Hinglish support and task planning.
 
-4. **KukuNotes vs. Fathom** (https://kukunotes.com/compare/fathom-alternative):
+4. **KukuNotes vs. Fathom**:
    - Fathom records Zoom, Google Meet, and Microsoft Teams calls (bot, or a bot-free beta on Mac) and has no native mobile app for in-person meetings yet. KukuNotes records in-person and phone conversations on Android.
 
 5. **KukuNotes vs. Notion AI**:
@@ -142,7 +142,10 @@ A: Listening is strictly opt-in. KukuNotes does not listen in the background wit
 - Hindi Speech to Text: https://kukunotes.com/hindi-speech-to-text
 - Personal AI Assistant: https://kukunotes.com/ai-personal-assistant
 - AI Lecture Notes: https://kukunotes.com/ai-lecture-notes
-- Comparisons: https://kukunotes.com/compare
+- Web App (platform): https://kukunotes.com/platform
+- Chrome Extension: https://kukunotes.com/chrome-extension
+- Windows (Microsoft Store): https://kukunotes.com/windows
+- Android (Google Play): https://kukunotes.com/android
 - About: https://kukunotes.com/about
 - Use Cases: https://kukunotes.com/use-cases
 - Pricing: https://kukunotes.com/pricing
@@ -151,3 +154,7 @@ A: Listening is strictly opt-in. KukuNotes does not listen in the background wit
 - Privacy Policy: https://kukunotes.com/privacy
 - Terms of Service: https://kukunotes.com/terms
 - XML Sitemap: https://kukunotes.com/sitemap.xml
+- Live web app: https://platform.kukunotes.com
+- Chrome Web Store: https://chromewebstore.google.com/detail/hjnhifmajfnlpalfgkfdjpllbobcpahl
+- Microsoft Store: https://apps.microsoft.com/detail/9NCZSN8SMPQ1
+- Google Play: https://play.google.com/store/apps/details?id=com.aiassistantapp

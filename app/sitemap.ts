@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
-import { comparePages, topicPages } from "@/lib/seo-pages";
+import { destinationPages } from "@/lib/destination-pages";
+import { topicPages } from "@/lib/seo-pages";
 import { siteConfig } from "@/lib/site";
 
 // Bump when page content meaningfully changes; a per-request date makes Google ignore lastmod.
-const lastModified = new Date("2026-10-01");
+const lastModified = new Date("2026-10-05");
 
 const url = (path: string) => `${siteConfig.url}${path}`;
 
@@ -33,6 +34,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       images: [url("/screenshots/home.png"), url("/screenshots/notes-board.jpeg")],
     },
+    ...destinationPages.map((page) => ({
+      url: url(`/${page.slug}`),
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.95,
+      images: [url(page.image.src)],
+    })),
     {
       url: url("/use-cases"),
       lastModified,
@@ -51,19 +59,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.9,
-      images: [url(page.image.src)],
-    })),
-    {
-      url: url("/compare"),
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    ...comparePages.map((page) => ({
-      url: url(`/compare/${page.slug}`),
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
       images: [url(page.image.src)],
     })),
     {

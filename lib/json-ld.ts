@@ -1,6 +1,8 @@
 import { faqItems } from "@/lib/home-data";
 import { pricingFaqs, pricingPlans } from "@/lib/pricing-data";
 import { getKukuNotesFaqs } from "@/lib/get-kukunotes-data";
+import type { DestinationPage } from "@/lib/destination-pages";
+import { sitelinkNav } from "@/lib/destination-pages";
 import { entityKeywords } from "@/lib/seo-keywords";
 import type { SeoPage } from "@/lib/seo-pages";
 import { absoluteUrl, siteConfig } from "@/lib/site";
@@ -45,7 +47,16 @@ export function organizationJsonLd() {
     logo: absoluteUrl("/brand/kukunotes-icon-512.png"),
     description: siteConfig.description,
     disambiguatingDescription,
-    sameAs: [siteConfig.playStoreUrl],
+    sameAs: [
+      siteConfig.playStoreUrl,
+      siteConfig.microsoftStoreUrl,
+      siteConfig.chromeStoreUrl,
+      siteConfig.platformUrl,
+      absoluteUrl("/android"),
+      absoluteUrl("/windows"),
+      absoluteUrl("/chrome-extension"),
+      absoluteUrl("/platform"),
+    ],
     foundingDate: "2025",
     knowsAbout: [
       "AI personal assistant",
@@ -82,6 +93,40 @@ export function websiteJsonLd() {
     description: siteConfig.description,
     inLanguage: siteConfig.language,
     publisher: { "@id": organizationId },
+    hasPart: sitelinkNav.map((item) => ({
+      "@type": "WebPage",
+      name: item.name,
+      url: absoluteUrl(item.path),
+      description: item.description,
+    })),
+  };
+}
+
+export function siteNavigationJsonLd() {
+  return {
+    "@type": "SiteNavigationElement",
+    "@id": `${siteConfig.url}/#sitenav`,
+    name: "KukuNotes primary destinations",
+    hasPart: [
+      ...sitelinkNav.map((item) => ({
+        "@type": "WebPage",
+        name: item.name,
+        url: absoluteUrl(item.path),
+        description: item.description,
+      })),
+      {
+        "@type": "WebPage",
+        name: "Pricing",
+        url: absoluteUrl("/pricing"),
+        description: "KukuNotes Free, Pro, and Business plans in INR.",
+      },
+      {
+        "@type": "WebPage",
+        name: "Get KukuNotes",
+        url: absoluteUrl("/get-kukunotes"),
+        description: "Download KukuNotes for Android, Windows, Chrome, and Web.",
+      },
+    ],
   };
 }
 
@@ -95,11 +140,11 @@ export function softwareApplicationJsonLd() {
     url: siteConfig.url,
     applicationCategory: "ProductivityApplication",
     applicationSubCategory: "AI Note Taker & Meeting Recorder",
-    operatingSystem: "Android, Windows, macOS, Chrome, Web",
+    operatingSystem: "Android, Windows, Chrome, Web",
     installUrl: siteConfig.playStoreUrl,
     downloadUrl: siteConfig.playStoreUrl,
     identifier: siteConfig.androidPackage,
-    sameAs: [siteConfig.playStoreUrl],
+    sameAs: [siteConfig.playStoreUrl, siteConfig.microsoftStoreUrl, siteConfig.chromeStoreUrl],
     description: siteConfig.description,
     featureList: [...siteConfig.features],
     keywords: entityKeywords.join(", "),
@@ -192,6 +237,7 @@ export function homeJsonLd() {
     "@graph": [
       organizationJsonLd(),
       websiteJsonLd(),
+      siteNavigationJsonLd(),
       softwareApplicationJsonLd(),
       mobileApplicationJsonLd(),
       faqJsonLd(faqItems),
@@ -211,6 +257,8 @@ export function homeJsonLd() {
           "@type": "SpeakableSpecification",
           cssSelector: [".studio-hero h1", ".studio-hero-lead", ".studio-faq"],
         },
+        mainEntity: { "@id": appId },
+        significantLink: sitelinkNav.map((item) => absoluteUrl(item.path)),
       },
     ],
   };
@@ -406,34 +454,61 @@ export function seoPageJsonLd(page: SeoPage, path: string, parent?: BreadcrumbIt
   };
 }
 
-export function compareHubJsonLd(pages: SeoPage[]) {
-  const path = "/compare";
+export function destinationPageJsonLd(page: DestinationPage) {
+  const path = `/${page.slug}`;
+  const url = absoluteUrl(path);
 
   return {
     "@context": "https://schema.org",
     "@graph": [
       organizationJsonLd(),
+      softwareApplicationJsonLd(),
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
-        { name: "Compare", path },
+        { name: "Get KukuNotes", path: "/get-kukunotes" },
+        { name: page.kicker, path },
       ]),
+      faqJsonLd(page.faqs),
       {
-        "@type": "CollectionPage",
-        "@id": `${absoluteUrl(path)}#webpage`,
-        url: absoluteUrl(path),
-        name: "KukuNotes vs Otter, Fireflies, Granola & Fathom",
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: page.title,
+        description: page.description,
         inLanguage: siteConfig.language,
         isPartOf: { "@id": websiteId },
+        about: { "@id": appId },
+        primaryImageOfPage: absoluteUrl(page.image.src),
+        datePublished: "2026-10-05",
         dateModified: siteConfig.contentUpdated,
-        mainEntity: {
-          "@type": "ItemList",
-          itemListElement: pages.map((page, index) => ({
-            "@type": "ListItem",
-            position: index + 1,
-            name: page.title,
-            url: absoluteUrl(`/compare/${page.slug}`),
-          })),
+        keywords: page.keywords.join(", "),
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: [".seo-hero h1", ".seo-answer"],
         },
+        mainEntity: {
+          "@type": "SoftwareApplication",
+          name: `KukuNotes ${page.kicker}`,
+          applicationCategory: "ProductivityApplication",
+          operatingSystem:
+            page.slug === "android"
+              ? "Android"
+              : page.slug === "windows"
+                ? "Windows"
+                : page.slug === "chrome-extension"
+                  ? "Chrome"
+                  : "Web",
+          installUrl: page.cta.href,
+          downloadUrl: page.cta.href,
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "INR",
+            availability: "https://schema.org/InStock",
+            url: page.cta.href,
+          },
+        },
+        significantLink: [page.cta.href, absoluteUrl("/get-kukunotes"), absoluteUrl("/pricing")],
       },
     ],
   };

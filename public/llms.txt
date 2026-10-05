@@ -7,7 +7,7 @@
 - Package name: com.aiassistantapp
 - Contact: ps1535146@gmail.com
 - Category: AI note taker / AI meeting recorder / personal AI assistant / productivity
-- Last updated: 2026-10-01
+- Last updated: 2026-10-05
 
 ## Key facts
 
@@ -17,6 +17,7 @@
 - Spoken commitments become tasks with owner, due date, and priority on a per-Space task board.
 - Ask KukuNotes answers questions using only the user's own Spaces and notes.
 - Pro adds a daily briefing (priorities, meetings, free focus time) and a goal monitor.
+- Platforms: Android (Google Play), Windows (Microsoft Store), Chrome extension (Chrome Web Store), Web (platform.kukunotes.com).
 
 ## Pricing (INR)
 
@@ -32,7 +33,10 @@
 - [Hindi speech to text](https://kukunotes.com/hindi-speech-to-text): Hindi, Hinglish, and Indian language transcription
 - [Personal AI assistant](https://kukunotes.com/ai-personal-assistant): daily briefing and second brain
 - [AI lecture notes](https://kukunotes.com/ai-lecture-notes): lecture recording and study notes for students
-- [Comparisons](https://kukunotes.com/compare): KukuNotes vs Otter.ai, Fireflies.ai, Granola, and Fathom
+- [Web app](https://kukunotes.com/platform): platform.kukunotes.com workspace
+- [Chrome extension](https://kukunotes.com/chrome-extension): Meeting Recorder for Meet, Zoom Web, Teams Web
+- [Windows](https://kukunotes.com/windows): Microsoft Store desktop app
+- [Android](https://kukunotes.com/android): Google Play AI note taker
 - [About](https://kukunotes.com/about): what KukuNotes is, spelling, and brand facts
 - [Pricing](https://kukunotes.com/pricing)
 - [Use cases](https://kukunotes.com/use-cases)

@@ -140,8 +140,10 @@ export default function AboutPage() {
           <ul>
             <li><Link href="/ai-note-taker">AI note taker <span aria-hidden="true">-&gt;</span></Link></li>
             <li><Link href="/ai-meeting-recorder">AI meeting recorder <span aria-hidden="true">-&gt;</span></Link></li>
+            <li><Link href="/android">Android app <span aria-hidden="true">-&gt;</span></Link></li>
+            <li><Link href="/chrome-extension">Chrome extension <span aria-hidden="true">-&gt;</span></Link></li>
+            <li><Link href="/platform">Web app <span aria-hidden="true">-&gt;</span></Link></li>
             <li><Link href="/hindi-speech-to-text">Hindi speech to text <span aria-hidden="true">-&gt;</span></Link></li>
-            <li><Link href="/compare">Compare with other tools <span aria-hidden="true">-&gt;</span></Link></li>
           </ul>
         </nav>
       </main>

@@ -21,7 +21,14 @@ export const solutionLinks = [
   { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
   { label: "Personal AI assistant", href: "/ai-personal-assistant" },
   { label: "AI lecture notes", href: "/ai-lecture-notes" },
-  { label: "Compare alternatives", href: "/compare" },
+];
+
+/** High-intent install destinations — also used as Google sitelink candidates. */
+export const appDestinationLinks = [
+  { label: "Web app", href: "/platform" },
+  { label: "Chrome extension", href: "/chrome-extension" },
+  { label: "Windows", href: "/windows" },
+  { label: "Android", href: "/android" },
 ];
 
 export const useCaseItems = [
@@ -213,6 +220,14 @@ export const faqItems = [
   {
     q: "How does the daily briefing feature help plan the day?",
     a: "Every morning, KukuNotes synthesizes your upcoming calendar schedule, open action items across all Spaces, and available uninterrupted focus time into a clear executive briefing so you start each day oriented and prepared.",
+  },
+  {
+    q: "Where can I get KukuNotes — Android, Windows, Chrome, or web?",
+    a: "Download Android from Google Play, Windows from the Microsoft Store, add the Chrome Meeting Recorder from the Chrome Web Store, or open the web workspace at platform.kukunotes.com. All four stay synced under one account. See kukunotes.com/get-kukunotes for every option.",
+  },
+  {
+    q: "What is the best way to search for KukuNotes vs Kuku FM?",
+    a: "Search for KukuNotes, Kuku Notes, or KukuNotes AI note taker. KukuNotes is a productivity meeting recorder and note taker. It is not related to the Kuku FM or Kuku TV entertainment apps.",
   },
 ];
 

@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import type { DestinationPage } from "@/lib/destination-pages";
 import type { SeoPage } from "@/lib/seo-pages";
 
-export function seoPageMetadata(page: SeoPage, path: string): Metadata {
+type MetaSource = Pick<SeoPage | DestinationPage, "title" | "description" | "keywords">;
+
+export function seoPageMetadata(page: MetaSource, path: string): Metadata {
   return {
     title: page.title,
     description: page.description,

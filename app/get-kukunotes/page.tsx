@@ -20,7 +20,6 @@ import {
 import {
   FaGooglePlay,
   FaAndroid,
-  FaApple,
   FaWindows,
   FaChrome,
 } from "react-icons/fa6";
@@ -31,7 +30,6 @@ import {
   HiArrowRight,
   HiSparkles,
   HiDevicePhoneMobile,
-  HiComputerDesktop,
   HiGlobeAlt,
 } from "react-icons/hi2";
 import {
@@ -56,8 +54,7 @@ function PlatformBrandIcon({ id }: { id: PlatformItem["id"] }) {
     case "desktop":
       return (
         <div className="platform-brand-badge platform-brand-badge--desktop">
-          <FaApple className="platform-icon" />
-          <FaWindows className="platform-sub-icon" />
+          <FaWindows className="platform-icon" />
         </div>
       );
     case "chrome":
@@ -135,8 +132,8 @@ export default function GetKukuNotesPage() {
                 className={`get-kukunotes-filter-btn${activeFilter === "desktop" ? " is-active" : ""}`}
                 onClick={() => setActiveFilter("desktop")}
               >
-                <HiComputerDesktop className="filter-icon" />
-                <span>Desktop (Mac/Win)</span>
+                <FaWindows className="filter-icon" />
+                <span>Windows</span>
               </button>
               <button
                 type="button"
@@ -235,7 +232,7 @@ export default function GetKukuNotesPage() {
                     id={`download-cta-${platform.id}`}
                   >
                     {platform.id === "android" && <FaGooglePlay className="cta-icon" />}
-                    {platform.id === "desktop" && <HiComputerDesktop className="cta-icon" />}
+                    {platform.id === "desktop" && <FaWindows className="cta-icon" />}
                     {platform.id === "chrome" && <FaChrome className="cta-icon" />}
                     {platform.id === "web" && <TbWorld className="cta-icon" />}
                     <span>{platform.primaryCta.label}</span>

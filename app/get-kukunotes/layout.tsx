@@ -4,9 +4,9 @@ import { getKukuNotesJsonLd } from "@/lib/json-ld";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Download KukuNotes — Android App, Desktop, Chrome Extension & Web",
+  title: "Download KukuNotes — Android, Windows, Chrome Extension & Web",
   description:
-    "Get KukuNotes assistant on Android via Google Play, or access across Desktop (Mac & Windows), Chrome Extension, and Web. Enjoy zero-bot meeting recording, note taking, and cross-platform sync.",
+    "Get KukuNotes on Android via Google Play, Windows via the Microsoft Store, the Chrome extension, and the web. Enjoy zero-bot meeting recording, note taking, and cross-platform sync.",
   keywords: [
     "download KukuNotes",
     "KukuNotes app download",

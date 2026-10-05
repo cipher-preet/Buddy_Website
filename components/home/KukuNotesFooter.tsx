@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { solutionLinks } from "@/lib/home-data";
+import { appDestinationLinks, solutionLinks } from "@/lib/home-data";
 import { siteConfig } from "@/lib/site";
 
 export function KukuNotesFooter() {
@@ -40,16 +40,21 @@ export function KukuNotesFooter() {
               ))}
             </div>
             <div>
+              <p>APPS</p>
+              {appDestinationLinks.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  {item.label}
+                </Link>
+              ))}
+              <Link href="/get-kukunotes">All downloads</Link>
+            </div>
+            <div>
               <p>ROUTES</p>
               <Link href="/#product">Product</Link>
               <Link href="/use-cases">Use cases</Link>
-              <Link href="/get-kukunotes">Get KukuNotes</Link>
               <Link href="/pricing">Pricing</Link>
               <Link href="/about">About</Link>
               <Link href="/contact">Contact</Link>
-              <a href={siteConfig.playStoreUrl} target="_blank" rel="noopener noreferrer">
-                Google Play ↗
-              </a>
             </div>
             <div>
               <p>LEGAL</p>

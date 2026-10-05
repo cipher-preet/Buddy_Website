@@ -1,4 +1,4 @@
-export type SeoFaq = { q: string; a: string };
+﻿export type SeoFaq = { q: string; a: string };
 
 export type SeoSection = {
   heading: string;
@@ -21,7 +21,7 @@ export type SeoPage = {
   h1: string;
   h1Accent: string;
   lead: string;
-  /** 40–70 word direct answer placed above the fold for featured snippets and AI answer engines. */
+  /** 40â€“70 word direct answer placed above the fold for featured snippets and AI answer engines. */
   answer: string;
   image: { src: string; alt: string };
   sections: SeoSection[];
@@ -59,7 +59,7 @@ const listenSteps = [
 export const topicPages: SeoPage[] = [
   {
     slug: "ai-note-taker",
-    title: "AI Note Taker App — Turn Talk into Notes & Tasks",
+    title: "AI Note Taker App â€” Turn Talk into Notes & Tasks",
     description:
       "KukuNotes is a free AI note taker for Android. Record any conversation, get a clean summary, key decisions, and action items with source evidence. Works in English, Hindi, and Hinglish.",
     keywords: [
@@ -119,7 +119,7 @@ export const topicPages: SeoPage[] = [
     faqs: [
       {
         q: "Is KukuNotes a free AI note taker?",
-        a: "Yes. The Free plan includes 5 Spaces, 5 hours of recording per month, and unlimited note and task extraction in English and Hindi. Pro (₹799/month) raises recording to 100 hours and adds the daily briefing and goal monitor.",
+        a: "Yes. The Free plan includes 5 Spaces, 5 hours of recording per month, and unlimited note and task extraction in English and Hindi. Pro (â‚¹799/month) raises recording to 100 hours and adds the daily briefing and goal monitor.",
       },
       {
         q: "Does the AI note taker work offline?",
@@ -142,12 +142,12 @@ export const topicPages: SeoPage[] = [
       { label: "AI meeting recorder without bots", href: "/ai-meeting-recorder" },
       { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
       { label: "AI lecture notes for students", href: "/ai-lecture-notes" },
-      { label: "Compare KukuNotes with Otter.ai", href: "/compare/otter-ai-alternative" },
+      { label: "Get KukuNotes", href: "/get-kukunotes" },
     ],
   },
   {
     slug: "ai-meeting-recorder",
-    title: "AI Meeting Recorder Without Bots — Notes & Action Items",
+    title: "AI Meeting Recorder Without Bots â€” Notes & Action Items",
     description:
       "Record in-person and online meetings from your Android phone without inviting a bot. KukuNotes transcribes, summarizes, and extracts action items into the right project Space.",
     keywords: [
@@ -224,8 +224,8 @@ export const topicPages: SeoPage[] = [
     ],
     related: [
       { label: "AI note taker", href: "/ai-note-taker" },
-      { label: "Fireflies alternative without a bot", href: "/compare/fireflies-alternative" },
-      { label: "Fathom alternative for mobile", href: "/compare/fathom-alternative" },
+      { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
+      { label: "Get KukuNotes", href: "/get-kukunotes" },
       { label: "Pricing", href: "/pricing" },
     ],
   },
@@ -242,7 +242,7 @@ export const topicPages: SeoPage[] = [
       "Hindi voice notes app",
       "Hindi audio to text",
       "AI note taker India",
-      "हिंदी वॉइस टू टेक्स्ट",
+      "à¤¹à¤¿à¤‚à¤¦à¥€ à¤µà¥‰à¤‡à¤¸ à¤Ÿà¥‚ à¤Ÿà¥‡à¤•à¥à¤¸à¥à¤Ÿ",
     ],
     kicker: "Hindi & Hinglish speech to text",
     h1: "Hindi speech to text that understands",
@@ -274,22 +274,22 @@ export const topicPages: SeoPage[] = [
       {
         heading: "Supported Indian languages",
         body: [
-          "English, Hindi, and Hinglish are included on every plan. The Business plan unlocks an Indian languages pack covering Hindi (हिंदी), Marathi (मराठी), Gujarati (ગુજરાતી), Tamil (தமிழ்), Telugu (తెలుగు), Kannada (ಕನ್ನಡ), Bengali (বাংলা), Punjabi (ਪੰਜਾਬੀ), Malayalam (മലയാളം), Odia (ଓଡ଼ିଆ), and Assamese (অসমীয়া).",
+          "English, Hindi, and Hinglish are included on every plan. The Business plan unlocks an Indian languages pack covering Hindi (à¤¹à¤¿à¤‚à¤¦à¥€), Marathi (à¤®à¤°à¤¾à¤ à¥€), Gujarati (àª—à«àªœàª°àª¾àª¤à«€), Tamil (à®¤à®®à®¿à®´à¯), Telugu (à°¤à±†à°²à±à°—à±), Kannada (à²•à²¨à³à²¨à²¡), Bengali (à¦¬à¦¾à¦‚à¦²à¦¾), Punjabi (à¨ªà©°à¨œà¨¾à¨¬à©€), Malayalam (à´®à´²à´¯à´¾à´³à´‚), Odia (à¬“à¬¡à¬¼à¬¿à¬†), and Assamese (à¦…à¦¸à¦®à§€à¦¯à¦¼à¦¾).",
         ],
       },
       {
         heading: "Priced for India",
         body: [
-          "Start free. Pro costs ₹799 per month and Business ₹1,999 per month, with quarterly plans that save 22%. Payments go through Razorpay with UPI, cards, and NetBanking.",
+          "Start free. Pro costs â‚¹799 per month and Business â‚¹1,999 per month, with quarterly plans that save 22%. Payments go through Razorpay with UPI, cards, and NetBanking.",
         ],
       },
     ],
     localized: {
       lang: "hi",
-      heading: "हिंदी में: आवाज़ से नोट्स और टास्क",
+      heading: "à¤¹à¤¿à¤‚à¤¦à¥€ à¤®à¥‡à¤‚: à¤†à¤µà¤¾à¤œà¤¼ à¤¸à¥‡ à¤¨à¥‹à¤Ÿà¥à¤¸ à¤”à¤° à¤Ÿà¤¾à¤¸à¥à¤•",
       body: [
-        "KukuNotes आपकी हिंदी, अंग्रेज़ी और हिंग्लिश बातचीत को टेक्स्ट, साफ़ नोट्स और टास्क में बदलता है। मीटिंग, क्लास या क्लाइंट कॉल के दौरान बस “Start Listening” दबाएँ। बातचीत खत्म होते ही आपको सारांश, लिए गए फ़ैसले और करने वाले काम मिल जाते हैं।",
-        "रिकॉर्डिंग पूरी तरह आपकी मर्ज़ी से होती है। माइक्रोफ़ोन तभी चालू होता है जब आप सुनना शुरू करते हैं। शुरुआत मुफ़्त है, और Android पर Google Play से डाउनलोड किया जा सकता है।",
+        "KukuNotes à¤†à¤ªà¤•à¥€ à¤¹à¤¿à¤‚à¤¦à¥€, à¤…à¤‚à¤—à¥à¤°à¥‡à¤œà¤¼à¥€ à¤”à¤° à¤¹à¤¿à¤‚à¤—à¥à¤²à¤¿à¤¶ à¤¬à¤¾à¤¤à¤šà¥€à¤¤ à¤•à¥‹ à¤Ÿà¥‡à¤•à¥à¤¸à¥à¤Ÿ, à¤¸à¤¾à¤«à¤¼ à¤¨à¥‹à¤Ÿà¥à¤¸ à¤”à¤° à¤Ÿà¤¾à¤¸à¥à¤• à¤®à¥‡à¤‚ à¤¬à¤¦à¤²à¤¤à¤¾ à¤¹à¥ˆà¥¤ à¤®à¥€à¤Ÿà¤¿à¤‚à¤—, à¤•à¥à¤²à¤¾à¤¸ à¤¯à¤¾ à¤•à¥à¤²à¤¾à¤‡à¤‚à¤Ÿ à¤•à¥‰à¤² à¤•à¥‡ à¤¦à¥Œà¤°à¤¾à¤¨ à¤¬à¤¸ â€œStart Listeningâ€ à¤¦à¤¬à¤¾à¤à¤à¥¤ à¤¬à¤¾à¤¤à¤šà¥€à¤¤ à¤–à¤¤à¥à¤® à¤¹à¥‹à¤¤à¥‡ à¤¹à¥€ à¤†à¤ªà¤•à¥‹ à¤¸à¤¾à¤°à¤¾à¤‚à¤¶, à¤²à¤¿à¤ à¤—à¤ à¤«à¤¼à¥ˆà¤¸à¤²à¥‡ à¤”à¤° à¤•à¤°à¤¨à¥‡ à¤µà¤¾à¤²à¥‡ à¤•à¤¾à¤® à¤®à¤¿à¤² à¤œà¤¾à¤¤à¥‡ à¤¹à¥ˆà¤‚à¥¤",
+        "à¤°à¤¿à¤•à¥‰à¤°à¥à¤¡à¤¿à¤‚à¤— à¤ªà¥‚à¤°à¥€ à¤¤à¤°à¤¹ à¤†à¤ªà¤•à¥€ à¤®à¤°à¥à¤œà¤¼à¥€ à¤¸à¥‡ à¤¹à¥‹à¤¤à¥€ à¤¹à¥ˆà¥¤ à¤®à¤¾à¤‡à¤•à¥à¤°à¥‹à¤«à¤¼à¥‹à¤¨ à¤¤à¤­à¥€ à¤šà¤¾à¤²à¥‚ à¤¹à¥‹à¤¤à¤¾ à¤¹à¥ˆ à¤œà¤¬ à¤†à¤ª à¤¸à¥à¤¨à¤¨à¤¾ à¤¶à¥à¤°à¥‚ à¤•à¤°à¤¤à¥‡ à¤¹à¥ˆà¤‚à¥¤ à¤¶à¥à¤°à¥à¤†à¤¤ à¤®à¥à¤«à¤¼à¥à¤¤ à¤¹à¥ˆ, à¤”à¤° Android à¤ªà¤° Google Play à¤¸à¥‡ à¤¡à¤¾à¤‰à¤¨à¤²à¥‹à¤¡ à¤•à¤¿à¤¯à¤¾ à¤œà¤¾ à¤¸à¤•à¤¤à¤¾ à¤¹à¥ˆà¥¤",
       ],
     },
     faqs: [
@@ -317,13 +317,13 @@ export const topicPages: SeoPage[] = [
     related: [
       { label: "AI note taker", href: "/ai-note-taker" },
       { label: "AI meeting recorder", href: "/ai-meeting-recorder" },
-      { label: "Otter.ai alternative for India", href: "/compare/otter-ai-alternative" },
-      { label: "Pricing in ₹", href: "/pricing" },
+      { label: "Get KukuNotes", href: "/get-kukunotes" },
+      { label: "Pricing in â‚¹", href: "/pricing" },
     ],
   },
   {
     slug: "ai-personal-assistant",
-    title: "Personal AI Assistant App — Daily Briefing & Second Brain",
+    title: "Personal AI Assistant App â€” Daily Briefing & Second Brain",
     description:
       "KukuNotes is a personal AI assistant that remembers your conversations, turns them into tasks, and plans your day with a morning briefing. A private second brain for Android.",
     keywords: [
@@ -398,7 +398,7 @@ export const topicPages: SeoPage[] = [
   },
   {
     slug: "ai-lecture-notes",
-    title: "AI Lecture Notes App — Record Classes, Get Study Notes",
+    title: "AI Lecture Notes App â€” Record Classes, Get Study Notes",
     description:
       "Record lectures and coaching classes on your phone and get summaries, key concepts, and study tasks automatically. KukuNotes is a free AI lecture notes app with Hindi support.",
     keywords: [
@@ -474,280 +474,6 @@ export const topicPages: SeoPage[] = [
 export const competitorNote =
   "Competitor details are based on their public product pages as of October 2026 and may change; check their sites for the latest.";
 
-export const comparePages: SeoPage[] = [
-  {
-    slug: "otter-ai-alternative",
-    title: "Otter.ai Alternative for Android & India",
-    description:
-      "Looking for an Otter.ai alternative? Compare KukuNotes and Otter on bot-free recording, Hindi and Hinglish support, task extraction, Spaces, and INR pricing.",
-    keywords: [
-      "Otter.ai alternative",
-      "Otter alternative Android",
-      "Otter alternative India",
-      "free Otter alternative",
-      "KukuNotes vs Otter",
-    ],
-    kicker: "Otter.ai alternative",
-    h1: "An Otter.ai alternative built for",
-    h1Accent: "Hindi, tasks, and in-person talk.",
-    lead: "Otter is a strong transcription tool. If you mainly need Hinglish support, action items that turn into a plan, and pricing in rupees, KukuNotes is worth a look.",
-    answer:
-      "KukuNotes is an Otter.ai alternative for people who work in India or switch between Hindi and English. Both can record in person on Android. Otter is strongest at live transcription and joins virtual meetings with its notetaker bot. KukuNotes never uses a bot, is built around Hindi and Hinglish, turns conversations into tasks inside project Spaces, and is priced in rupees with a free plan.",
-    image: { src: "/screenshots/notes-board.jpeg", alt: "KukuNotes notes board compared with Otter.ai transcripts" },
-    comparison: {
-      competitor: "Otter.ai",
-      rows: [
-        { feature: "Android app for in-person recording", kukunotes: "Yes", competitor: "Yes" },
-        { feature: "Joins video calls as a bot", kukunotes: "Never", competitor: "Yes, for virtual meetings" },
-        { feature: "Hindi & Hinglish", kukunotes: "Core focus, every plan", competitor: "Check Otter's current language list" },
-        { feature: "Extra Indian languages", kukunotes: "11 on Business plan", competitor: "Limited" },
-        { feature: "Live transcript while recording", kukunotes: "Notes after capture", competitor: "Yes, a key strength" },
-        { feature: "Tasks & daily briefing", kukunotes: "Task boards, briefing, goal monitor", competitor: "Action items in notes" },
-        { feature: "Organization", kukunotes: "Spaces per project/class/client", competitor: "Folders & channels" },
-        { feature: "Pricing", kukunotes: "Free; Pro ₹799/mo; UPI", competitor: "Free tier; paid plans in USD" },
-      ],
-      chooseKukuNotes: [
-        "Your meetings mix Hindi and English",
-        "You want action items to become a daily plan, not just a list in a transcript",
-        "You never want a bot appearing in a client call",
-        "You prefer paying in rupees via UPI",
-      ],
-      chooseCompetitor: [
-        "You need a live transcript on screen during the meeting",
-        "Your team already standardizes on Otter for Zoom and Teams",
-        "Your conversations are almost entirely in English",
-      ],
-    },
-    sections: [
-      {
-        heading: "Where KukuNotes and Otter differ",
-        body: [
-          "Otter started as a transcription product and is excellent at it, especially with live captions. KukuNotes starts from a different question: what should happen after a conversation? It focuses on summaries, decisions, and tasks that flow into your Spaces and your daily briefing.",
-          "The other big difference is language. KukuNotes is designed around Hindi and Hinglish code-switching, which is common in Indian workplaces and classrooms.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "Is KukuNotes a free Otter.ai alternative?",
-        a: "Yes. KukuNotes has a Free plan with 5 Spaces, 5 hours of recording per month, and unlimited note and task extraction.",
-      },
-      {
-        q: "Can I move from Otter to KukuNotes?",
-        a: "You can start using KukuNotes alongside Otter right away. Create Spaces for your main projects and record new conversations there.",
-      },
-      {
-        q: "Does KukuNotes have live transcription like Otter?",
-        a: "KukuNotes focuses on structured notes and tasks after capture rather than live on-screen captions. If live captions are essential, Otter may suit you better.",
-      },
-    ],
-    related: [
-      { label: "Fireflies alternative", href: "/compare/fireflies-alternative" },
-      { label: "Granola alternative for Android", href: "/compare/granola-alternative" },
-      { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
-      { label: "All comparisons", href: "/compare" },
-    ],
-  },
-  {
-    slug: "fireflies-alternative",
-    title: "Fireflies.ai Alternative Without a Bot",
-    description:
-      "Compare KukuNotes and Fireflies.ai. KukuNotes records meetings from your phone without a bot, works for in-person conversations, and turns them into tasks inside project Spaces.",
-    keywords: [
-      "Fireflies alternative",
-      "Fireflies alternative without bot",
-      "Fireflies.ai alternative",
-      "KukuNotes vs Fireflies",
-      "meeting recorder without bot",
-    ],
-    kicker: "Fireflies.ai alternative",
-    h1: "A Fireflies alternative with",
-    h1Accent: "no bot in your calls.",
-    lead: "Fireflies is built for teams that want a bot in every video call and deep CRM integrations. KukuNotes is for people who want to capture conversations personally, including in person, without a visible notetaker.",
-    answer:
-      "KukuNotes is a Fireflies.ai alternative for people who do not want a notetaker bot joining their meetings. Fireflies sends a bot into Zoom, Meet, and Teams and is strong at team-wide search and CRM integrations. KukuNotes records from your Android phone only when you tap Start Listening, so it also works for in-person meetings, and it turns each conversation into tasks inside a project Space.",
-    image: { src: "/screenshots/tasks-board.jpeg", alt: "KukuNotes task board compared with Fireflies meeting notes" },
-    comparison: {
-      competitor: "Fireflies.ai",
-      rows: [
-        { feature: "Joins video calls as a bot", kukunotes: "Never", competitor: "Yes" },
-        { feature: "In-person conversations", kukunotes: "Core use case on Android", competitor: "Supported via mobile app" },
-        { feature: "Hindi & Hinglish", kukunotes: "Every plan", competitor: "Multilingual support" },
-        { feature: "CRM & sales integrations", kukunotes: "Selective sharing and exports", competitor: "Extensive, a key strength" },
-        { feature: "Personal planning", kukunotes: "Daily briefing, goal monitor", competitor: "Team-focused" },
-        { feature: "Organization", kukunotes: "Spaces per project/client/life area", competitor: "Workspace & channels" },
-        { feature: "Pricing", kukunotes: "Free; Pro ₹799/mo; UPI", competitor: "Free tier; paid plans in USD" },
-      ],
-      chooseKukuNotes: [
-        "Clients or candidates are uncomfortable with a bot in the call",
-        "Many of your conversations happen in person",
-        "You want your meeting notes connected to your personal tasks and day plan",
-      ],
-      chooseCompetitor: [
-        "Your sales team needs automatic CRM updates from every call",
-        "You want a bot to record every meeting on the company calendar automatically",
-      ],
-    },
-    sections: [
-      {
-        heading: "Personal capture vs. team-wide bots",
-        body: [
-          "Fireflies is designed for organizations that want every scheduled call recorded and searchable. KukuNotes is designed for an individual who decides which conversations matter, captures them on their own device, and gets a plan out of them.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "Can KukuNotes record a Google Meet call without a bot?",
-        a: "Yes. KukuNotes records through your phone's microphone while listening is on, so nothing joins the call. Let participants know you are taking notes.",
-      },
-      {
-        q: "Is KukuNotes cheaper than Fireflies?",
-        a: "KukuNotes has a Free plan and Pro costs ₹799 per month, billed in rupees. Compare against Fireflies' current USD pricing for your team size.",
-      },
-    ],
-    related: [
-      { label: "AI meeting recorder without bots", href: "/ai-meeting-recorder" },
-      { label: "Otter.ai alternative", href: "/compare/otter-ai-alternative" },
-      { label: "Fathom alternative", href: "/compare/fathom-alternative" },
-      { label: "All comparisons", href: "/compare" },
-    ],
-  },
-  {
-    slug: "granola-alternative",
-    title: "Granola Alternative for Android",
-    description:
-      "Like Granola's bot-free notes but use Android? KukuNotes is a bot-free AI note taker for Android with Hindi and Hinglish support, task extraction, and project Spaces.",
-    keywords: [
-      "Granola alternative",
-      "Granola for Android",
-      "Granola alternative Android",
-      "KukuNotes vs Granola",
-      "bot-free note taker Android",
-    ],
-    kicker: "Granola alternative",
-    h1: "The bot-free Granola alternative",
-    h1Accent: "for Android.",
-    lead: "Granola made bot-free meeting notes popular on Mac, Windows, and iPhone. KukuNotes brings the same no-bot approach to Android, plus Hindi support and task planning.",
-    answer:
-      "KukuNotes is a Granola alternative for Android users. Both are bot-free: neither sends a notetaker into your calls. Granola runs on Mac, Windows, and iPhone and is known for polished notes from desktop calls. KukuNotes runs on Android, focuses on in-person and phone-first capture, supports Hindi and Hinglish, and turns conversations into tasks, Spaces, and a daily briefing.",
-    image: { src: "/screenshots/note-detail.png", alt: "KukuNotes note detail compared with Granola notes" },
-    comparison: {
-      competitor: "Granola",
-      rows: [
-        { feature: "Bot-free capture", kukunotes: "Yes", competitor: "Yes" },
-        { feature: "Android app", kukunotes: "Yes", competitor: "No" },
-        { feature: "Platforms", kukunotes: "Android first", competitor: "Mac, Windows, iPhone" },
-        { feature: "Hindi & Hinglish", kukunotes: "Every plan", competitor: "Check Granola's current language list" },
-        { feature: "Notes style", kukunotes: "AI summary, decisions, tasks with evidence", competitor: "AI-enhanced notes you write alongside" },
-        { feature: "Tasks & planning", kukunotes: "Task boards, daily briefing, goal monitor", competitor: "Focused on notes" },
-        { feature: "Pricing", kukunotes: "Free; Pro ₹799/mo; UPI", competitor: "Free tier; paid plans in USD" },
-      ],
-      chooseKukuNotes: [
-        "You use an Android phone",
-        "You need Hindi or Hinglish support",
-        "You want notes to become tasks and a daily plan automatically",
-      ],
-      chooseCompetitor: [
-        "Most of your meetings are video calls on a Mac or Windows laptop",
-        "You like typing your own notes and having AI enhance them",
-      ],
-    },
-    sections: [
-      {
-        heading: "Same philosophy, different devices",
-        body: [
-          "Granola and KukuNotes agree that a meeting bot is unnecessary. The difference is where they live: Granola is desktop-first with an iPhone app, while KukuNotes is built for the phone in your pocket, which is what most people in India carry into meetings, classes, and client visits.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "Is there a Granola app for Android?",
-        a: "As of October 2026, Granola lists Mac, Windows, and iPhone apps but no Android app. KukuNotes is a bot-free AI note taker available for Android on Google Play.",
-      },
-      {
-        q: "Does KukuNotes work without a bot like Granola?",
-        a: "Yes. KukuNotes never joins your calls. It records through your device microphone only while Start Listening is active.",
-      },
-    ],
-    related: [
-      { label: "AI note taker", href: "/ai-note-taker" },
-      { label: "Otter.ai alternative", href: "/compare/otter-ai-alternative" },
-      { label: "Download for Android", href: "/get-kukunotes" },
-      { label: "All comparisons", href: "/compare" },
-    ],
-  },
-  {
-    slug: "fathom-alternative",
-    title: "Fathom Alternative for In-Person & Mobile Meetings",
-    description:
-      "Need a Fathom alternative that records in-person meetings on your phone? KukuNotes is a bot-free Android meeting recorder with Hindi support and automatic task extraction.",
-    keywords: [
-      "Fathom alternative",
-      "Fathom alternative mobile",
-      "Fathom alternative in-person",
-      "KukuNotes vs Fathom",
-      "AI meeting recorder Android",
-    ],
-    kicker: "Fathom alternative",
-    h1: "A Fathom alternative for meetings",
-    h1Accent: "that are not on a screen.",
-    lead: "Fathom is a popular free notetaker for Zoom, Meet, and Teams. When your meetings happen in a room, on a phone, or in Hindi, KukuNotes fills the gap.",
-    answer:
-      "KukuNotes is a Fathom alternative for in-person and mobile meetings. Fathom records Zoom, Google Meet, and Microsoft Teams calls, mainly with a bot, and at the time of writing has no native mobile app for in-person recording. KukuNotes is an Android app that records any conversation through your phone, with no bot, and turns it into notes, decisions, and tasks with Hindi and Hinglish support.",
-    image: { src: "/use-cases/meetings.jpg", alt: "In-person team meeting recorded with KukuNotes" },
-    comparison: {
-      competitor: "Fathom",
-      rows: [
-        { feature: "In-person recording on a phone", kukunotes: "Yes, Android", competitor: "No native mobile app yet" },
-        { feature: "Video call capture", kukunotes: "Via phone microphone, no bot", competitor: "Bot, or bot-free beta on Mac" },
-        { feature: "Hindi & Hinglish", kukunotes: "Every plan", competitor: "Check Fathom's current language list" },
-        { feature: "Tasks & planning", kukunotes: "Task boards, daily briefing, goal monitor", competitor: "Action items, CRM sync" },
-        { feature: "Free plan", kukunotes: "5 hrs/month, unlimited notes", competitor: "Generous free plan for calls" },
-        { feature: "Pricing", kukunotes: "Pro ₹799/mo; UPI", competitor: "Paid plans in USD" },
-      ],
-      chooseKukuNotes: [
-        "Your meetings happen in person or on the phone",
-        "You work in Hindi or Hinglish",
-        "You want notes linked to a personal task plan",
-      ],
-      chooseCompetitor: [
-        "Nearly all your meetings are Zoom, Meet, or Teams calls on a laptop",
-        "You want unlimited free recording of video calls",
-      ],
-    },
-    sections: [
-      {
-        heading: "When video-call notetakers are not enough",
-        body: [
-          "Video-call notetakers are great at the meetings they can see. Site visits, coaching classes, client lunches, and doctor appointments are invisible to them. KukuNotes was built for exactly those conversations.",
-        ],
-      },
-    ],
-    faqs: [
-      {
-        q: "Does Fathom have a mobile app?",
-        a: "At the time of writing, Fathom has announced an iOS app for in-person meetings but it is not live. KukuNotes is available on Android today.",
-      },
-      {
-        q: "Can I use Fathom and KukuNotes together?",
-        a: "Yes. Some people use Fathom for laptop video calls and KukuNotes for in-person and phone conversations.",
-      },
-    ],
-    related: [
-      { label: "AI meeting recorder", href: "/ai-meeting-recorder" },
-      { label: "Fireflies alternative", href: "/compare/fireflies-alternative" },
-      { label: "Granola alternative", href: "/compare/granola-alternative" },
-      { label: "All comparisons", href: "/compare" },
-    ],
-  },
-];
-
 export function getTopicPage(slug: string) {
   return topicPages.find((page) => page.slug === slug);
-}
-
-export function getComparePage(slug: string) {
-  return comparePages.find((page) => page.slug === slug);
 }

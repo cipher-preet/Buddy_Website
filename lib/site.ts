@@ -5,10 +5,10 @@ export const siteConfig = {
   shortName: "KukuNotes",
   brandName: "KukuNotes",
   tagline: "Capture. Organize. Grow.",
-  title: "KukuNotes — Personal AI Assistant, Meeting Recorder & AI Note Taker",
+  title: "KukuNotes — AI Note Taker, Meeting Recorder & Personal AI Assistant",
   titleTemplate: "%s | KukuNotes",
   description:
-    "KukuNotes is your private personal AI assistant, AI note taker, and meeting recorder for Android and cross-platform. Capture live conversations, transcribe Hindi & English, auto-extract action items, and organize your spaces with smart daily briefings.",
+    "KukuNotes is your private personal AI assistant, AI note taker, and AI meeting recorder for Android, Windows, Chrome, and web. Capture live conversations without a bot, get AI notes in Hindi & English, extract action items, and organize Spaces with a daily briefing.",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://kukunotes.com").replace(/\/$/, ""),
   locale: "en_US",
   language: "en",
@@ -17,12 +17,16 @@ export const siteConfig = {
   publisher: "KukuNotes Technologies",
   playStoreUrl:
     "https://play.google.com/store/apps/details?id=com.aiassistantapp",
+  microsoftStoreUrl:
+    "https://apps.microsoft.com/detail/9NCZSN8SMPQ1?hl=en-us&gl=IN&ocid=pdpshare",
+  chromeStoreUrl:
+    "https://chromewebstore.google.com/detail/hjnhifmajfnlpalfgkfdjpllbobcpahl?utm_source=item-share-cb",
   androidPackage: "com.aiassistantapp",
   platformUrl: "https://platform.kukunotes.com",
   keywords: allSeoKeywords,
   alternateNames: ["Kuku Notes", "KukuNotes AI", "KukuNotes App", "KukuNotes AI Note Taker", "KukuNote"],
-  contentUpdated: "2026-10-01",
-  platforms: ["Android", "Web", "Desktop (Mac & Windows)", "Chrome Extension"],
+  contentUpdated: "2026-10-05",
+  platforms: ["Android", "Web", "Windows", "Chrome Extension"],
   category: "ProductivityApplication",
   pricing: {
     free: "Free Forever ($0 / ₹0)",
