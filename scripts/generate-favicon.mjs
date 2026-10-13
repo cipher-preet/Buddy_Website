@@ -1,199 +1,74 @@
-import { writeFileSync } from "node:fs";
+/**
+ * Rebuild app/favicon.ico from the current brand K icon PNGs.
+ * Never draw the legacy bird mascot — Google caches favicons aggressively.
+ *
+ * Usage: node scripts/generate-favicon.mjs
+ */
+import { readFileSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const size = 64;
-const pixels = new Uint8ClampedArray(size * size * 4);
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const sizes = [16, 24, 32, 48, 64, 128, 256];
 
-function mix(a, b, t) {
-  return Math.round(a + (b - a) * t);
-}
+const source = readFileSync(join(root, "public/brand/kukunotes-icon-512.png"));
 
-function setPixel(x, y, rgba) {
-  if (x < 0 || x >= size || y < 0 || y >= size) return;
-  const i = (y * size + x) * 4;
-  pixels[i] = rgba[0];
-  pixels[i + 1] = rgba[1];
-  pixels[i + 2] = rgba[2];
-  pixels[i + 3] = rgba[3];
-}
-
-function blendPixel(x, y, rgba) {
-  if (x < 0 || x >= size || y < 0 || y >= size) return;
-  const i = (y * size + x) * 4;
-  const alpha = rgba[3] / 255;
-  const inv = 1 - alpha;
-  pixels[i] = Math.round(rgba[0] * alpha + pixels[i] * inv);
-  pixels[i + 1] = Math.round(rgba[1] * alpha + pixels[i + 1] * inv);
-  pixels[i + 2] = Math.round(rgba[2] * alpha + pixels[i + 2] * inv);
-  pixels[i + 3] = Math.min(255, Math.round(rgba[3] + pixels[i + 3] * inv));
-}
-
-function roundedRect(x, y, w, h, r, color) {
-  for (let py = Math.floor(y); py < Math.ceil(y + h); py++) {
-    for (let px = Math.floor(x); px < Math.ceil(x + w); px++) {
-      const cx = Math.max(x + r, Math.min(px, x + w - r));
-      const cy = Math.max(y + r, Math.min(py, y + h - r));
-      if ((px - cx) ** 2 + (py - cy) ** 2 <= r ** 2) setPixel(px, py, color);
-    }
+// Prefer pre-exported size PNGs when present; otherwise pack the 512 master only.
+const images = [];
+for (const s of sizes) {
+  const sizedPath = join(root, `public/brand/favicon-${s}.png`);
+  try {
+    images.push({ s, data: readFileSync(sizedPath) });
+  } catch {
+    // size not exported yet
   }
 }
 
-function ellipse(cx, cy, rx, ry, color) {
-  for (let y = Math.floor(cy - ry); y <= Math.ceil(cy + ry); y++) {
-    for (let x = Math.floor(cx - rx); x <= Math.ceil(cx + rx); x++) {
-      if (((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2 <= 1) blendPixel(x, y, color);
-    }
-  }
+if (images.length === 0) {
+  images.push({ s: 256, data: source });
 }
 
-function polygon(points, color) {
-  const minY = Math.floor(Math.min(...points.map((p) => p[1])));
-  const maxY = Math.ceil(Math.max(...points.map((p) => p[1])));
-  for (let y = minY; y <= maxY; y++) {
-    const nodes = [];
-    for (let i = 0, j = points.length - 1; i < points.length; j = i++) {
-      const [xi, yi] = points[i];
-      const [xj, yj] = points[j];
-      if ((yi < y && yj >= y) || (yj < y && yi >= y)) {
-        nodes.push(xi + ((y - yi) / (yj - yi)) * (xj - xi));
-      }
-    }
-    nodes.sort((a, b) => a - b);
-    for (let i = 0; i < nodes.length; i += 2) {
-      for (let x = Math.floor(nodes[i]); x < Math.ceil(nodes[i + 1]); x++) {
-        blendPixel(x, y, color);
-      }
-    }
-  }
+const headerSize = 6 + images.length * 16;
+let offset = headerSize;
+const dirs = images.map((img) => {
+  const entry = {
+    width: img.s >= 256 ? 0 : img.s,
+    height: img.s >= 256 ? 0 : img.s,
+    size: img.data.length,
+    offset,
+  };
+  offset += img.data.length;
+  return entry;
+});
+
+const buf = Buffer.alloc(offset);
+buf.writeUInt16LE(0, 0);
+buf.writeUInt16LE(1, 2);
+buf.writeUInt16LE(images.length, 4);
+
+let o = 6;
+for (const d of dirs) {
+  buf[o++] = d.width;
+  buf[o++] = d.height;
+  buf[o++] = 0;
+  buf[o++] = 0;
+  buf.writeUInt16LE(1, o);
+  o += 2;
+  buf.writeUInt16LE(32, o);
+  o += 2;
+  buf.writeUInt32LE(d.size, o);
+  o += 4;
+  buf.writeUInt32LE(d.offset, o);
+  o += 4;
 }
 
-function thickLine(x1, y1, x2, y2, width, color) {
-  const minX = Math.floor(Math.min(x1, x2) - width);
-  const maxX = Math.ceil(Math.max(x1, x2) + width);
-  const minY = Math.floor(Math.min(y1, y2) - width);
-  const maxY = Math.ceil(Math.max(y1, y2) + width);
-  const dx = x2 - x1;
-  const dy = y2 - y1;
-  const len2 = dx * dx + dy * dy;
-  for (let y = minY; y <= maxY; y++) {
-    for (let x = minX; x <= maxX; x++) {
-      const t = Math.max(0, Math.min(1, ((x - x1) * dx + (y - y1) * dy) / len2));
-      const px = x1 + t * dx;
-      const py = y1 + t * dy;
-      if ((x - px) ** 2 + (y - py) ** 2 <= (width / 2) ** 2) blendPixel(x, y, color);
-    }
-  }
+let off = headerSize;
+for (const img of images) {
+  img.data.copy(buf, off);
+  off += img.data.length;
 }
 
-roundedRect(0, 0, size, size, 13, [246, 243, 255, 255]);
-
-for (let y = 0; y < size; y++) {
-  for (let x = 0; x < size; x++) {
-    const t = (x + y) / (size * 2);
-    const purple = [mix(79, 49, t), mix(70, 46, t), mix(229, 159, t), 255];
-    const inHead = ((x - 35) / 28) ** 2 + ((y - 32) / 26) ** 2 <= 1;
-    const inLeft = ((x - 26) / 19) ** 2 + ((y - 36) / 26) ** 2 <= 1;
-    if (inHead || inLeft) blendPixel(x, y, purple);
-  }
-}
-
-polygon(
-  [
-    [16, 48],
-    [16, 60],
-    [30, 48],
-    [38, 44],
-  ],
-  [49, 46, 159, 255],
-);
-
-polygon(
-  [
-    [46, 15],
-    [56, 9],
-    [49, 19],
-    [56, 24],
-    [44, 25],
-  ],
-  [49, 46, 159, 255],
-);
-
-ellipse(33, 33, 19, 11, [251, 250, 255, 255]);
-ellipse(25, 32, 2.4, 4.2, [41, 32, 128, 255]);
-ellipse(39, 32, 2.4, 4.2, [41, 32, 128, 255]);
-thickLine(29, 39, 33, 42, 2.2, [41, 32, 128, 255]);
-thickLine(33, 42, 38, 39, 2.2, [41, 32, 128, 255]);
-
-const star = [
-  [53, 11],
-  [56, 18],
-  [63, 21],
-  [56, 24],
-  [53, 32],
-  [49, 24],
-  [42, 21],
-  [49, 18],
-];
-polygon(star.map(([x, y]) => [x + 0.8, y + 0.8]), [251, 250, 255, 255]);
-polygon(star, [41, 191, 208, 255]);
-
-const xorBytes = [];
-for (let y = size - 1; y >= 0; y--) {
-  for (let x = 0; x < size; x++) {
-    const i = (y * size + x) * 4;
-    xorBytes.push(pixels[i + 2], pixels[i + 1], pixels[i], pixels[i + 3]);
-  }
-}
-
-const andBytes = new Uint8Array(((size + 31) >> 5) * 4 * size);
-const dibSize = 40 + xorBytes.length + andBytes.length;
-const icoSize = 6 + 16 + dibSize;
-const buffer = Buffer.alloc(icoSize);
-let offset = 0;
-
-buffer.writeUInt16LE(0, offset);
-offset += 2;
-buffer.writeUInt16LE(1, offset);
-offset += 2;
-buffer.writeUInt16LE(1, offset);
-offset += 2;
-buffer[offset++] = size;
-buffer[offset++] = size;
-buffer[offset++] = 0;
-buffer[offset++] = 0;
-buffer.writeUInt16LE(1, offset);
-offset += 2;
-buffer.writeUInt16LE(32, offset);
-offset += 2;
-buffer.writeUInt32LE(dibSize, offset);
-offset += 4;
-buffer.writeUInt32LE(22, offset);
-offset += 4;
-
-buffer.writeUInt32LE(40, offset);
-offset += 4;
-buffer.writeInt32LE(size, offset);
-offset += 4;
-buffer.writeInt32LE(size * 2, offset);
-offset += 4;
-buffer.writeUInt16LE(1, offset);
-offset += 2;
-buffer.writeUInt16LE(32, offset);
-offset += 2;
-buffer.writeUInt32LE(0, offset);
-offset += 4;
-buffer.writeUInt32LE(xorBytes.length, offset);
-offset += 4;
-buffer.writeInt32LE(0, offset);
-offset += 4;
-buffer.writeInt32LE(0, offset);
-offset += 4;
-buffer.writeUInt32LE(0, offset);
-offset += 4;
-buffer.writeUInt32LE(0, offset);
-offset += 4;
-
-Buffer.from(xorBytes).copy(buffer, offset);
-offset += xorBytes.length;
-Buffer.from(andBytes).copy(buffer, offset);
-
-writeFileSync("app/favicon.ico", buffer);
+writeFileSync(join(root, "app/favicon.ico"), buf);
+writeFileSync(join(root, "app/icon.png"), readFileSync(join(root, "public/brand/kukunotes-icon-192.png")));
+writeFileSync(join(root, "app/apple-icon.png"), readFileSync(join(root, "public/brand/kukunotes-icon-192.png")));
+console.log(`Wrote favicon.ico (${buf.length} bytes) from brand K icon.`);

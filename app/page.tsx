@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   keywords: [
     ...seoKeywords.brand,
     ...seoKeywords.brandVariants,
+    ...seoKeywords.indiaGeo,
     "AI assistant",
     "personal AI assistant",
     "best AI assistant app",
@@ -25,28 +26,42 @@ export const metadata: Metadata = {
     "meeting recording",
     "AI meeting recorder",
     "meeting notes without bot",
+    "minutes of meeting app",
     "voice notes to tasks",
     "conversation to notes",
     "daily briefing app",
     "Hindi English meeting notes",
+    "Hinglish meeting notes app",
     "second brain app Android",
     "Otter alternative Android",
+    "WhatsApp meeting notes app",
   ],
   alternates: {
     canonical: "/",
+    languages: {
+      en: "/",
+      "x-default": "/",
+    },
   },
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
     url: "/",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "KukuNotes - Personal AI Assistant & Meeting Note Taker" }],
+    images: [
+      {
+        url: `/opengraph-image?v=${siteConfig.assetVersion}`,
+        width: 1200,
+        height: 630,
+        alt: "KukuNotes AI note taker — Capture. Organize. Grow.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/opengraph-image"],
+    images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
   },
 };
 

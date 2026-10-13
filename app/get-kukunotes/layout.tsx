@@ -13,9 +13,12 @@ export const metadata: Metadata = {
     "AI note taker Android",
     "meeting recorder download",
     "KukuNotes Google Play",
+    "KukuNotes Microsoft Store",
+    "KukuNotes Chrome extension",
     "best AI assistant app Android",
     "multilingual voice notes app",
     "private meeting recorder app",
+    "best AI note taker for Android",
   ],
   alternates: {
     canonical: "/get-kukunotes",
@@ -26,14 +29,21 @@ export const metadata: Metadata = {
       "Capture conversations, extract actions, and organize spaces on your phone, desktop, and browser.",
     url: "/get-kukunotes",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Download KukuNotes Companion" }],
+    images: [
+      {
+        url: `/opengraph-image?v=${siteConfig.assetVersion}`,
+        width: 1200,
+        height: 630,
+        alt: "Download KukuNotes",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Download KukuNotes — Android, Desktop & Web",
     description:
       "Zero-bot meeting recording and AI note taking. Install KukuNotes today.",
-    images: ["/opengraph-image"],
+    images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
   },
 };
 

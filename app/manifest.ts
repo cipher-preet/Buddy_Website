@@ -14,16 +14,22 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ["productivity", "lifestyle"],
     icons: [
       {
-        src: "/brand/kukunotes-icon-192.png",
+        src: `/brand/kukunotes-icon-192.png?v=${siteConfig.assetVersion}`,
         sizes: "192x192",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/brand/kukunotes-icon-512.png",
+        src: `/brand/kukunotes-icon-512.png?v=${siteConfig.assetVersion}`,
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
+      },
+      {
+        src: `/brand/kukunotes-icon-512.png?v=${siteConfig.assetVersion}`,
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
       },
     ],
   };

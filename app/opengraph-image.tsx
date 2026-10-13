@@ -3,15 +3,12 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "KukuNotes — Capture. Organize. Grow.";
+export const alt = "KukuNotes — AI note taker, meeting recorder & personal assistant";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const bannerData = await readFile(
-  join(process.cwd(), "public/brand/kukunotes-logo-banner.png"),
-  "base64",
-);
-const bannerSrc = `data:image/png;base64,${bannerData}`;
+const iconData = await readFile(join(process.cwd(), "public/brand/kukunotes-icon-512.png"), "base64");
+const iconSrc = `data:image/png;base64,${iconData}`;
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -22,35 +19,70 @@ export default function OpenGraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
           justifyContent: "space-between",
-          padding: "56px 72px 48px",
+          padding: "56px 64px",
           background:
-            "radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.28), transparent 45%), radial-gradient(circle at 85% 90%, rgba(168, 85, 247, 0.26), transparent 45%), #08103a",
+            "radial-gradient(circle at 12% 18%, rgba(56, 189, 248, 0.22), transparent 42%), radial-gradient(circle at 88% 82%, rgba(168, 85, 247, 0.2), transparent 40%), linear-gradient(160deg, #060b28 0%, #0c1548 55%, #08103a 100%)",
           color: "#ffffff",
+          fontFamily: "sans-serif",
         }}
       >
-        <img
-          src={bannerSrc}
-          alt="KukuNotes logo"
-          style={{ width: 1056, height: 352, objectFit: "contain" }}
-        />
+        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+          <img
+            src={iconSrc}
+            alt=""
+            width={72}
+            height={72}
+            style={{ width: 72, height: 72, borderRadius: 16 }}
+          />
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            <div style={{ display: "flex", fontSize: 36, fontWeight: 700, letterSpacing: -0.5 }}>
+              <span style={{ color: "#ffffff" }}>Kuku</span>
+              <span style={{ color: "#a78bfa" }}>Notes</span>
+            </div>
+            <div style={{ display: "flex", fontSize: 16, color: "#94a3b8", letterSpacing: 2 }}>
+              CAPTURE · ORGANIZE · GROW
+            </div>
+          </div>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: 980 }}>
+          <div
+            style={{
+              display: "flex",
+              fontSize: 52,
+              fontWeight: 700,
+              lineHeight: 1.15,
+              letterSpacing: -1.2,
+              color: "#f8fafc",
+            }}
+          >
+            AI note taker for real conversations — no meeting bot.
+          </div>
+          <div
+            style={{
+              display: "flex",
+              fontSize: 26,
+              lineHeight: 1.4,
+              color: "#cbd5e1",
+              maxWidth: 900,
+            }}
+          >
+            Record on Android, get notes, decisions, and action items in English, Hindi & Hinglish.
+          </div>
+        </div>
 
         <div
           style={{
             display: "flex",
-            maxWidth: 900,
-            textAlign: "center",
-            fontSize: 30,
-            lineHeight: 1.35,
-            color: "#cdd3f5",
+            justifyContent: "space-between",
+            alignItems: "center",
+            fontSize: 20,
+            color: "#94a3b8",
           }}
         >
-          The AI note taker that turns conversations into notes, tasks, and a plan you can use.
-        </div>
-
-        <div style={{ display: "flex", gap: 28, fontSize: 22, color: "#8f97c7" }}>
-          <span>Android · Desktop · Chrome · Web</span>
+          <span>Android · Windows · Chrome · Web</span>
+          <span>kukunotes.com</span>
         </div>
       </div>
     ),

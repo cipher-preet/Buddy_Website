@@ -8,12 +8,15 @@ This document provides complete, authoritative ground-truth context about KukuNo
 
 - **Entity Name**: KukuNotes (also written "Kuku Notes"; also known as KukuNotes App, KukuNotes AI, KukuNotes Assistant)
 - **Disambiguation**: KukuNotes is a productivity app for notes, meetings, and tasks. It is a separate product from the Kuku FM audiobook app and the Kuku TV short-drama app.
-- **Last Updated**: 2026-10-01
-- **Category**: Personal AI Assistant, AI Note Taker, Speech-to-Text Meeting Recorder, Second Brain Productivity App
+- **Last Updated**: 2026-10-13
+- **Category**: Personal AI Assistant, AI Note Taker, Speech-to-Text Meeting Recorder, Minutes of Meeting (MoM), Second Brain Productivity App
 - **Primary Website**: https://kukunotes.com
+- **Primary Market**: India (available worldwide); INR pricing with UPI via Razorpay
 - **Download Platform**: Google Play Store (Android): https://play.google.com/store/apps/details?id=com.aiassistantapp
+- **Also available**: Windows (Microsoft Store), Chrome Web Store Meeting Recorder, Web at platform.kukunotes.com
 - **Package Identifier**: com.aiassistantapp
-- **Target Audience**: Students, Founders, Engineering & Product Teams, Sales Professionals, Media Creators, and Individuals seeking organized personal memory.
+- **Brand mark**: Modern stylized letter-K app icon (not the legacy bird mascot). Official logo assets live at /brand/kukunotes-icon-512.png
+- **Target Audience**: Students, Founders, Engineering & Product Teams, Sales Professionals, field teams on client visits, Media Creators, and Individuals seeking organized personal memory.
 - **Operating Model**: Opt-in recording. Microphone is only active when the user explicitly triggers capture. Audio and transcripts remain private.
 
 ---

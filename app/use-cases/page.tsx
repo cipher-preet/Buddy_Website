@@ -35,6 +35,10 @@ export const metadata: Metadata = {
     "creator interview notes AI",
     "meeting summary app without bots",
     "KukuNotes use cases",
+    "client visit meeting notes app",
+    "dealer meeting notes AI",
+    "college lecture notes AI",
+    "minutes of meeting app",
   ],
   alternates: {
     canonical: "/use-cases",
@@ -45,14 +49,21 @@ export const metadata: Metadata = {
       "Turn lectures, team syncs, sales calls, and daily conversations into structured notes, prioritized tasks, and executive summaries.",
     url: "/use-cases",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "KukuNotes assistant use cases" }],
+    images: [
+      {
+        url: `/opengraph-image?v=${siteConfig.assetVersion}`,
+        width: 1200,
+        height: 630,
+        alt: "KukuNotes assistant use cases",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "KukuNotes Use Cases — AI Notes, Tasks & Meeting Intelligence",
     description:
       "How students, founders, sales executives, and creators use KukuNotes for seamless meeting notes and task extraction.",
-    images: ["/opengraph-image"],
+    images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
   },
 };
 

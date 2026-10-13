@@ -1,6 +1,6 @@
 import { siteConfig } from "./site";
 
-export type BillingCycle = "monthly" | "quarterly";
+export type BillingCycle = "monthly" | "yearly";
 
 export type PricingPlan = {
   id: "free" | "pro" | "business";
@@ -10,22 +10,24 @@ export type PricingPlan = {
   isPopular?: boolean;
   prices: {
     monthly: number;
-    quarterly: number;
+    yearly: number;
   };
   formattedPrices: {
     monthly: string;
-    quarterly: string;
+    yearly: string;
   };
   effectiveMonthly: {
     monthly: string;
-    quarterly: string;
+    yearly: string;
   };
   savings?: string;
   limits: {
-    spaces: string;
-    recording: string;
-    notes: string;
-    tasks: string;
+    notesRecording: string;
+    meetingRecording: string;
+    mindmaps: string;
+    documents: string;
+    goals: string;
+    marketplace: string;
   };
   features: {
     text: string;
@@ -37,8 +39,6 @@ export type PricingPlan = {
   ctaHref: string;
   isExternal?: boolean;
 };
-
-export const CORE_LANGUAGES = ["English", "Hindi"];
 
 export const ALL_INDIAN_LANGUAGES = [
   "English",
@@ -58,38 +58,39 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: "free",
     name: "Free",
-    tagline: "Start capturing conversations and experiencing KukuNotes.",
+    tagline: "Start capturing notes, meetings, and goals with KukuNotes.",
     prices: {
       monthly: 0,
-      quarterly: 0,
+      yearly: 0,
     },
     formattedPrices: {
       monthly: "₹0",
-      quarterly: "₹0",
+      yearly: "₹0",
     },
     effectiveMonthly: {
       monthly: "₹0",
-      quarterly: "₹0",
+      yearly: "₹0",
     },
     limits: {
-      spaces: "5 spaces",
-      recording: "2 hours",
-      notes: "100 notes",
-      tasks: "100 tasks",
+      notesRecording: "2 hours",
+      meetingRecording: "10 hours",
+      mindmaps: "10",
+      documents: "10",
+      goals: "2",
+      marketplace: "Browse only",
     },
     features: [
-      { text: "Create up to 5 focused spaces", included: true },
-      { text: "2 hours of meeting recording", included: true },
-      { text: "Up to 100 notes & 100 tasks", included: true },
-      { text: "Hindi & English AI listening", included: true },
-      { text: "AI notes & action item extraction", included: true },
-      { text: "iOS & Android mobile apps", included: true },
-      { text: "Daily briefing view", included: false },
-      { text: "Goal monitor across spaces", included: false },
-      { text: "11 Indian languages pack", included: false },
-      { text: "Team shared workspaces", included: false },
+      { text: "2 hours of notes recording", included: true },
+      { text: "10 hours of meeting recording", included: true },
+      { text: "10 mindmaps and 10 documents", included: true },
+      { text: "2 goal tracking", included: true },
+      { text: "11 Indian languages", included: true },
+      { text: "Marketplace browse only", included: true },
+      { text: "100 hours of notes & meeting recording", included: false },
+      { text: "Limited marketplace installs", included: false },
+      { text: "Unlimited capture & full marketplace", included: false },
     ],
-    languages: CORE_LANGUAGES,
+    languages: ALL_INDIAN_LANGUAGES,
     ctaLabel: "Start for free",
     ctaHref: siteConfig.platformUrl,
     isExternal: true,
@@ -97,41 +98,42 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: "pro",
     name: "Pro",
-    tagline: "For individuals and leaders who capture and plan every day.",
+    tagline: "For individuals who capture and plan every day.",
     badge: "Popular",
     isPopular: true,
     prices: {
-      monthly: 299,
-      quarterly: 699,
+      monthly: 499,
+      yearly: 3600,
     },
     formattedPrices: {
-      monthly: "₹299",
-      quarterly: "₹699",
+      monthly: "₹499",
+      yearly: "₹3,600",
     },
     effectiveMonthly: {
-      monthly: "₹299",
-      quarterly: "₹233",
+      monthly: "₹499",
+      yearly: "₹300",
     },
-    savings: "Save ₹198 vs monthly (22% off)",
+    savings: "Save ₹2,388 vs monthly (40% off)",
     limits: {
-      spaces: "Unlimited",
-      recording: "100 hours",
-      notes: "Unlimited",
-      tasks: "Unlimited",
+      notesRecording: "100 hours",
+      meetingRecording: "100 hours",
+      mindmaps: "200",
+      documents: "200",
+      goals: "50",
+      marketplace: "Limited",
     },
     features: [
-      { text: "Unlimited dedicated spaces", included: true, highlight: true },
+      { text: "100 hours of notes recording", included: true, highlight: true },
       { text: "100 hours of meeting recording", included: true, highlight: true },
-      { text: "Unlimited notes & task extraction", included: true },
-      { text: "Hindi & English AI listening", included: true },
-      { text: "Daily briefing with priorities & time blocks", included: true, highlight: true },
-      { text: "Goal monitor tracking space outcomes", included: true, highlight: true },
-      { text: "Deep note evidence & confidence scores", included: true },
-      { text: "iOS & Android mobile apps", included: true },
-      { text: "11 Indian languages pack", included: false },
-      { text: "Team shared workspaces", included: false },
+      { text: "200 mindmaps and 200 documents", included: true, highlight: true },
+      { text: "50 goal tracking", included: true },
+      { text: "11 Indian languages", included: true },
+      { text: "Limited marketplace access", included: true, highlight: true },
+      { text: "Unlimited notes & meeting recording", included: false },
+      { text: "Unlimited mindmaps & documents", included: false },
+      { text: "Full marketplace access", included: false },
     ],
-    languages: CORE_LANGUAGES,
+    languages: ALL_INDIAN_LANGUAGES,
     ctaLabel: "Get KukuNotes Pro",
     ctaHref: siteConfig.platformUrl,
     isExternal: true,
@@ -139,38 +141,38 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: "business",
     name: "Business",
-    tagline: "For teams, founders, and multilingual organizations.",
+    tagline: "Unlimited capture with full marketplace access.",
     badge: "Best value",
     prices: {
-      monthly: 699,
-      quarterly: 1799,
+      monthly: 999,
+      yearly: 7200,
     },
     formattedPrices: {
-      monthly: "₹699",
-      quarterly: "₹1,799",
+      monthly: "₹999",
+      yearly: "₹7,200",
     },
     effectiveMonthly: {
-      monthly: "₹699",
-      quarterly: "₹599",
+      monthly: "₹999",
+      yearly: "₹600",
     },
-    savings: "Save ₹298 vs monthly (14% off)",
+    savings: "Save ₹4,788 vs monthly (40% off)",
     limits: {
-      spaces: "Unlimited",
-      recording: "Unlimited",
-      notes: "Unlimited",
-      tasks: "Unlimited",
+      notesRecording: "Unlimited",
+      meetingRecording: "Unlimited",
+      mindmaps: "Unlimited",
+      documents: "Unlimited",
+      goals: "Unlimited",
+      marketplace: "Full access",
     },
     features: [
+      { text: "Unlimited notes recording", included: true, highlight: true },
+      { text: "Unlimited meeting recording", included: true, highlight: true },
+      { text: "Unlimited mindmaps and documents", included: true, highlight: true },
+      { text: "Unlimited goal tracking", included: true },
+      { text: "11 Indian languages", included: true },
+      { text: "Full marketplace access", included: true, highlight: true },
+      { text: "Priority support", included: true },
       { text: "Everything in Pro included", included: true },
-      { text: "Unlimited meeting recording hours", included: true, highlight: true },
-      { text: "11 Indian languages full pack", included: true, highlight: true },
-      { text: "Team shared workspaces & memory", included: true, highlight: true },
-      { text: "Selective note & task handoffs", included: true },
-      { text: "Daily briefing & goal monitor", included: true },
-      { text: "Centralized meeting actions & owners", included: true },
-      { text: "Priority transcription & AI speed", included: true },
-      { text: "Enterprise security & access control", included: true },
-      { text: "Dedicated priority support", included: true },
     ],
     languages: ALL_INDIAN_LANGUAGES,
     ctaLabel: "Upgrade to Business",
@@ -195,111 +197,64 @@ export const comparisonCategories: CompareCategory[] = [
     category: "Capacity & Capture",
     items: [
       {
-        name: "Dedicated Spaces",
-        description: "Organize work, personal plans, and projects in isolated contexts",
-        free: "5 spaces",
-        pro: "Unlimited",
-        business: "Unlimited",
-      },
-      {
-        name: "Meeting Recording",
-        description: "Opt-in conversation listening and background transcription",
+        name: "Notes Recording",
+        description: "Desktop listen and note capture hours",
         free: "2 hours",
         pro: "100 hours",
         business: "Unlimited",
       },
       {
-        name: "AI Notes Extracted",
-        description: "Structured summaries, takeaways, and searchable records",
-        free: "Up to 100",
-        pro: "Unlimited",
+        name: "Meeting Recording",
+        description: "Extension meeting capture hours",
+        free: "10 hours",
+        pro: "100 hours",
         business: "Unlimited",
       },
       {
-        name: "Task & Action Extraction",
-        description: "Commitments automatically parsed with priority and status",
-        free: "Up to 100",
-        pro: "Unlimited",
+        name: "Mindmaps",
+        description: "Generate structured mind maps",
+        free: "10",
+        pro: "200",
+        business: "Unlimited",
+      },
+      {
+        name: "Documents",
+        description: "Generate documentation from templates",
+        free: "10",
+        pro: "200",
+        business: "Unlimited",
+      },
+      {
+        name: "Goal Tracking",
+        description: "Active goals you can track",
+        free: "2",
+        pro: "50",
         business: "Unlimited",
       },
     ],
   },
   {
-    category: "Intelligence & Planning",
+    category: "Marketplace & Languages",
     items: [
       {
-        name: "Daily Briefing",
-        description: "Morning overview of focus time, top priorities, and scheduled calls",
-        free: false,
-        pro: true,
-        business: true,
+        name: "Marketplace",
+        description: "Browse and install featured agents",
+        free: "Browse only",
+        pro: "Limited installs",
+        business: "Full access",
       },
       {
-        name: "Goal Monitor",
-        description: "Track outcomes, milestones, and space momentum over time",
-        free: false,
-        pro: true,
-        business: true,
-      },
-      {
-        name: "Ask KukuNotes Chat",
-        description: "Query past meetings and spaces with contextual AI retrieval",
-        free: "Standard",
-        pro: "Priority",
-        business: "Instant",
-      },
-      {
-        name: "Confidence & Evidence",
-        description: "Source timestamps and exact transcript verification for notes",
-        free: "Basic",
-        pro: true,
-        business: true,
-      },
-    ],
-  },
-  {
-    category: "Languages & Regional Support",
-    items: [
-      {
-        name: "Core Languages",
-        description: "High-accuracy listening, transcription, and note generation in English & Hindi",
+        name: "11 Indian Languages",
+        description: "English, Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia",
         free: true,
         pro: true,
         business: true,
       },
-      {
-        name: "11 Indian Languages Pack",
-        description: "Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia",
-        free: false,
-        pro: false,
-        business: true,
-      },
-      {
-        name: "Cross-Language Translation",
-        description: "Listen in native regional languages and produce clear English notes",
-        free: false,
-        pro: "Hindi/Eng",
-        business: "All 11 languages",
-      },
     ],
   },
   {
-    category: "Team & Security",
+    category: "Security & Support",
     items: [
-      {
-        name: "Team Workspaces",
-        description: "Collaborative project spaces with shared context across colleagues",
-        free: false,
-        pro: false,
-        business: true,
-      },
-      {
-        name: "Selective Space Sharing",
-        description: "Export or share only the specific tasks and notes you approve",
-        free: "Basic",
-        pro: true,
-        business: true,
-      },
       {
         name: "Opt-in Only Recording",
         description: "Microphone activates strictly when you tap Start Listening",
@@ -328,15 +283,15 @@ export const comparisonCategories: CompareCategory[] = [
 export const pricingFaqs = [
   {
     q: "Can I change or cancel my plan anytime?",
-    a: "Yes. You can switch between Free, Pro, and Business anytime from inside the KukuNotes app or website. If you downgrade, your existing spaces, notes, and recordings always remain safe with you.",
+    a: "Yes. You can switch between Free, Pro, and Business anytime from inside the KukuNotes app or website. If you downgrade, your existing recordings and content always remain safe with you.",
   },
   {
-    q: "How does quarterly billing work?",
-    a: "Quarterly billing gives you 3 months of access at a substantial discount. Pro is ₹699 for 3 months (saving ₹198 compared to paying monthly), and Business is ₹1,799 for 3 months (saving ₹298). You can choose monthly or quarterly based on your preference.",
+    q: "How does yearly billing work?",
+    a: "Yearly billing gives you 12 months of access at a substantial discount. Pro is ₹3,600 per year (₹300/mo), and Business is ₹7,200 per year (₹600/mo). You can choose monthly or yearly based on your preference.",
   },
   {
-    q: "Which languages are included in the Business plan?",
-    a: "Business unlocks 11 Indian languages: English, Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, and Odia. KukuNotes listens natively in these languages and produces organized summaries and action tasks.",
+    q: "Which languages are included?",
+    a: "All plans include 11 Indian languages: English, Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, and Odia.",
   },
   {
     q: "What payment methods are supported?",
@@ -347,7 +302,7 @@ export const pricingFaqs = [
     a: "Never. KukuNotes operates on a strict opt-in model. Listening only begins when you deliberately choose to tap Start Listening, and it always binds to the specific space you selected.",
   },
   {
-    q: "What is a KukuNotes Space and how do limits apply?",
-    a: "A space is a dedicated container for a specific project, client, meeting series, or life area. On the Free plan you can create up to 5 spaces; on Pro and Business, you can create unlimited spaces.",
+    q: "What is included in marketplace access?",
+    a: "Free can browse agents only. Pro can install selected agents, while Business-only agents are labeled Buy. Business unlocks install access for every marketplace agent.",
   },
 ];

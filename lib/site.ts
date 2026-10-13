@@ -25,9 +25,19 @@ export const siteConfig = {
   platformUrl: "https://platform.kukunotes.com",
   keywords: allSeoKeywords,
   alternateNames: ["Kuku Notes", "KukuNotes AI", "KukuNotes App", "KukuNotes AI Note Taker", "KukuNote"],
-  contentUpdated: "2026-10-05",
+  contentUpdated: "2026-10-13",
+  /** Bump when brand icons change so Google/Bing drop cached favicons. */
+  assetVersion: "20261013",
   platforms: ["Android", "Web", "Windows", "Chrome Extension"],
   category: "ProductivityApplication",
+  geo: {
+    primaryMarket: "India",
+    regionCode: "IN",
+    coverage: "Worldwide",
+    placename: "India",
+    availableLanguages: ["English", "Hindi", "Hinglish"],
+    cities: ["Bengaluru", "Mumbai", "Delhi", "Hyderabad", "Pune", "Chennai", "Ahmedabad", "Kolkata"],
+  },
   pricing: {
     free: "Free Forever ($0 / ₹0)",
     proMonthly: "₹799 / month",

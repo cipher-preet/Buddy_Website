@@ -31,14 +31,21 @@ export const metadata: Metadata = {
       "Reach the KukuNotes team for support, product questions, partnerships, and feedback.",
     url: "/contact",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Contact KukuNotes" }],
+    images: [
+      {
+        url: `/opengraph-image?v=${siteConfig.assetVersion}`,
+        width: 1200,
+        height: 630,
+        alt: "Contact KukuNotes",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Contact KukuNotes",
     description:
       "Reach KukuNotes for product questions, support, partnerships, privacy requests, and feedback.",
-    images: ["/opengraph-image"],
+    images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
   },
 };
 

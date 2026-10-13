@@ -34,7 +34,7 @@ import { FaqItem } from "@/components/home/FaqItem";
 function BillingToggle({ value, onChange }: { value: BillingCycle; onChange: (v: BillingCycle) => void }) {
   return (
     <div className="plan-toggle" role="group" aria-label="Billing cycle">
-      {(["monthly", "quarterly"] as BillingCycle[]).map((cycle) => (
+      {(["monthly", "yearly"] as BillingCycle[]).map((cycle) => (
         <button
           key={cycle}
           type="button"
@@ -42,8 +42,8 @@ function BillingToggle({ value, onChange }: { value: BillingCycle; onChange: (v:
           onClick={() => onChange(cycle)}
           aria-pressed={value === cycle}
         >
-          <span>{cycle === "monthly" ? "Monthly" : "Quarterly"}</span>
-          {cycle === "quarterly" && <span className="plan-toggle-discount">Save 22%</span>}
+          <span>{cycle === "monthly" ? "Monthly" : "Yearly"}</span>
+          {cycle === "yearly" && <span className="plan-toggle-discount">Save 40%</span>}
         </button>
       ))}
     </div>
@@ -85,9 +85,9 @@ export default function PricingPage() {
         <section className="plan-cards-section" aria-label="Available plans">
           <div className="plan-cards-grid">
             {pricingPlans.map((plan, i) => {
-              const price = billing === "monthly" ? plan.formattedPrices.monthly : plan.formattedPrices.quarterly;
-              const cadence = plan.id === "free" ? "forever" : billing === "monthly" ? "/ mo" : "/ quarter";
-              const effective = billing === "quarterly" && plan.id !== "free" ? `${plan.effectiveMonthly.quarterly} / mo effective` : null;
+              const price = billing === "monthly" ? plan.formattedPrices.monthly : plan.formattedPrices.yearly;
+              const cadence = plan.id === "free" ? "forever" : billing === "monthly" ? "/ mo" : "/ year";
+              const effective = billing === "yearly" && plan.id !== "free" ? `${plan.effectiveMonthly.yearly} / mo effective` : null;
 
               return (
                 <Reveal
@@ -154,18 +154,18 @@ export default function PricingPage() {
                   {/* Key Limits Bar */}
                   <div className="plan-limits-strip">
                     <div className="plan-limit-item">
-                      <span className="plan-limit-val">{plan.limits.spaces}</span>
-                      <span className="plan-limit-key">Spaces</span>
-                    </div>
-                    <span className="plan-limit-dot" aria-hidden="true">·</span>
-                    <div className="plan-limit-item">
-                      <span className="plan-limit-val">{plan.limits.recording}</span>
-                      <span className="plan-limit-key">Audio</span>
-                    </div>
-                    <span className="plan-limit-dot" aria-hidden="true">·</span>
-                    <div className="plan-limit-item">
-                      <span className="plan-limit-val">{plan.limits.notes}</span>
+                      <span className="plan-limit-val">{plan.limits.notesRecording}</span>
                       <span className="plan-limit-key">Notes</span>
+                    </div>
+                    <span className="plan-limit-dot" aria-hidden="true">·</span>
+                    <div className="plan-limit-item">
+                      <span className="plan-limit-val">{plan.limits.meetingRecording}</span>
+                      <span className="plan-limit-key">Meetings</span>
+                    </div>
+                    <span className="plan-limit-dot" aria-hidden="true">·</span>
+                    <div className="plan-limit-item">
+                      <span className="plan-limit-val">{plan.limits.goals}</span>
+                      <span className="plan-limit-key">Goals</span>
                     </div>
                   </div>
 

@@ -41,6 +41,30 @@ export const metadata: Metadata = {
     },
   },
   manifest: "/manifest.webmanifest",
+  // Explicit icons with cache-bust so SERP/tab favicons drop the legacy bird mark.
+  icons: {
+    icon: [
+      { url: `/favicon.ico?v=${siteConfig.assetVersion}`, sizes: "any" },
+      {
+        url: `/brand/kukunotes-icon-192.png?v=${siteConfig.assetVersion}`,
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: `/brand/kukunotes-icon-512.png?v=${siteConfig.assetVersion}`,
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: `/apple-icon.png?v=${siteConfig.assetVersion}`,
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    shortcut: [`/favicon.ico?v=${siteConfig.assetVersion}`],
+  },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
@@ -66,13 +90,20 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "KukuNotes - Personal AI Assistant & Meeting Note Taker" }],
+    images: [
+      {
+        url: `/opengraph-image?v=${siteConfig.assetVersion}`,
+        width: 1200,
+        height: 630,
+        alt: "KukuNotes AI note taker — Capture. Organize. Grow.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/opengraph-image"],
+    images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
   },
   appleWebApp: {
     capable: true,
@@ -85,17 +116,23 @@ export const metadata: Metadata = {
     address: false,
   },
   other: {
-    "geo.placename": "Worldwide",
-    coverage: "Worldwide",
+    "geo.region": siteConfig.geo.regionCode,
+    "geo.placename": siteConfig.geo.placename,
+    "geo.position": "20.5937;78.9629",
+    ICBM: "20.5937, 78.9629",
+    coverage: siteConfig.geo.coverage,
     distribution: "global",
     language: siteConfig.language,
+    "content-language": "en,hi",
     "available-on": siteConfig.platforms.join(", "),
     "al:android:url": siteConfig.playStoreUrl,
     "al:android:package": siteConfig.androidPackage,
     "al:android:app_name": siteConfig.name,
     "google-play-app": `app-id=${siteConfig.androidPackage}`,
     rating: "General",
-    "ai-content-declaration": "KukuNotes product pages are written for people and describe app features, privacy controls, use cases, and support paths.",
+    "ai-content-declaration":
+      "KukuNotes product pages are written for people and describe app features, privacy controls, use cases, and support paths.",
+    "primary-market": siteConfig.geo.primaryMarket,
   },
 };
 

@@ -199,7 +199,7 @@ export const faqItems = [
   },
   {
     q: "Is KukuNotes free to use?",
-    a: "Yes. KukuNotes is completely free to start on Android with 5 dedicated spaces, 5 hours of monthly meeting recording, and unlimited note and task extraction. Users requiring extensive capacity can upgrade to KukuNotes Pro (100 recording hours) or Business (unlimited recording & 11 Indian languages) anytime.",
+    a: "Yes. KukuNotes is free to start with 2 hours of notes recording, 10 hours of meeting recording, 10 mindmaps, 10 documents, and 2 goals. Upgrade to Pro (₹499/mo) for higher limits, or Business (₹999/mo) for unlimited capture and full marketplace access.",
   },
   {
     q: "Does KukuNotes listen to my conversations all the time?",

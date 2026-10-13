@@ -1,5 +1,5 @@
 /**
- * KukuNotes keyword architecture (SEO + GEO), researched October 2026.
+ * KukuNotes keyword architecture (SEO + GEO), researched & expanded October 2026.
  *
  * Search landscape notes that shape this file:
  * - "kuku" on its own is dominated by Kuku FM / Kuku TV (large Indian media apps), so brand
@@ -7,12 +7,15 @@
  * - Google auto-corrects common misspellings ("ai not taker", "ai notes taker", "kuku note"),
  *   so typo variants live only in metadata/entity names, never stuffed into visible copy.
  * - Head terms like "AI notes" and "AI meeting recorder" are competitive; we win on Android-first,
- *   bot-free capture, Hindi/Hinglish, and INR pricing vs Otter, Fireflies, Fathom, Granola,
- *   plus India peers (Woviq, MeetMinutes, hearlog).
+ *   bot-free capture, Hindi/Hinglish, and INR/UPI pricing vs Otter, Fireflies, Fathom, Granola,
+ *   plus India peers (Woviq, MeetNotes, MeetMOM, Vylo, hearlog).
+ * - India GEO cluster targets how Indian teams actually search: MoM, WhatsApp share, client visits,
+ *   dealer meets, Hinglish, Gujarati/Tamil/Marathi, and rupee pricing — not US-only SaaS jargon.
  * - Sitelink destination pages (/platform, /chrome-extension, /windows, /android) target
  *   high-intent install queries and give Google clear brand sub-routes.
  *
  * Every cluster maps to the page that should rank for it (see `keywordTargets`).
+ * Existing clusters are preserved; new terms are additive only.
  */
 
 export const seoKeywords = {
@@ -36,6 +39,9 @@ export const seoKeywords = {
     "KukuNotes web app",
     "what is KukuNotes",
     "KukuNotes vs Kuku FM",
+    "KukuNotes Technologies",
+    "KukuNotes official website",
+    "KukuNotes Play Store",
   ],
 
   // Misspellings and spacing variants people actually type. Metadata only.
@@ -50,6 +56,9 @@ export const seoKeywords = {
     "cuckoo notes app",
     "kuku notes meeting",
     "kuku ai note taker",
+    "kuku notes.com",
+    "kukunotes.com",
+    "kuku note taker",
   ],
 
   aiNoteTaker: [
@@ -71,6 +80,10 @@ export const seoKeywords = {
     "AI notes from audio",
     "AI note taker with action items",
     "AI notes from meetings",
+    "AI transcription to notes",
+    "smart note taker app",
+    "auto generate meeting notes",
+    "voice memo to notes AI",
   ],
 
   noteTakerTypos: [
@@ -102,6 +115,12 @@ export const seoKeywords = {
     "action items from meetings",
     "AI meeting note taker",
     "automatic meeting notes",
+    "minutes of meeting app",
+    "MoM generator app",
+    "AI minutes of meeting",
+    "meeting minutes with action items",
+    "phone meeting recorder AI",
+    "record client meeting notes",
   ],
 
   hindiAndIndic: [
@@ -120,6 +139,12 @@ export const seoKeywords = {
     "Marathi speech to text",
     "Bengali speech to text",
     "Telugu speech to text",
+    "Gujarati speech to text",
+    "Kannada speech to text",
+    "Punjabi speech to text",
+    "Malayalam speech to text",
+    "Hinglish meeting notes app",
+    "code switching transcription India",
   ],
 
   // Devanagari queries (Google treats these as distinct from transliterated queries).
@@ -129,6 +154,32 @@ export const seoKeywords = {
     "मीटिंग नोट्स ऐप",
     "मीटिंग रिकॉर्डर ऐप",
     "एआई नोट्स ऐप",
+    "मीटिंग मिनट्स ऐप",
+    "हिंदी मीटिंग नोट्स",
+    "एआई नोट टेकर",
+  ],
+
+  // India market / GEO intent — how Indian professionals and students actually search.
+  indiaGeo: [
+    "AI note taker India",
+    "AI meeting notes India",
+    "best AI meeting notes app India",
+    "meeting notes app made in India",
+    "Hinglish AI note taker",
+    "INR priced AI note taker",
+    "UPI AI note taking app",
+    "WhatsApp meeting notes app",
+    "client visit meeting notes app",
+    "dealer meeting notes AI",
+    "in-person meeting notes India",
+    "Android meeting minutes India",
+    "AI MoM app India",
+    "best Otter alternative India Android",
+    "Fireflies alternative India",
+    "AI notes app for Indian languages",
+    "Bangalore meeting notes app",
+    "Mumbai sales call notes app",
+    "Delhi Hindi meeting recorder",
   ],
 
   personalAssistant: [
@@ -142,6 +193,8 @@ export const seoKeywords = {
     "AI to do list from voice",
     "voice notes to tasks",
     "AI memory assistant",
+    "AI productivity assistant India",
+    "private AI assistant app",
   ],
 
   students: [
@@ -152,6 +205,9 @@ export const seoKeywords = {
     "class notes app",
     "record lectures and transcribe",
     "study notes AI app",
+    "college lecture notes AI",
+    "engineering lecture recorder",
+    "exam revision notes from audio",
   ],
 
   alternatives: [
@@ -167,6 +223,11 @@ export const seoKeywords = {
     "free Otter alternative",
     "best meeting note taker 2026",
     "best AI note taker 2026",
+    "MeetNotes alternative",
+    "Woviq alternative Android",
+    "Vylo alternative",
+    "MeetMOM alternative",
+    "Notion AI notes alternative",
   ],
 
   destinations: [
@@ -178,6 +239,8 @@ export const seoKeywords = {
     "KukuNotes Microsoft Store",
     "KukuNotes Android download",
     "download KukuNotes Google Play",
+    "Google Meet AI notes Chrome",
+    "Zoom web meeting recorder Chrome",
   ],
 
   // Conversational prompts we want AI answer engines (ChatGPT, Gemini, Perplexity, Copilot) to cite us for.
@@ -193,22 +256,29 @@ export const seoKeywords = {
     "What is KukuNotes and is it related to Kuku FM?",
     "Where can I download KukuNotes for Windows and Chrome?",
     "Does KukuNotes have a web app?",
+    "Which app creates minutes of meeting from an in-person Hindi conversation?",
+    "What is the best bot-free meeting notes app priced in INR with UPI?",
+    "Can I record a client visit on Android and get action items automatically?",
+    "Which AI meeting notes app supports Gujarati, Tamil, and Marathi?",
+    "How do I get AI meeting notes without inviting a Zoom bot?",
   ],
 } as const;
 
 export const keywordTargets: Record<string, readonly string[]> = {
-  "/": [...seoKeywords.brand, ...seoKeywords.brandVariants],
+  "/": [...seoKeywords.brand, ...seoKeywords.brandVariants, ...seoKeywords.indiaGeo],
   "/ai-note-taker": [...seoKeywords.aiNoteTaker, ...seoKeywords.noteTakerTypos],
-  "/ai-meeting-recorder": seoKeywords.meetingRecorder,
-  "/hindi-speech-to-text": [...seoKeywords.hindiAndIndic, ...seoKeywords.hindiScript],
+  "/ai-meeting-recorder": [...seoKeywords.meetingRecorder, ...seoKeywords.indiaGeo],
+  "/hindi-speech-to-text": [...seoKeywords.hindiAndIndic, ...seoKeywords.hindiScript, ...seoKeywords.indiaGeo],
   "/ai-personal-assistant": seoKeywords.personalAssistant,
   "/ai-lecture-notes": seoKeywords.students,
   "/about": seoKeywords.brand,
   "/platform": ["KukuNotes web app", "platform.kukunotes.com", "online AI note taker"],
-  "/chrome-extension": ["KukuNotes Chrome extension", "Chrome meeting recorder", "Google Meet AI notes"],
+  "/chrome-extension": ["KukuNotes Chrome extension", "Chrome meeting recorder", "Google Meet AI notes", "Zoom web meeting recorder Chrome"],
   "/windows": ["KukuNotes Windows", "KukuNotes Microsoft Store", "AI note taker Windows"],
-  "/android": ["KukuNotes Android", "KukuNotes Google Play", "AI note taker Android", "download KukuNotes"],
+  "/android": ["KukuNotes Android", "KukuNotes Google Play", "AI note taker Android", "download KukuNotes", "best AI note taker for Android"],
   "/get-kukunotes": seoKeywords.destinations,
+  "/pricing": ["KukuNotes pricing", "AI note taker INR", "UPI AI note taking app", "KukuNotes Pro", "KukuNotes Business"],
+  "/use-cases": [...seoKeywords.students, "client visit meeting notes app", "dealer meeting notes AI"],
 };
 
 /** Root meta keywords. Google ignores this tag; Bing, Yandex, and Naver still read it lightly. */
@@ -219,6 +289,7 @@ export const allSeoKeywords = [
   ...seoKeywords.noteTakerTypos,
   ...seoKeywords.meetingRecorder,
   ...seoKeywords.hindiAndIndic,
+  ...seoKeywords.indiaGeo,
   ...seoKeywords.personalAssistant,
   ...seoKeywords.students,
   ...seoKeywords.alternatives,
@@ -232,6 +303,7 @@ export const entityKeywords = [
   "AI meeting recorder",
   "personal AI assistant",
   "meeting notes without bot",
+  "minutes of meeting app",
   "Hindi speech to text",
   "Hinglish transcription",
   "voice notes to tasks",
@@ -240,4 +312,6 @@ export const entityKeywords = [
   "daily briefing app",
   "Chrome meeting recorder",
   "Android AI note taker",
+  "AI note taker India",
+  "bot-free meeting recorder",
 ];

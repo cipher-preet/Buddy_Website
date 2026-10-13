@@ -15,16 +15,38 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  keywords: ["KukuNotes", "Kuku Notes", "what is KukuNotes", "KukuNotes app", "KukuNotes AI", "about KukuNotes"],
+  keywords: [
+    "KukuNotes",
+    "Kuku Notes",
+    "what is KukuNotes",
+    "KukuNotes app",
+    "KukuNotes AI",
+    "about KukuNotes",
+    "KukuNotes vs Kuku FM",
+    "KukuNotes Technologies",
+    "KukuNotes official website",
+  ],
   alternates: { canonical: "/about" },
   openGraph: {
     title,
     description,
     url: "/about",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "About KukuNotes" }],
+    images: [
+      {
+        url: `/opengraph-image?v=${siteConfig.assetVersion}`,
+        width: 1200,
+        height: 630,
+        alt: "About KukuNotes",
+      },
+    ],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
+  },
 };
 
 const facts = [
