@@ -8,7 +8,7 @@
 - Chrome extension: https://chromewebstore.google.com/detail/hjnhifmajfnlpalfgkfdjpllbobcpahl
 - Web workspace: https://platform.kukunotes.com
 - Package name: com.aiassistantapp
-- Contact: ps1535146@gmail.com
+- Contact: team@kukunotes.com
 - Category: AI note taker / AI meeting recorder / minutes of meeting / personal AI assistant / productivity
 - Primary market: India (available worldwide)
 - Last updated: 2026-10-13

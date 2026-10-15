@@ -3,6 +3,7 @@
 import { faqItems } from "@/lib/home-data";
 import { siteConfig } from "@/lib/site";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { AppFrame } from "./AppFrame";
 import { FaqItem } from "./FaqItem";
 import { ProductTheater } from "./ProductTheater";
@@ -20,24 +21,24 @@ const captureSteps = [
     number: "01",
     title: "Listen when it matters",
     copy: "Start capture for a meeting, a walk, or a working session. Listening is a choice, not a background habit.",
-    image: "/screenshots/listen.png",
-    alt: "KukuNotes live listening on the home screen",
+    image: "/screenshots/home-listening.jpg",
+    alt: "KukuNotes home with live listening and your spaces",
     meta: "Opt-in capture",
   },
   {
     number: "02",
     title: "Keep the useful parts",
     copy: "KukuNotes turns the conversation into notes with confidence, dates, and the space they belong to.",
-    image: "/screenshots/notes-board.jpeg",
-    alt: "KukuNotes notes with confidence and space context",
+    image: "/screenshots/notes-library.jpg",
+    alt: "KukuNotes notes grouped by space",
     meta: "Searchable memory",
   },
   {
     number: "03",
     title: "Move the next step",
     copy: "Commitments become prioritized tasks, still attached to the original context so follow-through stays honest.",
-    image: "/screenshots/tasks-board.jpeg",
-    alt: "KukuNotes tasks with priority and space context",
+    image: "/screenshots/tasks-week.jpg",
+    alt: "KukuNotes tasks with dates, priority, and space context",
     meta: "Clear next actions",
   },
 ];
@@ -66,6 +67,8 @@ const prompts = [
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function KukuNotesLanding() {
+  const platformHost = siteConfig.platformUrl.replace(/^https?:\/\//, "");
+
   return (
     <main className="studio">
       <section className="studio-hero" id="top">
@@ -134,19 +137,23 @@ export function KukuNotesLanding() {
           </ol>
 
           <div className="studio-hero-stage">
-            <AppFrame src="/screenshots/daily-briefing.jpeg" alt="KukuNotes daily briefing" size="hero" />
+            <AppFrame
+              src="/screenshots/home-spaces.jpg"
+              alt="KukuNotes home with live listening and your spaces"
+              size="hero"
+            />
             <div className="studio-hero-chips">
               <div className="studio-chip studio-chip-live">
                 <i />
                 Listening
               </div>
               <div className="studio-chip studio-chip-focus">
-                <b>4h 30m</b>
-                <span>focus time</span>
+                <b>18</b>
+                <span>notes</span>
               </div>
               <div className="studio-chip studio-chip-priority">
-                <b>3</b>
-                <span>priorities</span>
+                <b>7</b>
+                <span>tasks</span>
               </div>
             </div>
           </div>
@@ -156,22 +163,22 @@ export function KukuNotesLanding() {
       {/* ── Daily Briefing ── */}
       <section className="studio-briefing" aria-labelledby="briefing-title">
         <Reveal className="studio-briefing-copy">
-          <p className="studio-kicker">Daily briefing</p>
-          <h2 id="briefing-title">Know what deserves your attention today.</h2>
+          <p className="studio-kicker">Tasks</p>
+          <h2 id="briefing-title">The day, already sorted into work.</h2>
           <p className="studio-section-lead">
-            KukuNotes brings focus time, priorities, and upcoming meetings into one
-            opening view—so the day has a shape before it gets busy.
+            Open tasks stay with the space they came from, dated and prioritized, so you
+            can see what is waiting without rebuilding the list.
           </p>
           <ul className="studio-feature-list">
-            <li>Today’s priorities</li>
-            <li>Available focus time</li>
-            <li>Upcoming meetings</li>
+            <li>Dated on your calendar</li>
+            <li>Grouped by space</li>
+            <li>Priority on every item</li>
           </ul>
         </Reveal>
         <Reveal className="studio-briefing-stage" variant="scale" delay={0.08}>
           <AppFrame
-            src="/screenshots/daily-briefing.jpeg"
-            alt="KukuNotes daily briefing with priorities and upcoming meetings"
+            src="/screenshots/tasks-day.jpg"
+            alt="KukuNotes tasks for the day with dates, priority, and space context"
             size="hero"
           />
         </Reveal>
@@ -181,12 +188,12 @@ export function KukuNotesLanding() {
       <section className="studio-strip" aria-label="What KukuNotes holds">
         <p className="studio-strip-label">Built for the shape of a real day</p>
         <ul className="studio-strip-list">
-          <li>Daily briefing</li>
           <li>Live listening</li>
-          <li>Notes with context</li>
-          <li>Prioritized tasks</li>
-          <li>Space goals</li>
-          <li>Selective sharing</li>
+          <li>Notes</li>
+          <li>Tasks</li>
+          <li>Meetings</li>
+          <li>Documents</li>
+          <li>Mindmaps</li>
         </ul>
       </section>
 
@@ -243,17 +250,36 @@ export function KukuNotesLanding() {
           </ol>
         </Reveal>
         <Reveal className="studio-spaces-stage" variant="scale" delay={0.08}>
-          <AppFrame src="/screenshots/home.png" alt="KukuNotes home with spaces and live listening" size="hero" />
+          <div className="studio-desk-window studio-inline-window">
+            <div className="studio-desk-bar" aria-hidden="true">
+              <span className="studio-desk-dots">
+                <i />
+                <i />
+                <i />
+              </span>
+              <span className="studio-desk-url">
+                <b>{platformHost}</b>/home
+              </span>
+              <span className="studio-desk-bar-end" />
+            </div>
+            <div className="studio-desk-screen">
+              <div className="studio-desk-shot">
+                <Image
+                  src="/screenshots/desktop/spaces-workspace.png"
+                  alt="KukuNotes workspace with spaces and the tasks inside one space"
+                  fill
+                  sizes="(max-width: 980px) 100vw, 560px"
+                />
+              </div>
+            </div>
+          </div>
         </Reveal>
       </section>
 
       {/* ── Ask KukuNotes ── */}
       <section className="studio-ask" id="ask" aria-labelledby="ask-title">
         <div className="studio-ask-card">
-          <Reveal className="studio-ask-stage" variant="scale">
-            <AppFrame src="/screenshots/chat.png" alt="KukuNotes chat grounded in your spaces" size="hero" />
-          </Reveal>
-          <Reveal className="studio-ask-copy" delay={0.08}>
+          <Reveal className="studio-ask-copy">
             <p className="studio-kicker">Ask KukuNotes</p>
             <h2 id="ask-title">Ask from what you already lived, not a blank chat.</h2>
             <p className="studio-section-lead">
@@ -265,6 +291,31 @@ export function KukuNotesLanding() {
                 <li key={prompt}>{prompt}</li>
               ))}
             </ul>
+          </Reveal>
+          <Reveal className="studio-ask-stage" variant="scale" delay={0.08}>
+            <div className="studio-desk-window studio-inline-window">
+              <div className="studio-desk-bar" aria-hidden="true">
+                <span className="studio-desk-dots">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <span className="studio-desk-url">
+                  <b>{platformHost}</b>/chat
+                </span>
+                <span className="studio-desk-bar-end" />
+              </div>
+              <div className="studio-desk-screen">
+                <div className="studio-desk-shot">
+                  <Image
+                    src="/screenshots/desktop/ask-chat.png"
+                    alt="KukuNotes answering a question with a space attached as context"
+                    fill
+                    sizes="(max-width: 980px) 100vw, 640px"
+                  />
+                </div>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

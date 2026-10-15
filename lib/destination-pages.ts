@@ -97,7 +97,7 @@ export const destinationPages: DestinationPage[] = [
       { label: "Pricing", href: "/pricing" },
     ],
     image: {
-      src: "/screenshots/desktop/spaces-tasks.png",
+      src: "/screenshots/desktop/spaces-workspace.png",
       alt: "KukuNotes web app showing Spaces and tasks on platform.kukunotes.com",
     },
   },
@@ -171,7 +171,7 @@ export const destinationPages: DestinationPage[] = [
       { label: "Get KukuNotes", href: "/get-kukunotes" },
     ],
     image: {
-      src: "/screenshots/desktop/meetings.png",
+      src: "/screenshots/desktop/meetings-library.png",
       alt: "KukuNotes meetings library after Chrome extension recording",
     },
   },
@@ -244,7 +244,7 @@ export const destinationPages: DestinationPage[] = [
       { label: "Pricing", href: "/pricing" },
     ],
     image: {
-      src: "/screenshots/desktop/ai-chat.png",
+      src: "/screenshots/desktop/ask-chat.png",
       alt: "KukuNotes Windows desktop workspace with AI chat",
     },
   },
@@ -318,7 +318,7 @@ export const destinationPages: DestinationPage[] = [
       { label: "Web app", href: "/platform" },
     ],
     image: {
-      src: "/screenshots/home.png",
+      src: "/screenshots/home-spaces.jpg",
       alt: "KukuNotes Android app home screen with Spaces",
     },
   },

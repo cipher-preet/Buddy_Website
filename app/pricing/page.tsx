@@ -85,9 +85,10 @@ export default function PricingPage() {
         <section className="plan-cards-section" aria-label="Available plans">
           <div className="plan-cards-grid">
             {pricingPlans.map((plan, i) => {
-              const price = billing === "monthly" ? plan.formattedPrices.monthly : plan.formattedPrices.yearly;
-              const cadence = plan.id === "free" ? "forever" : billing === "monthly" ? "/ mo" : "/ year";
-              const effective = billing === "yearly" && plan.id !== "free" ? `${plan.effectiveMonthly.yearly} / mo effective` : null;
+              const isYearly = billing === "yearly" && plan.id !== "free";
+              const price = isYearly ? plan.effectiveMonthly.yearly : plan.formattedPrices.monthly;
+              const cadence = plan.id === "free" ? "forever" : "/ mo";
+              const totalLine = isYearly ? `Total ${plan.formattedPrices.yearly} billed yearly` : null;
 
               return (
                 <Reveal
@@ -127,8 +128,8 @@ export default function PricingPage() {
                     <div className="plan-card-subprice">
                       {plan.id === "free" ? (
                         <span className="plan-subprice-muted">No credit card required</span>
-                      ) : effective ? (
-                        <span className="plan-subprice-save">{effective} · {plan.savings}</span>
+                      ) : totalLine ? (
+                        <span className="plan-subprice-save">{totalLine}</span>
                       ) : (
                         <span className="plan-subprice-muted">Billed monthly, cancel anytime</span>
                       )}

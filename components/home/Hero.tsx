@@ -119,16 +119,16 @@ export function Hero() {
         >
           <motion.div className="hero-phone-main" style={{ transform: phoneTransform }}>
             <AppFrame
-              src="/screenshots/home.png"
+              src="/screenshots/home-spaces.jpg"
               alt="KukuNotes home screen showing spaces and listening"
               size="hero"
             />
           </motion.div>
           <motion.div className="hero-orbit hero-orbit-notes" aria-hidden="true">
-            <Image src="/screenshots/notes.png" alt="" fill sizes="130px" />
+            <Image src="/screenshots/notes-library.jpg" alt="" fill sizes="130px" />
           </motion.div>
           <motion.div className="hero-orbit hero-orbit-listen" aria-hidden="true">
-            <Image src="/screenshots/listen.png" alt="" fill sizes="116px" />
+            <Image src="/screenshots/home-listening.jpg" alt="" fill sizes="116px" />
           </motion.div>
           <motion.div className="hero-signal" aria-hidden="true"><span>LIVE CONTEXT</span><b>●</b></motion.div>
         </motion.div>

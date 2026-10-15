@@ -280,7 +280,7 @@ export function homeJsonLd() {
         inLanguage: siteConfig.language,
         isPartOf: { "@id": websiteId },
         about: { "@id": appId },
-        primaryImageOfPage: absoluteUrl(`/screenshots/daily-briefing.jpeg`),
+        primaryImageOfPage: absoluteUrl(`/screenshots/home-spaces.jpg`),
         dateModified: siteConfig.contentUpdated,
         keywords: entityKeywords.join(", "),
         breadcrumb: breadcrumbJsonLd([{ name: "Home", path: "/" }]),

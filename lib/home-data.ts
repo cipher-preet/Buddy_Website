@@ -102,8 +102,8 @@ export const smartListItems = [
     summary: "Keep every project in its own memory.",
     description:
       "Separate meetings, projects, and personal threads so KukuNotes always knows the context you are working in.",
-    image: "/screenshots/home.png",
-    stack: ["/screenshots/home.png", "/screenshots/notes.png", "/screenshots/tasks.png"],
+    image: "/screenshots/home-spaces.jpg",
+    stack: ["/screenshots/home-spaces.jpg", "/screenshots/notes-library.jpg", "/screenshots/tasks-day.jpg"],
     alt: "KukuNotes home screen with Create Space and My Spaces",
     accent: "indigo",
     cta: "Open Home",
@@ -115,8 +115,8 @@ export const smartListItems = [
     summary: "Talk naturally. KukuNotes captures what matters.",
     description:
       "Hit Start Listening and stay in the conversation. KukuNotes records decisions and details in the background.",
-    image: "/screenshots/listen.png",
-    stack: ["/screenshots/listen.png", "/screenshots/chat.png", "/screenshots/notes.png"],
+    image: "/screenshots/home-listening.jpg",
+    stack: ["/screenshots/home-listening.jpg", "/screenshots/desktop/ask-chat.png", "/screenshots/notes-library.jpg"],
     alt: "KukuNotes home screen with live listening active",
     accent: "violet",
     cta: "See listening",
@@ -128,8 +128,8 @@ export const smartListItems = [
     summary: "Highlights with confidence and evidence.",
     description:
       "Open searchable notes with confidence scores, tags, and source evidence—ready the moment you need them.",
-    image: "/screenshots/notes.png",
-    stack: ["/screenshots/notes.png", "/screenshots/note-detail.png", "/screenshots/home.png"],
+    image: "/screenshots/notes-library.jpg",
+    stack: ["/screenshots/notes-library.jpg", "/screenshots/home-spaces.jpg", "/screenshots/tasks-day.jpg"],
     alt: "KukuNotes notes library screen",
     accent: "cyan",
     cta: "Browse Notes",
@@ -141,8 +141,8 @@ export const smartListItems = [
     summary: "Action items with priority and status.",
     description:
       "Commitments become a clean task list you can finish, filter by space, and open in full detail.",
-    image: "/screenshots/tasks.png",
-    stack: ["/screenshots/tasks.png", "/screenshots/task-detail.png", "/screenshots/notes.png"],
+    image: "/screenshots/tasks-day.jpg",
+    stack: ["/screenshots/tasks-day.jpg", "/screenshots/tasks-week.jpg", "/screenshots/notes-library.jpg"],
     alt: "KukuNotes tasks progress screen",
     accent: "success",
     cta: "Open Tasks",
@@ -154,8 +154,8 @@ export const smartListItems = [
     summary: "Answers grounded in your spaces.",
     description:
       "Summarize a day, plan tomorrow, or prepare for a meeting—KukuNotes replies from what it already heard.",
-    image: "/screenshots/chat.png",
-    stack: ["/screenshots/chat.png", "/screenshots/ask-kukunotes.png", "/screenshots/note-detail.png"],
+    image: "/screenshots/desktop/ask-chat.png",
+    stack: ["/screenshots/desktop/ask-chat.png", "/screenshots/notes-library.jpg", "/screenshots/home-spaces.jpg"],
     alt: "KukuNotes chat conversation",
     accent: "indigo",
     cta: "Start chatting",
@@ -166,17 +166,17 @@ export const workflowSteps = [
   {
     title: "Create a space",
     description: "Start a focused workspace for a project, meeting, or life area.",
-    image: "/screenshots/home.png",
+    image: "/screenshots/home-spaces.jpg",
   },
   {
     title: "Start listening",
     description: "Talk naturally while KukuNotes captures what matters in the background.",
-    image: "/screenshots/listen.png",
+    image: "/screenshots/home-listening.jpg",
   },
   {
     title: "Review notes & tasks",
     description: "Open organized notes, clear tasks, and ask KukuNotes anything about the space.",
-    image: "/screenshots/tasks.png",
+    image: "/screenshots/tasks-day.jpg",
   },
 ];
 
@@ -233,39 +233,39 @@ export const faqItems = [
 
 export const appScreens = [
   {
-    title: "Daily briefing",
-    detail: "Start with focus time, priorities, and the meetings that need your attention.",
-    image: "/screenshots/daily-briefing.jpeg",
-    alt: "KukuNotes daily briefing with priorities and upcoming meetings",
+    title: "Home",
+    detail: "Start listening, open a space, and see notes and tasks in one place.",
+    image: "/screenshots/home-spaces.jpg",
+    alt: "KukuNotes home with live listening and spaces",
   },
   {
-    title: "Calendar",
-    detail: "See your day as a time-blocked plan, with every event in its place.",
-    image: "/screenshots/calendar.jpeg",
-    alt: "KukuNotes calendar showing scheduled events",
-  },
-  {
-    title: "Goal monitor",
-    detail: "Set an outcome for each space and keep its momentum visible.",
-    image: "/screenshots/goal-monitor.jpeg",
-    alt: "KukuNotes goal monitor for tracking space outcomes",
-  },
-  {
-    title: "Tasks",
-    detail: "Turn commitments into prioritized work with status, dates, and context.",
-    image: "/screenshots/tasks-board.jpeg",
-    alt: "KukuNotes task list with spaces and priority cards",
+    title: "Spaces",
+    detail: "Each project keeps its own notes, tasks, and listening session.",
+    image: "/screenshots/home-listening.jpg",
+    alt: "KukuNotes spaces on the home screen",
   },
   {
     title: "Notes",
-    detail: "Review conversation knowledge with confidence, dates, and linked spaces.",
-    image: "/screenshots/notes-board.jpeg",
-    alt: "KukuNotes notes list with confidence and space filters",
+    detail: "Review what was captured, dated and filed in the right space.",
+    image: "/screenshots/notes-library.jpg",
+    alt: "KukuNotes notes library grouped by space",
   },
   {
-    title: "Share a space",
-    detail: "Bundle the right notes and tasks into a deliberate, focused handoff.",
-    image: "/screenshots/share-space.jpeg",
-    alt: "KukuNotes share space flow for selecting tasks and notes",
+    title: "Tasks",
+    detail: "Turn commitments into prioritized work with status and dates.",
+    image: "/screenshots/tasks-day.jpg",
+    alt: "KukuNotes tasks with priority and dates",
+  },
+  {
+    title: "Task board",
+    detail: "See the week, the space, and what is still open.",
+    image: "/screenshots/tasks-week.jpg",
+    alt: "KukuNotes weekly task list",
+  },
+  {
+    title: "Workspace",
+    detail: "On the big screen, a space opens with its tasks beside it.",
+    image: "/screenshots/desktop/spaces-workspace.png",
+    alt: "KukuNotes desktop workspace with spaces and tasks",
   },
 ];

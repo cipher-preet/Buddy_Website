@@ -12,21 +12,21 @@ const views = [
     path: "home",
     kicker: "Workspace",
     title: "Every project in its own space, with tasks front and center.",
-    copy: "Pick a space and its tasks and notes open side by side. Overdue items, priorities, and due dates surface on their own, so nothing slips.",
-    points: ["Spaces sidebar", "Overdue & priority flags", "Tasks and notes per space"],
-    image: "/screenshots/desktop/spaces-tasks.png",
-    alt: "KukuNotes web app home with spaces list and overdue tasks",
+    copy: "Pick a space and its tasks and notes open side by side. Due dates and priorities stay on the item, so the next step is obvious.",
+    points: ["Spaces sidebar", "Due dates and priority", "Tasks and notes per space"],
+    image: "/screenshots/desktop/spaces-workspace.png",
+    alt: "KukuNotes workspace with a spaces sidebar and the tasks inside one space",
   },
   {
     id: "chat",
     label: "AI Chat",
     path: "chat",
     kicker: "Ask KukuNotes",
-    title: "Chat with everything you have already captured.",
-    copy: "Tag one or more spaces as context and ask in plain language. Answers come back structured, with overviews and the notes they came from.",
+    title: "Ask with a space attached, and get a structured answer.",
+    copy: "Tag the space that holds the conversation. The reply comes back organized, from the notes already in that space.",
     points: ["@space context", "Structured answers", "Grounded in your notes"],
-    image: "/screenshots/desktop/ai-chat.png",
-    alt: "KukuNotes AI chat answering a question about a space",
+    image: "/screenshots/desktop/ask-chat.png",
+    alt: "KukuNotes chat answering a question with a space attached as context",
   },
   {
     id: "meetings",
@@ -35,31 +35,42 @@ const views = [
     kicker: "Recordings",
     title: "Every meeting in one library, recorded without a bot.",
     copy: "Google Meet and Zoom sessions land with date, time, and duration. Filter by space to find the conversation you need.",
-    points: ["Google Meet & Zoom", "Filter by space", "Grid or list view"],
-    image: "/screenshots/desktop/meetings.png",
+    points: ["Google Meet and Zoom", "Filter by space", "Grid or list view"],
+    image: "/screenshots/desktop/meetings-library.png",
     alt: "KukuNotes meetings library with recorded Google Meet and Zoom sessions",
   },
   {
-    id: "summary",
-    label: "Meeting Summary",
-    path: "meetings/summary",
-    kicker: "After the call",
-    title: "Replay it, read the summary, ask a follow-up.",
-    copy: "Each recording comes with video, summary, key takeaways, transcript, tasks, and notes, plus a chat that answers questions about that exact meeting.",
-    points: ["Video playback", "Summary & transcript", "Per-meeting AI chat"],
-    image: "/screenshots/desktop/meeting-detail.png",
-    alt: "KukuNotes meeting detail with video, summary, and meeting chat",
+    id: "documents",
+    label: "Documents",
+    path: "documents",
+    kicker: "Templates",
+    title: "Start from a template instead of a blank page.",
+    copy: "Meeting recaps, weekly plans, status reports, and decision logs are ready to fill. The structure is already there.",
+    points: ["Meeting recaps", "Weekly planners", "Status reports"],
+    image: "/screenshots/desktop/documents.png",
+    alt: "KukuNotes document templates for meeting recaps, planners, and status reports",
   },
   {
-    id: "calendar",
-    label: "Calendar",
-    path: "calendar",
-    kicker: "Month view",
-    title: "See what you captured, day by day.",
-    copy: "The month view shows meetings, notes, tasks, and recordings on every date, each linked back to the space it belongs to.",
-    points: ["Activity on every day", "Linked spaces", "Add events"],
-    image: "/screenshots/desktop/calendar.png",
-    alt: "KukuNotes calendar month view with meetings, notes, and tasks per day",
+    id: "goals",
+    label: "Goals",
+    path: "goals",
+    kicker: "Achieve a goal",
+    title: "A goal with steps, strategy, and progress in one view.",
+    copy: "Set the outcome, then work the recommended steps. Progress and the tasks already done stay visible for the whole space.",
+    points: ["Recommended steps", "Strategies", "Progress you can see"],
+    image: "/screenshots/desktop/goals.png",
+    alt: "KukuNotes goal view with recommended steps, strategies, and progress",
+  },
+  {
+    id: "mindmap",
+    label: "Mindmap",
+    path: "mindmap",
+    kicker: "Connected work",
+    title: "See how tasks, notes, and meetings connect.",
+    copy: "The mindmap lays a space out as a map. Each task and note stays linked, so the shape of the work is visible at a glance.",
+    points: ["Tasks and notes linked", "Meetings on the map", "One view of the space"],
+    image: "/screenshots/desktop/mindmap.png",
+    alt: "KukuNotes mindmap connecting tasks, notes, and meetings in a space",
   },
 ];
 
@@ -95,8 +106,8 @@ export function ProductTheater() {
           <p className="studio-kicker">Desktop & web app</p>
           <h2 id="theater-title">Your whole workspace, on the big screen.</h2>
           <p className="studio-theater-lead">
-            Spaces, AI chat, meetings, and calendar in one window. Open it in the browser or
-            install it on your desktop.
+            Spaces, chat, meetings, documents, goals, and mindmaps in one window. Open it
+            in the browser or install it on your desktop.
           </p>
         </div>
         <div className="studio-desk-platforms">

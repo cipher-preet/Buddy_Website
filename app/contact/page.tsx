@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ContactReasonDropdown } from "@/components/contact/ContactReasonDropdown";
+import { ContactForm } from "@/components/contact/ContactForm";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
@@ -132,36 +132,7 @@ export default function ContactPage() {
           <Reveal className="contact-form-shell">
             <p className="studio-kicker">Send a note</p>
             <h2 id="contact-form-title">Help us understand the request.</h2>
-            <form
-              className="contact-form"
-              action={`mailto:${siteConfig.email}`}
-              method="post"
-              encType="text/plain"
-            >
-              <label>
-                <span>Name</span>
-                <input name="name" type="text" autoComplete="name" placeholder="Your name" />
-              </label>
-              <label>
-                <span>Email</span>
-                <input name="email" type="email" autoComplete="email" placeholder="you@example.com" />
-              </label>
-              <label>
-                <span>Reason</span>
-                <ContactReasonDropdown />
-              </label>
-              <label className="contact-form-wide">
-                <span>Message</span>
-                <textarea
-                  name="message"
-                  rows={6}
-                  placeholder="Tell us what happened, what you need, or what you are hoping to build with KukuNotes."
-                />
-              </label>
-              <button className="studio-btn studio-btn-accent" type="submit">
-                Send message
-              </button>
-            </form>
+            <ContactForm />
           </Reveal>
 
           <Reveal className="contact-aside" delay={0.08}>

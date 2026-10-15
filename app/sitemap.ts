@@ -4,17 +4,17 @@ import { topicPages } from "@/lib/seo-pages";
 import { siteConfig } from "@/lib/site";
 
 // Bump when page content meaningfully changes; a per-request date makes Google ignore lastmod.
-const lastModified = new Date("2026-10-13");
+const lastModified = new Date("2026-10-16");
 
 const url = (path: string) => `${siteConfig.url}${path}`;
 
 /** Product screenshots only — never the logo banner (keeps SERP image previews product-led). */
 const homeImages = [
-  url("/screenshots/daily-briefing.jpeg"),
-  url("/screenshots/home.png"),
-  url("/screenshots/notes-board.jpeg"),
-  url("/screenshots/tasks-board.jpeg"),
-  url("/screenshots/desktop/meetings.png"),
+  url("/screenshots/home-spaces.jpg"),
+  url("/screenshots/notes-library.jpg"),
+  url("/screenshots/tasks-day.jpg"),
+  url("/screenshots/desktop/spaces-workspace.png"),
+  url("/screenshots/desktop/meetings-library.png"),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [url("/screenshots/home.png")],
+      images: [url("/screenshots/home-spaces.jpg")],
     },
     {
       url: url("/get-kukunotes"),
@@ -39,9 +39,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.95,
       images: [
-        url("/screenshots/home.png"),
-        url("/screenshots/notes-board.jpeg"),
-        url("/screenshots/desktop/meetings.png"),
+        url("/screenshots/home-spaces.jpg"),
+        url("/screenshots/notes-library.jpg"),
+        url("/screenshots/desktop/meetings-library.png"),
       ],
     },
     ...destinationPages.map((page) => ({
@@ -76,7 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.75,
-      images: [url("/screenshots/daily-briefing.jpeg")],
+      images: [url("/screenshots/home-spaces.jpg")],
     },
     {
       url: url("/contact"),

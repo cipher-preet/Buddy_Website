@@ -135,7 +135,7 @@ export default function UseCasesPage() {
               <span>Home</span>
             </div>
             <AppFrame
-              src="/screenshots/home.png"
+              src="/screenshots/home-spaces.jpg"
               alt="KukuNotes home screen showing spaces"
               size="hero"
             />

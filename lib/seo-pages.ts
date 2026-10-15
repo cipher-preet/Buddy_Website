@@ -79,7 +79,7 @@ export const topicPages: SeoPage[] = [
     lead: "Stop typing while people talk. KukuNotes listens when you ask it to, then gives you a summary, the decisions that were made, and the tasks you agreed to, organized in the right Space.",
     answer:
       "KukuNotes is an AI note taker app for Android that records a conversation when you tap Start Listening and turns it into a structured note: a short summary, key decisions, highlights, and extracted action items. Every point links back to the part of the conversation it came from, with a confidence score. It is free to start and understands English, Hindi, and Hinglish.",
-    image: { src: "/screenshots/notes.png", alt: "KukuNotes AI note taker showing a notes library with confidence scores" },
+    image: { src: "/screenshots/notes-library.jpg", alt: "KukuNotes notes library grouped by space" },
     sections: [
       {
         heading: "What an AI note taker should actually do",
@@ -166,7 +166,7 @@ export const topicPages: SeoPage[] = [
     lead: "KukuNotes records the meeting from your own phone when you choose to, then hands you minutes, decisions, owners, and next steps. Nobody has to admit a 'Notetaker' into the call.",
     answer:
       "KukuNotes is a bot-free AI meeting recorder for Android. Instead of sending a bot into Zoom, Google Meet, or Teams, you tap Start Listening on your phone and it records through the device microphone. After the meeting it produces a summary, decisions, and action items with owners and due dates, saved in the project's Space. It works equally well for in-person meetings.",
-    image: { src: "/screenshots/tasks.png", alt: "KukuNotes meeting recorder showing action items extracted from a meeting" },
+    image: { src: "/screenshots/tasks-day.jpg", alt: "KukuNotes tasks with dates, priority, and the space they belong to" },
     sections: [
       {
         heading: "Why bot-free meeting recording matters",
@@ -250,7 +250,7 @@ export const topicPages: SeoPage[] = [
     lead: "Real meetings in India switch between Hindi and English mid-sentence. KukuNotes is built for that, turning Hindi and Hinglish conversations into clear notes and tasks.",
     answer:
       "KukuNotes converts Hindi, English, and mixed Hinglish speech into text, then goes further than plain transcription: it writes a summary, lists decisions, and extracts action items. Hindi and Hinglish work on every plan, including the free one. The Business plan adds 11 Indian languages such as Tamil, Telugu, Marathi, Bengali, Gujarati, Kannada, Malayalam, Punjabi, Odia, and Assamese.",
-    image: { src: "/screenshots/listen.png", alt: "KukuNotes listening to a Hindi and English conversation" },
+    image: { src: "/screenshots/home-listening.jpg", alt: "KukuNotes home screen while listening is on" },
     sections: [
       {
         heading: "Why most speech-to-text apps struggle with Hinglish",
@@ -342,7 +342,7 @@ export const topicPages: SeoPage[] = [
     lead: "Chatbots know the internet. KukuNotes knows your meetings, classes, calls, and plans, and uses them to tell you what matters today.",
     answer:
       "KukuNotes is a personal AI assistant for Android that works from your own conversations rather than the open web. It captures meetings and calls when you choose to, turns commitments into tasks, organizes everything into Spaces, and each morning gives you a daily briefing of priorities, meetings, and free focus time. Ask KukuNotes answers questions using only what is in your Spaces.",
-    image: { src: "/screenshots/daily-briefing.jpeg", alt: "KukuNotes daily briefing with priorities, meetings, and focus time" },
+    image: { src: "/screenshots/home-spaces.jpg", alt: "KukuNotes home with spaces, notes, and live listening" },
     sections: [
       {
         heading: "An assistant grounded in your own context",

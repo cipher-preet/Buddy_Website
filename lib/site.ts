@@ -12,7 +12,7 @@ export const siteConfig = {
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://kukunotes.com").replace(/\/$/, ""),
   locale: "en_US",
   language: "en",
-  email: "ps1535146@gmail.com",
+  email: "team@kukunotes.com",
   creator: "KukuNotes",
   publisher: "KukuNotes Technologies",
   playStoreUrl:
@@ -23,6 +23,7 @@ export const siteConfig = {
     "https://chromewebstore.google.com/detail/hjnhifmajfnlpalfgkfdjpllbobcpahl?utm_source=item-share-cb",
   androidPackage: "com.aiassistantapp",
   platformUrl: "https://platform.kukunotes.com",
+  apiUrl: "https://buddy-node-backend-scz7pyp3ha-el.a.run.app",
   keywords: allSeoKeywords,
   alternateNames: ["Kuku Notes", "KukuNotes AI", "KukuNotes App", "KukuNotes AI Note Taker", "KukuNote"],
   contentUpdated: "2026-10-13",

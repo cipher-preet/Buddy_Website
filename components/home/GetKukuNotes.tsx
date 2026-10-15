@@ -77,7 +77,7 @@ export function GetKukuNotes() {
           >
             <div className="get-kukunotes-phone">
               <Image
-                src="/screenshots/home.png"
+                src="/screenshots/home-spaces.jpg"
                 alt="KukuNotes app home screen"
                 fill
                 sizes="260px"

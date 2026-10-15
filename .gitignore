@@ -13,6 +13,10 @@
 # testing
 /coverage
 
+# local QA tooling and generated reports (Lighthouse, screenshots)
+/.qa-tools/
+/qa-artifacts/
+
 # next.js
 /.next/
 /out/
