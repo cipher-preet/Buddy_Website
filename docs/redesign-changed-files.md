@@ -1,0 +1,57 @@
+# Changed files
+
+53 tracked or newly added source/artifact files. Temporary QA dependencies and results are ignored.
+
+- `.gitignore`
+- `app/about/page.tsx`
+- `app/contact/page.tsx`
+- `app/delete-account/page.tsx`
+- `app/favicon.ico`
+- `app/get-kukunotes/page.tsx`
+- `app/globals.css`
+- `app/layout.tsx`
+- `app/manifest.ts`
+- `app/opengraph-image.tsx`
+- `app/page.tsx`
+- `app/pricing/layout.tsx`
+- `app/pricing/page.tsx`
+- `app/sitemap.ts`
+- `app/use-cases/page.tsx`
+- `components/contact/ContactForm.tsx`
+- `components/home/BrandMark.tsx`
+- `components/home/KukuNotesFooter.tsx`
+- `components/home/KukuNotesLanding.tsx`
+- `components/home/Navbar.tsx`
+- `components/home/NotFoundView.tsx`
+- `components/home/Reveal.tsx`
+- `components/home/SmoothScroll.tsx`
+- `components/legal/LegalShell.tsx`
+- `components/marketing/PlatformSelector.tsx`
+- `components/marketing/Pricing.tsx`
+- `components/marketing/SiteLayout.tsx`
+- `components/marketing/SpacesDemo.tsx`
+- `components/marketing/UI.tsx`
+- `components/seo/DestinationPageView.tsx`
+- `components/seo/SeoPageView.tsx`
+- `docs/redesign-audit.md`
+- `docs/redesign-changed-files.md`
+- `docs/redesign-verification.md`
+- `lib/destination-pages.ts`
+- `lib/get-kukunotes-data.ts`
+- `lib/home-data.ts`
+- `lib/json-ld.ts`
+- `lib/pricing-data.ts`
+- `lib/product-images.json`
+- `lib/seo-pages.ts`
+- `lib/site.ts`
+- `public/fonts/README.txt`
+- `public/fonts/Sora-OFL.txt`
+- `public/fonts/SourceSans3-OFL.txt`
+- `public/fonts/sora-latin.woff2`
+- `public/fonts/source-sans-3-latin.woff2`
+- `public/llms-full.txt`
+- `public/llms.txt`
+- `scripts/interaction-qa.cjs`
+- `scripts/lighthouse-qa.mjs`
+- `scripts/test-json-ld.js`
+- `scripts/visual-qa.cjs`

@@ -1,18 +1,17 @@
-type BrandMarkProps = {
-  href?: string;
-};
-
-export function BrandMark({ href = "/" }: BrandMarkProps) {
+﻿import Image from "next/image";
+import Link from "next/link";
+export function BrandMark({ href = "/" }: { href?: string }) {
   return (
-    <a className="brand-mark" href={href} aria-label="KukuNotes home">
-      <span className="brand-icon" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </span>
+    <Link className="brand-mark" href={href} aria-label="KukuNotes home">
+      <Image
+        src="/brand/kukunotes-icon-192.png"
+        alt=""
+        width={34}
+        height={34}
+      />
       <strong>
-        Kuku<span className="brand-word-accent">Notes</span>
+        KukuNotes<span className="brand-period">.</span>
       </strong>
-    </a>
+    </Link>
   );
 }

@@ -1,34 +1,36 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
-import { ContactReasonDropdown } from "@/components/contact/ContactReasonDropdown";
-import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
-import { Navbar } from "@/components/home/Navbar";
-import { Reveal } from "@/components/home/Reveal";
-import { ScrollProgress } from "@/components/home/ScrollProgress";
-import { SmoothScroll } from "@/components/home/SmoothScroll";
+import {
+  HiArrowRight,
+  HiArrowUpRight,
+  HiOutlineChatBubbleLeftRight,
+  HiOutlineCreditCard,
+  HiOutlineEnvelope,
+  HiOutlineSparkles,
+} from "react-icons/hi2";
+import { SiteLayout } from "@/components/marketing/SiteLayout";
+import { PageHero } from "@/components/marketing/UI";
+import { ContactForm } from "@/components/contact/ContactForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { contactJsonLd } from "@/lib/json-ld";
 import { siteConfig } from "@/lib/site";
-
+const title = "Contact Us — KukuNotes Support & Partnerships";
+const description =
+  "Contact the KukuNotes team for product questions, account help, billing, partnerships, privacy requests, and feedback.";
 export const metadata: Metadata = {
-  title: "Contact KukuNotes Support, Product, and Partnerships",
-  description:
-    "Contact the KukuNotes team for AI assistant product questions, customer support, partnerships, privacy requests, and feedback.",
+  title,
+  description,
   keywords: [
     "contact KukuNotes",
-    "KukuNotes support",
     "KukuNotes support",
     "AI notes app support",
     "KukuNotes partnerships",
     "KukuNotes privacy request",
   ],
-  alternates: {
-    canonical: "/contact",
-  },
+  alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact KukuNotes Support and Product Team",
-    description:
-      "Reach the KukuNotes team for support, product questions, partnerships, and feedback.",
+    title,
+    description,
     url: "/contact",
     type: "website",
     images: [
@@ -42,149 +44,88 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact KukuNotes",
-    description:
-      "Reach KukuNotes for product questions, support, partnerships, privacy requests, and feedback.",
+    title,
+    description,
     images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
   },
 };
-
-const contactReasons = [
-  {
-    title: "Product questions",
-    copy: "Ask how KukuNotes works, where it fits, or what is coming next.",
-  },
-  {
-    title: "Support",
-    copy: "Share account, access, app behavior, or download questions.",
-  },
-  {
-    title: "Partnerships",
-    copy: "Start a conversation about teams, education, media, or client workflows.",
-  },
-];
-
-const expectationItems = [
-  "Tell us what you are trying to do with KukuNotes.",
-  "Include your device, platform, or app version if it is a support issue.",
-  "Use the same email address you use with KukuNotes when possible.",
-];
-
 export default function ContactPage() {
   return (
-    <div className="site-shell studio-page">
+    <SiteLayout className="contact-page">
       <JsonLd data={contactJsonLd()} />
-      <SmoothScroll />
-      <ScrollProgress />
-      <Navbar />
-      <main className="studio contact-page">
-        <section className="contact-hero" aria-labelledby="contact-title">
-          <Reveal className="contact-hero-copy">
-            <p className="studio-kicker">Contact KukuNotes</p>
-            <h1 id="contact-title">Tell us what you want <span className="brand-gradient-text">KukuNotes</span> to help with.</h1>
-            <p className="studio-section-lead">
-              Questions, feedback, support, partnerships, or privacy requests all
-              start in the same place. Send the team a clear note and we will route
-              it to the right person.
+      <PageHero
+        eyebrow="A conversation starts here"
+        title={
+          <>
+            Contact us.
+            <br />
+            <span className="accent-text">We’re here to help.</span>
+          </>
+        }
+        description="A question about KukuNotes, a little help with your account, or an idea to share? Start a conversation with our team."
+      >
+        <div className="hero-actions">
+          <a href="#contact-form" className="button button-primary">
+            Write to us <HiArrowRight aria-hidden="true" />
+          </a>
+          <a href={`mailto:${siteConfig.email}`} className="button button-secondary">
+            Email the team <HiArrowUpRight aria-hidden="true" />
+          </a>
+        </div>
+      </PageHero>
+      <section className="container contact-topics" aria-label="How we can help">
+        <article>
+          <HiOutlineChatBubbleLeftRight className="contact-topic-icon" aria-hidden="true" />
+          <h2>Product & support</h2>
+          <p>Get help with your account, recordings, notes, and everyday workflows.</p>
+        </article>
+        <article>
+          <HiOutlineCreditCard className="contact-topic-icon" aria-hidden="true" />
+          <h2>Plans & billing</h2>
+          <p>Ask about a plan, a subscription, or a billing question.</p>
+        </article>
+        <article>
+          <HiOutlineSparkles className="contact-topic-icon" aria-hidden="true" />
+          <h2>Ideas & partnerships</h2>
+          <p>Share feedback, suggest a feature, or explore working together.</p>
+        </article>
+      </section>
+      <div className="container contact-layout">
+        <ContactForm />
+        <aside className="contact-aside">
+          <div>
+            <p className="eyebrow">Direct to the team</p>
+            <h2>Prefer your own inbox?</h2>
+            <a className="contact-email" href={`mailto:${siteConfig.email}`}>
+              <HiOutlineEnvelope aria-hidden="true" /> {siteConfig.email}
+            </a>
+            <p className="contact-email-context">
+              Send us a note from the email you use for KukuNotes when your
+              question concerns your account.
             </p>
-            <div className="contact-hero-actions">
-              <a className="studio-btn studio-btn-ink" href={`mailto:${siteConfig.email}`}>
-                Email us
-              </a>
-              <Link className="studio-text-link" href="/use-cases">
-                Explore use cases <span aria-hidden="true">-&gt;</span>
-              </Link>
-            </div>
-          </Reveal>
-
-          <Reveal className="contact-visual" variant="scale" delay={0.08}>
-            <div className="contact-visual-card">
-              <div className="contact-visual-header">
-                <span aria-hidden="true" />
-                <strong>Message received</strong>
-              </div>
-              <div className="contact-message-lines" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="contact-route-map" aria-hidden="true">
-                <i />
-                <span>Support</span>
-                <span>Product</span>
-                <span>Partnership</span>
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
-        <section className="contact-options" aria-label="Reasons to contact KukuNotes">
-          {contactReasons.map((reason, index) => (
-            <Reveal key={reason.title} className="contact-option" delay={index * 0.06}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h2>{reason.title}</h2>
-              <p>{reason.copy}</p>
-            </Reveal>
-          ))}
-        </section>
-
-        <section className="contact-panel" aria-labelledby="contact-form-title">
-          <Reveal className="contact-form-shell">
-            <p className="studio-kicker">Send a note</p>
-            <h2 id="contact-form-title">Help us understand the request.</h2>
-            <form
-              className="contact-form"
-              action={`mailto:${siteConfig.email}`}
-              method="post"
-              encType="text/plain"
-            >
-              <label>
-                <span>Name</span>
-                <input name="name" type="text" autoComplete="name" placeholder="Your name" />
-              </label>
-              <label>
-                <span>Email</span>
-                <input name="email" type="email" autoComplete="email" placeholder="you@example.com" />
-              </label>
-              <label>
-                <span>Reason</span>
-                <ContactReasonDropdown />
-              </label>
-              <label className="contact-form-wide">
-                <span>Message</span>
-                <textarea
-                  name="message"
-                  rows={6}
-                  placeholder="Tell us what happened, what you need, or what you are hoping to build with KukuNotes."
-                />
-              </label>
-              <button className="studio-btn studio-btn-accent" type="submit">
-                Send message
-              </button>
-            </form>
-          </Reveal>
-
-          <Reveal className="contact-aside" delay={0.08}>
-            <div className="contact-email-card">
-              <p className="studio-kicker">Direct email</p>
-              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-              <p>
-                Prefer your own inbox? Email us directly and include the same
-                details you would put in the form.
-              </p>
-            </div>
-            <div className="contact-guidance">
-              <h3>A useful message includes</h3>
-              <ul>
-                {expectationItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-        </section>
-      </main>
-      <KukuNotesFooter />
-    </div>
+          </div>
+          <div>
+            <p className="eyebrow">A little context helps</p>
+            <ul>
+              <li>What were you trying to do?</li>
+              <li>Which app, device, and version are you using?</li>
+              <li>What happened, and what did you expect?</li>
+            </ul>
+            <p>
+              Please leave passwords and payment details out of your message.
+            </p>
+          </div>
+          <div>
+            <p className="eyebrow">Looking for something specific?</p>
+            <nav className="contact-help-links" aria-label="Contact resources">
+              <Link href="/pricing">Compare plans <HiArrowRight aria-hidden="true" /></Link>
+              <Link href="/get-kukunotes">Find your download <HiArrowRight aria-hidden="true" /></Link>
+              <Link href="/delete-account">Account deletion <HiArrowRight aria-hidden="true" /></Link>
+              <Link href="/privacy">Privacy policy <HiArrowRight aria-hidden="true" /></Link>
+            </nav>
+          </div>
+        </aside>
+      </div>
+    </SiteLayout>
   );
 }

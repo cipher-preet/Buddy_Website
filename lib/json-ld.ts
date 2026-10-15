@@ -1,5 +1,5 @@
 import { faqItems } from "@/lib/home-data";
-import { pricingFaqs, pricingPlans } from "@/lib/pricing-data";
+import { pricingFaqs } from "@/lib/pricing-data";
 import { getKukuNotesFaqs } from "@/lib/get-kukunotes-data";
 import type { DestinationPage } from "@/lib/destination-pages";
 import { sitelinkNav } from "@/lib/destination-pages";
@@ -46,12 +46,16 @@ export function organizationJsonLd() {
     email: siteConfig.email,
     logo: {
       "@type": "ImageObject",
-      url: absoluteUrl(`/brand/kukunotes-icon-512.png?v=${siteConfig.assetVersion}`),
+      url: absoluteUrl(
+        `/brand/kukunotes-icon-512.png?v=${siteConfig.assetVersion}`,
+      ),
       width: 512,
       height: 512,
       caption: "KukuNotes app icon — stylized letter K",
     },
-    image: absoluteUrl(`/brand/kukunotes-icon-512.png?v=${siteConfig.assetVersion}`),
+    image: absoluteUrl(
+      `/brand/kukunotes-icon-512.png?v=${siteConfig.assetVersion}`,
+    ),
     description: siteConfig.description,
     disambiguatingDescription,
     sameAs: [
@@ -64,7 +68,6 @@ export function organizationJsonLd() {
       absoluteUrl("/chrome-extension"),
       absoluteUrl("/platform"),
     ],
-    foundingDate: "2025",
     knowsAbout: [
       "AI personal assistant",
       "AI note taker",
@@ -147,7 +150,8 @@ export function siteNavigationJsonLd() {
         "@type": "WebPage",
         name: "Get KukuNotes",
         url: absoluteUrl("/get-kukunotes"),
-        description: "Download KukuNotes for Android, Windows, Chrome, and Web.",
+        description:
+          "Download KukuNotes for Android, Windows, Chrome, and Web.",
       },
     ],
   };
@@ -158,7 +162,10 @@ export function softwareApplicationJsonLd() {
     "@type": "SoftwareApplication",
     "@id": appId,
     name: "KukuNotes",
-    alternateName: ["KukuNotes Assistant & Meeting Note Taker", ...siteConfig.alternateNames],
+    alternateName: [
+      "KukuNotes Assistant & Meeting Note Taker",
+      ...siteConfig.alternateNames,
+    ],
     disambiguatingDescription,
     url: siteConfig.url,
     applicationCategory: "ProductivityApplication",
@@ -167,7 +174,11 @@ export function softwareApplicationJsonLd() {
     installUrl: siteConfig.playStoreUrl,
     downloadUrl: siteConfig.playStoreUrl,
     identifier: siteConfig.androidPackage,
-    sameAs: [siteConfig.playStoreUrl, siteConfig.microsoftStoreUrl, siteConfig.chromeStoreUrl],
+    sameAs: [
+      siteConfig.playStoreUrl,
+      siteConfig.microsoftStoreUrl,
+      siteConfig.chromeStoreUrl,
+    ],
     description: siteConfig.description,
     featureList: [...siteConfig.features],
     keywords: entityKeywords.join(", "),
@@ -183,32 +194,13 @@ export function softwareApplicationJsonLd() {
     dateModified: siteConfig.contentUpdated,
     ...playStoreRating(),
     publisher: { "@id": organizationId },
-    offers: [
-      {
-        "@type": "Offer",
-        name: "KukuNotes Free Forever",
-        price: "0",
-        priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
-        url: absoluteUrl("/pricing"),
-      },
-      {
-        "@type": "Offer",
-        name: "KukuNotes Pro Monthly",
-        price: "799",
-        priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
-        url: absoluteUrl("/pricing"),
-      },
-      {
-        "@type": "Offer",
-        name: "KukuNotes Business Monthly",
-        price: "1999",
-        priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
-        url: absoluteUrl("/pricing"),
-      },
-    ],
+    offers: {
+      "@type": "Offer",
+      name: "KukuNotes Free",
+      price: "0",
+      priceCurrency: "INR",
+      url: absoluteUrl("/pricing"),
+    },
   };
 }
 
@@ -217,7 +209,7 @@ export function mobileApplicationJsonLd() {
     "@type": "MobileApplication",
     "@id": mobileAppId,
     name: "KukuNotes: Note Taker & Assistant",
-    operatingSystem: "Android 9.0 and up",
+    operatingSystem: "Android",
     applicationCategory: "ProductivityApplication",
     installUrl: siteConfig.playStoreUrl,
     downloadUrl: siteConfig.playStoreUrl,
@@ -316,20 +308,11 @@ export function pricingJsonLd() {
           "Simple, transparent pricing for KukuNotes personal assistant, meeting recording, and note taking. Start free or upgrade to Pro and Business.",
         brand: { "@id": organizationId },
         offers: {
-          "@type": "AggregateOffer",
+          "@type": "Offer",
+          name: "KukuNotes Free",
+          price: "0",
           priceCurrency: "INR",
-          lowPrice: "0",
-          highPrice: "1999",
-          offerCount: "3",
-          offers: pricingPlans.map((plan) => ({
-            "@type": "Offer",
-            name: plan.name,
-            description: plan.tagline,
-            price: plan.prices.monthly.toString(),
-            priceCurrency: "INR",
-            availability: "https://schema.org/InStock",
-            url: absoluteUrl(path),
-          })),
+          url: absoluteUrl(path),
         },
       },
     ],
@@ -446,7 +429,11 @@ export function contactJsonLd() {
   };
 }
 
-export function seoPageJsonLd(page: SeoPage, path: string, parent?: BreadcrumbItem) {
+export function seoPageJsonLd(
+  page: SeoPage,
+  path: string,
+  parent?: BreadcrumbItem,
+) {
   const url = absoluteUrl(path);
 
   return {
@@ -466,11 +453,18 @@ export function seoPageJsonLd(page: SeoPage, path: string, parent?: BreadcrumbIt
         url,
         name: page.title,
         description: page.description,
-        inLanguage: page.localized ? [siteConfig.language, page.localized.lang] : siteConfig.language,
+        inLanguage: page.localized
+          ? [siteConfig.language, page.localized.lang]
+          : siteConfig.language,
         isPartOf: { "@id": websiteId },
         about: { "@id": appId },
         ...(page.comparison
-          ? { mentions: { "@type": "SoftwareApplication", name: page.comparison.competitor } }
+          ? {
+              mentions: {
+                "@type": "SoftwareApplication",
+                name: page.comparison.competitor,
+              },
+            }
           : {}),
         primaryImageOfPage: absoluteUrl(page.image.src),
         datePublished: "2026-10-01",
@@ -478,7 +472,7 @@ export function seoPageJsonLd(page: SeoPage, path: string, parent?: BreadcrumbIt
         keywords: page.keywords.join(", "),
         speakable: {
           "@type": "SpeakableSpecification",
-          cssSelector: [".seo-hero h1", ".seo-answer"],
+          cssSelector: [".solution-hero h1", ".direct-answer"],
         },
       },
     ],
@@ -515,7 +509,7 @@ export function destinationPageJsonLd(page: DestinationPage) {
         keywords: page.keywords.join(", "),
         speakable: {
           "@type": "SpeakableSpecification",
-          cssSelector: [".seo-hero h1", ".seo-answer"],
+          cssSelector: [".solution-hero h1", ".direct-answer"],
         },
         mainEntity: {
           "@type": "SoftwareApplication",
@@ -539,7 +533,11 @@ export function destinationPageJsonLd(page: DestinationPage) {
             url: page.cta.href,
           },
         },
-        significantLink: [page.cta.href, absoluteUrl("/get-kukunotes"), absoluteUrl("/pricing")],
+        significantLink: [
+          page.cta.href,
+          absoluteUrl("/get-kukunotes"),
+          absoluteUrl("/pricing"),
+        ],
       },
     ],
   };

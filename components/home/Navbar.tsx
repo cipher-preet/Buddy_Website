@@ -1,275 +1,150 @@
-"use client";
-
-import { navItems } from "@/lib/home-data";
-import { siteConfig } from "@/lib/site";
+﻿"use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { HiArrowUpRight, HiBars2, HiXMark } from "react-icons/hi2";
+import { siteConfig } from "@/lib/site";
 import { BrandMark } from "./BrandMark";
-import { HiChevronRight, HiArrowUpRight } from "react-icons/hi2";
-import { FaGooglePlay } from "react-icons/fa6";
 
+const links = [
+  { label: "Product", href: "/#product" },
+  { label: "Use cases", href: "/use-cases" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Downloads", href: "/get-kukunotes" },
+  { label: "Contact us", href: "/contact" },
+];
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  const headerRef = useRef<HTMLElement>(null);
-  const lastY = useRef(0);
-  const travel = useRef(0);
-  const hiddenRef = useRef(false);
-  const openRef = useRef(false);
-
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
   useEffect(() => {
-    openRef.current = open;
-    if (open) {
-      hiddenRef.current = false;
-      setHidden(false);
-    }
-  }, [open]);
-
-  useEffect(() => {
-    setOpen(false);
-    setHidden(false);
-    hiddenRef.current = false;
-    travel.current = 0;
-    lastY.current = typeof window !== "undefined" ? window.scrollY : 0;
-    setScrolled(lastY.current > 8);
-  }, [pathname]);
-
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = "";
-      };
-    }
-  }, [open]);
-
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) { if (e.key === "Escape") setOpen(false); }
-    function onResize() { if (window.innerWidth > 980) setOpen(false); }
-    window.addEventListener("keydown", onKey);
-    window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
-
-  // Scroll distance (px) required in one direction before toggling,
-  // so small jitters / trackpad inertia don't make the bar flicker.
-  const HIDE_AFTER = 24;
-  const SHOW_AFTER = 12;
-  const TOP_ZONE = 12;
-
-  useEffect(() => {
-    let frame = 0;
-    lastY.current = window.scrollY;
-
-    const setHiddenState = (next: boolean) => {
-      if (openRef.current) return;
-      if (hiddenRef.current === next) return;
-      hiddenRef.current = next;
-      setHidden(next);
-    };
-
-    const update = () => {
-      frame = 0;
-      const y = Math.max(0, window.scrollY);
-      const dy = y - lastY.current;
-      lastY.current = y;
-
-      setScrolled(y > TOP_ZONE);
-
-      if (openRef.current || y <= TOP_ZONE) {
-        travel.current = 0;
-        setHiddenState(false);
-        return;
-      }
-
-      // Keep the bar available while a keyboard user is inside it.
-      if (headerRef.current?.contains(document.activeElement)) {
-        setHiddenState(false);
-        return;
-      }
-
-      if (dy === 0) return;
-
-      // Reset accumulated travel whenever direction changes.
-      if ((dy > 0 && travel.current < 0) || (dy < 0 && travel.current > 0)) {
-        travel.current = 0;
-      }
-      travel.current += dy;
-
-      const headerHeight = headerRef.current?.offsetHeight ?? 80;
-
-      if (travel.current > HIDE_AFTER && y > headerHeight) {
-        setHiddenState(true);
-      } else if (travel.current < -SHOW_AFTER) {
-        setHiddenState(false);
-      }
-    };
-
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-
+    const update = () => setScrolled(window.scrollY > 12);
     update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (frame) cancelAnimationFrame(frame);
-    };
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
   }, []);
-
-  const isRouteActive = (href: string) => {
-    if (!pathname) return false;
-    const current = pathname.replace(/\/$/, "") || "/";
-    const target =
-      (href.split("#")[0].split("?")[0] || "/").replace(/\/$/, "") || "/";
-    return target === "/"
-      ? current === "/"
-      : current === target || current.startsWith(`${target}/`);
-  };
-
-  const isActuallyHidden = !open && hidden;
-
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.dispatchEvent(new CustomEvent("kuku:overlay", { detail: true }));
+    const key = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+      if (event.key === "Tab") {
+        const focusable = [
+          ...(navRef.current?.querySelectorAll<HTMLElement>("a, button") ?? []),
+        ].filter((el) => el.getClientRects().length);
+        const first = focusable[0],
+          last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+    const resize = () => {
+      if (window.innerWidth > 900) setOpen(false);
+    };
+    document.addEventListener("keydown", key);
+    window.addEventListener("resize", resize);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.dispatchEvent(
+        new CustomEvent("kuku:overlay", { detail: false }),
+      );
+      document.removeEventListener("keydown", key);
+      window.removeEventListener("resize", resize);
+    };
+  }, [open]);
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+        <div className="site-grain" aria-hidden="true" />
+        <nav
+          className="nav-shell container"
+          aria-label="Primary navigation"
+          ref={navRef}
+        >
+          <BrandMark />
+          <div className="nav-links">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={pathname === link.href ? "page" : undefined}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="nav-end">
+            <a className="nav-login" href={siteConfig.platformUrl}>
+              Log in
+            </a>
+            <a className="nav-cta" href={siteConfig.platformUrl}>
+              Start for free <HiArrowUpRight aria-hidden="true" />
+            </a>
+            <button
+              className="nav-menu-btn"
+              type="button"
+              ref={toggleRef}
+              aria-expanded={open}
+              aria-controls="mobile-navigation"
+              aria-label={open ? "Close navigation" : "Open navigation"}
+              onClick={() => setOpen(!open)}
+            >
+              {open ? (
+                <HiXMark aria-hidden="true" />
+              ) : (
+                <HiBars2 aria-hidden="true" />
+              )}
+            </button>
+          </div>
+          <div
+            id="mobile-navigation"
+            className="mobile-navigation"
+            hidden={!open}
+          >
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                aria-current={pathname === link.href ? "page" : undefined}
+              >
+                {link.label}
+                <HiArrowUpRight aria-hidden="true" />
+              </Link>
+            ))}
+            <a href={siteConfig.platformUrl}>
+              Log in to your workspace <HiArrowUpRight aria-hidden="true" />
+            </a>
+          </div>
+        </nav>
+      </header>
       {open && (
-        <div
-          className="nav-backdrop is-open"
-          onClick={() => setOpen(false)}
-          aria-hidden="true"
+        <button
+          className="nav-scrim"
+          type="button"
+          aria-label="Close navigation backdrop"
+          tabIndex={-1}
+          onClick={() => {
+            setOpen(false);
+            toggleRef.current?.focus();
+          }}
         />
       )}
-      <header
-        ref={headerRef}
-        className={[
-          "site-header",
-          open ? "is-open" : "",
-          scrolled ? "is-scrolled" : "",
-          isActuallyHidden ? "is-hidden" : "",
-        ]
-          .filter(Boolean)
-          .join(" ")}
-        onFocusCapture={() => {
-          hiddenRef.current = false;
-          setHidden(false);
-        }}
-      >
-      <nav className="nav-shell" aria-label="Primary navigation">
-        <BrandMark />
-        <div className="nav-links">
-          {navItems.map((item) => {
-            const active = isRouteActive(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={active ? "is-active" : undefined}
-                aria-current={active ? "page" : undefined}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </div>
-        <div className="nav-end">
-          <a
-            className="nav-login"
-            href={siteConfig.platformUrl}
-            onClick={() => setOpen(false)}
-          >
-            Login
-          </a>
-          <a
-            className="nav-cta"
-            href={siteConfig.platformUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-          >
-            <span>Start for Free</span>
-            <i aria-hidden="true">↗</i>
-          </a>
-          <button
-            type="button"
-            className="nav-menu-btn"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="studio-mobile-nav"
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span />
-            <span />
-          </button>
-        </div>
-      </nav>
-      <div className="nav-drawer" id="studio-mobile-nav" hidden={!open}>
-        <div className="nav-drawer-header">
-          <div className="nav-drawer-badge">
-            <span className="nav-drawer-badge-dot" aria-hidden="true" />
-            <span>Navigation</span>
-          </div>
-          <span className="nav-drawer-version">KukuNotes for Android</span>
-        </div>
-
-        <div className="nav-drawer-links" role="list">
-          {navItems.map((item, index) => {
-            const active = isRouteActive(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`nav-drawer-link${active ? " is-active" : ""}`}
-                aria-current={active ? "page" : undefined}
-                onClick={() => setOpen(false)}
-                style={{ animationDelay: `${index * 35}ms` }}
-              >
-                <span className="nav-drawer-link-label">{item.label}</span>
-                <span className="nav-drawer-link-end" aria-hidden="true">
-                  <HiChevronRight className={`nav-drawer-chevron${active ? " is-active" : ""}`} />
-                </span>
-              </Link>
-            );
-          })}
-        </div>
-
-        <div className="nav-drawer-actions">
-          <a
-            className="nav-drawer-login"
-            href={siteConfig.platformUrl}
-            onClick={() => setOpen(false)}
-          >
-            <span>Login to Web Studio</span>
-            <HiArrowUpRight className="nav-drawer-action-arrow" aria-hidden="true" />
-          </a>
-
-          <a
-            className="nav-drawer-cta"
-            href={siteConfig.platformUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-          >
-            <span className="nav-drawer-cta-left">
-              <FaGooglePlay className="nav-drawer-play-icon" aria-hidden="true" />
-              <span>Start for Free</span>
-            </span>
-            <span className="nav-drawer-cta-badge">Get App ↗</span>
-          </a>
-
-          <div className="nav-drawer-subtext">
-            <span>Free forever on Android</span>
-            <span className="nav-drawer-dot-sep">•</span>
-            <span>No credit card needed</span>
-          </div>
-        </div>
-      </div>
-    </header>
     </>
   );
 }

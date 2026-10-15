@@ -45,7 +45,7 @@ export const destinationPages: DestinationPage[] = [
     kicker: "Web workspace",
     h1: "Your KukuNotes workspace,",
     h1Accent: "in the browser.",
-    lead: "platform.kukunotes.com is the full web app: Spaces, notes, tasks, meetings, calendar, and Ask KukuNotes—synced with whatever you capture on Android, Windows, or Chrome.",
+    lead: "platform.kukunotes.com is the full web app: Spaces, notes, tasks, meetings, calendar, and Ask KukuNotes—connected to what you capture on Android, Windows, or Chrome.",
     answer:
       "The KukuNotes web app (platform.kukunotes.com) is the cloud workspace for your conversations. Open it in any modern browser to review AI notes, action items, Spaces, and Ask KukuNotes chat. Everything syncs with the Android app, Windows app, and Chrome meeting recorder—no re-upload needed.",
     cta: {
@@ -59,7 +59,7 @@ export const destinationPages: DestinationPage[] = [
       "Spaces, notes, and tasks in one dashboard",
       "Ask KukuNotes from your full conversation history",
       "Works on desktop and tablet browsers",
-      "Real-time sync with mobile and desktop apps",
+      "Access your Spaces across your devices",
     ],
     sections: [
       {
@@ -72,7 +72,7 @@ export const destinationPages: DestinationPage[] = [
       {
         heading: "Who the web app is for",
         body: [
-          "Teams and individuals who capture on the phone but prefer a larger screen for reviewing notes, planning the day, or exporting tasks. Students can study from lecture notes on a laptop; founders can clear action items after a client call.",
+          "Teams and individuals who capture on the phone but prefer a larger screen for reviewing notes, planning the day, or organizing tasks. Students can study from lecture notes on a laptop; founders can clear action items after a client call.",
         ],
       },
     ],
@@ -144,7 +144,7 @@ export const destinationPages: DestinationPage[] = [
         ],
       },
       {
-        heading: "Install in under a minute",
+        heading: "Set up your browser companion",
         body: [
           "Open the Chrome Web Store listing, click Add to Chrome, pin the extension, then join your next Meet or Zoom Web call. Start recording when the conversation matters.",
         ],
@@ -179,7 +179,7 @@ export const destinationPages: DestinationPage[] = [
     slug: "windows",
     title: "KukuNotes for Windows — AI Meeting Notes from Microsoft Store",
     description:
-      "Download KukuNotes for Windows from the Microsoft Store. Capture Zoom, Teams, and system audio without a meeting bot. AI notes, tasks, and Spaces sync across devices.",
+      "Get KukuNotes for Windows from the Microsoft Store. Review conversation notes, tasks, and Spaces in a dedicated desktop workspace.",
     keywords: [
       "KukuNotes Windows",
       "KukuNotes Microsoft Store",
@@ -192,9 +192,9 @@ export const destinationPages: DestinationPage[] = [
     kicker: "Windows app",
     h1: "KukuNotes on Windows,",
     h1Accent: "from the Microsoft Store.",
-    lead: "Install the official Windows app to capture system audio from Zoom, Teams, and other calls—then get structured notes and tasks without inviting a notetaker bot.",
+    lead: "Bring your conversations, notes, and next steps into a dedicated desktop workspace. Keep project context close while you work on your PC.",
     answer:
-      "KukuNotes for Windows is available on the Microsoft Store for Windows 10 and 11. It records system audio for meetings and conversations, generates AI notes and action items, and syncs Spaces with the web app, Android, and Chrome extension.",
+      "Find KukuNotes for Windows in the Microsoft Store. Return to your conversation notes, action items, and Spaces on your PC. The store listing shows current device requirements and installation eligibility.",
     cta: {
       label: "Get on Microsoft Store",
       href: siteConfig.microsoftStoreUrl,
@@ -203,23 +203,23 @@ export const destinationPages: DestinationPage[] = [
     secondaryCta: { label: "Open web workspace", href: "/platform" },
     badge: "Microsoft Store",
     highlights: [
-      "Windows 10 / 11 · Microsoft Store",
-      "System audio capture for Zoom & Teams",
-      "Global shortcut to ask KukuNotes",
+      "See current requirements in the Microsoft Store",
+      "Conversations, notes, and next steps together",
+      "Review notes and tasks in a desktop workspace",
       "Syncs with Android, Chrome, and web",
     ],
     sections: [
       {
-        heading: "Desktop capture without a bot",
+        heading: "A dedicated place for your work",
         body: [
-          "On Windows, KukuNotes listens through your device—not by joining the meeting. That means client calls and interviews stay free of awkward bot avatars while you still walk away with notes and tasks.",
+          "Use the desktop workspace to return to meeting context, review the notes, and keep your next steps organized. Check the capture options offered by your current Windows app before recording a call.",
           "Pair it with the Chrome extension for browser-only meetings, or use Android when conversations happen in person.",
         ],
       },
       {
         heading: "System requirements",
         body: [
-          "Windows 10 or Windows 11 (64-bit). Install from the Microsoft Store for automatic updates. Microphone and system audio permissions are requested only when you start listening.",
+          "Use the Microsoft Store listing to check the current supported Windows versions and device requirements. Review the permissions requested by the app before starting capture.",
         ],
       },
     ],
@@ -229,12 +229,12 @@ export const destinationPages: DestinationPage[] = [
         a: "From the official Microsoft Store listing for KukuNotes. Avoid sideloaded APKs or unofficial installers.",
       },
       {
-        q: "Does the Windows app work offline?",
-        a: "You can record offline. When you reconnect, KukuNotes processes the transcript, builds notes and tasks, and syncs to your Spaces.",
+        q: "What do I need before getting started?",
+        a: "Check the Microsoft Store listing for supported Windows versions and device requirements. Sign in with your KukuNotes account and review the app’s recording permissions before starting capture.",
       },
       {
         q: "Is there a Mac app?",
-        a: "macOS is not live yet. Use the web app at platform.kukunotes.com, the Chrome extension for browser meetings, or Windows and Android for native capture.",
+        a: "No native macOS download is listed on this website. Use the web app at platform.kukunotes.com, the Chrome extension for browser meetings, or Windows and Android for native capture.",
       },
     ],
     related: [
@@ -268,7 +268,7 @@ export const destinationPages: DestinationPage[] = [
     h1Accent: "the phone in your pocket.",
     lead: "KukuNotes on Android captures meetings, classes, and everyday conversations when you tap Start Listening—then turns them into notes, tasks, and Spaces. Free to start on Google Play.",
     answer:
-      "KukuNotes is an AI note taker and meeting recorder for Android, available on Google Play. It records only when you opt in, supports English, Hindi, and Hinglish, extracts action items into Spaces, and offers a free plan with 5 Spaces and 5 hours of recording per month.",
+      "KukuNotes is an AI note taker and meeting recorder for Android, available on Google Play. It records only when you opt in, supports English, Hindi, and Hinglish, extracts action items into Spaces. Start for free and review current allowances in your workspace.",
     cta: {
       label: "Get on Google Play",
       href: siteConfig.playStoreUrl,
@@ -278,7 +278,7 @@ export const destinationPages: DestinationPage[] = [
     badge: "Google Play",
     highlights: [
       "Opt-in listening — never always-on",
-      "English, Hindi & Hinglish on every plan",
+      "Hindi and English conversations; check current language options",
       "Notes, tasks, Spaces, daily briefing",
       "Free forever tier to start",
     ],
@@ -300,11 +300,11 @@ export const destinationPages: DestinationPage[] = [
     faqs: [
       {
         q: "Is KukuNotes free on Android?",
-        a: "Yes. The Free plan includes 5 Spaces, 5 hours of recording per month, and unlimited note and task extraction. Pro and Business unlock more hours and features.",
+        a: "Start for free. Check current prices, recording allowances, and included features in your KukuNotes workspace before choosing a paid plan.",
       },
       {
         q: "Does KukuNotes work in Hindi?",
-        a: "Yes. English, Hindi, and Hinglish are supported on every plan. Business adds 11 Indian regional languages.",
+        a: "KukuNotes is designed for Hindi, English, and Hinglish conversations. Check the language options available in your current app and plan before recording.",
       },
       {
         q: "What Android version do I need?",

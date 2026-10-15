@@ -1,69 +1,18 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
-
+import type { CSSProperties, ReactNode } from "react";
 type RevealProps = {
   children: ReactNode;
   className?: string;
-  variant?: "fade-up" | "fade-left" | "fade-right" | "scale" | "clip-up" | "blur";
+  variant?: string;
   delay?: number;
   once?: boolean;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 };
-
-const variants = {
-  "fade-up": {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0 },
-  },
-  "fade-left": {
-    hidden: { opacity: 0, x: -48 },
-    show: { opacity: 1, x: 0 },
-  },
-  "fade-right": {
-    hidden: { opacity: 0, x: 48 },
-    show: { opacity: 1, x: 0 },
-  },
-  scale: {
-    hidden: { opacity: 0, scale: 0.92 },
-    show: { opacity: 1, scale: 1 },
-  },
-  "clip-up": {
-    hidden: { opacity: 0, clipPath: "inset(100% 0 0 0)" },
-    show: { opacity: 1, clipPath: "inset(0% 0 0 0)" },
-  },
-  blur: {
-    hidden: { opacity: 0, filter: "blur(12px)", y: 24 },
-    show: { opacity: 1, filter: "blur(0px)", y: 0 },
-  },
-};
-
-export function Reveal({
-  children,
-  className = "",
-  variant = "fade-up",
-  delay = 0,
-  once = true,
-  style,
-}: RevealProps) {
-  const reduceMotion = useReducedMotion();
-
-  if (reduceMotion) {
-    return <div className={className} style={style}>{children}</div>;
-  }
-
+// Progressive enhancement: the centralized engine may move this composition;
+// it is fully readable in SSR, without JavaScript, and with reduced motion.
+export function Reveal({ children, className = "", style }: RevealProps) {
   return (
-    <motion.div
-      className={className}
-      style={style}
-      variants={variants[variant]}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once, amount: 0.08, margin: "0px 0px -40px 0px" }}
-      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div className={`reveal ${className}`} data-scroll-reveal style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }

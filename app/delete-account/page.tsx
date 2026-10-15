@@ -158,7 +158,7 @@ export default function DeleteAccountPage() {
             <p>
               Any retained data is kept only as long as needed for those purposes
               and is handled according to our{" "}
-              <a href="/privacy">Privacy Policy</a>.
+              <Link href="/privacy">Privacy Policy</Link>.
             </p>
           </section>
 

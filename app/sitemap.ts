@@ -4,7 +4,7 @@ import { topicPages } from "@/lib/seo-pages";
 import { siteConfig } from "@/lib/site";
 
 // Bump when page content meaningfully changes; a per-request date makes Google ignore lastmod.
-const lastModified = new Date("2026-10-13");
+const lastModified = new Date("2026-10-14");
 
 const url = (path: string) => `${siteConfig.url}${path}`;
 
@@ -57,11 +57,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.85,
       images: [
-        url("/use-cases/meetings.jpg"),
-        url("/use-cases/education.jpg"),
-        url("/use-cases/sales.jpg"),
-        url("/use-cases/personal.jpg"),
-        url("/use-cases/creators.jpg"),
+        url("/screenshots/desktop/meeting-detail.png"),
+        url("/screenshots/notes.png"),
+        url("/screenshots/desktop/spaces-tasks.png"),
+        url("/screenshots/daily-briefing.jpeg"),
+        url("/screenshots/note-detail.png"),
       ],
     },
     ...topicPages.map((page) => ({

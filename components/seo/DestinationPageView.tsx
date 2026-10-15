@@ -1,140 +1,92 @@
-import Image from "next/image";
-import Link from "next/link";
-import { AppFrame } from "@/components/home/AppFrame";
-import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
-import { Navbar } from "@/components/home/Navbar";
-import { Reveal } from "@/components/home/Reveal";
-import { ScrollProgress } from "@/components/home/ScrollProgress";
-import { SmoothScroll } from "@/components/home/SmoothScroll";
-import { JsonLd } from "@/components/seo/JsonLd";
+﻿import Link from "next/link";
+import { SiteLayout } from "@/components/marketing/SiteLayout";
+import { Action, FAQ, FinalCTA, ProductFrame } from "@/components/marketing/UI";
+import { JsonLd } from "./JsonLd";
 import type { DestinationPage } from "@/lib/destination-pages";
-import { siteConfig } from "@/lib/site";
-import { HiArrowUpRight, HiCheck } from "react-icons/hi2";
-
-type DestinationPageViewProps = {
+export function DestinationPageView({
+  page,
+  jsonLd,
+}: {
   page: DestinationPage;
   jsonLd: Record<string, unknown>;
-};
-
-const updatedLabel = new Date(siteConfig.contentUpdated).toLocaleDateString("en-IN", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
-
-export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) {
-  const isPhoneScreenshot = page.image.src.startsWith("/screenshots/") && !page.image.src.includes("/desktop/");
-
+}) {
   return (
-    <div className="site-shell studio-page">
+    <SiteLayout>
       <JsonLd data={jsonLd} />
-      <SmoothScroll />
-      <ScrollProgress />
-      <Navbar />
-      <main className="studio seo-page destination-page">
-        <nav className="seo-breadcrumb" aria-label="Breadcrumb">
+      <div className="container">
+        <nav className="breadcrumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           <span aria-hidden="true">/</span>
-          <Link href="/get-kukunotes">Get KukuNotes</Link>
+          <Link href="/get-kukunotes">Downloads</Link>
           <span aria-hidden="true">/</span>
           <span aria-current="page">{page.kicker}</span>
         </nav>
-
-        <section className="seo-hero" aria-labelledby="destination-title">
-          <div className="seo-hero-copy">
-            <p className="studio-kicker">{page.kicker}</p>
-            <p className="destination-badge">{page.badge}</p>
-            <h1 id="destination-title">
-              {page.h1} <span className="brand-gradient-text">{page.h1Accent}</span>
+        <section className="solution-hero">
+          <div>
+            <p className="eyebrow">
+              {page.kicker} · {page.badge}
+            </p>
+            <h1>
+              {page.h1} <span className="accent-text">{page.h1Accent}</span>
             </h1>
-            <p className="studio-section-lead">{page.lead}</p>
-            <div className="seo-hero-actions">
-              <a
-                className="studio-btn studio-btn-accent"
-                href={page.cta.href}
-                target={page.cta.isExternal ? "_blank" : undefined}
-                rel={page.cta.isExternal ? "noopener noreferrer" : undefined}
-              >
-                {page.cta.label}
-                {page.cta.isExternal ? <HiArrowUpRight style={{ marginLeft: 6 }} aria-hidden="true" /> : null}
-              </a>
-              {page.secondaryCta ? (
-                <Link className="studio-text-link" href={page.secondaryCta.href}>
-                  {page.secondaryCta.label} <span aria-hidden="true">-&gt;</span>
+            <p className="hero-description">{page.lead}</p>
+            <div className="hero-actions">
+              <Action href={page.cta.href}>{page.cta.label}</Action>
+              {page.secondaryCta && (
+                <Link className="text-link" href={page.secondaryCta.href}>
+                  {page.secondaryCta.label} <span aria-hidden="true">→</span>
                 </Link>
-              ) : null}
+              )}
             </div>
           </div>
-          <div className="seo-hero-visual">
-            {isPhoneScreenshot ? (
-              <AppFrame src={page.image.src} alt={page.image.alt} size="hero" />
-            ) : (
-              <Image
-                className="seo-hero-image"
-                src={page.image.src}
-                alt={page.image.alt}
-                width={1200}
-                height={700}
-                sizes="(max-width: 980px) 100vw, 560px"
-                priority
-              />
-            )}
+          <div className="solution-visual">
+            <ProductFrame src={page.image.src} alt={page.image.alt} priority />
           </div>
         </section>
-
-        <section className="seo-answer" aria-label="Direct answer">
-          <p className="seo-answer-label">In short</p>
-          <p>{page.answer}</p>
-          <p className="seo-updated">Updated {updatedLabel}</p>
+        <section className="direct-answer" aria-label="Platform overview">
+          <p className="eyebrow">Your next workspace</p>
+          <div>
+            <p>{page.answer}</p>
+          </div>
         </section>
-
-        <section className="seo-block destination-highlights" aria-labelledby="highlights-title">
-          <h2 id="highlights-title">Key capabilities</h2>
-          <ul className="destination-highlight-list" role="list">
+        <section className="section destination-capabilities">
+          <div>
+            <p className="eyebrow">Built around your day</p>
+            <h2>
+              Keep the useful
+              <br />
+              part close.
+            </h2>
+          </div>
+          <ul className="check-list">
             {page.highlights.map((item) => (
-              <li key={item}>
-                <HiCheck aria-hidden="true" />
-                <span>{item}</span>
-              </li>
+              <li key={item}>{item}</li>
             ))}
           </ul>
         </section>
-
-        {page.sections.map((section) => (
-          <Reveal key={section.heading} className="seo-block">
-            <h2>{section.heading}</h2>
-            {section.body.map((para) => (
-              <p key={para.slice(0, 40)}>{para}</p>
-            ))}
-          </Reveal>
+        {page.sections.map((section, i) => (
+          <section className="editorial-section" key={section.heading}>
+            <div>
+              <p className="eyebrow">0{i + 1} / Getting started</p>
+              <h2>{section.heading}</h2>
+            </div>
+            <div className="editorial-body">
+              {section.body.map((text) => (
+                <p key={text}>{text}</p>
+              ))}
+            </div>
+          </section>
         ))}
-
-        <section className="seo-block" aria-labelledby="destination-faq-title">
-          <h2 id="destination-faq-title">FAQ</h2>
-          <div className="destination-faq-list">
-            {page.faqs.map((faq) => (
-              <details key={faq.q} className="destination-faq-item">
-                <summary>{faq.q}</summary>
-                <p>{faq.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        <nav className="seo-block seo-related" aria-labelledby="destination-related-title">
-          <h2 id="destination-related-title">Related</h2>
-          <ul>
-            {page.related.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href}>
-                  {link.label} <span aria-hidden="true">-&gt;</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <nav className="related-links" aria-label="Related pages">
+          {page.related.map((link) => (
+            <Link key={link.href} href={link.href}>
+              {link.label} <span aria-hidden="true">↗</span>
+            </Link>
+          ))}
         </nav>
-      </main>
-      <KukuNotesFooter />
-    </div>
+      </div>
+      <FAQ items={page.faqs} title="A good start on your device." />
+      <FinalCTA />
+    </SiteLayout>
   );
 }

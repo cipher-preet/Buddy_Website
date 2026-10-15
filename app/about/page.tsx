@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
-import { Navbar } from "@/components/home/Navbar";
-import { ScrollProgress } from "@/components/home/ScrollProgress";
-import { SmoothScroll } from "@/components/home/SmoothScroll";
+﻿import type { Metadata } from "next";
+import { SiteLayout } from "@/components/marketing/SiteLayout";
+import {
+  PageHero,
+  Action,
+  FAQ,
+  FinalCTA,
+  ProductFrame,
+} from "@/components/marketing/UI";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { aboutJsonLd } from "@/lib/json-ld";
 import { siteConfig } from "@/lib/site";
-
-const title = "About KukuNotes (Kuku Notes) — AI Note Taker App";
+const title = "About KukuNotes — Conversations into Notes & Action";
 const description =
-  "KukuNotes (also written Kuku Notes) is an AI note taker, bot-free meeting recorder, and personal assistant app for Android, built for English, Hindi, and Hinglish conversations.";
-
+  "KukuNotes helps turn important conversations into notes, tasks, and connected context. Learn why we build around presence, clarity, and follow-through.";
 export const metadata: Metadata = {
   title,
   description,
@@ -22,7 +23,6 @@ export const metadata: Metadata = {
     "KukuNotes app",
     "KukuNotes AI",
     "about KukuNotes",
-    "KukuNotes vs Kuku FM",
     "KukuNotes Technologies",
     "KukuNotes official website",
   ],
@@ -48,128 +48,90 @@ export const metadata: Metadata = {
     images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
   },
 };
-
-const facts = [
-  { label: "Name", value: "KukuNotes (one word; sometimes written “Kuku Notes”)" },
-  { label: "What it is", value: "AI note taker, bot-free meeting recorder, and personal AI assistant" },
-  { label: "Platform", value: "Android app on Google Play" },
-  { label: "Package", value: siteConfig.androidPackage },
-  { label: "Languages", value: "English, Hindi, Hinglish; 11 Indian languages on Business" },
-  { label: "Pricing", value: "Free plan; Pro ₹799/month; Business ₹1,999/month" },
-  { label: "Recording model", value: "Opt-in only, via Start Listening; no meeting bots" },
-  { label: "Contact", value: siteConfig.email },
-];
-
-const aboutFaqs = [
+const faqs = [
   {
     q: "What is KukuNotes?",
-    a: "KukuNotes is an Android app that records conversations when you tap Start Listening and turns them into summaries, decisions, and action items, organized into Spaces for each project, class, client, or life area. It also gives you a daily briefing and answers questions about your own notes.",
+    a: "KukuNotes is an AI productivity workspace that helps turn conversations into summaries, notes, and action items. Spaces keep related work together, and Ask KukuNotes helps you return to captured context.",
   },
   {
     q: "Is it KukuNotes or Kuku Notes?",
-    a: "The official name is KukuNotes, written as one word with a capital K and N. “Kuku Notes” refers to the same app.",
+    a: "The official name is KukuNotes, written as one word. Kuku Notes refers to the same product.",
   },
   {
     q: "Is KukuNotes related to Kuku FM or Kuku TV?",
-    a: "No. KukuNotes is a productivity app for notes, meetings, and tasks. It is a separate product from the Kuku FM audiobook app and the Kuku TV short-drama app.",
+    a: "No. KukuNotes is a productivity product for conversations, notes, and tasks. It is separate from the Kuku FM and Kuku TV entertainment apps.",
   },
   {
-    q: "Where can I download KukuNotes?",
-    a: "KukuNotes is available for Android on Google Play. Search for “KukuNotes” or use the official link on this website.",
-  },
-  {
-    q: "Who is KukuNotes for?",
-    a: "Students recording lectures, founders and teams capturing meetings, sales and client-facing professionals, creators doing interviews, and anyone who wants a private second brain for daily life.",
+    q: "Where can I get it?",
+    a: "Explore the Android app, Windows app, Chrome extension, and web workspace on our downloads page. Store listings show current device requirements.",
   },
 ];
-
 export default function AboutPage() {
   return (
-    <div className="site-shell studio-page">
-      <JsonLd data={aboutJsonLd(aboutFaqs)} />
-      <SmoothScroll />
-      <ScrollProgress />
-      <Navbar />
-      <main className="studio seo-page">
-        <nav className="seo-breadcrumb" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
-          <span aria-hidden="true">/</span>
-          <span aria-current="page">About</span>
-        </nav>
-
-        <section className="seo-hero seo-hero-single" aria-labelledby="about-title">
-          <div className="seo-hero-copy">
-            <p className="studio-kicker">About KukuNotes</p>
-            <h1 id="about-title">
-              KukuNotes helps you keep <span className="brand-gradient-text">the day you actually lived.</span>
-            </h1>
-            <p className="studio-section-lead">
-              Important things get said in meetings, classes, and calls, and then forgotten.
-              KukuNotes exists so the useful parts of those conversations become notes, tasks,
-              and plans you can trust.
-            </p>
-          </div>
-        </section>
-
-        <section className="seo-answer" aria-label="Quick answer">
-          <p className="seo-answer-label">In one sentence</p>
+    <SiteLayout>
+      <JsonLd data={aboutJsonLd(faqs)} />
+      <PageHero
+        eyebrow="Why KukuNotes exists"
+        title={
+          <>
+            Good conversations
+            <br />
+            <span className="accent-text">deserve a future.</span>
+          </>
+        }
+        description="The idea in a meeting. The promise on a call. The plan you talked through. Too much useful context disappears as soon as the conversation ends."
+      >
+        <div className="hero-actions">
+          <Action href="/#product">Meet KukuNotes</Action>
+          <Action href="/contact" secondary>
+            Talk to the team
+          </Action>
+        </div>
+      </PageHero>
+      <section className="section about-statement">
+        <div className="container">
+          <p className="eyebrow">Our purpose</p>
           <p>
-            KukuNotes is a private AI note taker and meeting recorder for Android that turns
-            English, Hindi, and Hinglish conversations into summaries, action items, and a daily
-            briefing, without ever sending a bot into your meetings.
+            Help people be present in the moment, remember what mattered, and
+            make the next useful step a little clearer.
           </p>
-        </section>
-
-        <section className="seo-block" aria-labelledby="about-facts-title">
-          <h2 id="about-facts-title">KukuNotes at a glance</h2>
-          <dl className="seo-facts">
-            {facts.map((fact) => (
-              <div key={fact.label}>
-                <dt>{fact.label}</dt>
-                <dd>{fact.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-
-        <section className="seo-block" aria-labelledby="about-principles-title">
-          <h2 id="about-principles-title">What we believe</h2>
-          <ul className="seo-bullets">
-            <li>Recording should always be your choice, so listening is strictly opt-in.</li>
-            <li>A summary is only useful if you can check it, so every highlight links to its evidence.</li>
-            <li>Notes belong in context, so everything lives in a Space.</li>
-            <li>Indian conversations mix languages, so Hindi and Hinglish are first-class.</li>
-          </ul>
-        </section>
-
-        <section className="seo-block" aria-labelledby="about-faq-title">
-          <h2 id="about-faq-title">Common questions about KukuNotes</h2>
-          <div className="studio-faq-list">
-            {aboutFaqs.map((faq, index) => (
-              <details key={faq.q} open={index === 0}>
-                <summary>
-                  {faq.q}
-                  <span aria-hidden="true" />
-                </summary>
-                <p>{faq.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        <nav className="seo-block seo-related" aria-labelledby="about-related-title">
-          <h2 id="about-related-title">Explore KukuNotes</h2>
-          <ul>
-            <li><Link href="/ai-note-taker">AI note taker <span aria-hidden="true">-&gt;</span></Link></li>
-            <li><Link href="/ai-meeting-recorder">AI meeting recorder <span aria-hidden="true">-&gt;</span></Link></li>
-            <li><Link href="/android">Android app <span aria-hidden="true">-&gt;</span></Link></li>
-            <li><Link href="/chrome-extension">Chrome extension <span aria-hidden="true">-&gt;</span></Link></li>
-            <li><Link href="/platform">Web app <span aria-hidden="true">-&gt;</span></Link></li>
-            <li><Link href="/hindi-speech-to-text">Hindi speech to text <span aria-hidden="true">-&gt;</span></Link></li>
-          </ul>
-        </nav>
-      </main>
-      <KukuNotesFooter />
-    </div>
+        </div>
+      </section>
+      <section className="section container">
+        <div className="about-values">
+          {[
+            [
+              "01 / Presence",
+              "Be in the conversation.",
+              "Recording should be a deliberate choice. Start when you need to capture, inform the people involved, and give your attention to the conversation.",
+            ],
+            [
+              "02 / Context",
+              "Keep the story together.",
+              "A note makes more sense beside the project, person, or goal it belongs to. Spaces give related conversations and tasks a place to stay connected.",
+            ],
+            [
+              "03 / Follow-through",
+              "Make room for action.",
+              "Remembering is a beginning. Summaries, extracted tasks, questions, and goals help you return to what was discussed and decide what comes next.",
+            ],
+          ].map(([label, heading, body]) => (
+            <article key={label}>
+              <p className="eyebrow">{label}</p>
+              <h3>{heading}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
+        <div className="about-product">
+          <ProductFrame
+            src="/screenshots/desktop/spaces-tasks.png"
+            alt="The KukuNotes workspace brings Spaces and actionable tasks together"
+          />
+        </div>
+      </section>
+      <FAQ items={faqs} title="A little more about KukuNotes." />
+      <FinalCTA />
+    </SiteLayout>
   );
 }

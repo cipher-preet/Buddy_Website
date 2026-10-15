@@ -13,10 +13,13 @@ export function NotFoundView() {
   return (
     <div className="site-shell studio-page not-found-shell">
       <Navbar />
-      <main className="not-found-main">
+      <main className="not-found-main" id="main-content" tabIndex={-1}>
         <section className="not-found-copy">
           <p className="studio-kicker">404</p>
-          <h1>This page didn’t make it into <span className="brand-gradient-text">your notes.</span></h1>
+          <h1>
+            This page didn’t make it into{" "}
+            <span className="brand-gradient-text">your notes.</span>
+          </h1>
           <p className="not-found-lead">
             The link may be outdated, or the page moved. Let’s get you back to
             something KukuNotes can help with.

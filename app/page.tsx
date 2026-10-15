@@ -1,8 +1,5 @@
-import { KukuNotesLanding } from "@/components/home/KukuNotesLanding";
-import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
-import { Navbar } from "@/components/home/Navbar";
-import { ScrollProgress } from "@/components/home/ScrollProgress";
-import { SmoothScroll } from "@/components/home/SmoothScroll";
+import { LaunchLanding } from "@/components/home/LaunchLanding";
+import { SiteLayout } from "@/components/marketing/SiteLayout";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { homeJsonLd } from "@/lib/json-ld";
 import { seoKeywords } from "@/lib/seo-keywords";
@@ -67,13 +64,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="site-shell studio-page">
+    <SiteLayout className="home-page">
       <JsonLd data={homeJsonLd()} />
-      <SmoothScroll />
-      <ScrollProgress />
-      <Navbar />
-      <KukuNotesLanding />
-      <KukuNotesFooter />
-    </div>
+      <LaunchLanding />
+    </SiteLayout>
   );
 }

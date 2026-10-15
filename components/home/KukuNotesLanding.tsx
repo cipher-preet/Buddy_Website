@@ -1,344 +1,484 @@
-"use client";
-
+﻿import Link from "next/link";
+import {
+  HiArrowRight,
+  HiOutlineMicrophone,
+  HiOutlineDocumentText,
+  HiOutlineShieldCheck,
+  HiOutlineHandRaised,
+  HiOutlineChatBubbleLeftRight,
+} from "react-icons/hi2";
+import {
+  Action,
+  FAQ,
+  FinalCTA,
+  ProductFrame,
+  SectionHeading,
+} from "@/components/marketing/UI";
+import { SpacesDemo } from "@/components/marketing/SpacesDemo";
+import { PlatformSelector } from "@/components/marketing/PlatformSelector";
+import { Pricing } from "@/components/marketing/Pricing";
 import { faqItems } from "@/lib/home-data";
-import { siteConfig } from "@/lib/site";
-import { motion } from "framer-motion";
-import { AppFrame } from "./AppFrame";
-import { FaqItem } from "./FaqItem";
-import { ProductTheater } from "./ProductTheater";
 import { Reveal } from "./Reveal";
-
-const dayBeats = [
-  { time: "07:45", label: "Daily briefing ready" },
-  { time: "10:30", label: "Listening in Product Launch" },
-  { time: "14:10", label: "Notes captured" },
-  { time: "16:40", label: "Tasks extracted" },
-];
-
-const captureSteps = [
-  {
-    number: "01",
-    title: "Listen when it matters",
-    copy: "Start capture for a meeting, a walk, or a working session. Listening is a choice, not a background habit.",
-    image: "/screenshots/listen.png",
-    alt: "KukuNotes live listening on the home screen",
-    meta: "Opt-in capture",
-  },
-  {
-    number: "02",
-    title: "Keep the useful parts",
-    copy: "KukuNotes turns the conversation into notes with confidence, dates, and the space they belong to.",
-    image: "/screenshots/notes-board.jpeg",
-    alt: "KukuNotes notes with confidence and space context",
-    meta: "Searchable memory",
-  },
-  {
-    number: "03",
-    title: "Move the next step",
-    copy: "Commitments become prioritized tasks, still attached to the original context so follow-through stays honest.",
-    image: "/screenshots/tasks-board.jpeg",
-    alt: "KukuNotes tasks with priority and space context",
-    meta: "Clear next actions",
-  },
-];
-
-const spacePrinciples = [
-  {
-    title: "One space, one context",
-    copy: "A project, a person, a meeting series, or a part of life gets its own home—so notes do not bleed across work.",
-  },
-  {
-    title: "Everything stays connected",
-    copy: "Briefing, calendar, notes, tasks, and goals all point back to the same space instead of living in separate tools.",
-  },
-  {
-    title: "Sharing stays selective",
-    copy: "You choose the exact notes and tasks that belong in a handoff. The rest stays private to the space.",
-  },
-];
-
-const prompts = [
-  "What did we decide in this morning’s sync?",
-  "What are my open tasks in Product Launch?",
-  "Help me plan tomorrow from today’s notes.",
-];
-
-const ease = [0.22, 1, 0.36, 1] as const;
+import { ProductStory } from "@/components/marketing/ProductStory";
+import { TaskDemo } from "@/components/marketing/TaskDemo";
+import { AssistantDemo } from "@/components/marketing/AssistantDemo";
+import { MeetingDigest } from "@/components/marketing/MeetingDigest";
+import { CinematicStage, HeroProductStage } from "@/components/marketing/ProductShowcase";
+import { ScreenshotSpotlight } from "@/components/marketing/ScreenshotSpotlight";
 
 export function KukuNotesLanding() {
   return (
-    <main className="studio">
-      <section className="studio-hero" id="top">
-        <div className="studio-hero-copy">
-          <motion.p
-            className="studio-kicker"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease }}
-          >
-            Personal context, kept
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.06, ease }}
-          >
-            Capture.
+    <>
+      <section className="home-hero container" aria-labelledby="home-title">
+        <div className="hero-copy">
+          <p className="eyebrow">
+            <span className="status-dot" /> Your AI workspace for conversations
+            and action
+          </p>
+          <h1 id="home-title">
+            <span className="hero-line">Every conversation</span>
             <br />
-            Organize.
-            <br />
-            <em>Grow.</em>
-          </motion.h1>
-          <motion.p
-            className="studio-hero-lead"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.16, ease }}
-          >
-            KukuNotes captures the conversations that fill your day, then turns them
-            into notes, tasks, and a plan you can actually use.
-          </motion.p>
-          <motion.div
-            className="studio-hero-actions"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.24, ease }}
-          >
-            <a
-              className="studio-btn studio-btn-ink"
-              href={siteConfig.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get KukuNotes
-            </a>
-            <a className="studio-text-link" href="#product">
-              See the product <span aria-hidden="true">→</span>
-            </a>
-          </motion.div>
+            <span className="accent-text hero-line">moves you forward.</span>
+          </h1>
+          <p className="hero-description">
+            Capture meetings and ideas, turn what matters into notes and next
+            steps, and keep everything connected to your goals.
+          </p>
+          <div className="hero-actions">
+            <Action />
+            <Action href="#product" secondary>
+              Explore KukuNotes
+            </Action>
+          </div>
+          <p className="hero-fineprint">
+            Be present. Remember the details. Know what’s next.
+          </p>
         </div>
+        <div className="hero-product">
+          <div className="hero-product-label">
+            <span className="small-label">
+              A conversation is just the beginning
+            </span>
+            <span>Notes. Tasks. Context.</span>
+          </div>
+          <HeroProductStage />
+          <div className="hero-product-caption">
+            <span className="status-dot" />
+            <p>Your work, with the context still attached.</p>
+            <Link href="/platform">
+              Meet your workspace <HiArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+        <div className="platform-strip">
+          <span>At your desk. On the go. In the conversation.</span>
+          <div>
+            <Link href="/android">Android</Link>
+            <i />
+            <Link href="/windows">Windows</Link>
+            <i />
+            <Link href="/chrome-extension">Chrome</Link>
+            <i />
+            <Link href="/platform">Web</Link>
+          </div>
+        </div>
+      </section>
 
-        <motion.div
-          className="studio-hero-visual"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.12, ease }}
+      <section id="product" className="section container workflow-section">
+        <SectionHeading
+          eyebrow="From conversation to momentum"
+          title={
+            <>
+              The meeting ends.
+              <br />
+              The useful part carries on.
+            </>
+          }
+          centered
         >
-          <ol className="studio-dayline" aria-label="A day with KukuNotes">
-            {dayBeats.map((beat) => (
-              <li key={beat.time}>
-                <time>{beat.time}</time>
-                <span>{beat.label}</span>
-              </li>
-            ))}
-          </ol>
+          A transcript remembers the words. KukuNotes helps you return to the
+          decisions, commitments, and context behind them.
+        </SectionHeading>
+        <ProductStory />
+      </section>
 
-          <div className="studio-hero-stage">
-            <AppFrame src="/screenshots/daily-briefing.jpeg" alt="KukuNotes daily briefing" size="hero" />
-            <div className="studio-hero-chips">
-              <div className="studio-chip studio-chip-live">
-                <i />
-                Listening
+      <section id="listen" className="section feature-section container">
+        <Reveal>
+          <div className="feature-heading-row">
+            <SectionHeading
+              eyebrow="01 / AI meeting notes"
+              title={
+                <>
+                  More listening.
+                  <br />
+                  Less catching up.
+                </>
+              }
+            >
+              Typing while listening means missing a little of both. Capture
+              deliberately, then come back to a clear summary and the original
+              conversation.
+            </SectionHeading>
+            <Link className="text-link" href="/ai-meeting-recorder">
+              Explore meeting notes <HiArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="meeting-showcase">
+            <CinematicStage tone="blue" className="meeting-product-stage">
+              <ScreenshotSpotlight
+                src="/screenshots/desktop/meeting-detail.png"
+                label="Explore the actual meeting screen"
+                initialFocus="summary"
+                options={[{ id: "overview", label: "Full meeting" }, { id: "summary", label: "Meeting summary" }]}
+              >
+                <ProductFrame
+                  src="/screenshots/desktop/meeting-detail.png"
+                  alt="Actual KukuNotes meeting recording and summary; identifying meeting details redacted"
+                  sizes="(max-width: 680px) 90vw, (max-width: 1280px) 85vw, 1060px"
+                />
+              </ScreenshotSpotlight>
+            </CinematicStage>
+            <MeetingDigest />
+            <div className="showcase-bottom">
+              <span>
+                <HiOutlineMicrophone aria-hidden="true" /> Capture when you
+                choose
+              </span>
+              <span>
+                <HiOutlineDocumentText aria-hidden="true" /> Review what
+                mattered
+              </span>
+              <span>
+                <HiOutlineChatBubbleLeftRight aria-hidden="true" /> Keep the
+                context
+              </span>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="section container tasks-section">
+        <Reveal>
+          <div className="feature-split">
+            <div className="feature-copy">
+              <SectionHeading
+                eyebrow="02 / Automatic task extraction"
+                title={
+                  <>
+                    “I’ll take care of it.”
+                    <br />
+                    <span className="accent-text">Now it has a home.</span>
+                  </>
+                }
+              >
+                Good intentions get lost between calls. KukuNotes finds action
+                items in your conversations, so you can review the commitment
+                and decide what happens next.
+              </SectionHeading>
+              <ul className="check-list">
+                <li>Keep follow-ups alongside the conversation</li>
+                <li>Review priorities, dates, and task status</li>
+                <li>Return to the details before you act</li>
+              </ul>
+              <Action href="/ai-note-taker" secondary>
+                Turn notes into next steps
+              </Action>
+            </div>
+            <div className="task-feature-visual">
+              <div className="paired-phones">
+                <ProductFrame
+                  src="/screenshots/notes.png"
+                  alt="KukuNotes notes library organized by Space"
+                  sizes="(max-width: 680px) 40vw, 210px"
+                />
+                <ProductFrame
+                  src="/screenshots/tasks.png"
+                  alt="Extracted KukuNotes tasks with priority and completion status"
+                  sizes="(max-width: 680px) 40vw, 210px"
+                />
+                <span className="visual-annotation">
+                  The context and the commitment.
+                  <br />
+                  Always close together.
+                </span>
               </div>
-              <div className="studio-chip studio-chip-focus">
-                <b>4h 30m</b>
-                <span>focus time</span>
-              </div>
-              <div className="studio-chip studio-chip-priority">
-                <b>3</b>
-                <span>priorities</span>
+              <TaskDemo />
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      <section id="spaces" className="section spaces-section">
+        <div className="container">
+          <div className="feature-heading-row">
+            <SectionHeading
+              eyebrow="03 / Spaces & contextual memory"
+              title={
+                <>
+                  Everything in its place.
+                  <br />
+                  Every place with its context.
+                </>
+              }
+            >
+              A project, a client, a plan just for you. Give each one a Space,
+              with its notes, tasks, and goals together.
+            </SectionHeading>
+            <span className="section-side-note">
+              Try a different context below.
+              <br />
+              Same clarity, different priorities.
+            </span>
+          </div>
+          <CinematicStage tone="teal" className="spaces-product-stage" caption="Your notes, tasks, and context in the actual KukuNotes workspace">
+            <ScreenshotSpotlight
+              src="/screenshots/desktop/spaces-tasks.png"
+              label="Explore the actual Spaces workspace"
+              options={[{ id: "overview", label: "Workspace" }, { id: "workspace", label: "Spaces & tasks" }]}
+            >
+              <ProductFrame src="/screenshots/desktop/spaces-tasks.png" alt="Actual KukuNotes desktop Spaces with a contextual task list; account details redacted" />
+            </ScreenshotSpotlight>
+          </CinematicStage>
+          <SpacesDemo />
+          <div className="section-footnote">
+            <span>
+              Representative examples. Your Spaces contain your own
+              conversations and work.
+            </span>
+            <Link href="/platform" className="text-link">
+              Explore your workspace <HiArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section id="ask" className="section ask-section">
+        <div className="container">
+          <div className="feature-split">
+            <div className="feature-copy">
+              <p className="eyebrow">04 / Ask KukuNotes</p>
+              <h2>
+                You had the conversation.
+                <br />
+                <span>Keep the answer close.</span>
+              </h2>
+              <p>
+                What did we decide? What needs a follow-up? Ask questions from
+                your captured context, instead of piecing the story together
+                from scattered notes.
+              </p>
+              <Action href="/ai-personal-assistant" secondary>
+                Get to know your assistant
+              </Action>
+              <p className="dark-footnote">
+                Review the source context before acting on AI-generated answers.
+              </p>
+            </div>
+            <div className="ask-visual">
+              <AssistantDemo />
+              <CinematicStage tone="violet" className="assistant-product-stage">
+                <ScreenshotSpotlight
+                  src="/screenshots/desktop/ai-chat.png"
+                  label="Explore the actual Ask KukuNotes screen"
+                  options={[{ id: "overview", label: "Workspace" }, { id: "answer", label: "The answer" }, { id: "prompt", label: "Your context" }]}
+                >
+                  <ProductFrame src="/screenshots/desktop/ai-chat.png" alt="Actual Ask KukuNotes answer and contextual prompt; account details and internal identifier redacted" />
+                </ScreenshotSpotlight>
+              </CinematicStage>
+              <div className="ask-caption">
+                <HiOutlineChatBubbleLeftRight aria-hidden="true" /> Less
+                searching. More remembering.
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* ── Daily Briefing ── */}
-      <section className="studio-briefing" aria-labelledby="briefing-title">
-        <Reveal className="studio-briefing-copy">
-          <p className="studio-kicker">Daily briefing</p>
-          <h2 id="briefing-title">Know what deserves your attention today.</h2>
-          <p className="studio-section-lead">
-            KukuNotes brings focus time, priorities, and upcoming meetings into one
-            opening view—so the day has a shape before it gets busy.
-          </p>
-          <ul className="studio-feature-list">
-            <li>Today’s priorities</li>
-            <li>Available focus time</li>
-            <li>Upcoming meetings</li>
-          </ul>
-        </Reveal>
-        <Reveal className="studio-briefing-stage" variant="scale" delay={0.08}>
-          <AppFrame
-            src="/screenshots/daily-briefing.jpeg"
-            alt="KukuNotes daily briefing with priorities and upcoming meetings"
-            size="hero"
-          />
-        </Reveal>
+      <section className="section container daily-section">
+        <SectionHeading
+          eyebrow="05 / Daily briefings & goals"
+          title={
+            <>
+              A clearer day.
+              <br />A more intentional tomorrow.
+            </>
+          }
+          centered
+        >
+          Move from remembering what happened to making room for what matters
+          next.
+        </SectionHeading>
+        <div className="daily-grid">
+          <article className="daily-card briefing-card">
+            <div>
+              <p className="eyebrow">Your daily briefing</p>
+              <h3>Start with a little perspective.</h3>
+              <p>
+                Bring priorities and upcoming commitments into view before the
+                day gets busy.
+              </p>
+              <Link href="/ai-personal-assistant" className="text-link">
+                Find your focus <HiArrowRight aria-hidden="true" />
+              </Link>
+            </div>
+            <ProductFrame
+              src="/screenshots/daily-briefing.jpeg"
+              alt="KukuNotes daily briefing with priorities and planned focus time"
+            />
+          </article>
+          <article className="daily-card goal-card">
+            <div>
+              <p className="eyebrow">Goals & progress</p>
+              <h3>Keep the bigger picture in sight.</h3>
+              <p>
+                Give your Space a goal and return to the work that moves it
+                forward.
+              </p>
+              <Link href="/use-cases" className="text-link">
+                Make room for progress <HiArrowRight aria-hidden="true" />
+              </Link>
+            </div>
+            <ProductFrame
+              src="/screenshots/goal-monitor.jpeg"
+              alt="KukuNotes goal monitor for a Space"
+            />
+          </article>
+        </div>
       </section>
 
-      {/* ── Capability Strip ── */}
-      <section className="studio-strip" aria-label="What KukuNotes holds">
-        <p className="studio-strip-label">Built for the shape of a real day</p>
-        <ul className="studio-strip-list">
-          <li>Daily briefing</li>
-          <li>Live listening</li>
-          <li>Notes with context</li>
-          <li>Prioritized tasks</li>
-          <li>Space goals</li>
-          <li>Selective sharing</li>
-        </ul>
-      </section>
-
-      {/* ── Product Theater ── */}
-      <ProductTheater />
-
-      {/* ── Capture Sequence ── */}
-      <section className="studio-capture" id="listen" aria-labelledby="capture-title">
-        <Reveal className="studio-capture-intro">
-          <p className="studio-kicker">From conversation to next step</p>
-          <h2 id="capture-title">Capture once. Stay oriented.</h2>
-          <p className="studio-section-lead">
-            When a conversation matters, KukuNotes listens with you, then keeps the
-            details where the rest of your day already lives.
-          </p>
-        </Reveal>
-
-        <div className="studio-capture-track">
-          {captureSteps.map((step, index) => (
-            <Reveal key={step.number} className="studio-capture-step" delay={index * 0.08}>
-              <div className="studio-capture-meta">
-                <span>{step.number}</span>
-                <small>{step.meta}</small>
+      <section className="section container audience-section">
+        <div className="audience-intro">
+          <p className="eyebrow">For the way you work</p>
+          <h2>
+            Different days.
+            <br />
+            The same need for clarity.
+          </h2>
+          <Link className="text-link" href="/use-cases">
+            Find your use case <HiArrowRight aria-hidden="true" />
+          </Link>
+        </div>
+        <div className="audience-links">
+          {[
+            [
+              "Founders & teams",
+              "Keep decisions and the next steps together.",
+              "/use-cases#teams",
+            ],
+            [
+              "Students & educators",
+              "Be in the lesson. Come back to the learning.",
+              "/ai-lecture-notes",
+            ],
+            [
+              "Sales & client work",
+              "Remember the promise behind the proposal.",
+              "/use-cases#sales",
+            ],
+            [
+              "Your own plans",
+              "Give a good idea somewhere to grow.",
+              "/use-cases#personal",
+            ],
+          ].map(([title, copy, href]) => (
+            <Link href={href} key={title}>
+              <div>
+                <h3>{title}</h3>
+                <p>{copy}</p>
               </div>
-              <h3>{step.title}</h3>
-              <p>{step.copy}</p>
-              <div className="studio-capture-frame">
-                <AppFrame src={step.image} alt={step.alt} size="showcase" />
-              </div>
-            </Reveal>
+              <HiArrowRight aria-hidden="true" />
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* ── Spaces ── */}
-      <section className="studio-spaces" id="spaces" aria-labelledby="spaces-title">
-        <Reveal className="studio-spaces-copy">
-          <p className="studio-kicker">Spaces</p>
-          <h2 id="spaces-title">Give each part of your life a place to land.</h2>
-          <p className="studio-section-lead">
-            KukuNotes is organized around spaces, not a single infinite feed. Context
-            stays where it belongs, and the rest of the app can stay quiet.
-          </p>
-          <ol className="studio-spaces-list">
-            {spacePrinciples.map((item, index) => (
-              <li key={item.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.copy}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </Reveal>
-        <Reveal className="studio-spaces-stage" variant="scale" delay={0.08}>
-          <AppFrame src="/screenshots/home.png" alt="KukuNotes home with spaces and live listening" size="hero" />
-        </Reveal>
+      <section className="section container platforms-section">
+        <SectionHeading
+          eyebrow="06 / Wherever the day happens"
+          title={
+            <>
+              One thread.
+              <br />
+              Across your devices.
+            </>
+          }
+        >
+          Capture in the moment. Pick up the context when you’re ready. Choose
+          the KukuNotes experience that fits your day.
+        </SectionHeading>
+        <PlatformSelector />
       </section>
 
-      {/* ── Ask KukuNotes ── */}
-      <section className="studio-ask" id="ask" aria-labelledby="ask-title">
-        <div className="studio-ask-card">
-          <Reveal className="studio-ask-stage" variant="scale">
-            <AppFrame src="/screenshots/chat.png" alt="KukuNotes chat grounded in your spaces" size="hero" />
-          </Reveal>
-          <Reveal className="studio-ask-copy" delay={0.08}>
-            <p className="studio-kicker">Ask KukuNotes</p>
-            <h2 id="ask-title">Ask from what you already lived, not a blank chat.</h2>
-            <p className="studio-section-lead">
-              Questions are answered from the spaces, notes, and tasks KukuNotes already
-              holds—so you spend less time reconstructing the day.
-            </p>
-            <ul className="studio-prompts">
-              {prompts.map((prompt) => (
-                <li key={prompt}>{prompt}</li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Charter / Principles ── */}
-      <section className="studio-charter" aria-labelledby="charter-title">
-        <Reveal className="studio-charter-head">
-          <p className="studio-kicker">You stay in control</p>
-          <h2 id="charter-title">Useful only when it respects the room.</h2>
-          <p className="studio-section-lead">
-            Privacy and agency are built into every level of KukuNotes&apos; interaction model.
-          </p>
-        </Reveal>
-        <div className="studio-charter-grid">
-          <Reveal delay={0.04}>
-            <article>
-              <span>01</span>
-              <h3>Listening is opt-in</h3>
-              <p>Capture starts when you decide a conversation is worth keeping, and it belongs to a specific space.</p>
-            </article>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <article>
-              <span>02</span>
-              <h3>Spaces stay separate</h3>
-              <p>Projects, people, and personal planning do not collapse into one stream of memory.</p>
-            </article>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <article>
-              <span>03</span>
-              <h3>Sharing is a choice</h3>
-              <p>Select the exact notes and tasks someone else should see. Nothing else leaves the space.</p>
-            </article>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── FAQ ── */}
-      <section className="studio-faq" id="faq" aria-labelledby="faq-title">
-        <Reveal className="studio-faq-head">
-          <p className="studio-kicker">Good to know</p>
-          <h2 id="faq-title">A few questions, answered plainly.</h2>
-          <p className="studio-section-lead">
-            Everything you need to know about how KukuNotes captures, remembers, and acts on your conversations.
-          </p>
-        </Reveal>
-        <div className="studio-faq-list">
-          {faqItems.map((item, index) => (
-            <FaqItem key={item.q} q={item.q} a={item.a} defaultOpen={index === 0} />
-          ))}
-        </div>
-      </section>
-
-      {/* ── Invite / Bottom CTA Card ── */}
-      <section className="studio-invite-section" id="cta" aria-labelledby="invite-title">
-        <Reveal className="studio-invite-card" variant="scale">
-          <p className="studio-kicker studio-invite-kicker">Available on iOS & Android</p>
-          <h2 id="invite-title">Your next conversation, already useful.</h2>
-          <p className="studio-invite-lead">
-            Bring KukuNotes into the rooms where work actually happens, and leave with the day still intact.
-          </p>
-          <div className="studio-invite-actions">
-            <a
-              className="studio-btn studio-btn-accent"
-              href={siteConfig.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+      <section className="section privacy-section">
+        <div className="container privacy-layout">
+          <div>
+            <HiOutlineShieldCheck
+              className="privacy-emblem"
+              aria-hidden="true"
+            />
+            <SectionHeading
+              eyebrow="Your conversations. Your choice."
+              title={
+                <>
+                  Present in the meeting.
+                  <br />
+                  Deliberate about recording.
+                </>
+              }
             >
-              Get it on Google Play
-            </a>
+              KukuNotes is built around user-started capture. Choose when to
+              record, keep the people in the conversation informed, and review
+              what you share.
+            </SectionHeading>
+            <Link href="/privacy" className="text-link">
+              Read our privacy policy <HiArrowRight aria-hidden="true" />
+            </Link>
           </div>
-        </Reveal>
+          <div className="privacy-principles">
+            <article>
+              <HiOutlineHandRaised aria-hidden="true" />
+              <h3>You start the capture.</h3>
+              <p>
+                Use the recording controls and review the permissions requested
+                by your device or browser.
+              </p>
+            </article>
+            <article>
+              <HiOutlineChatBubbleLeftRight aria-hidden="true" />
+              <h3>Consent is part of the conversation.</h3>
+              <p>
+                Tell participants before recording and get the consent required
+                in your situation.
+              </p>
+            </article>
+            <article>
+              <HiOutlineDocumentText aria-hidden="true" />
+              <h3>Your next step stays informed.</h3>
+              <p>
+                Review AI notes and extracted tasks before relying on or sharing
+                them.
+              </p>
+            </article>
+          </div>
+        </div>
       </section>
-    </main>
+
+      <section className="section container">
+        <div className="feature-heading-row">
+          <SectionHeading
+            eyebrow="A little space to begin"
+            title="Start free. Find your flow."
+          >
+            Explore KukuNotes, then choose the plan that fits your work.
+          </SectionHeading>
+          <Link href="/pricing" className="text-link">
+            Explore plans <HiArrowRight aria-hidden="true" />
+          </Link>
+        </div>
+        <Pricing compact />
+      </section>
+      <FAQ items={faqItems} />
+      <FinalCTA />
+    </>
   );
 }

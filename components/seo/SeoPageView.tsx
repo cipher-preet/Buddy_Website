@@ -1,102 +1,116 @@
-import Image from "next/image";
-import Link from "next/link";
-import { AppFrame } from "@/components/home/AppFrame";
-import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
-import { Navbar } from "@/components/home/Navbar";
-import { Reveal } from "@/components/home/Reveal";
-import { ScrollProgress } from "@/components/home/ScrollProgress";
-import { SmoothScroll } from "@/components/home/SmoothScroll";
-import { JsonLd } from "@/components/seo/JsonLd";
+﻿import Link from "next/link";
+import { SiteLayout } from "@/components/marketing/SiteLayout";
+import {
+  Action,
+  FAQ,
+  FinalCTA,
+  ProductFrame,
+  SectionHeading,
+} from "@/components/marketing/UI";
+import { JsonLd } from "./JsonLd";
 import { competitorNote, type SeoPage } from "@/lib/seo-pages";
 import { siteConfig } from "@/lib/site";
-
-type SeoPageViewProps = {
+export function SeoPageView({
+  page,
+  jsonLd,
+  breadcrumb,
+}: {
   page: SeoPage;
   jsonLd: Record<string, unknown>;
   breadcrumb?: { label: string; href: string };
-};
-
-const updatedLabel = new Date(siteConfig.contentUpdated).toLocaleDateString("en-IN", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
-
-export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
-  const isPhoneScreenshot = page.image.src.startsWith("/screenshots/");
-
+}) {
   return (
-    <div className="site-shell studio-page">
+    <SiteLayout>
       <JsonLd data={jsonLd} />
-      <SmoothScroll />
-      <ScrollProgress />
-      <Navbar />
-      <main className="studio seo-page">
-        <nav className="seo-breadcrumb" aria-label="Breadcrumb">
+      <div className="container">
+        <nav className="breadcrumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
-          {breadcrumb ? (
-            <>
-              <span aria-hidden="true">/</span>
-              <Link href={breadcrumb.href}>{breadcrumb.label}</Link>
-            </>
-          ) : null}
           <span aria-hidden="true">/</span>
+          {breadcrumb && (
+            <>
+              <Link href={breadcrumb.href}>{breadcrumb.label}</Link>
+              <span aria-hidden="true">/</span>
+            </>
+          )}
           <span aria-current="page">{page.kicker}</span>
         </nav>
-
-        <section className="seo-hero" aria-labelledby="seo-title">
-          <div className="seo-hero-copy">
-            <p className="studio-kicker">{page.kicker}</p>
-            <h1 id="seo-title">
-              {page.h1} <span className="brand-gradient-text">{page.h1Accent}</span>
+        <section className="solution-hero">
+          <div>
+            <p className="eyebrow">{page.kicker}</p>
+            <h1>
+              {page.h1} <span className="accent-text">{page.h1Accent}</span>
             </h1>
-            <p className="studio-section-lead">{page.lead}</p>
-            <div className="seo-hero-actions">
-              <a
-                className="studio-btn studio-btn-accent"
-                href={siteConfig.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Get KukuNotes free on Google Play
-              </a>
-              <Link className="studio-text-link" href="/pricing">
-                See pricing <span aria-hidden="true">-&gt;</span>
-              </Link>
+            <p className="hero-description">{page.lead}</p>
+            <div className="hero-actions">
+              <Action />
+              <Action href="/get-kukunotes" secondary>
+                Find your app
+              </Action>
             </div>
           </div>
-          <div className="seo-hero-visual">
-            {isPhoneScreenshot ? (
-              <AppFrame src={page.image.src} alt={page.image.alt} size="hero" />
-            ) : (
-              <Image
-                className="seo-hero-image"
-                src={page.image.src}
-                alt={page.image.alt}
-                width={1200}
-                height={800}
-                sizes="(max-width: 980px) 100vw, 520px"
-                priority
-              />
-            )}
+          <div className="solution-visual">
+            <ProductFrame src={page.image.src} alt={page.image.alt} priority />
           </div>
         </section>
-
-        <section className="seo-answer" aria-label="Quick answer">
-          <p className="seo-answer-label">Quick answer</p>
-          <p>{page.answer}</p>
-          <p className="seo-updated">
-            Last updated <time dateTime={siteConfig.contentUpdated}>{updatedLabel}</time>
-          </p>
+        <section className="direct-answer" aria-label="About this solution">
+          <p className="eyebrow">The useful part</p>
+          <div>
+            <p>{page.answer}</p>
+            <span className="updated-label">
+              Updated{" "}
+              <time dateTime={siteConfig.contentUpdated}>
+                {siteConfig.contentUpdated}
+              </time>
+            </span>
+          </div>
         </section>
-
-        {page.comparison ? (
-          <section className="seo-block" aria-labelledby="seo-compare-title">
-            <h2 id="seo-compare-title">
-              KukuNotes vs {page.comparison.competitor} at a glance
-            </h2>
-            <div className="seo-table-wrap">
-              <table className="seo-table">
+        {page.sections.map((section, i) => (
+          <section className="editorial-section" key={section.heading}>
+            <div>
+              <p className="eyebrow">0{i + 1} / In practice</p>
+              <h2>{section.heading}</h2>
+            </div>
+            <div className="editorial-body">
+              {section.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              {section.bullets && (
+                <ul>
+                  {section.bullets.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </section>
+        ))}
+        {page.steps && (
+          <section className="section">
+            <SectionHeading
+              eyebrow="From your first conversation"
+              title="A simple rhythm to come back to."
+            />
+            <ol className="steps-grid">
+              {page.steps.map((step, i) => (
+                <li key={step.title}>
+                  <span className="step-number">0{i + 1}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.copy}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+        {page.comparison && (
+          <section className="section">
+            <h2>KukuNotes and {page.comparison.competitor}</h2>
+            <div
+              className="table-scroll"
+              role="region"
+              tabIndex={0}
+              aria-label="Solution comparison"
+            >
+              <table>
                 <thead>
                   <tr>
                     <th scope="col">Feature</th>
@@ -115,118 +129,27 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
                 </tbody>
               </table>
             </div>
-            <div className="seo-choose">
-              <div>
-                <h3>Choose KukuNotes if</h3>
-                <ul>
-                  {page.comparison.chooseKukuNotes.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3>Choose {page.comparison.competitor} if</h3>
-                <ul>
-                  {page.comparison.chooseCompetitor.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <p className="small-note">{competitorNote}</p>
           </section>
-        ) : null}
-
-        {page.sections.map((section) => (
-          <Reveal key={section.heading} className="seo-block">
-            <h2>{section.heading}</h2>
-            {section.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            {section.bullets ? (
-              <ul className="seo-bullets">
-                {section.bullets.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            ) : null}
-          </Reveal>
-        ))}
-
-        {page.steps ? (
-          <section className="seo-block" aria-labelledby="seo-steps-title">
-            <h2 id="seo-steps-title">How it works</h2>
-            <ol className="seo-steps">
-              {page.steps.map((step, index) => (
-                <li key={step.title}>
-                  <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{step.title}</h3>
-                  <p>{step.copy}</p>
-                </li>
-              ))}
-            </ol>
-          </section>
-        ) : null}
-
-        {page.localized ? (
-          <section className="seo-block seo-localized" lang={page.localized.lang}>
+        )}
+        {page.localized && (
+          <section className="localized-section" lang={page.localized.lang}>
             <h2>{page.localized.heading}</h2>
-            {page.localized.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+            {page.localized.body.map((text) => (
+              <p key={text}>{text}</p>
             ))}
           </section>
-        ) : null}
-
-        <section className="seo-block" aria-labelledby="seo-faq-title">
-          <h2 id="seo-faq-title">Frequently asked questions</h2>
-          <div className="studio-faq-list">
-            {page.faqs.map((faq, index) => (
-              <details key={faq.q} open={index === 0}>
-                <summary>
-                  {faq.q}
-                  <span aria-hidden="true" />
-                </summary>
-                <p>{faq.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        <nav className="seo-block seo-related" aria-labelledby="seo-related-title">
-          <h2 id="seo-related-title">Related</h2>
-          <ul>
-            {page.related.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href}>
-                  {link.label} <span aria-hidden="true">-&gt;</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          {page.comparison ? <p className="seo-note">{competitorNote}</p> : null}
+        )}
+        <nav className="related-links" aria-label="Related solutions">
+          {page.related.map((link) => (
+            <Link href={link.href} key={link.href}>
+              {link.label} <span aria-hidden="true">↗</span>
+            </Link>
+          ))}
         </nav>
-
-        <section className="studio-invite-section" aria-labelledby="seo-cta-title">
-          <div className="studio-invite-card">
-            <p className="studio-kicker studio-invite-kicker">Start free</p>
-            <h2 id="seo-cta-title">Keep every conversation that matters.</h2>
-            <p className="studio-invite-lead">
-              Free on Android. 5 Spaces and 5 hours of recording every month, in English,
-              Hindi, and Hinglish.
-            </p>
-            <div className="studio-invite-actions">
-              <a
-                className="studio-btn studio-btn-accent"
-                href={siteConfig.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Get KukuNotes for Android
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
-      <KukuNotesFooter />
-    </div>
+      </div>
+      <FAQ items={page.faqs} title="Before your next conversation." />
+      <FinalCTA />
+    </SiteLayout>
   );
 }

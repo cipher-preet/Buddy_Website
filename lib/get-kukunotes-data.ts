@@ -1,197 +1,111 @@
-import { siteConfig } from "./site";
-
-export type PlatformItem = {
-  id: "android" | "desktop" | "chrome" | "web";
-  title: string;
-  category: string;
-  tagline: string;
-  badge: string;
-  badgeType: "live" | "popular" | "featured" | "cloud";
-  compatibility: string;
-  highlights: string[];
-  primaryCta: {
-    label: string;
-    href: string;
-    isExternal: boolean;
-  };
-  secondaryAction?: {
-    label: string;
-    href: string;
-  };
-  tags: string[];
-  metrics: string;
-};
-
-export const getKukuNotesPlatforms: PlatformItem[] = [
+﻿import { siteConfig } from "./site";
+export const getKukuNotesPlatforms = [
   {
     id: "android",
-    title: "KukuNotes for Android",
-    category: "Mobile App",
-    tagline: "Your daily conversation companion. Capture voice notes, meeting audio, and morning briefings on the go.",
-    badge: "Official Release",
-    badgeType: "live",
-    compatibility: "Android 9.0 and up · Google Play",
-    metrics: "4.8 ★ on Play Store",
+    title: "Android",
+    category: "Mobile app",
+    tagline: "Keep useful conversations close, wherever the day takes you.",
+    badge: "Google Play",
+    compatibility: "Check device eligibility on Google Play.",
     highlights: [
-      "Opt-in ambient listening with space-targeted memory",
-      "11 Indian languages supported natively",
-      "Morning daily briefing widget for home screen",
-      "Offline recording with automatic background sync",
+      "Capture conversations when you choose",
+      "Review notes and next steps",
+      "Keep your Spaces close at hand",
     ],
     primaryCta: {
-      label: "Get on Google Play",
-      href: "https://play.google.com/store/apps/details?id=com.aiassistantapp",
+      label: "Download for Android",
+      href: siteConfig.playStoreUrl,
       isExternal: true,
     },
-    secondaryAction: {
-      label: "Android details",
-      href: "/android",
-    },
-    tags: ["Android", "Play Store", "Live Speech AI"],
+    secondaryAction: { label: "Explore Android", href: "/android" },
+    image: "/screenshots/android/capture.webp",
+    alt: "KukuNotes Android app showing Spaces and user-controlled listening",
   },
   {
-    id: "desktop",
-    title: "KukuNotes for Windows",
-    category: "Windows",
-    tagline: "Capture Zoom, Teams, and Slack Huddles with system audio without inviting annoying meeting bots.",
-    badge: "Power Users",
-    badgeType: "popular",
-    compatibility: "Windows 10 / 11 · Microsoft Store",
-    metrics: "Zero-Bot Audio Capture",
+    id: "windows",
+    title: "Windows",
+    category: "Desktop app",
+    tagline: "A dedicated place for conversations and focused work on your PC.",
+    badge: "Microsoft Store",
+    compatibility: "See current Windows requirements in the Microsoft Store.",
     highlights: [
-      "Direct system sound recording with crystal-clear stereo audio",
-      "Global shortcut (Ctrl+K) to query KukuNotes anytime",
-      "Auto-detects calendar events and links transcripts to spaces",
-      "Local caching with instant full-text search",
+      "A workspace on your desktop",
+      "Meeting notes and action items",
+      "Spaces for each part of your work",
     ],
     primaryCta: {
-      label: "Get on Microsoft Store",
+      label: "Get Windows App",
       href: siteConfig.microsoftStoreUrl,
       isExternal: true,
     },
-    secondaryAction: {
-      label: "Windows details",
-      href: "/windows",
-    },
-    tags: ["Windows", "Microsoft Store", "Global Hotkeys"],
+    secondaryAction: { label: "Explore Windows", href: "/windows" },
+    image: "/screenshots/desktop/workspace.webp",
+    alt: "KukuNotes desktop workspace with Spaces and tasks",
   },
   {
     id: "chrome",
-    title: "KukuNotes for Chrome",
-    category: "Browser Extension",
-    tagline: "One-click meeting transcriptions and live takeaways inside Google Meet, Microsoft Teams, and Zoom Web.",
-    badge: "Meeting Assistant",
-    badgeType: "featured",
-    compatibility: "Google Chrome 100+ · Edge · Brave · Arc",
-    metrics: "One-Click In-Call Capture",
+    title: "Chrome",
+    category: "Browser extension",
+    tagline: "Turn browser meetings into notes you can come back to.",
+    badge: "Chrome Web Store",
+    compatibility:
+      "Install eligibility and permissions are shown in the Chrome Web Store.",
     highlights: [
-      "Zero bot joins — records audio directly from your active browser tab",
-      "Floating live notes sidebar with real-time commitment extraction",
-      "Instant push to your KukuNotes spaces the moment the call ends",
-      "Works seamlessly across Google Meet & Teams Web",
+      "For Google Meet, Zoom Web, and Teams Web",
+      "Start recording with your permission",
+      "Review summaries and extracted tasks",
     ],
     primaryCta: {
-      label: "Add to Chrome — Free",
+      label: "Add to Chrome",
       href: siteConfig.chromeStoreUrl,
       isExternal: true,
     },
     secondaryAction: {
-      label: "Chrome extension guide",
+      label: "Explore the extension",
       href: "/chrome-extension",
     },
-    tags: ["Chrome Web Store", "Google Meet", "Zero-Bot"],
+    image: "/screenshots/desktop/meeting-detail.png",
+    alt: "A KukuNotes meeting summary with transcript and task tabs",
   },
   {
     id: "web",
-    title: "KukuNotes Web Workspace",
-    category: "Cloud Dashboard",
-    tagline: "Review spaces, query past meetings, refine extracted tasks, and collaborate with your team from any browser.",
-    badge: "Zero Install",
-    badgeType: "cloud",
-    compatibility: "Any modern web browser (Desktop & Tablet)",
-    metrics: "Instant Cloud Access",
+    title: "Web workspace",
+    category: "In your browser",
+    tagline:
+      "Pick up the thread. Your notes, tasks, and context in one workspace.",
+    badge: "No installation",
+    compatibility:
+      "Open in a modern browser and sign in to your KukuNotes account.",
     highlights: [
-      "Deep semantic retrieval across all historical conversations",
-      "Rich Markdown editor with timestamped audio playback sync",
-      "Multi-space goal tracking and team project boards",
-      "One-click exports to Notion, Linear, Slack, and Docs",
+      "Review notes and tasks together",
+      "Organize your work into Spaces",
+      "Ask questions with your context",
     ],
     primaryCta: {
       label: "Open Web Workspace",
       href: siteConfig.platformUrl,
       isExternal: true,
     },
-    secondaryAction: {
-      label: "Web app details",
-      href: "/platform",
-    },
-    tags: ["Web App", "Deep Search", "No Install"],
+    secondaryAction: { label: "Explore the web app", href: "/platform" },
+    image: "/screenshots/desktop/context-chat.webp",
+    alt: "Ask KukuNotes in the web workspace",
   },
-];
-
-export const getKukuNotesEcosystemFeatures = [
-  {
-    title: "Unified Memory Sync",
-    description:
-      "Record a call in Chrome, review the extracted tasks on Desktop, and check your morning briefing on Android. Everything syncs instantly.",
-    icon: "sync",
-  },
-  {
-    title: "Zero-Bot Privacy",
-    description:
-      "KukuNotes never invites awkward bot avatars to your meetings. Audio is captured locally and opt-in via your verified device microphone or tab audio.",
-    icon: "shield",
-  },
-  {
-    title: "11 Indian Languages Everywhere",
-    description:
-      "Multilingual speech engine works seamlessly across mobile, desktop, and extension — transcribing Hindi, Tamil, Bengali, Telugu, and more.",
-    icon: "globe",
-  },
-  {
-    title: "Instant Export & Integrations",
-    description:
-      "Connect your spaces to Notion, Google Calendar, Slack, and Linear so notes and tasks flow directly into your existing toolchain.",
-    icon: "zap",
-  },
-];
-
+] as const;
 export const getKukuNotesFaqs = [
   {
-    q: "How does KukuNotes capture audio without inviting a meeting bot?",
-    a: "Unlike traditional AI note-takers that send bot attendees into your calls, KukuNotes operates as a native companion on your device or browser. It captures incoming audio directly from your audio device or browser tab with your permission, keeping your meetings natural and private.",
+    q: "Where should I start?",
+    a: "Open the web workspace to explore your notes and tasks, choose Android for conversations on the go, Windows for a dedicated PC app, or Chrome for browser meetings.",
   },
   {
-    q: "Do I need separate accounts for mobile, desktop, and Chrome?",
-    a: "No. A single KukuNotes account works across all platforms. Any meeting recorded on Chrome or Desktop is immediately synchronized to your Android app and Web workspace.",
+    q: "Do I need a separate account on each device?",
+    a: "Use the same KukuNotes account on your devices to return to your Spaces and captured context.",
   },
   {
-    q: "Can I use KukuNotes offline?",
-    a: "Yes. KukuNotes' mobile and desktop apps can record audio offline. As soon as your device reconnects to the internet, KukuNotes processes the transcript, generates notes and tasks, and syncs everything across your spaces.",
+    q: "Can I use KukuNotes on a Mac or iPhone?",
+    a: "This website links to the Android and Windows apps, the Chrome extension, and the web workspace. For other devices, try the web workspace in a compatible browser. No native Mac or iPhone download is listed here.",
   },
   {
-    q: "What permissions does KukuNotes require?",
-    a: "KukuNotes only requests access to microphone/audio capture strictly when you tap Start Listening. We never access your contacts, private files, or location, and microphone access is entirely opt-in.",
-  },
-];
-
-export const getKukuNotesRequirements = [
-  {
-    platform: "Android App",
-    spec: "Android 9.0 (Pie) or higher",
-    storage: "~45 MB download",
-    features: "Microphone permission, Background audio service",
-  },
-  {
-    platform: "Windows App",
-    spec: "Windows 10 / 11 (64-bit)",
-    storage: "~95 MB",
-    features: "WASAPI loopback audio, Notification tray companion",
-  },
-  {
-    platform: "Chrome Extension",
-    spec: "Google Chrome, Brave, Arc, or Microsoft Edge v100+",
-    storage: "~12 MB",
-    features: "Tab audio capture, Google Meet in-page overlay",
+    q: "What do I need to know before recording?",
+    a: "Start capture deliberately, review the permissions your app or browser requests, and get the consent required for your conversation. Features and capture options can vary by platform.",
   },
 ];

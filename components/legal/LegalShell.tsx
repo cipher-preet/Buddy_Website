@@ -11,7 +11,7 @@ export function LegalShell({ children }: LegalShellProps) {
   return (
     <div className="site-shell studio-page legal-shell">
       <Navbar />
-      <main className="legal-main">
+      <main className="legal-main" id="main-content" tabIndex={-1}>
         <LegalNav />
         {children}
       </main>

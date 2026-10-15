@@ -1,73 +1,77 @@
-import Link from "next/link";
-import { appDestinationLinks, solutionLinks } from "@/lib/home-data";
-import { siteConfig } from "@/lib/site";
-
+﻿import Link from "next/link";
+import { BrandMark } from "./BrandMark";
+const columns = [
+  {
+    label: "Product",
+    links: [
+      ["Explore features", "/#product"],
+      ["Use cases", "/use-cases"],
+      ["Pricing", "/pricing"],
+      ["Spaces", "/#spaces"],
+    ],
+  },
+  {
+    label: "Get KukuNotes",
+    links: [
+      ["Web workspace", "/platform"],
+      ["Android", "/android"],
+      ["Windows", "/windows"],
+      ["Chrome extension", "/chrome-extension"],
+    ],
+  },
+  {
+    label: "Solutions",
+    links: [
+      ["AI note taker", "/ai-note-taker"],
+      ["Meeting recorder", "/ai-meeting-recorder"],
+      ["Hindi speech to text", "/hindi-speech-to-text"],
+      ["Personal assistant", "/ai-personal-assistant"],
+      ["Lecture notes", "/ai-lecture-notes"],
+    ],
+  },
+  {
+    label: "Company",
+    links: [
+      ["Our story", "/about"],
+      ["Contact", "/contact"],
+      ["Privacy", "/privacy"],
+      ["Terms", "/terms"],
+      ["Delete account", "/delete-account"],
+    ],
+  },
+];
 export function KukuNotesFooter() {
   return (
-    <footer className="site-footer kukunotes-footer">
-      <div className="site-footer-inner">
+    <footer className="site-footer">
+      <div className="container">
         <div className="footer-main">
           <div className="footer-intro">
-            <Link className="site-footer-brand" href="/" aria-label="KukuNotes home">
-              <span className="brand-icon" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </span>
-              <strong>
-                Kuku<span className="brand-word-accent">Notes</span>
-              </strong>
-            </Link>
-            <h2>Keep the day you actually lived.</h2>
-            <p>One place for conversations, plans, and the next useful step.</p>
-            <a
-              className="footer-cta"
-              href={siteConfig.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get KukuNotes
-            </a>
+            <BrandMark />
+            <p>
+              A little less to remember.
+              <br />A lot more to move forward.
+            </p>
+            <span className="footer-tagline">Capture. Organize. Grow.</span>
           </div>
-
           <nav className="footer-columns" aria-label="Footer">
-            <div>
-              <p>SOLUTIONS</p>
-              {solutionLinks.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-            <div>
-              <p>APPS</p>
-              {appDestinationLinks.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                </Link>
-              ))}
-              <Link href="/get-kukunotes">All downloads</Link>
-            </div>
-            <div>
-              <p>ROUTES</p>
-              <Link href="/#product">Product</Link>
-              <Link href="/use-cases">Use cases</Link>
-              <Link href="/pricing">Pricing</Link>
-              <Link href="/about">About</Link>
-              <Link href="/contact">Contact</Link>
-            </div>
-            <div>
-              <p>LEGAL</p>
-              <Link href="/privacy">Privacy policy</Link>
-              <Link href="/terms">Terms of service</Link>
-              <Link href="/delete-account">Delete account</Link>
-            </div>
+            {columns.map((col) => (
+              <div key={col.label}>
+                <h2>{col.label}</h2>
+                {col.links.map(([label, href]) => (
+                  <Link key={href} href={href}>
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            ))}
           </nav>
         </div>
-
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} KukuNotes. All rights reserved.</p>
-          <p>Capture · Organize · Grow</p>
+          <p>© {new Date().getFullYear()} KukuNotes</p>
+          <p>Made for conversations that matter.</p>
+          <Link href="/privacy">
+            Your privacy matters <span aria-hidden="true">↗</span>
+          </Link>
         </div>
       </div>
     </footer>

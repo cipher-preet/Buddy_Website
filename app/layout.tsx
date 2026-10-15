@@ -1,19 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Sora, Source_Sans_3 } from "next/font/google";
-import Script from "next/script";
-import { ScrollToTop } from "@/components/home/ScrollToTop";
+import { Manrope, Roboto_Serif } from "next/font/google";
+import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
+import "./experience.css";
+import "./launch.css";
+import "./editorial.css";
 
-const sora = Sora({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-body",
   display: "swap",
 });
 
-const sourceSans = Source_Sans_3({
+const robotoSerif = Roboto_Serif({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -137,10 +139,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f4f3ef" },
-    { media: "(prefers-color-scheme: dark)", color: "#08103a" },
-  ],
+  themeColor: "#070609",
   width: "device-width",
   initialScale: 1,
 };
@@ -149,15 +148,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang={siteConfig.language}
-      className={`${sora.variable} ${sourceSans.variable} min-h-full antialiased`}
+      className={`${robotoSerif.variable} ${manrope.variable} min-h-full antialiased`}
       data-scroll-behavior="smooth"
     >
       <body className="min-h-full">
-        <Script id="scroll-to-top-on-reload" strategy="beforeInteractive">
-          {`(function(){try{if("scrollRestoration"in history)history.scrollRestoration="manual";var n=performance.getEntriesByType("navigation")[0];if(n&&n.type==="reload"){if(location.hash)history.replaceState(null,"",location.pathname+location.search);window.scrollTo(0,0);}}catch(e){}})();`}
-        </Script>
-        <ScrollToTop />
-        {children}
+        <div className="site-lattice" aria-hidden="true" />
+        <div className="site-vignette" aria-hidden="true" />
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
