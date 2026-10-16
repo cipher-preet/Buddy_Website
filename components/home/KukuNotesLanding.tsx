@@ -1,6 +1,7 @@
 "use client";
 
 import { faqItems } from "@/lib/home-data";
+import { definitionFacts, definitionLead } from "@/lib/product-facts";
 import { siteConfig } from "@/lib/site";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -99,8 +100,15 @@ export function KukuNotesLanding() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.16, ease }}
           >
-            A bot-free AI note taker for Hindi, English, and Hinglish. KukuNotes turns
-            conversations into notes, tasks, and a plan you can actually use.
+            {definitionLead}
+          </motion.p>
+          <motion.p
+            className="studio-hero-lead"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease }}
+          >
+            {definitionFacts}
           </motion.p>
           <motion.div
             className="studio-hero-actions"
@@ -370,6 +378,8 @@ export function KukuNotesLanding() {
             <Link className="studio-inline-link" href="/hindi-speech-to-text">Hindi speech to text</Link>
             {", "}
             <Link className="studio-inline-link" href="/ai-lecture-notes">lecture notes</Link>
+            {", "}
+            <Link className="studio-inline-link" href="/ai-personal-assistant">personal assistant</Link>
             {", and "}
             <Link className="studio-inline-link" href="/pricing">pricing</Link>.
           </p>

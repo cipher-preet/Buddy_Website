@@ -3,12 +3,44 @@ import type { DestinationPage } from "@/lib/destination-pages";
 import type { SeoPage } from "@/lib/seo-pages";
 import { siteConfig } from "@/lib/site";
 
+const ogImage = `/opengraph-image?v=${siteConfig.assetVersion}`;
+
+/** Canonical and hreflang for this URL only, so the root layout cannot point inner pages at /. */
+export function pageAlternates(path: string, extraLanguages?: Record<string, string>): Metadata["alternates"] {
+  return {
+    canonical: path,
+    languages: {
+      en: path,
+      "x-default": path,
+      ...extraLanguages,
+    },
+  };
+}
+
+export function socialMetadata(title: string, description: string, path: string): Pick<Metadata, "openGraph" | "twitter"> {
+  return {
+    openGraph: {
+      title,
+      description,
+      url: path,
+      type: "website",
+      siteName: siteConfig.name,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
+}
+
 type MetaSource = Pick<SeoPage | DestinationPage, "title" | "description" | "keywords"> & {
   localized?: { lang: string };
 };
 
 export function seoPageMetadata(page: MetaSource, path: string): Metadata {
-  const og = `/opengraph-image?v=${siteConfig.assetVersion}`;
   const languages: Record<string, string> = {
     en: path,
     "x-default": path,
@@ -36,13 +68,13 @@ export function seoPageMetadata(page: MetaSource, path: string): Metadata {
       locale: siteConfig.locale,
       alternateLocale: page.localized?.lang === "hi" ? ["hi_IN"] : undefined,
       siteName: siteConfig.name,
-      images: [{ url: og, width: 1200, height: 630, alt: page.title }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: page.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: page.title,
       description: page.description,
-      images: [og],
+      images: [ogImage],
     },
   };
 }

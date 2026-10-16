@@ -61,9 +61,9 @@ const listenSteps = [
 export const topicPages: SeoPage[] = [
   {
     slug: "ai-note-taker",
-    title: "AI Note Taker App — Turn Talk into Notes & Tasks",
+    title: "AI Note Taker for Talk, Notes, and Tasks",
     description:
-      "KukuNotes is a free AI note taker for Android. Record any conversation, get a clean summary, key decisions, and action items with source evidence. Works in English, Hindi, and Hinglish.",
+      "KukuNotes is a free AI note taker. Tap Start Listening and it turns talk into notes, decisions, and tasks in English, Hindi, and Hinglish.",
     keywords: [
       "AI note taker",
       "AI note taker app",
@@ -149,9 +149,9 @@ export const topicPages: SeoPage[] = [
   },
   {
     slug: "ai-meeting-recorder",
-    title: "AI Meeting Recorder Without Bots — Notes & Action Items",
+    title: "AI Meeting Recorder Without a Bot",
     description:
-      "Record in-person and online meetings from your Android phone without inviting a bot. KukuNotes transcribes, summarizes, and extracts action items into the right project Space.",
+      "KukuNotes records in-person and online meetings from your phone without a bot, then writes notes and action items into the right Space.",
     keywords: [
       "AI meeting recorder",
       "meeting recorder app",
@@ -233,7 +233,7 @@ export const topicPages: SeoPage[] = [
   },
   {
     slug: "hindi-speech-to-text",
-    title: "Hindi Speech to Text & Hinglish Meeting Notes App",
+    title: "Hindi and Hinglish Speech to Text",
     description:
       "Convert Hindi and Hinglish speech to text, notes, and tasks with KukuNotes. Built for Indian conversations that mix Hindi and English.",
     keywords: [
@@ -326,9 +326,9 @@ export const topicPages: SeoPage[] = [
   },
   {
     slug: "ai-personal-assistant",
-    title: "Personal AI Assistant App — Daily Briefing & Second Brain",
+    title: "Personal AI Assistant and Daily Briefing",
     description:
-      "KukuNotes is a personal AI assistant that remembers your conversations, turns them into tasks, and plans your day with a morning briefing. A private second brain for Android.",
+      "KukuNotes is a personal AI assistant that turns conversations into tasks and a morning briefing. It runs on Android, Windows, Chrome, and the web.",
     keywords: [
       "personal AI assistant",
       "personal AI assistant app",
@@ -401,9 +401,9 @@ export const topicPages: SeoPage[] = [
   },
   {
     slug: "ai-lecture-notes",
-    title: "AI Lecture Notes App — Record Classes, Get Study Notes",
+    title: "AI Lecture Notes for Classes",
     description:
-      "Record lectures and coaching classes on your phone and get summaries, key concepts, and study tasks automatically. KukuNotes is a free AI lecture notes app with Hindi support.",
+      "KukuNotes records lectures on your phone and turns them into summaries, key concepts, and study tasks. It supports English, Hindi, and Hinglish.",
     keywords: [
       "AI lecture notes",
       "lecture recorder app",

@@ -3,21 +3,19 @@ import Link from "next/link";
 import { LegalShell } from "@/components/legal/LegalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { legalJsonLd } from "@/lib/json-ld";
+import { pageAlternates, socialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
 
+const title = "Delete Your KukuNotes Account";
+const description =
+  "Request permanent deletion of your KukuNotes account and the notes, tasks, and recordings tied to it.";
+
 export const metadata: Metadata = {
-  title: "Delete Your KukuNotes Account",
-  description:
-    "Request permanent deletion of your KukuNotes account and associated data. Required web resource for Google Play account deletion.",
+  title,
+  description,
   keywords: ["delete KukuNotes account", "KukuNotes account deletion", "delete AI app account", "Google Play account deletion"],
-  alternates: { canonical: "/delete-account" },
-  openGraph: {
-    title: "Delete Your KukuNotes Account | KukuNotes",
-    url: "/delete-account",
-    type: "website",
-    description:
-      "Request permanent deletion of your KukuNotes account, Spaces, notes, tasks, voice recordings, transcripts, and related data.",
-  },
+  alternates: pageAlternates("/delete-account"),
+  ...socialMetadata(title, description, "/delete-account"),
 };
 
 const deleteMailto = `mailto:${siteConfig.email}?subject=KukuNotes%20account%20deletion%20request&body=Please%20delete%20my%20KukuNotes%20account%20and%20associated%20data.%0A%0AAccount%20email%3A%20%0AAdditional%20details%20(optional)%3A%20`;
@@ -158,7 +156,7 @@ export default function DeleteAccountPage() {
             <p>
               Any retained data is kept only as long as needed for those purposes
               and is handled according to our{" "}
-              <a href="/privacy">Privacy Policy</a>.
+              <Link href="/privacy">Privacy Policy</Link>.
             </p>
           </section>
 

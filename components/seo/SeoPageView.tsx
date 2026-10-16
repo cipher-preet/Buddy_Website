@@ -7,7 +7,7 @@ import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { priceCopy } from "@/lib/product-facts";
+import { definitionFacts, definitionLead, priceCopy } from "@/lib/product-facts";
 import { competitorNote, type SeoPage } from "@/lib/seo-pages";
 import { siteConfig } from "@/lib/site";
 
@@ -84,6 +84,9 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
         </section>
 
         <section className="seo-answer" aria-label="Quick answer">
+          <p className="seo-answer-label">What is KukuNotes</p>
+          <p>{definitionLead}</p>
+          <p>{definitionFacts}</p>
           <p className="seo-answer-label">Quick answer</p>
           <p>{page.answer}</p>
           <p className="seo-updated">

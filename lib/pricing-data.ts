@@ -1,4 +1,4 @@
-import { formatInr, languageNote, planFacts } from "./product-facts";
+import { brandSplit, captureFact, definitionLead, formatInr, languageNote, planFacts } from "./product-facts";
 import { siteConfig } from "./site";
 
 function yearlySavings(monthly: number, yearly: number) {
@@ -278,6 +278,18 @@ export const comparisonCategories: CompareCategory[] = [
 
 export const pricingFaqs = [
   {
+    q: "What is KukuNotes?",
+    a: definitionLead,
+  },
+  {
+    q: "Does a paid plan change how recording works?",
+    a: `No. ${captureFact} ${languageNote}`,
+  },
+  {
+    q: "Is KukuNotes the same as Kuku FM?",
+    a: brandSplit,
+  },
+  {
     q: "Can I change or cancel my plan anytime?",
     a: "Yes. You can switch between Free, Pro, and Business anytime from inside the KukuNotes app or website. If you downgrade, your existing recordings and content always remain safe with you.",
   },
@@ -299,6 +311,6 @@ export const pricingFaqs = [
   },
   {
     q: "What is included in marketplace access?",
-    a: "Free can browse agents only. Pro can install selected agents, while Business-only agents are labeled Buy. Business unlocks install access for every marketplace agent.",
+    a: "Free can browse agents only. Pro can install selected agents. Agents that require the Business plan are labeled Buy. The Business plan can install every marketplace agent.",
   },
 ];

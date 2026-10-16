@@ -263,7 +263,7 @@ export function Navbar() {
           </a>
 
           <div className="nav-drawer-subtext">
-            <span>Free forever on Android</span>
+            <span>Free plan on Android</span>
             <span className="nav-drawer-dot-sep">•</span>
             <span>No credit card needed</span>
           </div>

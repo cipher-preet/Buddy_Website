@@ -8,45 +8,26 @@ import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { contactJsonLd } from "@/lib/json-ld";
+import { pageAlternates, socialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact KukuNotes Support, Product, and Partnerships",
+  title: "Contact KukuNotes Support",
   description:
-    "Contact the KukuNotes team for AI assistant product questions, customer support, partnerships, privacy requests, and feedback.",
+    "Contact the KukuNotes team for product questions, customer support, partnerships, privacy requests, and feedback.",
   keywords: [
     "contact KukuNotes",
-    "KukuNotes support",
     "KukuNotes support",
     "AI notes app support",
     "KukuNotes partnerships",
     "KukuNotes privacy request",
   ],
-  alternates: {
-    canonical: "/contact",
-  },
-  openGraph: {
-    title: "Contact KukuNotes Support and Product Team",
-    description:
-      "Reach the KukuNotes team for support, product questions, partnerships, and feedback.",
-    url: "/contact",
-    type: "website",
-    images: [
-      {
-        url: `/opengraph-image?v=${siteConfig.assetVersion}`,
-        width: 1200,
-        height: 630,
-        alt: "Contact KukuNotes",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact KukuNotes",
-    description:
-      "Reach KukuNotes for product questions, support, partnerships, privacy requests, and feedback.",
-    images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
-  },
+  alternates: pageAlternates("/contact"),
+  ...socialMetadata(
+    "Contact KukuNotes Support",
+    "Contact the KukuNotes team for product questions, customer support, partnerships, privacy requests, and feedback.",
+    "/contact",
+  ),
 };
 
 const contactReasons = [

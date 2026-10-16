@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getKukuNotesJsonLd } from "@/lib/json-ld";
-import { siteConfig } from "@/lib/site";
+import { pageAlternates, socialMetadata } from "@/lib/seo-metadata";
 
 export const metadata: Metadata = {
-  title: "Download KukuNotes — Android, Windows, Chrome Extension & Web",
+  title: "Download KukuNotes for Android, Windows, and Web",
   description:
-    "Get KukuNotes on Android via Google Play, Windows via the Microsoft Store, the Chrome extension, and the web. Enjoy zero-bot meeting recording, note taking, and cross-platform sync.",
+    "Get KukuNotes on Google Play, the Microsoft Store, the Chrome Web Store, and the web. Recording is opt-in and no meeting bot joins the call.",
   keywords: [
     "download KukuNotes",
     "KukuNotes app download",
@@ -20,31 +20,12 @@ export const metadata: Metadata = {
     "private meeting recorder app",
     "best AI note taker for Android",
   ],
-  alternates: {
-    canonical: "/get-kukunotes",
-  },
-  openGraph: {
-    title: "Download KukuNotes — Available Wherever You Talk, Think & Work",
-    description:
-      "Capture conversations, extract actions, and organize spaces on your phone, desktop, and browser.",
-    url: "/get-kukunotes",
-    type: "website",
-    images: [
-      {
-        url: `/opengraph-image?v=${siteConfig.assetVersion}`,
-        width: 1200,
-        height: 630,
-        alt: "Download KukuNotes",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Download KukuNotes — Android, Desktop & Web",
-    description:
-      "Zero-bot meeting recording and AI note taking. Install KukuNotes today.",
-    images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
-  },
+  alternates: pageAlternates("/get-kukunotes"),
+  ...socialMetadata(
+    "Download KukuNotes for Android, Windows, Chrome, and web",
+    "Get KukuNotes on Google Play, the Microsoft Store, the Chrome Web Store, and the web. Recording is opt-in and no meeting bot joins the call.",
+    "/get-kukunotes",
+  ),
 };
 
 export default function GetKukuNotesLayout({ children }: { children: React.ReactNode }) {

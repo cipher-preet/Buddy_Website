@@ -60,10 +60,6 @@ export function organizationJsonLd() {
       siteConfig.microsoftStoreUrl,
       siteConfig.chromeStoreUrl,
       siteConfig.platformUrl,
-      absoluteUrl("/android"),
-      absoluteUrl("/windows"),
-      absoluteUrl("/chrome-extension"),
-      absoluteUrl("/platform"),
     ],
     foundingDate: "2025",
     knowsAbout: [
@@ -79,7 +75,7 @@ export function organizationJsonLd() {
       "task extraction and action items",
       "daily briefing planner",
       "second brain productivity",
-      "on-device audio privacy",
+      "opt-in meeting recording",
       "bot-free meeting notes",
     ],
     areaServed: [
@@ -196,6 +192,12 @@ function schemaOffers() {
     priceCurrency: planFacts.currency,
     availability: "https://schema.org/InStock",
     url: absoluteUrl("/pricing"),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: String(offer.price),
+      priceCurrency: planFacts.currency,
+      unitText: offer.unitText,
+    },
   }));
 }
 
@@ -289,6 +291,7 @@ export function pricingJsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       organizationJsonLd(),
+      websiteJsonLd(),
       softwareApplicationJsonLd(),
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
@@ -322,6 +325,7 @@ export function getKukuNotesJsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       organizationJsonLd(),
+      websiteJsonLd(),
       softwareApplicationJsonLd(),
       mobileApplicationJsonLd(),
       breadcrumbJsonLd([
@@ -351,6 +355,7 @@ export function useCasesJsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       organizationJsonLd(),
+      websiteJsonLd(),
       softwareApplicationJsonLd(),
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
@@ -393,6 +398,7 @@ export function contactJsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       organizationJsonLd(),
+      websiteJsonLd(),
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
         { name: "Contact", path },
@@ -432,6 +438,7 @@ export function seoPageJsonLd(page: SeoPage, path: string, parent?: BreadcrumbIt
     "@context": "https://schema.org",
     "@graph": [
       organizationJsonLd(),
+      websiteJsonLd(),
       softwareApplicationJsonLd(),
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
@@ -472,6 +479,7 @@ export function destinationPageJsonLd(page: DestinationPage) {
     "@context": "https://schema.org",
     "@graph": [
       organizationJsonLd(),
+      websiteJsonLd(),
       softwareApplicationJsonLd(),
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
@@ -531,6 +539,7 @@ export function aboutJsonLd(faqs: { q: string; a: string }[]) {
     "@context": "https://schema.org",
     "@graph": [
       organizationJsonLd(),
+      websiteJsonLd(),
       softwareApplicationJsonLd(),
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
@@ -557,6 +566,7 @@ export function legalJsonLd(title: string, path: string, description: string) {
     "@context": "https://schema.org",
     "@graph": [
       organizationJsonLd(),
+      websiteJsonLd(),
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
         { name: title, path },

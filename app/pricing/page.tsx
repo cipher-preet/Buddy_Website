@@ -7,7 +7,7 @@ import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
-import { languageNote } from "@/lib/product-facts";
+import { definitionFacts, definitionLead, languageNote, priceCopy } from "@/lib/product-facts";
 import { siteConfig } from "@/lib/site";
 import {
   pricingPlans,
@@ -73,8 +73,7 @@ export default function PricingPage() {
               Upgrade when you&apos;re <span className="brand-gradient-text">ready.</span>
             </h1>
             <p className="studio-section-lead pricing-hero-lead">
-              Capture conversations, extract actions, and organize spaces.
-              Start completely free on Android, upgrade for unlimited intelligence.
+              {definitionLead} {definitionFacts} {priceCopy.summary}
             </p>
           </Reveal>
           <Reveal className="pricing-hero-toggle" variant="scale" delay={0.06}>

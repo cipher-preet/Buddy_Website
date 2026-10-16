@@ -31,11 +31,6 @@ export const metadata: Metadata = {
   publisher: siteConfig.publisher,
   category: "productivity",
   alternates: {
-    canonical: "/",
-    languages: {
-      en: "/",
-      "x-default": "/",
-    },
     types: {
       "text/plain": "/llms.txt",
     },

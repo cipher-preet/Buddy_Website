@@ -4,21 +4,19 @@ import { LegalDocument } from "@/components/legal/LegalDocument";
 import { LegalShell } from "@/components/legal/LegalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { legalJsonLd } from "@/lib/json-ld";
+import { pageAlternates, socialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
 
+const title = "Terms of Service";
+const description =
+  "The terms for using KukuNotes, including the website, Android app, and related note and meeting features.";
+
 export const metadata: Metadata = {
-  title: "Terms of Service",
-  description:
-    "Read the Terms of Service for using KukuNotes, the AI assistant for listening, notes, tasks, and Spaces.",
+  title,
+  description,
   keywords: ["KukuNotes terms", "KukuNotes terms of service", "AI assistant app terms", "AI notes app terms"],
-  alternates: { canonical: "/terms" },
-  openGraph: {
-    title: "Terms of Service | KukuNotes",
-    url: "/terms",
-    type: "website",
-    description:
-      "Clear rules for using KukuNotes' AI listening, notes, tasks, Spaces, and chat features.",
-  },
+  alternates: pageAlternates("/terms"),
+  ...socialMetadata(title, description, "/terms"),
 };
 
 const sections = [
