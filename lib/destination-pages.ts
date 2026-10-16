@@ -30,9 +30,9 @@ export type DestinationPage = {
 export const destinationPages: DestinationPage[] = [
   {
     slug: "platform",
-    title: "KukuNotes Web App — Spaces, Notes & AI Chat Online",
+    title: "Web App for Spaces, Notes, and Chat",
     description:
-      "Open the KukuNotes web app at platform.kukunotes.com. Review Spaces, meeting notes, tasks, and Ask KukuNotes from any browser—synced with Android, Windows, and Chrome.",
+      "Open the KukuNotes web app to review Spaces, notes, tasks, and Ask KukuNotes. It syncs with Android, Windows, and Chrome.",
     keywords: [
       "KukuNotes web app",
       "KukuNotes platform",
@@ -104,9 +104,9 @@ export const destinationPages: DestinationPage[] = [
   },
   {
     slug: "chrome-extension",
-    title: "KukuNotes Chrome Extension — AI Meeting Recorder for Meet & Zoom",
+    title: "Chrome Extension Meeting Recorder",
     description:
-      "Add the KukuNotes Chrome extension for bot-free meeting notes in Google Meet, Zoom Web, and Teams Web. One-click recording, AI summaries, and tasks—no bot joins your call.",
+      "The KukuNotes Chrome extension records Google Meet, Zoom Web, and Teams Web without a bot, then writes notes and tasks.",
     keywords: [
       "KukuNotes Chrome extension",
       "Chrome meeting recorder",
@@ -178,9 +178,9 @@ export const destinationPages: DestinationPage[] = [
   },
   {
     slug: "windows",
-    title: "KukuNotes for Windows — AI Meeting Notes from Microsoft Store",
+    title: "Windows App from the Microsoft Store",
     description:
-      "Download KukuNotes for Windows from the Microsoft Store. Capture Zoom, Teams, and system audio without a meeting bot. AI notes, tasks, and Spaces sync across devices.",
+      "Download KukuNotes for Windows from the Microsoft Store. It records without a meeting bot and syncs notes and tasks.",
     keywords: [
       "KukuNotes Windows",
       "KukuNotes Microsoft Store",
@@ -251,9 +251,9 @@ export const destinationPages: DestinationPage[] = [
   },
   {
     slug: "android",
-    title: "KukuNotes Android App — AI Note Taker on Google Play",
+    title: "Android App on Google Play",
     description:
-      "Download KukuNotes on Google Play. The Android AI note taker and meeting recorder for in-person talks, Hindi & Hinglish, tasks, Spaces, and a free plan to start.",
+      "Download the KukuNotes Android app on Google Play. It records in-person talks in Hindi, English, and Hinglish, with a free plan.",
     keywords: [
       "KukuNotes Android",
       "KukuNotes Google Play",
@@ -281,7 +281,7 @@ export const destinationPages: DestinationPage[] = [
       "Opt-in listening — never always-on",
       "English, Hindi, and Hinglish",
       "Notes, tasks, Spaces, daily briefing",
-      "Free forever tier to start",
+      "Free plan to start",
     ],
     sections: [
       {

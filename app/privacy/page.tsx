@@ -4,21 +4,19 @@ import { LegalDocument } from "@/components/legal/LegalDocument";
 import { LegalShell } from "@/components/legal/LegalShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { legalJsonLd } from "@/lib/json-ld";
+import { pageAlternates, socialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
 
+const title = "Privacy Policy";
+const description =
+  "How KukuNotes collects, uses, and protects account, voice, notes, and task data when you use the app.";
+
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "Learn how KukuNotes collects, uses, and protects your information when you use our AI listening, notes, and tasks app.",
+  title,
+  description,
   keywords: ["KukuNotes privacy", "AI notes app privacy", "AI listening app privacy", "KukuNotes data deletion"],
-  alternates: { canonical: "/privacy" },
-  openGraph: {
-    title: "Privacy Policy | KukuNotes",
-    url: "/privacy",
-    type: "website",
-    description:
-      "Learn how KukuNotes handles voice, conversation, notes, tasks, and account data.",
-  },
+  alternates: pageAlternates("/privacy"),
+  ...socialMetadata(title, description, "/privacy"),
 };
 
 const sections = [

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { AppFrame } from "@/components/home/AppFrame";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
@@ -8,6 +9,7 @@ import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { useCasesJsonLd } from "@/lib/json-ld";
+import { pageAlternates, socialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
 import { useCaseItems } from "@/lib/home-data";
 
@@ -22,9 +24,9 @@ import {
 import { HiArrowRight, HiSparkles } from "react-icons/hi2";
 
 export const metadata: Metadata = {
-  title: "Use Cases — AI Note Taker & Meeting Recorder for Students, Teams, Sales & Creators",
+  title: "Use Cases for Students, Teams, and Sales",
   description:
-    "Discover how KukuNotes powers lecture note-taking for students, meeting recording and action item tracking for teams, call intelligence for sales, and daily planning.",
+    "KukuNotes turns lectures, meetings, sales calls, and daily conversations into notes and tasks. Recording is opt-in and no meeting bot joins the call.",
   keywords: [
     "AI note taker for students",
     "AI meeting recorder for teams",
@@ -40,31 +42,12 @@ export const metadata: Metadata = {
     "college lecture notes AI",
     "minutes of meeting app",
   ],
-  alternates: {
-    canonical: "/use-cases",
-  },
-  openGraph: {
-    title: "KukuNotes Use Cases — AI Note Taker & Meeting Recorder for Real Work",
-    description:
-      "Turn lectures, team syncs, sales calls, and daily conversations into structured notes, prioritized tasks, and executive summaries.",
-    url: "/use-cases",
-    type: "website",
-    images: [
-      {
-        url: `/opengraph-image?v=${siteConfig.assetVersion}`,
-        width: 1200,
-        height: 630,
-        alt: "KukuNotes assistant use cases",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "KukuNotes Use Cases — AI Notes, Tasks & Meeting Intelligence",
-    description:
-      "How students, founders, sales executives, and creators use KukuNotes for seamless meeting notes and task extraction.",
-    images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
-  },
+  alternates: pageAlternates("/use-cases"),
+  ...socialMetadata(
+    "KukuNotes use cases for students, teams, and sales",
+    "KukuNotes turns lectures, meetings, sales calls, and daily conversations into notes and tasks. Recording is opt-in and no meeting bot joins the call.",
+    "/use-cases",
+  ),
 };
 
 const journeySteps = [
@@ -204,11 +187,13 @@ export default function UseCasesPage() {
                 {/* Right Side: High-Resolution Dedicated UI Visual */}
                 <div className="use-case-visual-container" aria-label={item.alt}>
                   <div className="use-case-image-wrapper">
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.alt}
+                      width={1200}
+                      height={896}
                       className="use-case-image"
-                      loading="lazy"
+                      sizes="(max-width: 900px) 100vw, 560px"
                     />
                     <div className="use-case-image-overlay" />
                     <div className="use-case-chips-overlay" aria-hidden="true">

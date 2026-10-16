@@ -1,8 +1,13 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 
+/**
+ * Explicit allows for answer-engine crawlers. The repo has no deliberate block.
+ * CCBot is allowed so Common Crawl snapshots can cite the public marketing pages.
+ */
 const aiBots = [
   "GPTBot",
+  "OAI-SearchBot",
   "ChatGPT-User",
   "Google-Extended",
   "anthropic-ai",

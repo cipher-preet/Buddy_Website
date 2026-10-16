@@ -1,4 +1,4 @@
-import { languageNote, priceCopy } from "./product-facts";
+import { brandSplit, captureFact, definitionLead, languageNote, priceCopy } from "./product-facts";
 
 export const navItems = [
   { label: "Product", href: "/#product" },
@@ -183,11 +183,11 @@ export const workflowSteps = [
 export const faqItems = [
   {
     q: "What is KukuNotes and how does it work as a personal AI assistant?",
-    a: "KukuNotes is a private personal AI assistant, AI note taker, and meeting recorder available on Android, desktop, and web. It helps you capture real-world conversations and meetings, auto-generates structured notes with source evidence, extracts prioritized action items, and organizes your life into dedicated Spaces with an intelligent daily briefing.",
+    a: `${definitionLead} Notes and tasks are filed in Spaces.`,
   },
   {
     q: "How does KukuNotes record meetings and take notes without an invite bot?",
-    a: "Unlike tools that send awkward third-party recording bots into your Zoom or Google Meet calls, KukuNotes operates on-device and opt-in. You simply start listening whenever a meeting, class, or discussion begins. KukuNotes securely transcribes the audio, generates bulleted executive summaries, and isolates commitments without intruding into the meeting invite.",
+    a: captureFact,
   },
   {
     q: "Can KukuNotes transcribe Hindi, English, and other Indian languages?",
@@ -203,7 +203,7 @@ export const faqItems = [
   },
   {
     q: "Does KukuNotes listen to my conversations all the time?",
-    a: "No. Privacy is KukuNotes' primary design principle. Listening is strictly opt-in and only captures audio when you explicitly tap 'Start Listening'. When capture is inactive, the microphone is off, and no audio leaves your device.",
+    a: "No. Listening starts only when you tap Start Listening. When capture is inactive, the microphone is off.",
   },
   {
     q: "What is a KukuNotes Space and how does it organize notes and tasks?",
@@ -215,7 +215,7 @@ export const faqItems = [
   },
   {
     q: "Is KukuNotes (Kuku Notes) related to Kuku FM?",
-    a: "No. KukuNotes, sometimes written Kuku Notes, is an AI note taker and meeting recorder app for productivity. It is a separate product from the Kuku FM audiobook app and the Kuku TV video app.",
+    a: brandSplit,
   },
   {
     q: "How does the daily briefing feature help plan the day?",

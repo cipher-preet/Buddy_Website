@@ -7,11 +7,12 @@ import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { aboutJsonLd } from "@/lib/json-ld";
 import { languageNote, priceCopy } from "@/lib/product-facts";
+import { pageAlternates, socialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
 
-const title = "About KukuNotes (Kuku Notes) — AI Note Taker App";
+const title = "About KukuNotes, the AI Note Taker";
 const description =
-  "KukuNotes (also written Kuku Notes) is an AI note taker, bot-free meeting recorder, and personal assistant app for Android, built for English, Hindi, and Hinglish conversations.";
+  "KukuNotes is a private AI note taker and bot-free meeting recorder for Android, Windows, Chrome, and web. It is not Kuku FM.";
 
 export const metadata: Metadata = {
   title,
@@ -27,27 +28,8 @@ export const metadata: Metadata = {
     "KukuNotes Technologies",
     "KukuNotes official website",
   ],
-  alternates: { canonical: "/about" },
-  openGraph: {
-    title,
-    description,
-    url: "/about",
-    type: "website",
-    images: [
-      {
-        url: `/opengraph-image?v=${siteConfig.assetVersion}`,
-        width: 1200,
-        height: 630,
-        alt: "About KukuNotes",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-    images: [`/opengraph-image?v=${siteConfig.assetVersion}`],
-  },
+  alternates: pageAlternates("/about"),
+  ...socialMetadata(title, description, "/about"),
 };
 
 const facts = [

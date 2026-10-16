@@ -99,13 +99,27 @@ export const languageNoteWithScript = `Every plan includes ${andList(supportedLa
 
 export const languageNoteHi = `Free, Pro और Business — हर प्लान में ${andList(supportedLanguages.map((language) => language.hi), "और")} शामिल हैं।`;
 
+/** Two-sentence definition used near the top of the main pages. */
+export const whatIsKukuNotes =
+  "KukuNotes is a private AI note taker and meeting recorder for Android, Windows, Chrome, and the web.";
+
+export const captureFact =
+  "You tap Start Listening to record through your device. Listening is opt-in, and KukuNotes never joins Zoom, Google Meet, or Teams as a bot.";
+
+export const brandSplit =
+  "KukuNotes is not Kuku FM or Kuku TV. It is a separate product for notes, meetings, and tasks.";
+
+export const definitionLead = `${whatIsKukuNotes} ${captureFact}`;
+
+export const definitionFacts = `${languageNote} ${brandSplit}`;
+
 /** Prices a structured-data Offer list must use. Yearly amounts are the billed totals. */
 export function confirmedOfferPrices() {
   return [
-    { name: "KukuNotes Free", price: planFacts.free.monthlyInr },
-    { name: "KukuNotes Pro Monthly", price: planFacts.pro.monthlyInr },
-    { name: "KukuNotes Pro Yearly", price: planFacts.pro.yearlyInr },
-    { name: "KukuNotes Business Monthly", price: planFacts.business.monthlyInr },
-    { name: "KukuNotes Business Yearly", price: planFacts.business.yearlyInr },
+    { name: "KukuNotes Free", price: planFacts.free.monthlyInr, unitText: "MONTH" },
+    { name: "KukuNotes Pro Monthly", price: planFacts.pro.monthlyInr, unitText: "MONTH" },
+    { name: "KukuNotes Pro Yearly", price: planFacts.pro.yearlyInr, unitText: "YEAR" },
+    { name: "KukuNotes Business Monthly", price: planFacts.business.monthlyInr, unitText: "MONTH" },
+    { name: "KukuNotes Business Yearly", price: planFacts.business.yearlyInr, unitText: "YEAR" },
   ] as const;
 }
