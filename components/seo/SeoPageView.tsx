@@ -7,6 +7,7 @@ import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { priceCopy } from "@/lib/product-facts";
 import { competitorNote, type SeoPage } from "@/lib/seo-pages";
 import { siteConfig } from "@/lib/site";
 
@@ -210,8 +211,7 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
             <p className="studio-kicker studio-invite-kicker">Start free</p>
             <h2 id="seo-cta-title">Keep every conversation that matters.</h2>
             <p className="studio-invite-lead">
-              Free on Android. 5 Spaces and 5 hours of recording every month, in English,
-              Hindi, and Hinglish.
+              {priceCopy.freeHours} on Android, in English, Hindi, and Hinglish.
             </p>
             <div className="studio-invite-actions">
               <a

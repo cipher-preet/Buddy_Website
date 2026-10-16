@@ -2963,6 +2963,17 @@ h3 {
   background: var(--accent-deep);
 }
 
+.studio-inline-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.studio-inline-link:hover {
+  color: var(--accent);
+}
+
 .studio-text-link {
   display: inline-flex;
   align-items: center;

@@ -1,4 +1,4 @@
-import { siteConfig } from "./site";
+import { languageNote, priceCopy } from "./product-facts";
 
 export const navItems = [
   { label: "Product", href: "/#product" },
@@ -191,7 +191,7 @@ export const faqItems = [
   },
   {
     q: "Can KukuNotes transcribe Hindi, English, and other Indian languages?",
-    a: "Yes. KukuNotes natively supports Hindi, English, and mixed Hinglish code-switching out of the box. In addition, the Business plan unlocks an 11 Indian regional languages pack (including Marathi, Gujarati, Tamil, Telugu, Kannada, Bengali, and Punjabi) for seamless regional meeting recording and speech-to-text intelligence.",
+    a: `Yes. ${languageNote}`,
   },
   {
     q: "How is KukuNotes different from tools like Otter.ai, Fireflies, or Granola?",
@@ -199,7 +199,7 @@ export const faqItems = [
   },
   {
     q: "Is KukuNotes free to use?",
-    a: "Yes. KukuNotes is free to start with 2 hours of notes recording, 10 hours of meeting recording, 10 mindmaps, 10 documents, and 2 goals. Upgrade to Pro (₹499/mo) for higher limits, or Business (₹999/mo) for unlimited capture and full marketplace access.",
+    a: `Yes. ${priceCopy.freeDetail}. ${priceCopy.pro}. ${priceCopy.business}.`,
   },
   {
     q: "Does KukuNotes listen to my conversations all the time?",

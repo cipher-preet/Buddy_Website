@@ -6,6 +6,7 @@ import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { aboutJsonLd } from "@/lib/json-ld";
+import { languageNote, priceCopy } from "@/lib/product-facts";
 import { siteConfig } from "@/lib/site";
 
 const title = "About KukuNotes (Kuku Notes) — AI Note Taker App";
@@ -52,10 +53,10 @@ export const metadata: Metadata = {
 const facts = [
   { label: "Name", value: "KukuNotes (one word; sometimes written “Kuku Notes”)" },
   { label: "What it is", value: "AI note taker, bot-free meeting recorder, and personal AI assistant" },
-  { label: "Platform", value: "Android app on Google Play" },
+  { label: "Platform", value: "Android, Windows, Chrome, and web" },
   { label: "Package", value: siteConfig.androidPackage },
-  { label: "Languages", value: "English, Hindi, Hinglish; 11 Indian languages on Business" },
-  { label: "Pricing", value: "Free plan; Pro ₹799/month; Business ₹1,999/month" },
+  { label: "Languages", value: languageNote },
+  { label: "Pricing", value: priceCopy.summary },
   { label: "Recording model", value: "Opt-in only, via Start Listening; no meeting bots" },
   { label: "Contact", value: siteConfig.email },
 ];
@@ -63,7 +64,7 @@ const facts = [
 const aboutFaqs = [
   {
     q: "What is KukuNotes?",
-    a: "KukuNotes is an Android app that records conversations when you tap Start Listening and turns them into summaries, decisions, and action items, organized into Spaces for each project, class, client, or life area. It also gives you a daily briefing and answers questions about your own notes.",
+    a: "KukuNotes records conversations when you tap Start Listening and turns them into summaries, decisions, and action items, organized into Spaces for each project, class, client, or life area. It also gives you a daily briefing and answers questions about your own notes. It runs on Android, Windows, Chrome, and the web.",
   },
   {
     q: "Is it KukuNotes or Kuku Notes?",
@@ -75,7 +76,7 @@ const aboutFaqs = [
   },
   {
     q: "Where can I download KukuNotes?",
-    a: "KukuNotes is available for Android on Google Play. Search for “KukuNotes” or use the official link on this website.",
+    a: "Android is on Google Play, Windows is on the Microsoft Store, the meeting recorder is on the Chrome Web Store, and the web workspace is at platform.kukunotes.com. Every option is listed on the download page.",
   },
   {
     q: "Who is KukuNotes for?",
@@ -114,9 +115,9 @@ export default function AboutPage() {
         <section className="seo-answer" aria-label="Quick answer">
           <p className="seo-answer-label">In one sentence</p>
           <p>
-            KukuNotes is a private AI note taker and meeting recorder for Android that turns
-            English, Hindi, and Hinglish conversations into summaries, action items, and a daily
-            briefing, without ever sending a bot into your meetings.
+            KukuNotes is a private AI note taker and meeting recorder for Android, Windows,
+            Chrome, and web. It turns English, Hindi, and Hinglish conversations into summaries,
+            action items, and a daily briefing, without sending a bot into your meetings.
           </p>
         </section>
 

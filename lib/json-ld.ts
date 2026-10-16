@@ -1,10 +1,11 @@
 import { faqItems } from "@/lib/home-data";
-import { pricingFaqs, pricingPlans } from "@/lib/pricing-data";
+import { pricingFaqs } from "@/lib/pricing-data";
 import { getKukuNotesFaqs } from "@/lib/get-kukunotes-data";
 import type { DestinationPage } from "@/lib/destination-pages";
 import { sitelinkNav } from "@/lib/destination-pages";
 import { entityKeywords } from "@/lib/seo-keywords";
 import type { SeoPage } from "@/lib/seo-pages";
+import { confirmedOfferPrices, planFacts } from "@/lib/product-facts";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const organizationId = `${siteConfig.url}/#organization`;
@@ -171,7 +172,7 @@ export function softwareApplicationJsonLd() {
     description: siteConfig.description,
     featureList: [...siteConfig.features],
     keywords: entityKeywords.join(", "),
-    inLanguage: ["en", "hi"],
+    inLanguage: [...planFacts.languageCodes],
     countriesSupported: "IN, Worldwide",
     audience: {
       "@type": "Audience",
@@ -183,33 +184,19 @@ export function softwareApplicationJsonLd() {
     dateModified: siteConfig.contentUpdated,
     ...playStoreRating(),
     publisher: { "@id": organizationId },
-    offers: [
-      {
-        "@type": "Offer",
-        name: "KukuNotes Free Forever",
-        price: "0",
-        priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
-        url: absoluteUrl("/pricing"),
-      },
-      {
-        "@type": "Offer",
-        name: "KukuNotes Pro Monthly",
-        price: "799",
-        priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
-        url: absoluteUrl("/pricing"),
-      },
-      {
-        "@type": "Offer",
-        name: "KukuNotes Business Monthly",
-        price: "1999",
-        priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
-        url: absoluteUrl("/pricing"),
-      },
-    ],
+    offers: schemaOffers(),
   };
+}
+
+function schemaOffers() {
+  return confirmedOfferPrices().map((offer) => ({
+    "@type": "Offer",
+    name: offer.name,
+    price: String(offer.price),
+    priceCurrency: planFacts.currency,
+    availability: "https://schema.org/InStock",
+    url: absoluteUrl("/pricing"),
+  }));
 }
 
 export function mobileApplicationJsonLd() {
@@ -317,19 +304,11 @@ export function pricingJsonLd() {
         brand: { "@id": organizationId },
         offers: {
           "@type": "AggregateOffer",
-          priceCurrency: "INR",
+          priceCurrency: planFacts.currency,
           lowPrice: "0",
-          highPrice: "1999",
-          offerCount: "3",
-          offers: pricingPlans.map((plan) => ({
-            "@type": "Offer",
-            name: plan.name,
-            description: plan.tagline,
-            price: plan.prices.monthly.toString(),
-            priceCurrency: "INR",
-            availability: "https://schema.org/InStock",
-            url: absoluteUrl(path),
-          })),
+          highPrice: Math.max(...confirmedOfferPrices().map((offer) => offer.price)).toString(),
+          offerCount: String(confirmedOfferPrices().length),
+          offers: schemaOffers(),
         },
       },
     ],

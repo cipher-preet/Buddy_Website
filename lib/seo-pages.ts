@@ -1,4 +1,6 @@
-﻿export type SeoFaq = { q: string; a: string };
+import { languageNote, languageNoteHi, languageNoteWithScript, priceCopy } from "@/lib/product-facts";
+
+export type SeoFaq = { q: string; a: string };
 
 export type SeoSection = {
   heading: string;
@@ -21,7 +23,7 @@ export type SeoPage = {
   h1: string;
   h1Accent: string;
   lead: string;
-  /** 40â€“70 word direct answer placed above the fold for featured snippets and AI answer engines. */
+  /** 40–70 word direct answer placed above the fold for featured snippets and AI answer engines. */
   answer: string;
   image: { src: string; alt: string };
   sections: SeoSection[];
@@ -59,7 +61,7 @@ const listenSteps = [
 export const topicPages: SeoPage[] = [
   {
     slug: "ai-note-taker",
-    title: "AI Note Taker App â€” Turn Talk into Notes & Tasks",
+    title: "AI Note Taker App — Turn Talk into Notes & Tasks",
     description:
       "KukuNotes is a free AI note taker for Android. Record any conversation, get a clean summary, key decisions, and action items with source evidence. Works in English, Hindi, and Hinglish.",
     keywords: [
@@ -119,7 +121,7 @@ export const topicPages: SeoPage[] = [
     faqs: [
       {
         q: "Is KukuNotes a free AI note taker?",
-        a: "Yes. The Free plan includes 5 Spaces, 5 hours of recording per month, and unlimited note and task extraction in English and Hindi. Pro (â‚¹799/month) raises recording to 100 hours and adds the daily briefing and goal monitor.",
+        a: `Yes. ${priceCopy.freeDetail}. ${priceCopy.pro} and adds the daily briefing and goal monitor.`,
       },
       {
         q: "Does the AI note taker work offline?",
@@ -127,7 +129,7 @@ export const topicPages: SeoPage[] = [
       },
       {
         q: "Can KukuNotes take notes in Hindi or Hinglish?",
-        a: "Yes. English, Hindi, and mixed Hindi-English (Hinglish) are supported on every plan. The Business plan adds a pack of 11 Indian languages including Tamil, Telugu, Marathi, Bengali, and Gujarati.",
+        a: `Yes. ${languageNote}`,
       },
       {
         q: "How accurate are the AI notes?",
@@ -147,7 +149,7 @@ export const topicPages: SeoPage[] = [
   },
   {
     slug: "ai-meeting-recorder",
-    title: "AI Meeting Recorder Without Bots â€” Notes & Action Items",
+    title: "AI Meeting Recorder Without Bots — Notes & Action Items",
     description:
       "Record in-person and online meetings from your Android phone without inviting a bot. KukuNotes transcribes, summarizes, and extracts action items into the right project Space.",
     keywords: [
@@ -207,7 +209,7 @@ export const topicPages: SeoPage[] = [
       },
       {
         q: "How many hours of meetings can I record?",
-        a: "The Free plan includes 5 hours per month, Pro includes 100 hours per month, and Business has unlimited recording.",
+        a: priceCopy.summary,
       },
       {
         q: "Is it legal to record meetings with KukuNotes?",
@@ -215,7 +217,7 @@ export const topicPages: SeoPage[] = [
       },
       {
         q: "Can KukuNotes record meetings held in Hindi?",
-        a: "Yes. Meetings in English, Hindi, or a mix of both are supported on all plans, and the Business plan adds 11 Indian languages.",
+        a: `Yes. Meetings in English, Hindi, or a mix of both are supported. ${languageNote}`,
       },
       {
         q: "Can I share meeting notes with my team?",
@@ -233,7 +235,7 @@ export const topicPages: SeoPage[] = [
     slug: "hindi-speech-to-text",
     title: "Hindi Speech to Text & Hinglish Meeting Notes App",
     description:
-      "Convert Hindi and Hinglish speech to text, notes, and tasks with KukuNotes. Built for Indian conversations that mix Hindi and English, with 11 Indian languages on the Business plan.",
+      "Convert Hindi and Hinglish speech to text, notes, and tasks with KukuNotes. Built for Indian conversations that mix Hindi and English.",
     keywords: [
       "Hindi speech to text",
       "Hindi voice to text app",
@@ -242,14 +244,14 @@ export const topicPages: SeoPage[] = [
       "Hindi voice notes app",
       "Hindi audio to text",
       "AI note taker India",
-      "à¤¹à¤¿à¤‚à¤¦à¥€ à¤µà¥‰à¤‡à¤¸ à¤Ÿà¥‚ à¤Ÿà¥‡à¤•à¥à¤¸à¥à¤Ÿ",
+      "हिंदी वॉइस टू टेक्स्ट",
     ],
     kicker: "Hindi & Hinglish speech to text",
     h1: "Hindi speech to text that understands",
     h1Accent: "how India really talks.",
     lead: "Real meetings in India switch between Hindi and English mid-sentence. KukuNotes is built for that, turning Hindi and Hinglish conversations into clear notes and tasks.",
     answer:
-      "KukuNotes converts Hindi, English, and mixed Hinglish speech into text, then goes further than plain transcription: it writes a summary, lists decisions, and extracts action items. Hindi and Hinglish work on every plan, including the free one. The Business plan adds 11 Indian languages such as Tamil, Telugu, Marathi, Bengali, Gujarati, Kannada, Malayalam, Punjabi, Odia, and Assamese.",
+      `KukuNotes converts Hindi, English, and mixed Hinglish speech into text, then goes further than plain transcription: it writes a summary, lists decisions, and extracts action items. ${languageNote}`,
     image: { src: "/screenshots/home-listening.jpg", alt: "KukuNotes home screen while listening is on" },
     sections: [
       {
@@ -274,28 +276,29 @@ export const topicPages: SeoPage[] = [
       {
         heading: "Supported Indian languages",
         body: [
-          "English, Hindi, and Hinglish are included on every plan. The Business plan unlocks an Indian languages pack covering Hindi (à¤¹à¤¿à¤‚à¤¦à¥€), Marathi (à¤®à¤°à¤¾à¤ à¥€), Gujarati (àª—à«àªœàª°àª¾àª¤à«€), Tamil (à®¤à®®à®¿à®´à¯), Telugu (à°¤à±†à°²à±à°—à±), Kannada (à²•à²¨à³à²¨à²¡), Bengali (à¦¬à¦¾à¦‚à¦²à¦¾), Punjabi (à¨ªà©°à¨œà¨¾à¨¬à©€), Malayalam (à´®à´²à´¯à´¾à´³à´‚), Odia (à¬“à¬¡à¬¼à¬¿à¬†), and Assamese (à¦…à¦¸à¦®à§€à¦¯à¦¼à¦¾).",
+          languageNoteWithScript,
         ],
       },
       {
         heading: "Priced for India",
         body: [
-          "Start free. Pro costs â‚¹799 per month and Business â‚¹1,999 per month, with quarterly plans that save 22%. Payments go through Razorpay with UPI, cards, and NetBanking.",
+          `${priceCopy.summary} Payments go through Razorpay with UPI, cards, and NetBanking.`,
         ],
       },
     ],
     localized: {
       lang: "hi",
-      heading: "à¤¹à¤¿à¤‚à¤¦à¥€ à¤®à¥‡à¤‚: à¤†à¤µà¤¾à¤œà¤¼ à¤¸à¥‡ à¤¨à¥‹à¤Ÿà¥à¤¸ à¤”à¤° à¤Ÿà¤¾à¤¸à¥à¤•",
+      heading: "हिंदी में: आवाज़ से नोट्स और टास्क",
       body: [
-        "KukuNotes à¤†à¤ªà¤•à¥€ à¤¹à¤¿à¤‚à¤¦à¥€, à¤…à¤‚à¤—à¥à¤°à¥‡à¤œà¤¼à¥€ à¤”à¤° à¤¹à¤¿à¤‚à¤—à¥à¤²à¤¿à¤¶ à¤¬à¤¾à¤¤à¤šà¥€à¤¤ à¤•à¥‹ à¤Ÿà¥‡à¤•à¥à¤¸à¥à¤Ÿ, à¤¸à¤¾à¤«à¤¼ à¤¨à¥‹à¤Ÿà¥à¤¸ à¤”à¤° à¤Ÿà¤¾à¤¸à¥à¤• à¤®à¥‡à¤‚ à¤¬à¤¦à¤²à¤¤à¤¾ à¤¹à¥ˆà¥¤ à¤®à¥€à¤Ÿà¤¿à¤‚à¤—, à¤•à¥à¤²à¤¾à¤¸ à¤¯à¤¾ à¤•à¥à¤²à¤¾à¤‡à¤‚à¤Ÿ à¤•à¥‰à¤² à¤•à¥‡ à¤¦à¥Œà¤°à¤¾à¤¨ à¤¬à¤¸ â€œStart Listeningâ€ à¤¦à¤¬à¤¾à¤à¤à¥¤ à¤¬à¤¾à¤¤à¤šà¥€à¤¤ à¤–à¤¤à¥à¤® à¤¹à¥‹à¤¤à¥‡ à¤¹à¥€ à¤†à¤ªà¤•à¥‹ à¤¸à¤¾à¤°à¤¾à¤‚à¤¶, à¤²à¤¿à¤ à¤—à¤ à¤«à¤¼à¥ˆà¤¸à¤²à¥‡ à¤”à¤° à¤•à¤°à¤¨à¥‡ à¤µà¤¾à¤²à¥‡ à¤•à¤¾à¤® à¤®à¤¿à¤² à¤œà¤¾à¤¤à¥‡ à¤¹à¥ˆà¤‚à¥¤",
-        "à¤°à¤¿à¤•à¥‰à¤°à¥à¤¡à¤¿à¤‚à¤— à¤ªà¥‚à¤°à¥€ à¤¤à¤°à¤¹ à¤†à¤ªà¤•à¥€ à¤®à¤°à¥à¤œà¤¼à¥€ à¤¸à¥‡ à¤¹à¥‹à¤¤à¥€ à¤¹à¥ˆà¥¤ à¤®à¤¾à¤‡à¤•à¥à¤°à¥‹à¤«à¤¼à¥‹à¤¨ à¤¤à¤­à¥€ à¤šà¤¾à¤²à¥‚ à¤¹à¥‹à¤¤à¤¾ à¤¹à¥ˆ à¤œà¤¬ à¤†à¤ª à¤¸à¥à¤¨à¤¨à¤¾ à¤¶à¥à¤°à¥‚ à¤•à¤°à¤¤à¥‡ à¤¹à¥ˆà¤‚à¥¤ à¤¶à¥à¤°à¥à¤†à¤¤ à¤®à¥à¤«à¤¼à¥à¤¤ à¤¹à¥ˆ, à¤”à¤° Android à¤ªà¤° Google Play à¤¸à¥‡ à¤¡à¤¾à¤‰à¤¨à¤²à¥‹à¤¡ à¤•à¤¿à¤¯à¤¾ à¤œà¤¾ à¤¸à¤•à¤¤à¤¾ à¤¹à¥ˆà¥¤",
+        "KukuNotes आपकी हिंदी, अंग्रेज़ी और हिंग्लिश बातचीत को टेक्स्ट, साफ़ नोट्स और टास्क में बदलता है। मीटिंग, क्लास या क्लाइंट कॉल के दौरान बस “Start Listening” दबाएँ। बातचीत खत्म होते ही आपको सारांश, लिए गए फ़ैसले और करने वाले काम मिल जाते हैं।",
+        "रिकॉर्डिंग पूरी तरह आपकी मर्ज़ी से होती है। माइक्रोफ़ोन तभी चालू होता है जब आप सुनना शुरू करते हैं। शुरुआत मुफ़्त है, और Android पर Google Play से डाउनलोड किया जा सकता है।",
+        languageNoteHi,
       ],
     },
     faqs: [
       {
         q: "Can KukuNotes convert Hindi audio to text for free?",
-        a: "Yes. Hindi, English, and Hinglish speech to text are included in the Free plan, along with 5 hours of recording per month.",
+        a: `Yes. Hindi, English, and Hinglish speech to text are included. ${priceCopy.freeHours}.`,
       },
       {
         q: "Does KukuNotes understand Hinglish (mixed Hindi and English)?",
@@ -303,7 +306,7 @@ export const topicPages: SeoPage[] = [
       },
       {
         q: "Which Indian languages does KukuNotes support?",
-        a: "Every plan supports English, Hindi, and Hinglish. The Business plan adds 11 Indian languages: Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Bengali, Punjabi, Malayalam, Odia, and Assamese.",
+        a: languageNote,
       },
       {
         q: "Can I get the summary in English for a Hindi meeting?",
@@ -318,12 +321,12 @@ export const topicPages: SeoPage[] = [
       { label: "AI note taker", href: "/ai-note-taker" },
       { label: "AI meeting recorder", href: "/ai-meeting-recorder" },
       { label: "Get KukuNotes", href: "/get-kukunotes" },
-      { label: "Pricing in â‚¹", href: "/pricing" },
+      { label: "Pricing in ₹", href: "/pricing" },
     ],
   },
   {
     slug: "ai-personal-assistant",
-    title: "Personal AI Assistant App â€” Daily Briefing & Second Brain",
+    title: "Personal AI Assistant App — Daily Briefing & Second Brain",
     description:
       "KukuNotes is a personal AI assistant that remembers your conversations, turns them into tasks, and plans your day with a morning briefing. A private second brain for Android.",
     keywords: [
@@ -382,7 +385,7 @@ export const topicPages: SeoPage[] = [
       },
       {
         q: "Is the daily briefing included in the free plan?",
-        a: "The daily briefing and goal monitor are part of KukuNotes Pro. The Free plan includes Spaces, recording, and unlimited note and task extraction.",
+        a: `The daily briefing and goal monitor are part of KukuNotes Pro. ${priceCopy.freeHours}.`,
       },
       {
         q: "Can I use KukuNotes for personal life, not just work?",
@@ -398,7 +401,7 @@ export const topicPages: SeoPage[] = [
   },
   {
     slug: "ai-lecture-notes",
-    title: "AI Lecture Notes App â€” Record Classes, Get Study Notes",
+    title: "AI Lecture Notes App — Record Classes, Get Study Notes",
     description:
       "Record lectures and coaching classes on your phone and get summaries, key concepts, and study tasks automatically. KukuNotes is a free AI lecture notes app with Hindi support.",
     keywords: [
@@ -415,7 +418,7 @@ export const topicPages: SeoPage[] = [
     h1Accent: "Let AI write the notes.",
     lead: "KukuNotes records your lecture, coaching class, or study group and turns it into a summary, key concepts, and a list of what to revise or submit next.",
     answer:
-      "KukuNotes is an AI lecture notes app for students on Android. Tap Start Listening at the beginning of a class and KukuNotes records through your phone, then produces a summary, key concepts, and study tasks such as assignments and exam dates, all filed in a Space for that subject. It supports English, Hindi, and Hinglish, and the Free plan includes 5 hours of recording per month.",
+      `KukuNotes is an AI lecture notes app for students on Android. Tap Start Listening at the beginning of a class and KukuNotes records through your phone, then produces a summary, key concepts, and study tasks such as assignments and exam dates, all filed in a Space for that subject. It supports English, Hindi, and Hinglish. ${priceCopy.freeHours}.`,
     image: { src: "/use-cases/education.jpg", alt: "AI lecture notes and study tasks for students" },
     sections: [
       {
@@ -447,11 +450,11 @@ export const topicPages: SeoPage[] = [
     faqs: [
       {
         q: "Is KukuNotes free for students?",
-        a: "Yes. The Free plan includes 5 Spaces and 5 hours of recording per month, which covers several lectures a week for most students.",
+        a: `Yes. ${priceCopy.freeHours}, which covers several lectures a week for most students.`,
       },
       {
         q: "Can it record lectures in Hindi?",
-        a: "Yes. KukuNotes supports English, Hindi, and Hinglish lectures on every plan.",
+        a: "Yes. KukuNotes supports English, Hindi, and Hinglish lectures.",
       },
       {
         q: "Do I need permission to record a lecture?",

@@ -1,3 +1,4 @@
+import { languageNote, priceCopy } from "./product-facts";
 import { siteConfig } from "./site";
 
 /**
@@ -268,7 +269,7 @@ export const destinationPages: DestinationPage[] = [
     h1Accent: "the phone in your pocket.",
     lead: "KukuNotes on Android captures meetings, classes, and everyday conversations when you tap Start Listening—then turns them into notes, tasks, and Spaces. Free to start on Google Play.",
     answer:
-      "KukuNotes is an AI note taker and meeting recorder for Android, available on Google Play. It records only when you opt in, supports English, Hindi, and Hinglish, extracts action items into Spaces, and offers a free plan with 5 Spaces and 5 hours of recording per month.",
+      `KukuNotes is an AI note taker and meeting recorder for Android, available on Google Play. It records only when you opt in, supports English, Hindi, and Hinglish, and extracts action items into Spaces. ${priceCopy.freeHours}.`,
     cta: {
       label: "Get on Google Play",
       href: siteConfig.playStoreUrl,
@@ -278,7 +279,7 @@ export const destinationPages: DestinationPage[] = [
     badge: "Google Play",
     highlights: [
       "Opt-in listening — never always-on",
-      "English, Hindi & Hinglish on every plan",
+      "English, Hindi, and Hinglish",
       "Notes, tasks, Spaces, daily briefing",
       "Free forever tier to start",
     ],
@@ -300,11 +301,11 @@ export const destinationPages: DestinationPage[] = [
     faqs: [
       {
         q: "Is KukuNotes free on Android?",
-        a: "Yes. The Free plan includes 5 Spaces, 5 hours of recording per month, and unlimited note and task extraction. Pro and Business unlock more hours and features.",
+        a: `Yes. ${priceCopy.summary}`,
       },
       {
         q: "Does KukuNotes work in Hindi?",
-        a: "Yes. English, Hindi, and Hinglish are supported on every plan. Business adds 11 Indian regional languages.",
+        a: languageNote,
       },
       {
         q: "What Android version do I need?",

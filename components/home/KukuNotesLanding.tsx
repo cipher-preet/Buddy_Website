@@ -4,6 +4,7 @@ import { faqItems } from "@/lib/home-data";
 import { siteConfig } from "@/lib/site";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { AppFrame } from "./AppFrame";
 import { FaqItem } from "./FaqItem";
 import { ProductTheater } from "./ProductTheater";
@@ -98,8 +99,8 @@ export function KukuNotesLanding() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.16, ease }}
           >
-            KukuNotes captures the conversations that fill your day, then turns them
-            into notes, tasks, and a plan you can actually use.
+            A bot-free AI note taker for Hindi, English, and Hinglish. KukuNotes turns
+            conversations into notes, tasks, and a plan you can actually use.
           </motion.p>
           <motion.div
             className="studio-hero-actions"
@@ -176,11 +177,12 @@ export function KukuNotesLanding() {
           </ul>
         </Reveal>
         <Reveal className="studio-briefing-stage" variant="scale" delay={0.08}>
-          <AppFrame
-            src="/screenshots/tasks-day.jpg"
-            alt="KukuNotes tasks for the day with dates, priority, and space context"
-            size="hero"
-          />
+            <AppFrame
+              src="/screenshots/tasks-day.jpg"
+              alt="KukuNotes tasks for the day with dates, priority, and space context"
+              size="hero"
+              priority={false}
+            />
         </Reveal>
       </section>
 
@@ -360,7 +362,16 @@ export function KukuNotesLanding() {
           <p className="studio-kicker">Good to know</p>
           <h2 id="faq-title">A few questions, answered plainly.</h2>
           <p className="studio-section-lead">
-            Everything you need to know about how KukuNotes captures, remembers, and acts on your conversations.
+            Everything you need to know about how KukuNotes captures, remembers, and acts on your conversations.{" "}
+            <Link className="studio-inline-link" href="/ai-note-taker">AI note taker</Link>
+            {", "}
+            <Link className="studio-inline-link" href="/ai-meeting-recorder">meeting recorder</Link>
+            {", "}
+            <Link className="studio-inline-link" href="/hindi-speech-to-text">Hindi speech to text</Link>
+            {", "}
+            <Link className="studio-inline-link" href="/ai-lecture-notes">lecture notes</Link>
+            {", and "}
+            <Link className="studio-inline-link" href="/pricing">pricing</Link>.
           </p>
         </Reveal>
         <div className="studio-faq-list">
@@ -373,7 +384,7 @@ export function KukuNotesLanding() {
       {/* ── Invite / Bottom CTA Card ── */}
       <section className="studio-invite-section" id="cta" aria-labelledby="invite-title">
         <Reveal className="studio-invite-card" variant="scale">
-          <p className="studio-kicker studio-invite-kicker">Available on iOS & Android</p>
+          <p className="studio-kicker studio-invite-kicker">Android, Windows, Chrome & web</p>
           <h2 id="invite-title">Your next conversation, already useful.</h2>
           <p className="studio-invite-lead">
             Bring KukuNotes into the rooms where work actually happens, and leave with the day still intact.

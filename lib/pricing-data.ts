@@ -1,4 +1,12 @@
+import { formatInr, languageNote, planFacts } from "./product-facts";
 import { siteConfig } from "./site";
+
+function yearlySavings(monthly: number, yearly: number) {
+  const full = monthly * 12;
+  const saved = full - yearly;
+  const percent = Math.round((saved / full) * 100);
+  return `Save ${formatInr(saved)} vs monthly (${percent}% off)`;
+}
 
 export type BillingCycle = "monthly" | "yearly";
 
@@ -40,19 +48,7 @@ export type PricingPlan = {
   isExternal?: boolean;
 };
 
-export const ALL_INDIAN_LANGUAGES = [
-  "English",
-  "Hindi",
-  "Bengali",
-  "Tamil",
-  "Telugu",
-  "Kannada",
-  "Malayalam",
-  "Marathi",
-  "Gujarati",
-  "Punjabi",
-  "Odia",
-];
+export const ALL_INDIAN_LANGUAGES = [...planFacts.languageNames];
 
 export const pricingPlans: PricingPlan[] = [
   {
@@ -60,33 +56,33 @@ export const pricingPlans: PricingPlan[] = [
     name: "Free",
     tagline: "Start capturing notes, meetings, and goals with KukuNotes.",
     prices: {
-      monthly: 0,
-      yearly: 0,
+      monthly: planFacts.free.monthlyInr,
+      yearly: planFacts.free.yearlyInr,
     },
     formattedPrices: {
-      monthly: "₹0",
-      yearly: "₹0",
+      monthly: formatInr(planFacts.free.monthlyInr),
+      yearly: formatInr(planFacts.free.yearlyInr),
     },
     effectiveMonthly: {
-      monthly: "₹0",
-      yearly: "₹0",
+      monthly: formatInr(planFacts.free.monthlyInr),
+      yearly: formatInr(planFacts.free.yearlyInr),
     },
     limits: {
-      notesRecording: "2 hours",
-      meetingRecording: "10 hours",
-      mindmaps: "10",
-      documents: "10",
-      goals: "2",
+      notesRecording: planFacts.free.notesRecording,
+      meetingRecording: planFacts.free.meetingRecording,
+      mindmaps: planFacts.free.mindmaps,
+      documents: planFacts.free.documents,
+      goals: planFacts.free.goals,
       marketplace: "Browse only",
     },
     features: [
-      { text: "2 hours of notes recording", included: true },
-      { text: "10 hours of meeting recording", included: true },
-      { text: "10 mindmaps and 10 documents", included: true },
-      { text: "2 goal tracking", included: true },
-      { text: "11 Indian languages", included: true },
+      { text: `${planFacts.free.notesRecording} of notes recording`, included: true },
+      { text: `${planFacts.free.meetingRecording} of meeting recording`, included: true },
+      { text: `${planFacts.free.mindmaps} mindmaps and ${planFacts.free.documents} documents`, included: true },
+      { text: `${planFacts.free.goals} goal tracking`, included: true },
+      { text: `${planFacts.languageNames.length} Indian languages included`, included: true },
       { text: "Marketplace browse only", included: true },
-      { text: "100 hours of notes & meeting recording", included: false },
+      { text: `${planFacts.pro.notesRecording} of notes and meeting recording`, included: false },
       { text: "Limited marketplace installs", included: false },
       { text: "Unlimited capture & full marketplace", included: false },
     ],
@@ -102,32 +98,32 @@ export const pricingPlans: PricingPlan[] = [
     badge: "Popular",
     isPopular: true,
     prices: {
-      monthly: 499,
-      yearly: 3600,
+      monthly: planFacts.pro.monthlyInr,
+      yearly: planFacts.pro.yearlyInr,
     },
     formattedPrices: {
-      monthly: "₹499",
-      yearly: "₹3,600",
+      monthly: formatInr(planFacts.pro.monthlyInr),
+      yearly: formatInr(planFacts.pro.yearlyInr),
     },
     effectiveMonthly: {
-      monthly: "₹499",
-      yearly: "₹300",
+      monthly: formatInr(planFacts.pro.monthlyInr),
+      yearly: formatInr(planFacts.pro.yearlyInr / 12),
     },
-    savings: "Save ₹2,388 vs monthly (40% off)",
+    savings: yearlySavings(planFacts.pro.monthlyInr, planFacts.pro.yearlyInr),
     limits: {
-      notesRecording: "100 hours",
-      meetingRecording: "100 hours",
-      mindmaps: "200",
-      documents: "200",
-      goals: "50",
+      notesRecording: planFacts.pro.notesRecording,
+      meetingRecording: planFacts.pro.meetingRecording,
+      mindmaps: planFacts.pro.mindmaps,
+      documents: planFacts.pro.documents,
+      goals: planFacts.pro.goals,
       marketplace: "Limited",
     },
     features: [
-      { text: "100 hours of notes recording", included: true, highlight: true },
-      { text: "100 hours of meeting recording", included: true, highlight: true },
-      { text: "200 mindmaps and 200 documents", included: true, highlight: true },
-      { text: "50 goal tracking", included: true },
-      { text: "11 Indian languages", included: true },
+      { text: `${planFacts.pro.notesRecording} of notes recording`, included: true, highlight: true },
+      { text: `${planFacts.pro.meetingRecording} of meeting recording`, included: true, highlight: true },
+      { text: `${planFacts.pro.mindmaps} mindmaps and ${planFacts.pro.documents} documents`, included: true, highlight: true },
+      { text: `${planFacts.pro.goals} goal tracking`, included: true },
+      { text: `${planFacts.languageNames.length} Indian languages included`, included: true },
       { text: "Limited marketplace access", included: true, highlight: true },
       { text: "Unlimited notes & meeting recording", included: false },
       { text: "Unlimited mindmaps & documents", included: false },
@@ -144,32 +140,32 @@ export const pricingPlans: PricingPlan[] = [
     tagline: "Unlimited capture with full marketplace access.",
     badge: "Best value",
     prices: {
-      monthly: 999,
-      yearly: 7200,
+      monthly: planFacts.business.monthlyInr,
+      yearly: planFacts.business.yearlyInr,
     },
     formattedPrices: {
-      monthly: "₹999",
-      yearly: "₹7,200",
+      monthly: formatInr(planFacts.business.monthlyInr),
+      yearly: formatInr(planFacts.business.yearlyInr),
     },
     effectiveMonthly: {
-      monthly: "₹999",
-      yearly: "₹600",
+      monthly: formatInr(planFacts.business.monthlyInr),
+      yearly: formatInr(planFacts.business.yearlyInr / 12),
     },
-    savings: "Save ₹4,788 vs monthly (40% off)",
+    savings: yearlySavings(planFacts.business.monthlyInr, planFacts.business.yearlyInr),
     limits: {
-      notesRecording: "Unlimited",
-      meetingRecording: "Unlimited",
-      mindmaps: "Unlimited",
-      documents: "Unlimited",
-      goals: "Unlimited",
+      notesRecording: planFacts.business.notesRecording,
+      meetingRecording: planFacts.business.meetingRecording,
+      mindmaps: planFacts.business.mindmaps,
+      documents: planFacts.business.documents,
+      goals: planFacts.business.goals,
       marketplace: "Full access",
     },
     features: [
-      { text: "Unlimited notes recording", included: true, highlight: true },
-      { text: "Unlimited meeting recording", included: true, highlight: true },
-      { text: "Unlimited mindmaps and documents", included: true, highlight: true },
-      { text: "Unlimited goal tracking", included: true },
-      { text: "11 Indian languages", included: true },
+      { text: `${planFacts.business.notesRecording} notes recording`, included: true, highlight: true },
+      { text: `${planFacts.business.meetingRecording} meeting recording`, included: true, highlight: true },
+      { text: `${planFacts.business.mindmaps} mindmaps and documents`, included: true, highlight: true },
+      { text: `${planFacts.business.goals} goal tracking`, included: true },
+      { text: `${planFacts.languageNames.length} Indian languages included`, included: true },
       { text: "Full marketplace access", included: true, highlight: true },
       { text: "Priority support", included: true },
       { text: "Everything in Pro included", included: true },
@@ -199,37 +195,37 @@ export const comparisonCategories: CompareCategory[] = [
       {
         name: "Notes Recording",
         description: "Desktop listen and note capture hours",
-        free: "2 hours",
-        pro: "100 hours",
-        business: "Unlimited",
+        free: planFacts.free.notesRecording,
+        pro: planFacts.pro.notesRecording,
+        business: planFacts.business.notesRecording,
       },
       {
         name: "Meeting Recording",
         description: "Extension meeting capture hours",
-        free: "10 hours",
-        pro: "100 hours",
-        business: "Unlimited",
+        free: planFacts.free.meetingRecording,
+        pro: planFacts.pro.meetingRecording,
+        business: planFacts.business.meetingRecording,
       },
       {
         name: "Mindmaps",
         description: "Generate structured mind maps",
-        free: "10",
-        pro: "200",
-        business: "Unlimited",
+        free: planFacts.free.mindmaps,
+        pro: planFacts.pro.mindmaps,
+        business: planFacts.business.mindmaps,
       },
       {
         name: "Documents",
         description: "Generate documentation from templates",
-        free: "10",
-        pro: "200",
-        business: "Unlimited",
+        free: planFacts.free.documents,
+        pro: planFacts.pro.documents,
+        business: planFacts.business.documents,
       },
       {
         name: "Goal Tracking",
         description: "Active goals you can track",
-        free: "2",
-        pro: "50",
-        business: "Unlimited",
+        free: planFacts.free.goals,
+        pro: planFacts.pro.goals,
+        business: planFacts.business.goals,
       },
     ],
   },
@@ -244,8 +240,8 @@ export const comparisonCategories: CompareCategory[] = [
         business: "Full access",
       },
       {
-        name: "11 Indian Languages",
-        description: "English, Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia",
+        name: "Indian languages",
+        description: `${ALL_INDIAN_LANGUAGES.join(", ")}. Included on Free, Pro, and Business.`,
         free: true,
         pro: true,
         business: true,
@@ -287,11 +283,11 @@ export const pricingFaqs = [
   },
   {
     q: "How does yearly billing work?",
-    a: "Yearly billing gives you 12 months of access at a substantial discount. Pro is ₹3,600 per year (₹300/mo), and Business is ₹7,200 per year (₹600/mo). You can choose monthly or yearly based on your preference.",
+    a: `Yearly billing gives you 12 months of access at a substantial discount. Pro is ${formatInr(planFacts.pro.yearlyInr)} per year (${formatInr(planFacts.pro.yearlyInr / 12)}/mo), and Business is ${formatInr(planFacts.business.yearlyInr)} per year (${formatInr(planFacts.business.yearlyInr / 12)}/mo). You can choose monthly or yearly based on your preference.`,
   },
   {
     q: "Which languages are included?",
-    a: "All plans include 11 Indian languages: English, Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, and Odia.",
+    a: languageNote,
   },
   {
     q: "What payment methods are supported?",

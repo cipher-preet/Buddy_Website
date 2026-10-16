@@ -1,0 +1,111 @@
+/**
+ * Confirmed plan prices, free-tier limits, and language entitlement.
+ * Owner confirmed these prices and free-tier limits on 16 Oct 2026.
+ * Owner confirmed the languages in `supportedLanguages` are included on
+ * every plan: Free, Pro, and Business. Assamese is not published.
+ * Older marketing prices and free-tier quotas are not used.
+ */
+
+export function formatInr(amount: number) {
+  const formatted = Math.round(amount)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return `₹${formatted}`;
+}
+
+/**
+ * Included on Free, Pro, and Business. Assamese is intentionally absent.
+ * `hi` is the Hindi name of the language. `native` is the language's own script.
+ */
+export const supportedLanguages = [
+  { en: "English", hi: "अंग्रेज़ी", code: "en" },
+  { en: "Hindi", hi: "हिंदी", native: "हिंदी", code: "hi" },
+  { en: "Bengali", hi: "बंगाली", native: "বাংলা", code: "bn" },
+  { en: "Tamil", hi: "तमिल", native: "தமிழ்", code: "ta" },
+  { en: "Telugu", hi: "तेलुगु", native: "తెలుగు", code: "te" },
+  { en: "Kannada", hi: "कन्नड़", native: "ಕನ್ನಡ", code: "kn" },
+  { en: "Malayalam", hi: "मलयालम", native: "മലയാളം", code: "ml" },
+  { en: "Marathi", hi: "मराठी", native: "मराठी", code: "mr" },
+  { en: "Gujarati", hi: "गुजराती", native: "ગુજરાતી", code: "gu" },
+  { en: "Punjabi", hi: "पंजाबी", native: "ਪੰਜਾਬੀ", code: "pa" },
+  { en: "Odia", hi: "ओड़िया", native: "ଓଡ଼ିଆ", code: "or" },
+] as const;
+
+export const planFacts = {
+  currency: "INR",
+  payments: "Razorpay (UPI, cards, and NetBanking)",
+  /** Included on Free, Pro, and Business. */
+  languageNames: supportedLanguages.map((language) => language.en),
+  languageCodes: supportedLanguages.map((language) => language.code),
+  free: {
+    monthlyInr: 0,
+    yearlyInr: 0,
+    notesRecording: "2 hours",
+    meetingRecording: "10 hours",
+    mindmaps: "10",
+    documents: "10",
+    goals: "2",
+    marketplace: "Browse only",
+  },
+  pro: {
+    monthlyInr: 499,
+    yearlyInr: 3600,
+    notesRecording: "100 hours",
+    meetingRecording: "100 hours",
+    mindmaps: "200",
+    documents: "200",
+    goals: "50",
+    marketplace: "Limited",
+  },
+  business: {
+    monthlyInr: 999,
+    yearlyInr: 7200,
+    notesRecording: "Unlimited",
+    meetingRecording: "Unlimited",
+    mindmaps: "Unlimited",
+    documents: "Unlimited",
+    goals: "Unlimited",
+    marketplace: "Full access",
+  },
+} as const;
+
+const { free, pro, business } = planFacts;
+
+function andList(items: readonly string[], conjunction = "and") {
+  if (items.length < 2) return items.join("");
+  return `${items.slice(0, -1).join(", ")}, ${conjunction} ${items[items.length - 1]}`;
+}
+
+function languageLabel(language: (typeof supportedLanguages)[number]) {
+  return "native" in language ? `${language.en} (${language.native})` : language.en;
+}
+
+export const priceCopy = {
+  freeHours: `Free includes ${free.notesRecording} of notes recording and ${free.meetingRecording} of meeting recording`,
+  freeDetail: `Free includes ${free.notesRecording} of notes recording, ${free.meetingRecording} of meeting recording, ${free.mindmaps} mindmaps, ${free.documents} documents, and ${free.goals} goals`,
+  pro: `Pro is ${formatInr(pro.monthlyInr)}/month (${formatInr(pro.yearlyInr)}/year)`,
+  business: `Business is ${formatInr(business.monthlyInr)}/month (${formatInr(business.yearlyInr)}/year)`,
+  summary: `Free includes ${free.notesRecording} of notes recording and ${free.meetingRecording} of meeting recording. Pro is ${formatInr(pro.monthlyInr)}/month (${formatInr(pro.yearlyInr)}/year). Business is ${formatInr(business.monthlyInr)}/month (${formatInr(business.yearlyInr)}/year).`,
+} as const;
+
+const everyPlanLanguages = `Every plan includes ${andList(planFacts.languageNames)}. Free, Pro, and Business all include that list.`;
+
+/** Hinglish is mixed Hindi and English, not a twelfth named language and not Assamese. */
+const hinglishNote = "Hinglish, mixed Hindi and English in the same recording, is also supported.";
+
+export const languageNote = `${everyPlanLanguages} ${hinglishNote}`;
+
+export const languageNoteWithScript = `Every plan includes ${andList(supportedLanguages.map(languageLabel))}. Free, Pro, and Business all include that list. ${hinglishNote}`;
+
+export const languageNoteHi = `Free, Pro और Business — हर प्लान में ${andList(supportedLanguages.map((language) => language.hi), "और")} शामिल हैं।`;
+
+/** Prices a structured-data Offer list must use. Yearly amounts are the billed totals. */
+export function confirmedOfferPrices() {
+  return [
+    { name: "KukuNotes Free", price: planFacts.free.monthlyInr },
+    { name: "KukuNotes Pro Monthly", price: planFacts.pro.monthlyInr },
+    { name: "KukuNotes Pro Yearly", price: planFacts.pro.yearlyInr },
+    { name: "KukuNotes Business Monthly", price: planFacts.business.monthlyInr },
+    { name: "KukuNotes Business Yearly", price: planFacts.business.yearlyInr },
+  ] as const;
+}

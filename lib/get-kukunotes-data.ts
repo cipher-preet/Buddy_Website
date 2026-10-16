@@ -31,10 +31,10 @@ export const getKukuNotesPlatforms: PlatformItem[] = [
     badge: "Official Release",
     badgeType: "live",
     compatibility: "Android 9.0 and up · Google Play",
-    metrics: "4.8 ★ on Play Store",
+    metrics: "Opt-in recording",
     highlights: [
       "Opt-in ambient listening with space-targeted memory",
-      "11 Indian languages supported natively",
+      "Hindi, English, and Hinglish speech-to-text",
       "Morning daily briefing widget for home screen",
       "Offline recording with automatic background sync",
     ],
@@ -143,9 +143,9 @@ export const getKukuNotesEcosystemFeatures = [
     icon: "shield",
   },
   {
-    title: "11 Indian Languages Everywhere",
+    title: "Hindi, English & Hinglish",
     description:
-      "Multilingual speech engine works seamlessly across mobile, desktop, and extension — transcribing Hindi, Tamil, Bengali, Telugu, and more.",
+      "Speech-to-text for Hindi, English, and mixed Hinglish on mobile, desktop, and the Chrome extension.",
     icon: "globe",
   },
   {
