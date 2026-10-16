@@ -72,9 +72,21 @@ export default function PricingPage() {
               Start free.<br />
               Upgrade when you&apos;re <span className="brand-gradient-text">ready.</span>
             </h1>
-            <p className="studio-section-lead pricing-hero-lead">
-              {definitionLead} {definitionFacts} {priceCopy.summary}
-            </p>
+            <details className="studio-hero-details pricing-hero-details">
+              <summary>
+                <span>Free, Pro &amp; Business plans.</span>
+                <span className="studio-hero-details-toggle">
+                  <span className="studio-hero-details-more">More</span>
+                  <span className="studio-hero-details-less">Less</span>
+                  <span className="studio-hero-details-icon" aria-hidden="true" />
+                </span>
+              </summary>
+              <div className="studio-hero-details-content">
+                <p>{definitionLead}</p>
+                <p>{definitionFacts}</p>
+                <p>{priceCopy.summary}</p>
+              </div>
+            </details>
           </Reveal>
           <Reveal className="pricing-hero-toggle" variant="scale" delay={0.06}>
             <BillingToggle value={billing} onChange={setBilling} />

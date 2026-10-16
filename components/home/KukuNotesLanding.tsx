@@ -94,22 +94,25 @@ export function KukuNotesLanding() {
             <br />
             <em>Grow.</em>
           </motion.h1>
-          <motion.p
-            className="studio-hero-lead"
+          <motion.details
+            className="studio-hero-details"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.16, ease }}
           >
-            {definitionLead}
-          </motion.p>
-          <motion.p
-            className="studio-hero-lead"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease }}
-          >
-            {definitionFacts}
-          </motion.p>
+            <summary>
+              <span>Private AI notes &amp; meetings.</span>
+              <span className="studio-hero-details-toggle">
+                <span className="studio-hero-details-more">More</span>
+                <span className="studio-hero-details-less">Less</span>
+                <span className="studio-hero-details-icon" aria-hidden="true" />
+              </span>
+            </summary>
+            <div className="studio-hero-details-content">
+              <p>{definitionLead}</p>
+              <p>{definitionFacts}</p>
+            </div>
+          </motion.details>
           <motion.div
             className="studio-hero-actions"
             initial={{ opacity: 0, y: 16 }}

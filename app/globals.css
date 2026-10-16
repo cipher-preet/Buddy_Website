@@ -3060,6 +3060,70 @@ h3 {
   max-width: 540px;
 }
 
+.studio-hero-details {
+  max-width: 46ch;
+  margin: 0 0 28px;
+  color: var(--ink-soft);
+}
+
+.studio-hero-details summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  font-size: 1rem;
+  line-height: 1.5;
+  list-style: none;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.studio-hero-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.studio-hero-details summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.studio-hero-details-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.studio-hero-details-icon::before {
+  content: "+";
+}
+
+.studio-hero-details-less,
+.studio-hero-details[open] .studio-hero-details-more {
+  display: none;
+}
+
+.studio-hero-details[open] .studio-hero-details-less {
+  display: inline;
+}
+
+.studio-hero-details[open] .studio-hero-details-icon::before {
+  content: "\2212";
+}
+
+.studio-hero-details-content {
+  display: grid;
+  gap: 12px;
+  padding-top: 12px;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  text-align: left;
+}
+
 .studio-hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -4714,6 +4778,11 @@ h3 {
   margin: 0 auto;
 }
 
+.pricing-hero-details {
+  max-width: 48ch;
+  margin: 0;
+}
+
 .plan-toggle {
   display: inline-flex;
   align-items: center;
@@ -5815,7 +5884,8 @@ h3 {
   }
 
   .studio .studio-hero-copy,
-  .studio .studio-hero-lead {
+  .studio .studio-hero-lead,
+  .studio .studio-hero-details {
     margin-inline: auto;
   }
 
