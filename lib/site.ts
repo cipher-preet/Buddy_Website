@@ -1,3 +1,4 @@
+import { planFacts } from "./product-facts";
 import { allSeoKeywords } from "./seo-keywords";
 
 export const siteConfig = {
@@ -36,14 +37,14 @@ export const siteConfig = {
     regionCode: "IN",
     coverage: "Worldwide",
     placename: "India",
-    availableLanguages: ["English", "Hindi", "Hinglish"],
+    availableLanguages: [...planFacts.languageNames],
     cities: ["Bengaluru", "Mumbai", "Delhi", "Hyderabad", "Pune", "Chennai", "Ahmedabad", "Kolkata"],
   },
   features: [
     "Opt-in live meeting recording without bots",
     "AI note taker with confidence scores and evidence",
     "Automated task and action item extraction",
-    "Hindi, English, and Hinglish speech-to-text",
+    `Speech-to-text in ${planFacts.languageNames.join(", ")}, plus Hinglish`,
     "Daily briefing with priorities, calendar, and focus time",
     "Context-aware Ask KukuNotes chat",
     "Dedicated Spaces for projects, life, and teams",

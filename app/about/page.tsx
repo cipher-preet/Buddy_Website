@@ -6,7 +6,7 @@ import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { aboutJsonLd } from "@/lib/json-ld";
-import { priceCopy } from "@/lib/product-facts";
+import { languageNote, priceCopy } from "@/lib/product-facts";
 import { siteConfig } from "@/lib/site";
 
 const title = "About KukuNotes (Kuku Notes) — AI Note Taker App";
@@ -55,7 +55,7 @@ const facts = [
   { label: "What it is", value: "AI note taker, bot-free meeting recorder, and personal AI assistant" },
   { label: "Platform", value: "Android, Windows, Chrome, and web" },
   { label: "Package", value: siteConfig.androidPackage },
-  { label: "Languages", value: "English, Hindi, and Hinglish. Other Indian languages are named on Pricing. Which plan includes them is not confirmed." },
+  { label: "Languages", value: languageNote },
   { label: "Pricing", value: priceCopy.summary },
   { label: "Recording model", value: "Opt-in only, via Start Listening; no meeting bots" },
   { label: "Contact", value: siteConfig.email },

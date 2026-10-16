@@ -7,7 +7,7 @@ import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
-import { planFacts } from "@/lib/product-facts";
+import { languageNote } from "@/lib/product-facts";
 import { siteConfig } from "@/lib/site";
 import {
   pricingPlans,
@@ -202,7 +202,7 @@ export default function PricingPage() {
                   <div className="plan-card-footer">
                     <p className="plan-langs-title">Languages</p>
                     <div className="plan-langs-wrap">
-                      {planFacts.languagesSupported.map((language) => (
+                      {plan.languages.map((language) => (
                         <span key={language} className="plan-lang-chip">{language}</span>
                       ))}
                     </div>
@@ -238,10 +238,7 @@ export default function PricingPage() {
                 11 Indian languages,<br />
                 one seamless memory.
               </h2>
-              <p className="studio-section-lead">
-                These are the Indian languages KukuNotes names. English, Hindi, and Hinglish are supported.
-                Which plans include the other languages is not confirmed.
-              </p>
+              <p className="studio-section-lead">{languageNote}</p>
               <a
                 className="pricing-lang-action-btn"
                 href={siteConfig.playStoreUrl}

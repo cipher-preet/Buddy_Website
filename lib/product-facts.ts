@@ -1,16 +1,10 @@
 /**
- * Confirmed plan prices and free-tier limits.
+ * Confirmed plan prices, free-tier limits, and language entitlement.
  * Owner confirmed these prices and free-tier limits on 16 Oct 2026.
+ * Owner confirmed the languages in `supportedLanguages` are included on
+ * every plan: Free, Pro, and Business. Assamese is not published.
  * Older marketing prices and free-tier quotas are not used.
- *
- * TODO(owner): LANGUAGE_PLAN_RULE — which plans include the Indian languages
- * in `languageNames` is still unconfirmed. Do not claim that every plan
- * includes them, and do not claim that only Business includes them.
- * Do not publish Assamese.
  */
-
-export const LANGUAGE_PLAN_RULE_TODO =
-  "TODO(owner): which plans include the Indian languages in languageNames is unconfirmed. Do not claim every plan, and do not claim Business only. Do not publish Assamese.";
 
 export function formatInr(amount: number) {
   const formatted = Math.round(amount)
@@ -19,27 +13,30 @@ export function formatInr(amount: number) {
   return `₹${formatted}`;
 }
 
+/**
+ * Included on Free, Pro, and Business. Assamese is intentionally absent.
+ * `hi` is the Hindi name of the language. `native` is the language's own script.
+ */
+export const supportedLanguages = [
+  { en: "English", hi: "अंग्रेज़ी", code: "en" },
+  { en: "Hindi", hi: "हिंदी", native: "हिंदी", code: "hi" },
+  { en: "Bengali", hi: "बंगाली", native: "বাংলা", code: "bn" },
+  { en: "Tamil", hi: "तमिल", native: "தமிழ்", code: "ta" },
+  { en: "Telugu", hi: "तेलुगु", native: "తెలుగు", code: "te" },
+  { en: "Kannada", hi: "कन्नड़", native: "ಕನ್ನಡ", code: "kn" },
+  { en: "Malayalam", hi: "मलयालम", native: "മലയാളം", code: "ml" },
+  { en: "Marathi", hi: "मराठी", native: "मराठी", code: "mr" },
+  { en: "Gujarati", hi: "गुजराती", native: "ગુજરાતી", code: "gu" },
+  { en: "Punjabi", hi: "पंजाबी", native: "ਪੰਜਾਬੀ", code: "pa" },
+  { en: "Odia", hi: "ओड़िया", native: "ଓଡ଼ିଆ", code: "or" },
+] as const;
+
 export const planFacts = {
   currency: "INR",
   payments: "Razorpay (UPI, cards, and NetBanking)",
-  languagesSupported: ["English", "Hindi", "Hinglish"] as const,
-  /**
-   * Names listed for KukuNotes. This is not a statement of which plan
-   * includes them. Assamese is intentionally absent.
-   */
-  languageNames: [
-    "English",
-    "Hindi",
-    "Bengali",
-    "Tamil",
-    "Telugu",
-    "Kannada",
-    "Malayalam",
-    "Marathi",
-    "Gujarati",
-    "Punjabi",
-    "Odia",
-  ] as const,
+  /** Included on Free, Pro, and Business. */
+  languageNames: supportedLanguages.map((language) => language.en),
+  languageCodes: supportedLanguages.map((language) => language.code),
   free: {
     monthlyInr: 0,
     yearlyInr: 0,
@@ -72,24 +69,15 @@ export const planFacts = {
   },
 } as const;
 
-/** Regional names from `languageNames`, with native script. No Assamese. */
-export const regionalLanguageScript = [
-  { en: "Bengali", native: "বাংলা" },
-  { en: "Tamil", native: "தமிழ்" },
-  { en: "Telugu", native: "తెలుగు" },
-  { en: "Kannada", native: "ಕನ್ನಡ" },
-  { en: "Malayalam", native: "മലയാളം" },
-  { en: "Marathi", native: "मराठी" },
-  { en: "Gujarati", native: "ગુજરાતી" },
-  { en: "Punjabi", native: "ਪੰਜਾਬੀ" },
-  { en: "Odia", native: "ଓଡ଼ିଆ" },
-] as const;
-
 const { free, pro, business } = planFacts;
 
-function andList(items: readonly string[]) {
+function andList(items: readonly string[], conjunction = "and") {
   if (items.length < 2) return items.join("");
-  return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
+  return `${items.slice(0, -1).join(", ")}, ${conjunction} ${items[items.length - 1]}`;
+}
+
+function languageLabel(language: (typeof supportedLanguages)[number]) {
+  return "native" in language ? `${language.en} (${language.native})` : language.en;
 }
 
 export const priceCopy = {
@@ -100,10 +88,16 @@ export const priceCopy = {
   summary: `Free includes ${free.notesRecording} of notes recording and ${free.meetingRecording} of meeting recording. Pro is ${formatInr(pro.monthlyInr)}/month (${formatInr(pro.yearlyInr)}/year). Business is ${formatInr(business.monthlyInr)}/month (${formatInr(business.yearlyInr)}/year).`,
 } as const;
 
-/** Does not say whether every plan or only Business includes the wider list. */
-export const languageNote = `English, Hindi, and Hinglish are supported. KukuNotes also names ${andList(regionalLanguageScript.map((language) => language.en))}. Which plans include those languages is not confirmed.`;
+const everyPlanLanguages = `Every plan includes ${andList(planFacts.languageNames)}. Free, Pro, and Business all include that list.`;
 
-export const languageNoteWithScript = `Hindi (हिंदी) works in the same recording as English, including Hinglish. KukuNotes also names ${andList(regionalLanguageScript.map((language) => `${language.en} (${language.native})`))}. Which plans include those languages is not confirmed.`;
+/** Hinglish is mixed Hindi and English, not a twelfth named language and not Assamese. */
+const hinglishNote = "Hinglish, mixed Hindi and English in the same recording, is also supported.";
+
+export const languageNote = `${everyPlanLanguages} ${hinglishNote}`;
+
+export const languageNoteWithScript = `Every plan includes ${andList(supportedLanguages.map(languageLabel))}. Free, Pro, and Business all include that list. ${hinglishNote}`;
+
+export const languageNoteHi = `Free, Pro और Business — हर प्लान में ${andList(supportedLanguages.map((language) => language.hi), "और")} शामिल हैं।`;
 
 /** Prices a structured-data Offer list must use. Yearly amounts are the billed totals. */
 export function confirmedOfferPrices() {

@@ -1,4 +1,4 @@
-import { languageNote, languageNoteWithScript, priceCopy } from "@/lib/product-facts";
+import { languageNote, languageNoteHi, languageNoteWithScript, priceCopy } from "@/lib/product-facts";
 
 export type SeoFaq = { q: string; a: string };
 
@@ -251,7 +251,7 @@ export const topicPages: SeoPage[] = [
     h1Accent: "how India really talks.",
     lead: "Real meetings in India switch between Hindi and English mid-sentence. KukuNotes is built for that, turning Hindi and Hinglish conversations into clear notes and tasks.",
     answer:
-      "KukuNotes converts Hindi, English, and mixed Hinglish speech into text, then goes further than plain transcription: it writes a summary, lists decisions, and extracts action items. Hindi and Hinglish are supported. Additional Indian languages are listed on the pricing page.",
+      `KukuNotes converts Hindi, English, and mixed Hinglish speech into text, then goes further than plain transcription: it writes a summary, lists decisions, and extracts action items. ${languageNote}`,
     image: { src: "/screenshots/home-listening.jpg", alt: "KukuNotes home screen while listening is on" },
     sections: [
       {
@@ -292,6 +292,7 @@ export const topicPages: SeoPage[] = [
       body: [
         "KukuNotes आपकी हिंदी, अंग्रेज़ी और हिंग्लिश बातचीत को टेक्स्ट, साफ़ नोट्स और टास्क में बदलता है। मीटिंग, क्लास या क्लाइंट कॉल के दौरान बस “Start Listening” दबाएँ। बातचीत खत्म होते ही आपको सारांश, लिए गए फ़ैसले और करने वाले काम मिल जाते हैं।",
         "रिकॉर्डिंग पूरी तरह आपकी मर्ज़ी से होती है। माइक्रोफ़ोन तभी चालू होता है जब आप सुनना शुरू करते हैं। शुरुआत मुफ़्त है, और Android पर Google Play से डाउनलोड किया जा सकता है।",
+        languageNoteHi,
       ],
     },
     faqs: [

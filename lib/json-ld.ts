@@ -172,7 +172,7 @@ export function softwareApplicationJsonLd() {
     description: siteConfig.description,
     featureList: [...siteConfig.features],
     keywords: entityKeywords.join(", "),
-    inLanguage: ["en", "hi"],
+    inLanguage: [...planFacts.languageCodes],
     countriesSupported: "IN, Worldwide",
     audience: {
       "@type": "Audience",
