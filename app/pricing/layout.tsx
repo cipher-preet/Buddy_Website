@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pricingJsonLd } from "@/lib/json-ld";
+import { formatInr, planFacts, priceCopy } from "@/lib/product-facts";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Pricing — Free, Pro & Business Plans in ₹",
-  description:
-    "KukuNotes pricing in INR: Free, Pro, and Business. Pay with UPI via Razorpay. Bot-free AI note taker and meeting recorder with Hindi and Hinglish.",
+  description: `KukuNotes pricing in INR. ${priceCopy.freeHours}. ${priceCopy.pro}. ${priceCopy.business}. Pay with UPI via Razorpay.`,
   keywords: [
     "KukuNotes pricing",
     "AI note taker pricing",
@@ -25,9 +25,8 @@ export const metadata: Metadata = {
     canonical: "/pricing",
   },
   openGraph: {
-    title: "KukuNotes Pricing — Free, Pro, and Business",
-    description:
-      "Start free. Upgrade for more recording, the daily briefing, and the goal monitor. Pay in INR with UPI.",
+    title: `KukuNotes Pricing — Pro ${formatInr(planFacts.pro.monthlyInr)} & Business ${formatInr(planFacts.business.monthlyInr)}`,
+    description: `${priceCopy.summary} Pay with UPI via Razorpay.`,
     url: "/pricing",
     type: "website",
     images: [

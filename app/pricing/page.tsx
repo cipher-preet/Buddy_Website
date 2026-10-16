@@ -7,6 +7,7 @@ import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
+import { planFacts } from "@/lib/product-facts";
 import { siteConfig } from "@/lib/site";
 import {
   pricingPlans,
@@ -199,22 +200,11 @@ export default function PricingPage() {
 
                   {/* Languages Footer */}
                   <div className="plan-card-footer">
-                    <p className="plan-langs-title">
-                      {plan.id === "business" ? "All 11 Indian Languages Included" : "Languages Included"}
-                    </p>
+                    <p className="plan-langs-title">Languages</p>
                     <div className="plan-langs-wrap">
-                      {plan.id === "business" ? (
-                        <>
-                          <span className="plan-lang-chip plan-lang-chip--gold">English</span>
-                          <span className="plan-lang-chip plan-lang-chip--gold">Hindi</span>
-                          <span className="plan-lang-chip plan-lang-chip--gold">+ 9 Regional Languages</span>
-                        </>
-                      ) : (
-                        <>
-                          <span className="plan-lang-chip">English</span>
-                          <span className="plan-lang-chip">Hindi</span>
-                        </>
-                      )}
+                      {planFacts.languagesSupported.map((language) => (
+                        <span key={language} className="plan-lang-chip">{language}</span>
+                      ))}
                     </div>
                   </div>
                 </Reveal>
@@ -249,8 +239,8 @@ export default function PricingPage() {
                 one seamless memory.
               </h2>
               <p className="studio-section-lead">
-                Business plan unlocks KukuNotes&apos; multilingual speech understanding.
-                Listen, transcribe, and extract structured notes natively in your preferred regional language.
+                These are the Indian languages KukuNotes names. English, Hindi, and Hinglish are supported.
+                Which plans include the other languages is not confirmed.
               </p>
               <a
                 className="pricing-lang-action-btn"

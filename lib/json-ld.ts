@@ -1,10 +1,11 @@
 import { faqItems } from "@/lib/home-data";
-import { pricingFaqs, pricingPlans } from "@/lib/pricing-data";
+import { pricingFaqs } from "@/lib/pricing-data";
 import { getKukuNotesFaqs } from "@/lib/get-kukunotes-data";
 import type { DestinationPage } from "@/lib/destination-pages";
 import { sitelinkNav } from "@/lib/destination-pages";
 import { entityKeywords } from "@/lib/seo-keywords";
 import type { SeoPage } from "@/lib/seo-pages";
+import { confirmedOfferPrices, planFacts } from "@/lib/product-facts";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const organizationId = `${siteConfig.url}/#organization`;
@@ -183,20 +184,19 @@ export function softwareApplicationJsonLd() {
     dateModified: siteConfig.contentUpdated,
     ...playStoreRating(),
     publisher: { "@id": organizationId },
-    // Paid prices are omitted on purpose. This object is embedded on every
-    // page, and the repo has two conflicting Pro/Business prices. The pricing
-    // page emits its own offers from the table it renders. See product-facts.ts.
-    offers: [
-      {
-        "@type": "Offer",
-        name: "KukuNotes Free",
-        price: "0",
-        priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
-        url: absoluteUrl("/pricing"),
-      },
-    ],
+    offers: schemaOffers(),
   };
+}
+
+function schemaOffers() {
+  return confirmedOfferPrices().map((offer) => ({
+    "@type": "Offer",
+    name: offer.name,
+    price: String(offer.price),
+    priceCurrency: planFacts.currency,
+    availability: "https://schema.org/InStock",
+    url: absoluteUrl("/pricing"),
+  }));
 }
 
 export function mobileApplicationJsonLd() {
@@ -304,19 +304,11 @@ export function pricingJsonLd() {
         brand: { "@id": organizationId },
         offers: {
           "@type": "AggregateOffer",
-          priceCurrency: "INR",
+          priceCurrency: planFacts.currency,
           lowPrice: "0",
-          highPrice: Math.max(...pricingPlans.map((plan) => plan.prices.monthly)).toString(),
-          offerCount: String(pricingPlans.length),
-          offers: pricingPlans.map((plan) => ({
-            "@type": "Offer",
-            name: plan.name,
-            description: plan.tagline,
-            price: plan.prices.monthly.toString(),
-            priceCurrency: "INR",
-            availability: "https://schema.org/InStock",
-            url: absoluteUrl(path),
-          })),
+          highPrice: Math.max(...confirmedOfferPrices().map((offer) => offer.price)).toString(),
+          offerCount: String(confirmedOfferPrices().length),
+          offers: schemaOffers(),
         },
       },
     ],

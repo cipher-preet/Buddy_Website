@@ -1,3 +1,5 @@
+import { languageNote, priceCopy } from "./product-facts";
+
 export const navItems = [
   { label: "Product", href: "/#product" },
   { label: "Use Cases", href: "/use-cases" },
@@ -189,7 +191,7 @@ export const faqItems = [
   },
   {
     q: "Can KukuNotes transcribe Hindi, English, and other Indian languages?",
-    a: "Yes. KukuNotes supports Hindi, English, and mixed Hinglish in the same conversation. Additional Indian languages are listed on the pricing page. This site does not yet agree on which plans include them.",
+    a: `Yes. ${languageNote}`,
   },
   {
     q: "How is KukuNotes different from tools like Otter.ai, Fireflies, or Granola?",
@@ -197,7 +199,7 @@ export const faqItems = [
   },
   {
     q: "Is KukuNotes free to use?",
-    a: "Yes. KukuNotes has a free plan, plus paid Pro and Business plans in INR. See the pricing page for current recording limits and prices.",
+    a: `Yes. ${priceCopy.freeDetail}. ${priceCopy.pro}. ${priceCopy.business}.`,
   },
   {
     q: "Does KukuNotes listen to my conversations all the time?",
