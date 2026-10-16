@@ -1,4 +1,24 @@
+import { PLAN_FACTS_TODO, unconfirmedPricingPageDisplay } from "./product-facts";
 import { siteConfig } from "./site";
+
+/** Owner note for the conflicting plan facts. The table below still renders set A. */
+export const pricingFactsNote = PLAN_FACTS_TODO;
+
+const displayed = unconfirmedPricingPageDisplay;
+
+function formatInr(amount: number) {
+  const formatted = Math.round(amount)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return `₹${formatted}`;
+}
+
+function yearlySavings(monthly: number, yearly: number) {
+  const full = monthly * 12;
+  const saved = full - yearly;
+  const percent = Math.round((saved / full) * 100);
+  return `Save ${formatInr(saved)} vs monthly (${percent}% off)`;
+}
 
 export type BillingCycle = "monthly" | "yearly";
 
@@ -40,19 +60,7 @@ export type PricingPlan = {
   isExternal?: boolean;
 };
 
-export const ALL_INDIAN_LANGUAGES = [
-  "English",
-  "Hindi",
-  "Bengali",
-  "Tamil",
-  "Telugu",
-  "Kannada",
-  "Malayalam",
-  "Marathi",
-  "Gujarati",
-  "Punjabi",
-  "Odia",
-];
+export const ALL_INDIAN_LANGUAGES = [...displayed.languageNames];
 
 export const pricingPlans: PricingPlan[] = [
   {
@@ -60,30 +68,30 @@ export const pricingPlans: PricingPlan[] = [
     name: "Free",
     tagline: "Start capturing notes, meetings, and goals with KukuNotes.",
     prices: {
-      monthly: 0,
-      yearly: 0,
+      monthly: displayed.free.monthlyInr,
+      yearly: displayed.free.yearlyInr,
     },
     formattedPrices: {
-      monthly: "₹0",
-      yearly: "₹0",
+      monthly: formatInr(displayed.free.monthlyInr),
+      yearly: formatInr(displayed.free.yearlyInr),
     },
     effectiveMonthly: {
-      monthly: "₹0",
-      yearly: "₹0",
+      monthly: formatInr(displayed.free.monthlyInr),
+      yearly: formatInr(displayed.free.yearlyInr),
     },
     limits: {
-      notesRecording: "2 hours",
-      meetingRecording: "10 hours",
-      mindmaps: "10",
-      documents: "10",
-      goals: "2",
+      notesRecording: displayed.free.notesRecording,
+      meetingRecording: displayed.free.meetingRecording,
+      mindmaps: displayed.free.mindmaps,
+      documents: displayed.free.documents,
+      goals: displayed.free.goals,
       marketplace: "Browse only",
     },
     features: [
-      { text: "2 hours of notes recording", included: true },
-      { text: "10 hours of meeting recording", included: true },
-      { text: "10 mindmaps and 10 documents", included: true },
-      { text: "2 goal tracking", included: true },
+      { text: `${displayed.free.notesRecording} of notes recording`, included: true },
+      { text: `${displayed.free.meetingRecording} of meeting recording`, included: true },
+      { text: `${displayed.free.mindmaps} mindmaps and ${displayed.free.documents} documents`, included: true },
+      { text: `${displayed.free.goals} goal tracking`, included: true },
       { text: "11 Indian languages", included: true },
       { text: "Marketplace browse only", included: true },
       { text: "100 hours of notes & meeting recording", included: false },
@@ -102,18 +110,18 @@ export const pricingPlans: PricingPlan[] = [
     badge: "Popular",
     isPopular: true,
     prices: {
-      monthly: 499,
-      yearly: 3600,
+      monthly: displayed.pro.monthlyInr,
+      yearly: displayed.pro.yearlyInr,
     },
     formattedPrices: {
-      monthly: "₹499",
-      yearly: "₹3,600",
+      monthly: formatInr(displayed.pro.monthlyInr),
+      yearly: formatInr(displayed.pro.yearlyInr),
     },
     effectiveMonthly: {
-      monthly: "₹499",
-      yearly: "₹300",
+      monthly: formatInr(displayed.pro.monthlyInr),
+      yearly: formatInr(displayed.pro.yearlyInr / 12),
     },
-    savings: "Save ₹2,388 vs monthly (40% off)",
+    savings: yearlySavings(displayed.pro.monthlyInr, displayed.pro.yearlyInr),
     limits: {
       notesRecording: "100 hours",
       meetingRecording: "100 hours",
@@ -144,18 +152,18 @@ export const pricingPlans: PricingPlan[] = [
     tagline: "Unlimited capture with full marketplace access.",
     badge: "Best value",
     prices: {
-      monthly: 999,
-      yearly: 7200,
+      monthly: displayed.business.monthlyInr,
+      yearly: displayed.business.yearlyInr,
     },
     formattedPrices: {
-      monthly: "₹999",
-      yearly: "₹7,200",
+      monthly: formatInr(displayed.business.monthlyInr),
+      yearly: formatInr(displayed.business.yearlyInr),
     },
     effectiveMonthly: {
-      monthly: "₹999",
-      yearly: "₹600",
+      monthly: formatInr(displayed.business.monthlyInr),
+      yearly: formatInr(displayed.business.yearlyInr / 12),
     },
-    savings: "Save ₹4,788 vs monthly (40% off)",
+    savings: yearlySavings(displayed.business.monthlyInr, displayed.business.yearlyInr),
     limits: {
       notesRecording: "Unlimited",
       meetingRecording: "Unlimited",
@@ -199,35 +207,35 @@ export const comparisonCategories: CompareCategory[] = [
       {
         name: "Notes Recording",
         description: "Desktop listen and note capture hours",
-        free: "2 hours",
+        free: displayed.free.notesRecording,
         pro: "100 hours",
         business: "Unlimited",
       },
       {
         name: "Meeting Recording",
         description: "Extension meeting capture hours",
-        free: "10 hours",
+        free: displayed.free.meetingRecording,
         pro: "100 hours",
         business: "Unlimited",
       },
       {
         name: "Mindmaps",
         description: "Generate structured mind maps",
-        free: "10",
+        free: displayed.free.mindmaps,
         pro: "200",
         business: "Unlimited",
       },
       {
         name: "Documents",
         description: "Generate documentation from templates",
-        free: "10",
+        free: displayed.free.documents,
         pro: "200",
         business: "Unlimited",
       },
       {
         name: "Goal Tracking",
         description: "Active goals you can track",
-        free: "2",
+        free: displayed.free.goals,
         pro: "50",
         business: "Unlimited",
       },
@@ -245,7 +253,7 @@ export const comparisonCategories: CompareCategory[] = [
       },
       {
         name: "11 Indian Languages",
-        description: "English, Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, Odia",
+        description: ALL_INDIAN_LANGUAGES.join(", "),
         free: true,
         pro: true,
         business: true,
@@ -287,11 +295,14 @@ export const pricingFaqs = [
   },
   {
     q: "How does yearly billing work?",
-    a: "Yearly billing gives you 12 months of access at a substantial discount. Pro is ₹3,600 per year (₹300/mo), and Business is ₹7,200 per year (₹600/mo). You can choose monthly or yearly based on your preference.",
+    a: `Yearly billing gives you 12 months of access at a substantial discount. Pro is ${formatInr(displayed.pro.yearlyInr)} per year (${formatInr(displayed.pro.yearlyInr / 12)}/mo), and Business is ${formatInr(displayed.business.yearlyInr)} per year (${formatInr(displayed.business.yearlyInr / 12)}/mo). You can choose monthly or yearly based on your preference.`,
   },
   {
     q: "Which languages are included?",
-    a: "All plans include 11 Indian languages: English, Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, and Odia.",
+    // TODO(owner): the plan cards on this same page show English and Hindi on
+    // Free/Pro and the regional pack on Business. This answer says every plan.
+    // Left unchanged until you pick one. See lib/product-facts.ts.
+    a: `All plans include 11 Indian languages: ${ALL_INDIAN_LANGUAGES.slice(0, -1).join(", ")}, and ${ALL_INDIAN_LANGUAGES[ALL_INDIAN_LANGUAGES.length - 1]}.`,
   },
   {
     q: "What payment methods are supported?",

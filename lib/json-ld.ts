@@ -183,27 +183,14 @@ export function softwareApplicationJsonLd() {
     dateModified: siteConfig.contentUpdated,
     ...playStoreRating(),
     publisher: { "@id": organizationId },
+    // Paid prices are omitted on purpose. This object is embedded on every
+    // page, and the repo has two conflicting Pro/Business prices. The pricing
+    // page emits its own offers from the table it renders. See product-facts.ts.
     offers: [
       {
         "@type": "Offer",
-        name: "KukuNotes Free Forever",
+        name: "KukuNotes Free",
         price: "0",
-        priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
-        url: absoluteUrl("/pricing"),
-      },
-      {
-        "@type": "Offer",
-        name: "KukuNotes Pro Monthly",
-        price: "799",
-        priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
-        url: absoluteUrl("/pricing"),
-      },
-      {
-        "@type": "Offer",
-        name: "KukuNotes Business Monthly",
-        price: "1999",
         priceCurrency: "INR",
         availability: "https://schema.org/InStock",
         url: absoluteUrl("/pricing"),
@@ -319,8 +306,8 @@ export function pricingJsonLd() {
           "@type": "AggregateOffer",
           priceCurrency: "INR",
           lowPrice: "0",
-          highPrice: "1999",
-          offerCount: "3",
+          highPrice: Math.max(...pricingPlans.map((plan) => plan.prices.monthly)).toString(),
+          offerCount: String(pricingPlans.length),
           offers: pricingPlans.map((plan) => ({
             "@type": "Offer",
             name: plan.name,

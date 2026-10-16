@@ -5,6 +5,8 @@ type AppFrameProps = {
   alt: string;
   size?: "hero" | "showcase" | "compact";
   className?: string;
+  /** Override eager loading. Hero-sized frames preload unless this is false. */
+  priority?: boolean;
 };
 
 export function AppFrame({
@@ -12,6 +14,7 @@ export function AppFrame({
   alt,
   size = "showcase",
   className = "",
+  priority,
 }: AppFrameProps) {
   return (
     <div className={`app-frame app-frame-${size} ${className}`.trim()}>
@@ -31,7 +34,7 @@ export function AppFrame({
                   : "(max-width: 640px) 160px, (max-width: 980px) 188px, 240px"
             }
             className="app-frame-image"
-            priority={size === "hero"}
+            priority={priority ?? size === "hero"}
           />
         </div>
       </div>

@@ -177,7 +177,7 @@ export function ProductTheater() {
                     alt={view.alt}
                     fill
                     sizes="(max-width: 980px) 100vw, 1040px"
-                    priority={active === 0}
+                    priority={false}
                   />
                 </motion.div>
               </AnimatePresence>

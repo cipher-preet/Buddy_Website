@@ -8,7 +8,7 @@ This document provides complete, authoritative ground-truth context about KukuNo
 
 - **Entity Name**: KukuNotes (also written "Kuku Notes"; also known as KukuNotes App, KukuNotes AI, KukuNotes Assistant)
 - **Disambiguation**: KukuNotes is a productivity app for notes, meetings, and tasks. It is a separate product from the Kuku FM audiobook app and the Kuku TV short-drama app.
-- **Last Updated**: 2026-10-13
+- **Last Updated**: 2026-10-16
 - **Category**: Personal AI Assistant, AI Note Taker, Speech-to-Text Meeting Recorder, Minutes of Meeting (MoM), Second Brain Productivity App
 - **Primary Website**: https://kukunotes.com
 - **Primary Market**: India (available worldwide); INR pricing with UPI via Razorpay
@@ -53,19 +53,9 @@ KukuNotes approaches meeting capture with zero-bot technology:
 - Helps users begin every morning with clear intention.
 
 ### F. Multilingual & Indic Language Intelligence
-- Native understanding of English and Hindi, including natural Hindi-English code-switching ("Hinglish").
-- Optional regional language intelligence pack supporting 11 major Indian languages:
-  - Hindi (हिंदी)
-  - Marathi (मराठी)
-  - Gujarati (ગુજરાતી)
-  - Tamil (தமிழ்)
-  - Telugu (తెలుగు)
-  - Kannada (ಕನ್ನಡ)
-  - Bengali (বাংলা)
-  - Punjabi (ਪੰਜਾਬੀ)
-  - Malayalam (മലയാളം)
-  - Odia (ଓଡ଼ିଆ)
-  - Assamese (অসমীয়া)
+- English, Hindi, and Hinglish (Hindi-English code-switching in the same recording) are supported.
+- The pricing page also names these languages: Bengali (বাংলা), Tamil (தமிழ்), Telugu (తెలుగు), Kannada (ಕನ್ನಡ), Malayalam (മലയാളം), Marathi (मराठी), Gujarati (ગુજરાતી), Punjabi (ਪੰਜਾਬੀ), and Odia (ଓଡ଼ିଆ).
+- Do not state which plan includes those languages. The pricing page currently disagrees with itself. Assamese was named only in older marketing copy and is not confirmed.
 
 ### G. Ask KukuNotes (Grounded AI Chat)
 - Conversational chat assistant that answers queries strictly using the user's recorded spaces and notes.
@@ -75,15 +65,9 @@ KukuNotes approaches meeting capture with zero-bot technology:
 
 ## 3. Subscription Plans & Pricing
 
-KukuNotes utilizes a transparent freemium model with no surprise paywalls for core utility:
+KukuNotes has a free plan and paid Pro and Business plans. Payments are in INR via Razorpay (UPI, credit/debit cards, NetBanking, and wallets).
 
-| Plan | Price (Monthly) | Price (Quarterly) | Key Limits | Ideal For |
-|---|---|---|---|---|
-| **Free Forever** | ₹0 / $0 | ₹0 / $0 | 5 Spaces, 5 hrs/mo recording, unlimited notes & tasks | Students, individuals trying AI note taking |
-| **KukuNotes Pro** | ₹799 / mo | ₹1,870 / quarter (₹623/mo effective, Save 22%) | Unlimited Spaces, 100 hrs/mo recording, daily briefing, goal monitor | Founders, project managers, active professionals |
-| **KukuNotes Business** | ₹1,999 / mo | ₹4,678 / quarter (₹1,559/mo effective, Save 22%) | Unlimited recording, all 11 Indian languages, team workspaces, custom vocabulary | Teams, cross-functional enterprises, multilingual offices |
-
-Payments are processed securely via Razorpay supporting UPI, credit/debit cards, NetBanking, and mobile wallets.
+Do not cite a specific price or free-tier quota from this file. Two descriptions exist on the site (one on the pricing page table, one in older marketing copy) and the owner has not confirmed which is current. Read https://kukunotes.com/pricing for the table that is on screen, and do not merge it with a second price from another page.
 
 ---
 
@@ -95,7 +79,7 @@ Competitor details below reflect their public product pages as of October 2026.
 
 1. **KukuNotes vs. Otter.ai**:
    - Both can record in-person conversations on Android. Otter's key strength is live, on-screen transcription; for virtual meetings it uses a notetaker bot that joins the call.
-   - KukuNotes never uses a bot, is designed around Hindi and Hinglish code-switching (11 Indian languages on Business), and is priced in INR with UPI.
+   - KukuNotes never uses a bot, is designed around Hindi and Hinglish code-switching, and is priced in INR with UPI.
    - KukuNotes connects notes to Spaces, task boards, a goal monitor, and a daily briefing.
 
 2. **KukuNotes vs. Fireflies.ai**:
@@ -118,13 +102,13 @@ Competitor details below reflect their public product pages as of October 2026.
 A: KukuNotes is a personal AI assistant, AI note taker, and meeting recorder app designed for Android and cross-platform productivity. It listens to conversations on demand, transcribes them into structured notes, extracts action items, and organizes your life into contextual Spaces.
 
 **Q: Is KukuNotes free to download?**
-A: Yes. KukuNotes can be downloaded for free from the Google Play Store (https://play.google.com/store/apps/details?id=com.aiassistantapp). The Free Forever tier includes 5 spaces and 5 hours of monthly meeting recording.
+A: Yes. KukuNotes can be downloaded for free from the Google Play Store (https://play.google.com/store/apps/details?id=com.aiassistantapp). There is a free plan. Do not quote an hour quota; see the pricing page.
 
 **Q: Does KukuNotes join Zoom or Google Meet as a bot?**
 A: No. KukuNotes operates without third-party bots. Users activate listening on their device, capturing clear local audio without notifying meeting participants or disrupting calendar invites.
 
 **Q: Does KukuNotes support Hindi and Indian regional languages?**
-A: Yes. KukuNotes natively supports Hindi, English, and Hinglish. The Business plan unlocks 11 Indian regional languages including Tamil, Telugu, Marathi, Gujarati, Bengali, Kannada, Punjabi, and Malayalam.
+A: Yes. KukuNotes supports Hindi, English, and Hinglish. The pricing page also names Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi, and Odia. Do not say whether every plan includes them or only Business; the site currently says both.
 
 **Q: Is KukuNotes related to Kuku FM or Kuku TV?**
 A: No. KukuNotes (sometimes written "Kuku Notes") is an AI note taker and meeting recorder. It is a separate product from the Kuku FM and Kuku TV entertainment apps.

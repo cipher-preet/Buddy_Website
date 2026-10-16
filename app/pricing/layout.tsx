@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Pricing — Free, Pro & Business Plans in ₹",
   description:
-    "KukuNotes pricing in INR: Free forever, Pro at ₹799/month, Business at ₹1,999/month. Pay with UPI via Razorpay. AI note taker, bot-free meeting recorder, Hindi & Hinglish included.",
+    "KukuNotes pricing in INR: Free, Pro, and Business. Pay with UPI via Razorpay. Bot-free AI note taker and meeting recorder with Hindi and Hinglish.",
   keywords: [
     "KukuNotes pricing",
     "AI note taker pricing",
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     canonical: "/pricing",
   },
   openGraph: {
-    title: "KukuNotes Pricing — Free, Pro ₹799 & Business ₹1,999",
+    title: "KukuNotes Pricing — Free, Pro, and Business",
     description:
-      "Start free. Upgrade for more recording hours, daily briefing, goal monitor, and 11 Indian languages. Pay in INR with UPI.",
+      "Start free. Upgrade for more recording, the daily briefing, and the goal monitor. Pay in INR with UPI.",
     url: "/pricing",
     type: "website",
     images: [

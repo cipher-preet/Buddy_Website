@@ -163,7 +163,7 @@ export default function GetKukuNotesPage() {
             <span className="get-kukunotes-trust-dot" aria-hidden="true">•</span>
             <div className="get-kukunotes-trust-pill">
               <HiGlobeAlt className="trust-icon" />
-              <span>11 Indian Languages</span>
+              <span>Hindi & Hinglish</span>
             </div>
             <span className="get-kukunotes-trust-dot" aria-hidden="true">•</span>
             <div className="get-kukunotes-trust-pill">
