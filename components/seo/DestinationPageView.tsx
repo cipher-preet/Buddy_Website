@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AppFrame } from "@/components/home/AppFrame";
+import { GooglePlayCta } from "@/components/home/GooglePlayCta";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
@@ -49,15 +50,19 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
             </h1>
             <p className="studio-section-lead">{page.lead}</p>
             <div className="seo-hero-actions">
-              <a
-                className="studio-btn studio-btn-accent"
-                href={page.cta.href}
-                target={page.cta.isExternal ? "_blank" : undefined}
-                rel={page.cta.isExternal ? "noopener noreferrer" : undefined}
-              >
-                {page.cta.label}
-                {page.cta.isExternal ? <HiArrowUpRight style={{ marginLeft: 6 }} aria-hidden="true" /> : null}
-              </a>
+              {page.slug === "android" ? (
+                <GooglePlayCta placement="hero" pageSlug="android" />
+              ) : (
+                <a
+                  className="studio-btn studio-btn-accent"
+                  href={page.cta.href}
+                  target={page.cta.isExternal ? "_blank" : undefined}
+                  rel={page.cta.isExternal ? "noopener noreferrer" : undefined}
+                >
+                  {page.cta.label}
+                  {page.cta.isExternal ? <HiArrowUpRight style={{ marginLeft: 6 }} aria-hidden="true" /> : null}
+                </a>
+              )}
               {page.secondaryCta ? (
                 <Link className="studio-text-link" href={page.secondaryCta.href}>
                   {page.secondaryCta.label} <span aria-hidden="true">-&gt;</span>
@@ -133,6 +138,21 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
             ))}
           </ul>
         </nav>
+
+        {page.slug === "android" ? (
+          <section className="studio-invite-section" aria-labelledby="android-cta-title">
+            <div className="studio-invite-card">
+              <p className="studio-kicker studio-invite-kicker">Google Play</p>
+              <h2 id="android-cta-title">Get KukuNotes for Android.</h2>
+              <p className="studio-invite-lead">
+                Record meetings and in-person conversations. The Android app does not record phone calls.
+              </p>
+              <div className="studio-invite-actions">
+                <GooglePlayCta placement="bottom" pageSlug="android" />
+              </div>
+            </div>
+          </section>
+        ) : null}
       </main>
       <KukuNotesFooter />
     </div>

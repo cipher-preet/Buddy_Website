@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { GooglePlayCta } from "@/components/home/GooglePlayCta";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { definitionFacts, definitionLead, languageNote, priceCopy } from "@/lib/product-facts";
-import { siteConfig } from "@/lib/site";
+import { playStoreCampaignUrl } from "@/lib/play-store";
 import {
   pricingPlans,
   comparisonCategories,
@@ -26,7 +27,7 @@ import {
   HiArrowUpRight,
   HiArrowRight,
 } from "react-icons/hi2";
-import { FaCrown, FaGooglePlay } from "react-icons/fa6";
+import { FaCrown } from "react-icons/fa6";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { FaqItem } from "@/components/home/FaqItem";
 
@@ -87,6 +88,7 @@ export default function PricingPage() {
                 <p>{priceCopy.summary}</p>
               </div>
             </details>
+            <GooglePlayCta placement="hero" pageSlug="pricing" />
           </Reveal>
           <Reveal className="pricing-hero-toggle" variant="scale" delay={0.06}>
             <BillingToggle value={billing} onChange={setBilling} />
@@ -252,7 +254,7 @@ export default function PricingPage() {
               <p className="studio-section-lead">{languageNote}</p>
               <a
                 className="pricing-lang-action-btn"
-                href={siteConfig.playStoreUrl}
+                href={playStoreCampaignUrl("languages", "pricing")}
                 target="_blank"
                 rel="noopener noreferrer"
                 id="pricing-lang-cta"
@@ -365,17 +367,7 @@ export default function PricingPage() {
               Download KukuNotes on Android and start organizing your work, projects, and ideas with intelligent listening.
             </p>
             <div className="studio-invite-actions">
-              <a
-                className="studio-btn studio-btn-accent"
-                href={siteConfig.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                id="pricing-cta-download"
-              >
-                <FaGooglePlay style={{ marginRight: 8, fontSize: "1.1rem" }} />
-                <span>Download KukuNotes for Android</span>
-                <HiArrowUpRight style={{ marginLeft: 6 }} />
-              </a>
+              <GooglePlayCta placement="bottom" pageSlug="pricing" />
               <Link className="studio-btn studio-btn-ink" href="/contact" id="pricing-cta-contact">
                 <span>Custom team requirements? Contact us</span>
                 <HiArrowRight style={{ marginLeft: 6 }} />

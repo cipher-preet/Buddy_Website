@@ -27,7 +27,7 @@ export const siteConfig = {
   apiUrl: "https://buddy-node-backend-scz7pyp3ha-el.a.run.app",
   keywords: allSeoKeywords,
   alternateNames: ["Kuku Notes", "KukuNotes AI", "KukuNotes App", "KukuNotes AI Note Taker", "KukuNote"],
-  contentUpdated: "2026-10-16",
+  contentUpdated: "2026-10-21",
   /** Bump when brand icons change so Google/Bing drop cached favicons. */
   assetVersion: "20261013",
   platforms: ["Android", "Web", "Windows", "Chrome Extension"],
@@ -51,6 +51,7 @@ export const siteConfig = {
     "Goal monitor tracking space outcomes",
     "Selective note and task sharing",
     "Cross-platform real-time sync",
+    "Android app records meetings and in-person conversations (not phone calls) into tasks, notes, calendar events, and reminders",
   ],
 } as const;
 

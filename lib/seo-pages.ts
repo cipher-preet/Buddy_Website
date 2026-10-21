@@ -106,8 +106,8 @@ export const topicPages: SeoPage[] = [
       {
         heading: "Built for real conversations, not just video calls",
         body: [
-          "A lot of AI note takers only work when a meeting happens inside Zoom, Google Meet, or Microsoft Teams. Many of the conversations worth remembering happen elsewhere: a lecture, a doctor's appointment, a site visit, a call on speakerphone, a quick chat in the corridor.",
-          "Because KukuNotes runs on your Android phone and records only while you have listening on, it works in all of those places, with no meeting bot and no calendar integration required.",
+          "A lot of AI note takers only work when a meeting happens inside Zoom, Google Meet, or Microsoft Teams. Many of the conversations worth remembering happen elsewhere: a lecture, a doctor's appointment, a site visit, or a quick chat in the corridor.",
+          "Because KukuNotes runs on your Android phone and records only while you have listening on, it works for those meetings and in-person conversations. The Android app does not record phone calls. There is no meeting bot and no calendar integration required to start.",
         ],
       },
       {
@@ -191,7 +191,7 @@ export const topicPages: SeoPage[] = [
       {
         heading: "Meetings that happen anywhere",
         body: [
-          "Stand-ups, client visits, board meetings, interviews, sales calls on speaker, and hybrid meetings where half the room is offline. If you can hear it on your phone, KukuNotes can turn it into notes.",
+          "Stand-ups, client visits, board meetings, interviews, and hybrid meetings where half the room is offline. The Android app records those meetings and in-person conversations. It does not record phone calls.",
         ],
       },
       {
@@ -205,7 +205,7 @@ export const topicPages: SeoPage[] = [
     faqs: [
       {
         q: "Does KukuNotes join Zoom or Google Meet as a bot?",
-        a: "No. KukuNotes never joins your calls. It records through your phone's microphone while Start Listening is active, so it works for online, hybrid, and in-person meetings alike.",
+        a: "No. KukuNotes never joins your meetings. It records through your phone's microphone while Start Listening is active, so it works for online, hybrid, and in-person meetings. The Android app does not record phone calls.",
       },
       {
         q: "How many hours of meetings can I record?",
@@ -290,7 +290,7 @@ export const topicPages: SeoPage[] = [
       lang: "hi",
       heading: "हिंदी में: आवाज़ से नोट्स और टास्क",
       body: [
-        "KukuNotes आपकी हिंदी, अंग्रेज़ी और हिंग्लिश बातचीत को टेक्स्ट, साफ़ नोट्स और टास्क में बदलता है। मीटिंग, क्लास या क्लाइंट कॉल के दौरान बस “Start Listening” दबाएँ। बातचीत खत्म होते ही आपको सारांश, लिए गए फ़ैसले और करने वाले काम मिल जाते हैं।",
+        "KukuNotes आपकी हिंदी, अंग्रेज़ी और हिंग्लिश बातचीत को टेक्स्ट, साफ़ नोट्स और टास्क में बदलता है। मीटिंग, क्लास या क्लाइंट मुलाकात के दौरान बस “Start Listening” दबाएँ। बातचीत खत्म होते ही आपको सारांश, लिए गए फ़ैसले और करने वाले काम मिल जाते हैं। Android ऐप फ़ोन कॉल रिकॉर्ड नहीं करता।",
         "रिकॉर्डिंग पूरी तरह आपकी मर्ज़ी से होती है। माइक्रोफ़ोन तभी चालू होता है जब आप सुनना शुरू करते हैं। शुरुआत मुफ़्त है, और Android पर Google Play से डाउनलोड किया जा सकता है।",
         languageNoteHi,
       ],
@@ -342,9 +342,9 @@ export const topicPages: SeoPage[] = [
     kicker: "Personal AI assistant",
     h1: "A personal AI assistant that",
     h1Accent: "remembers your day.",
-    lead: "Chatbots know the internet. KukuNotes knows your meetings, classes, calls, and plans, and uses them to tell you what matters today.",
+    lead: "Chatbots know the internet. KukuNotes knows your meetings, classes, and plans, and uses them to tell you what matters today.",
     answer:
-      "KukuNotes is a personal AI assistant for Android that works from your own conversations rather than the open web. It captures meetings and calls when you choose to, turns commitments into tasks, organizes everything into Spaces, and each morning gives you a daily briefing of priorities, meetings, and free focus time. Ask KukuNotes answers questions using only what is in your Spaces.",
+      "KukuNotes is a personal AI assistant for Android that works from your own conversations rather than the open web. It records meetings and in-person conversations when you choose to, and does not record phone calls. It turns what you captured into tasks, notes, calendar events, and reminders, organizes everything into Spaces, and each morning gives you a daily briefing of priorities, meetings, and free focus time. Ask KukuNotes answers questions using only what is in your Spaces.",
     image: { src: "/screenshots/home-spaces.jpg", alt: "KukuNotes home with spaces, notes, and live listening" },
     sections: [
       {
@@ -475,7 +475,7 @@ export const topicPages: SeoPage[] = [
 ];
 
 export const competitorNote =
-  "Competitor details are based on their public product pages as of October 2026 and may change; check their sites for the latest.";
+  "Competitor details are based on their public product pages as of 21 October 2026 and may change; check their sites for the latest.";
 
 export function getTopicPage(slug: string) {
   return topicPages.find((page) => page.slug === slug);

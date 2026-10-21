@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AppFrame } from "@/components/home/AppFrame";
+import { GooglePlayCta } from "@/components/home/GooglePlayCta";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
@@ -53,14 +54,7 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
             </h1>
             <p className="studio-section-lead">{page.lead}</p>
             <div className="seo-hero-actions">
-              <a
-                className="studio-btn studio-btn-accent"
-                href={siteConfig.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Get KukuNotes free on Google Play
-              </a>
+              <GooglePlayCta placement="hero" pageSlug={page.slug} />
               <Link className="studio-text-link" href="/pricing">
                 See pricing <span aria-hidden="true">-&gt;</span>
               </Link>
@@ -217,14 +211,7 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
               {priceCopy.freeHours} on Android, in English, Hindi, and Hinglish.
             </p>
             <div className="studio-invite-actions">
-              <a
-                className="studio-btn studio-btn-accent"
-                href={siteConfig.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Get KukuNotes for Android
-              </a>
+              <GooglePlayCta placement="bottom" pageSlug={page.slug} />
             </div>
           </div>
         </section>
