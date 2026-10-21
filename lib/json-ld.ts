@@ -5,8 +5,23 @@ import type { DestinationPage } from "@/lib/destination-pages";
 import { sitelinkNav } from "@/lib/destination-pages";
 import { entityKeywords } from "@/lib/seo-keywords";
 import type { SeoPage } from "@/lib/seo-pages";
-import { confirmedOfferPrices, planFacts } from "@/lib/product-facts";
+import { androidRecordingFact, confirmedOfferPrices, planFacts } from "@/lib/product-facts";
 import { absoluteUrl, siteConfig } from "@/lib/site";
+
+/** Brand-query names for Organization and WebSite. Exact strings, including casing. */
+const brandQueryAlternateNames = ["Kuku Notes", "KukuNotes app", "kukunotes.com"] as const;
+
+function organizationAndWebsiteAlternateNames() {
+  const seen = new Set<string>();
+  const names: string[] = [];
+  for (const name of [...brandQueryAlternateNames, ...siteConfig.alternateNames]) {
+    const key = name.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    names.push(name);
+  }
+  return names;
+}
 
 export const organizationId = `${siteConfig.url}/#organization`;
 export const websiteId = `${siteConfig.url}/#website`;
@@ -42,7 +57,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     "@id": organizationId,
     name: siteConfig.brandName,
-    alternateName: [...siteConfig.alternateNames],
+    alternateName: organizationAndWebsiteAlternateNames(),
     url: siteConfig.url,
     email: siteConfig.email,
     logo: {
@@ -109,7 +124,7 @@ export function websiteJsonLd() {
     "@id": websiteId,
     url: siteConfig.url,
     name: siteConfig.name,
-    alternateName: [...siteConfig.alternateNames],
+    alternateName: organizationAndWebsiteAlternateNames(),
     description: siteConfig.description,
     inLanguage: siteConfig.language,
     publisher: { "@id": organizationId },
@@ -206,6 +221,7 @@ export function mobileApplicationJsonLd() {
     "@type": "MobileApplication",
     "@id": mobileAppId,
     name: "KukuNotes: Note Taker & Assistant",
+    description: androidRecordingFact,
     operatingSystem: "Android 9.0 and up",
     applicationCategory: "ProductivityApplication",
     installUrl: siteConfig.playStoreUrl,
@@ -377,7 +393,7 @@ export function useCasesJsonLd() {
           itemListElement: [
             "Students and educators (lecture notes & study tasks)",
             "Founders and teams (meeting recording & action items)",
-            "Sales and client work (call notes & commitment tracker)",
+            "Sales and client work (meeting notes and commitment tracker)",
             "Personal planning (second brain & daily briefing)",
             "Creators and media (interview notes & idea synthesis)",
           ].map((name, index) => ({

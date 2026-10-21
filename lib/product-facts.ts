@@ -103,8 +103,27 @@ export const languageNoteHi = `Free, Pro और Business — हर प्ला
 export const whatIsKukuNotes =
   "KukuNotes is a private AI note taker and meeting recorder for Android, Windows, Chrome, and the web.";
 
+/**
+ * Owner confirmed 21 Oct 2026. This is the Android app only.
+ * Windows and Chrome still capture meeting audio from the device or browser tab.
+ */
+export const androidRecordingFact =
+  "The KukuNotes Android app records meetings and in-person conversations. It does not record phone calls. From those recordings it creates tasks, notes, calendar events, and reminders.";
+
 export const captureFact =
-  "You tap Start Listening to record through your device. Listening is opt-in, and KukuNotes never joins Zoom, Google Meet, or Teams as a bot.";
+  `You tap Start Listening to record through your device. Listening is opt-in, and KukuNotes never joins Zoom, Google Meet, or Teams as a bot. ${androidRecordingFact}`;
+
+/**
+ * Competitor facts checked 21 Oct 2026.
+ * Granola has an Android app (1 July 2026) that only records in-person conversations.
+ * Fathom's iPhone app launched 20 Oct 2026; per Fathom's help page it is iPhone-only at launch, cannot record phone calls, and needs internet.
+ * Keep these neutral. Do not claim either product has no mobile app.
+ */
+export const granolaComparison =
+  "Both are bot-free. Granola runs on Mac, Windows, iPhone, and Android. Granola has had an Android app since 1 July 2026; on Android it only records in-person conversations. KukuNotes records meetings and in-person conversations on Android and does not record phone calls. KukuNotes also supports Hindi and Hinglish and creates tasks, notes, calendar events, and reminders.";
+
+export const fathomComparison =
+  "Fathom records Zoom, Google Meet, and Microsoft Teams calls (with a bot, or a bot-free beta on Mac). On 20 October 2026 Fathom launched an iPhone app that records in-person meetings without a bot. Per Fathom's help page, that app is iPhone-only at launch, cannot record phone calls, and needs an internet connection. KukuNotes records meetings and in-person conversations on Android and does not record phone calls.";
 
 export const brandSplit =
   "KukuNotes is not Kuku FM or Kuku TV. It is a separate product for notes, meetings, and tasks.";

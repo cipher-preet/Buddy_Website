@@ -1,4 +1,4 @@
-import { languageNote, priceCopy } from "./product-facts";
+import { androidRecordingFact, languageNote, priceCopy } from "./product-facts";
 import { siteConfig } from "./site";
 
 /**
@@ -73,7 +73,7 @@ export const destinationPages: DestinationPage[] = [
       {
         heading: "Who the web app is for",
         body: [
-          "Teams and individuals who capture on the phone but prefer a larger screen for reviewing notes, planning the day, or exporting tasks. Students can study from lecture notes on a laptop; founders can clear action items after a client call.",
+          "Teams and individuals who capture on the phone but prefer a larger screen for reviewing notes, planning the day, or exporting tasks. Students can study from lecture notes on a laptop; founders can clear action items after a client meeting.",
         ],
       },
     ],
@@ -213,7 +213,7 @@ export const destinationPages: DestinationPage[] = [
       {
         heading: "Desktop capture without a bot",
         body: [
-          "On Windows, KukuNotes listens through your device—not by joining the meeting. That means client calls and interviews stay free of awkward bot avatars while you still walk away with notes and tasks.",
+          "On Windows, KukuNotes listens through your device—not by joining the meeting. That means client meetings and interviews stay free of awkward bot avatars while you still walk away with notes and tasks.",
           "Pair it with the Chrome extension for browser-only meetings, or use Android when conversations happen in person.",
         ],
       },
@@ -253,7 +253,7 @@ export const destinationPages: DestinationPage[] = [
     slug: "android",
     title: "Android App on Google Play",
     description:
-      "Download the KukuNotes Android app on Google Play. It records in-person talks in Hindi, English, and Hinglish, with a free plan.",
+      "Download the KukuNotes Android app on Google Play. It records meetings and in-person conversations, not phone calls, in Hindi, English, and Hinglish.",
     keywords: [
       "KukuNotes Android",
       "KukuNotes Google Play",
@@ -267,9 +267,8 @@ export const destinationPages: DestinationPage[] = [
     kicker: "Android app",
     h1: "The AI note taker for",
     h1Accent: "the phone in your pocket.",
-    lead: "KukuNotes on Android captures meetings, classes, and everyday conversations when you tap Start Listening—then turns them into notes, tasks, and Spaces. Free to start on Google Play.",
-    answer:
-      `KukuNotes is an AI note taker and meeting recorder for Android, available on Google Play. It records only when you opt in, supports English, Hindi, and Hinglish, and extracts action items into Spaces. ${priceCopy.freeHours}.`,
+    lead: "KukuNotes on Android records meetings and in-person conversations when you tap Start Listening, then creates tasks, notes, calendar events, and reminders. It does not record phone calls. Free to start on Google Play.",
+    answer: `KukuNotes is an AI note taker and meeting recorder for Android, available on Google Play. ${androidRecordingFact} It supports English, Hindi, and Hinglish. ${priceCopy.freeHours}.`,
     cta: {
       label: "Get on Google Play",
       href: siteConfig.playStoreUrl,
@@ -280,15 +279,16 @@ export const destinationPages: DestinationPage[] = [
     highlights: [
       "Opt-in listening — never always-on",
       "English, Hindi, and Hinglish",
-      "Notes, tasks, Spaces, daily briefing",
+      "Tasks, notes, calendar events, and reminders",
+      "Does not record phone calls",
       "Free plan to start",
     ],
     sections: [
       {
-        heading: "Built for in-person and phone-first talk",
+        heading: "Built for in-person meetings and conversations",
         body: [
-          "Most AI notetakers assume every meeting is on Zoom. KukuNotes is built for the conversations that happen in rooms, corridors, coaching classes, and client visits—the ones your laptop never hears.",
-          "Tap Start Listening, finish the conversation, and leave with a summary, decisions, and tasks filed in the right Space.",
+          "Most AI notetakers assume every meeting is on Zoom. KukuNotes on Android is built for in-person meetings and conversations in rooms, corridors, coaching classes, and client visits.",
+          `${androidRecordingFact} Tap Start Listening, finish the conversation, and leave with notes and tasks filed in the right Space.`,
         ],
       },
       {
@@ -310,6 +310,10 @@ export const destinationPages: DestinationPage[] = [
       {
         q: "What Android version do I need?",
         a: "Android 9.0 (Pie) or higher. Download from Google Play for the official build.",
+      },
+      {
+        q: "Does the KukuNotes Android app record phone calls?",
+        a: androidRecordingFact,
       },
     ],
     related: [

@@ -6,7 +6,7 @@ import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { aboutJsonLd } from "@/lib/json-ld";
-import { languageNote, priceCopy } from "@/lib/product-facts";
+import { androidRecordingFact, languageNote, priceCopy } from "@/lib/product-facts";
 import { pageAlternates, socialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
 
@@ -39,14 +39,14 @@ const facts = [
   { label: "Package", value: siteConfig.androidPackage },
   { label: "Languages", value: languageNote },
   { label: "Pricing", value: priceCopy.summary },
-  { label: "Recording model", value: "Opt-in only, via Start Listening; no meeting bots" },
+  { label: "Recording model", value: `Opt-in only, via Start Listening; no meeting bots. ${androidRecordingFact}` },
   { label: "Contact", value: siteConfig.email },
 ];
 
 const aboutFaqs = [
   {
     q: "What is KukuNotes?",
-    a: "KukuNotes records conversations when you tap Start Listening and turns them into summaries, decisions, and action items, organized into Spaces for each project, class, client, or life area. It also gives you a daily briefing and answers questions about your own notes. It runs on Android, Windows, Chrome, and the web.",
+    a: `KukuNotes records meetings and in-person conversations when you tap Start Listening and turns them into summaries, decisions, and action items, organized into Spaces for each project, class, client, or life area. ${androidRecordingFact} It also gives you a daily briefing and answers questions about your own notes. It runs on Android, Windows, Chrome, and the web.`,
   },
   {
     q: "Is it KukuNotes or Kuku Notes?",
@@ -87,9 +87,9 @@ export default function AboutPage() {
               KukuNotes helps you keep <span className="brand-gradient-text">the day you actually lived.</span>
             </h1>
             <p className="studio-section-lead">
-              Important things get said in meetings, classes, and calls, and then forgotten.
-              KukuNotes exists so the useful parts of those conversations become notes, tasks,
-              and plans you can trust.
+              KukuNotes (Kuku Notes) keeps what gets said in meetings, classes, and in-person conversations.
+              The useful parts become notes, tasks, calendar events, and reminders you can trust.
+              The Android app does not record phone calls.
             </p>
           </div>
         </section>

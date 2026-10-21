@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AppFrame } from "./AppFrame";
 import { FaqItem } from "./FaqItem";
+import { GooglePlayCta } from "./GooglePlayCta";
 import { ProductTheater } from "./ProductTheater";
 import { Reveal } from "./Reveal";
 
@@ -94,6 +95,14 @@ export function KukuNotesLanding() {
             <br />
             <em>Grow.</em>
           </motion.h1>
+          <motion.p
+            className="studio-hero-lead"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.12, ease }}
+          >
+            KukuNotes (Kuku Notes) keeps meetings and in-person conversations, then turns them into notes, tasks, and reminders.
+          </motion.p>
           <motion.details
             className="studio-hero-details"
             initial={{ opacity: 0, y: 18 }}
@@ -119,14 +128,7 @@ export function KukuNotesLanding() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.24, ease }}
           >
-            <a
-              className="studio-btn studio-btn-ink"
-              href={siteConfig.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get KukuNotes
-            </a>
+            <GooglePlayCta placement="hero" pageSlug="home" />
             <a className="studio-text-link" href="#product">
               See the product <span aria-hidden="true">→</span>
             </a>
@@ -403,14 +405,7 @@ export function KukuNotesLanding() {
             Bring KukuNotes into the rooms where work actually happens, and leave with the day still intact.
           </p>
           <div className="studio-invite-actions">
-            <a
-              className="studio-btn studio-btn-accent"
-              href={siteConfig.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get it on Google Play
-            </a>
+            <GooglePlayCta placement="bottom" pageSlug="home" />
           </div>
         </Reveal>
       </section>

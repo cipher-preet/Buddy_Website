@@ -119,7 +119,7 @@ export const seoKeywords = {
     "MoM generator app",
     "AI minutes of meeting",
     "meeting minutes with action items",
-    "phone meeting recorder AI",
+    "Android in-person meeting notes",
     "record client meeting notes",
   ],
 
@@ -178,7 +178,7 @@ export const seoKeywords = {
     "Fireflies alternative India",
     "AI notes app for Indian languages",
     "Bangalore meeting notes app",
-    "Mumbai sales call notes app",
+    "Mumbai client meeting notes app",
     "Delhi Hindi meeting recorder",
   ],
 

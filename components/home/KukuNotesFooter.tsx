@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { appDestinationLinks, solutionLinks } from "@/lib/home-data";
-import { siteConfig } from "@/lib/site";
+import { GooglePlayCta } from "./GooglePlayCta";
 
 export function KukuNotesFooter() {
   return (
@@ -20,14 +20,7 @@ export function KukuNotesFooter() {
             </Link>
             <h2>Keep the day you actually lived.</h2>
             <p>One place for conversations, plans, and the next useful step.</p>
-            <a
-              className="footer-cta"
-              href={siteConfig.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get KukuNotes
-            </a>
+            <GooglePlayCta placement="footer" />
           </div>
 
           <nav className="footer-columns" aria-label="Footer">

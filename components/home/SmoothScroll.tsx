@@ -45,19 +45,20 @@ export function SmoothScroll() {
         Boolean(node.closest(".studio-theater-tabs, .studio-dayline, .nav-drawer")),
     });
 
-    lenis.on("scroll", (e: any) => {
+    lenis.on("scroll", (instance) => {
       window.dispatchEvent(
         new CustomEvent("lenis-scroll", {
           detail: {
-            scroll: e.scroll,
-            direction: e.direction,
-            velocity: e.velocity,
+            scroll: instance.scroll,
+            direction: instance.direction,
+            velocity: instance.velocity,
           },
         })
       );
     });
 
-    (window as any).__lenis = lenis;
+    const browserWindow = window as Window & { __lenis?: Lenis };
+    browserWindow.__lenis = lenis;
 
     if (isReload()) {
       lenis.scrollTo(0, { immediate: true });
@@ -71,7 +72,7 @@ export function SmoothScroll() {
       window.removeEventListener("load", refresh);
       window.removeEventListener("orientationchange", refresh);
       lenis.destroy();
-      delete (window as any).__lenis;
+      delete (window as Window & { __lenis?: Lenis }).__lenis;
     };
   }, []);
 

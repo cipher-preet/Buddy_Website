@@ -26,11 +26,11 @@ import { HiArrowRight, HiSparkles } from "react-icons/hi2";
 export const metadata: Metadata = {
   title: "Use Cases for Students, Teams, and Sales",
   description:
-    "KukuNotes turns lectures, meetings, sales calls, and daily conversations into notes and tasks. Recording is opt-in and no meeting bot joins the call.",
+    "KukuNotes turns lectures, meetings, client meetings, and daily conversations into notes and tasks. The Android app records meetings and in-person conversations, not phone calls.",
   keywords: [
     "AI note taker for students",
     "AI meeting recorder for teams",
-    "AI sales call notes",
+    "AI sales meeting notes",
     "lecture transcription app",
     "AI task extractor from conversations",
     "second brain personal planning",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   alternates: pageAlternates("/use-cases"),
   ...socialMetadata(
     "KukuNotes use cases for students, teams, and sales",
-    "KukuNotes turns lectures, meetings, sales calls, and daily conversations into notes and tasks. Recording is opt-in and no meeting bot joins the call.",
+    "KukuNotes turns lectures, meetings, client meetings, and daily conversations into notes and tasks. The Android app records meetings and in-person conversations, not phone calls.",
     "/use-cases",
   ),
 };
@@ -217,8 +217,8 @@ export default function UseCasesPage() {
             <p className="studio-kicker studio-invite-kicker">Direct use cases</p>
             <h2 id="use-cases-final-title">If people talk, KukuNotes can help you remember what matters.</h2>
             <p className="studio-invite-lead">
-              Meetings, lectures, interviews, family planning, and client calls all
-              become easier when the important parts are saved in the right place.
+              Meetings, lectures, interviews, family planning, and client meetings all
+              become easier when the important parts are saved in the right place. The Android app does not record phone calls.
             </p>
             <div className="studio-invite-actions">
               <a

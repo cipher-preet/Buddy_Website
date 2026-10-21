@@ -1,4 +1,4 @@
-import { brandSplit, captureFact, definitionLead, languageNote, priceCopy } from "./product-facts";
+import { androidRecordingFact, brandSplit, captureFact, definitionLead, languageNote, priceCopy } from "./product-facts";
 
 export const navItems = [
   { label: "Product", href: "/#product" },
@@ -36,7 +36,7 @@ export const useCaseItems = [
     title: "Students & educators",
     eyebrow: "Education",
     summary: "Lectures, study sessions, and mentoring become organized notes and study tasks.",
-    bestFor: "Classes, coaching calls, research discussions, and group projects.",
+    bestFor: "Classes, coaching sessions, research discussions, and group projects.",
     kukuNotesDoes: "Records only when you start listening, summarizes key ideas, and keeps follow-up tasks inside the right space.",
     outcome: "A searchable study memory with deadlines, decisions, and revision prompts ready after class.",
     visual: ["Lecture", "Notes", "Study task"],
@@ -47,8 +47,8 @@ export const useCaseItems = [
   {
     title: "Founders & teams",
     eyebrow: "Meetings",
-    summary: "Turn planning calls into decisions, owners, priorities, and next actions.",
-    bestFor: "Product reviews, daily syncs, client calls, and investor prep.",
+    summary: "Turn planning meetings into decisions, owners, priorities, and next actions.",
+    bestFor: "Product reviews, daily syncs, client meetings, and investor prep.",
     kukuNotesDoes: "Captures the useful parts of a conversation, extracts action items, and keeps them tied to the project space.",
     outcome: "Clear meeting memory, fewer lost commitments, and a cleaner handoff after every conversation.",
     visual: ["Sync", "Decision", "Owner"],
@@ -60,10 +60,10 @@ export const useCaseItems = [
     title: "Sales & client work",
     eyebrow: "Follow-up",
     summary: "Keep client context, objections, requests, and promised next steps in one place.",
-    bestFor: "Discovery calls, demos, onboarding sessions, and account check-ins.",
-    kukuNotesDoes: "Summarizes the call, pulls out commitments, and helps you ask what happened before the next meeting.",
+    bestFor: "Discovery meetings, demos, onboarding sessions, and account check-ins.",
+    kukuNotesDoes: "Summarizes the conversation, pulls out commitments, and helps you ask what happened before the next meeting.",
     outcome: "Better follow-ups that sound specific because they are grounded in the actual conversation.",
-    visual: ["Client call", "Need", "Follow-up"],
+    visual: ["Client meeting", "Need", "Follow-up"],
     accent: "cyan",
     image: "/use-cases/sales.jpg",
     alt: "Client meeting intelligence dashboard with sentiment, commitments, and follow-up timeline",
@@ -190,6 +190,10 @@ export const faqItems = [
     a: captureFact,
   },
   {
+    q: "Does the KukuNotes Android app record phone calls?",
+    a: androidRecordingFact,
+  },
+  {
     q: "Can KukuNotes transcribe Hindi, English, and other Indian languages?",
     a: `Yes. ${languageNote}`,
   },
@@ -214,7 +218,7 @@ export const faqItems = [
     a: "KukuNotes' AI identifies verbal commitments, deadlines, and assigned owners during conversation analysis. It extracts them into an interactive task board with priority badges and direct links back to the note evidence so you can verify exactly what was promised.",
   },
   {
-    q: "Is KukuNotes (Kuku Notes) related to Kuku FM?",
+    q: "Is KukuNotes related to Kuku FM?",
     a: brandSplit,
   },
   {
