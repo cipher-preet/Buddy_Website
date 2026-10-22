@@ -72,7 +72,7 @@ export default function PricingPage() {
               Start free.<br />
               Upgrade when you&apos;re <span className="brand-gradient-text">ready.</span>
             </h1>
-            <p className="studio-section-lead pricing-hero-lead">
+            <p className="context-kept">
               {definitionLead} {definitionFacts} {priceCopy.summary}
             </p>
           </Reveal>

@@ -120,6 +120,7 @@ export function SmartList() {
                     alt={current.alt}
                     fill
                     sizes="280px"
+                    quality={60}
                     className="smart-stack-image"
                     priority
                   />
@@ -134,7 +135,7 @@ export function SmartList() {
                       animate={{ opacity: 0.92, x: 0 }}
                       transition={{ duration: 0.45, delay: 0.08 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      <Image src={src} alt="" fill sizes="120px" className="smart-stack-image" />
+                      <Image src={src} alt="" fill sizes="120px" quality={60} className="smart-stack-image" />
                     </motion.div>
                   ))}
                 </div>

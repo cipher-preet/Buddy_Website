@@ -1,8 +1,15 @@
 "use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
+import { useLiteMode } from "./useLiteMode";
 
 export function ScrollProgress() {
+  const lite = useLiteMode();
+  if (lite) return null;
+  return <ScrollProgressBar />;
+}
+
+function ScrollProgressBar() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 120,

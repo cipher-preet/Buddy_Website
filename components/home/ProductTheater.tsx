@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useLiteMode } from "./useLiteMode";
 
 const views = [
   {
@@ -14,7 +15,7 @@ const views = [
     title: "Every project in its own space, with tasks front and center.",
     copy: "Pick a space and its tasks and notes open side by side. Due dates and priorities stay on the item, so the next step is obvious.",
     points: ["Spaces sidebar", "Due dates and priority", "Tasks and notes per space"],
-    image: "/screenshots/desktop/spaces-workspace.png",
+    image: "/screenshots/desktop/spaces-workspace.webp",
     alt: "KukuNotes workspace with a spaces sidebar and the tasks inside one space",
   },
   {
@@ -25,7 +26,7 @@ const views = [
     title: "Ask with a space attached, and get a structured answer.",
     copy: "Tag the space that holds the conversation. The reply comes back organized, from the notes already in that space.",
     points: ["@space context", "Structured answers", "Grounded in your notes"],
-    image: "/screenshots/desktop/ask-chat.png",
+    image: "/screenshots/desktop/ask-chat.webp",
     alt: "KukuNotes chat answering a question with a space attached as context",
   },
   {
@@ -36,7 +37,7 @@ const views = [
     title: "Every meeting in one library, recorded without a bot.",
     copy: "Google Meet and Zoom sessions land with date, time, and duration. Filter by space to find the conversation you need.",
     points: ["Google Meet and Zoom", "Filter by space", "Grid or list view"],
-    image: "/screenshots/desktop/meetings-library.png",
+    image: "/screenshots/desktop/meetings-library.webp",
     alt: "KukuNotes meetings library with recorded Google Meet and Zoom sessions",
   },
   {
@@ -47,7 +48,7 @@ const views = [
     title: "Start from a template instead of a blank page.",
     copy: "Meeting recaps, weekly plans, status reports, and decision logs are ready to fill. The structure is already there.",
     points: ["Meeting recaps", "Weekly planners", "Status reports"],
-    image: "/screenshots/desktop/documents.png",
+    image: "/screenshots/desktop/documents.webp",
     alt: "KukuNotes document templates for meeting recaps, planners, and status reports",
   },
   {
@@ -58,7 +59,7 @@ const views = [
     title: "A goal with steps, strategy, and progress in one view.",
     copy: "Set the outcome, then work the recommended steps. Progress and the tasks already done stay visible for the whole space.",
     points: ["Recommended steps", "Strategies", "Progress you can see"],
-    image: "/screenshots/desktop/goals.png",
+    image: "/screenshots/desktop/goals.webp",
     alt: "KukuNotes goal view with recommended steps, strategies, and progress",
   },
   {
@@ -69,7 +70,7 @@ const views = [
     title: "See how tasks, notes, and meetings connect.",
     copy: "The mindmap lays a space out as a map. Each task and note stays linked, so the shape of the work is visible at a glance.",
     points: ["Tasks and notes linked", "Meetings on the map", "One view of the space"],
-    image: "/screenshots/desktop/mindmap.png",
+    image: "/screenshots/desktop/mindmap.webp",
     alt: "KukuNotes mindmap connecting tasks, notes, and meetings in a space",
   },
 ];
@@ -80,18 +81,19 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export function ProductTheater() {
   const reduceMotion = useReducedMotion();
+  const lite = useLiteMode();
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const view = views[active];
   const platformHost = siteConfig.platformUrl.replace(/^https?:\/\//, "");
 
   useEffect(() => {
-    if (paused || reduceMotion) return;
+    if (paused || reduceMotion || lite) return;
     const timer = window.setInterval(() => {
       setActive((index) => (index + 1) % views.length);
     }, 5600);
     return () => window.clearInterval(timer);
-  }, [paused, reduceMotion, active]);
+  }, [paused, reduceMotion, lite, active]);
 
   return (
     <section
@@ -136,7 +138,7 @@ export function ProductTheater() {
           >
             <span>{String(index + 1).padStart(2, "0")}</span>
             {item.label}
-            {index === active && !reduceMotion ? (
+            {index === active && !reduceMotion && !lite ? (
               <i className="studio-theater-progress" aria-hidden="true" />
             ) : null}
           </button>
@@ -167,9 +169,9 @@ export function ProductTheater() {
                 <motion.div
                   key={view.image}
                   className="studio-desk-shot"
-                  initial={reduceMotion ? false : { opacity: 0, scale: 1.01 }}
+                  initial={reduceMotion || lite ? false : { opacity: 0, scale: 1.01 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={reduceMotion ? undefined : { opacity: 0 }}
+                  exit={reduceMotion || lite ? undefined : { opacity: 0 }}
                   transition={{ duration: 0.4, ease }}
                 >
                   <Image
@@ -177,6 +179,7 @@ export function ProductTheater() {
                     alt={view.alt}
                     fill
                     sizes="(max-width: 980px) 100vw, 1040px"
+                    quality={60}
                     priority={false}
                   />
                 </motion.div>
@@ -189,9 +192,9 @@ export function ProductTheater() {
           <motion.div
             key={view.id}
             className="studio-desk-caption"
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            initial={reduceMotion || lite ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+            exit={reduceMotion || lite ? undefined : { opacity: 0, y: -8 }}
             transition={{ duration: 0.4, ease }}
           >
             <div>

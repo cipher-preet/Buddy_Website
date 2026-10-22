@@ -194,6 +194,7 @@ export default function UseCasesPage() {
                       height={896}
                       className="use-case-image"
                       sizes="(max-width: 900px) 100vw, 560px"
+                      quality={60}
                     />
                     <div className="use-case-image-overlay" />
                     <div className="use-case-chips-overlay" aria-hidden="true">

@@ -94,22 +94,9 @@ export function KukuNotesLanding() {
             <br />
             <em>Grow.</em>
           </motion.h1>
-          <motion.p
-            className="studio-hero-lead"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.16, ease }}
-          >
-            {definitionLead}
-          </motion.p>
-          <motion.p
-            className="studio-hero-lead"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease }}
-          >
-            {definitionFacts}
-          </motion.p>
+          <p className="context-kept">
+            {definitionLead} {definitionFacts}
+          </p>
           <motion.div
             className="studio-hero-actions"
             initial={{ opacity: 0, y: 16 }}
@@ -275,10 +262,11 @@ export function KukuNotesLanding() {
             <div className="studio-desk-screen">
               <div className="studio-desk-shot">
                 <Image
-                  src="/screenshots/desktop/spaces-workspace.png"
+                  src="/screenshots/desktop/spaces-workspace.webp"
                   alt="KukuNotes workspace with spaces and the tasks inside one space"
                   fill
                   sizes="(max-width: 980px) 100vw, 560px"
+                  quality={60}
                 />
               </div>
             </div>
@@ -318,10 +306,11 @@ export function KukuNotesLanding() {
               <div className="studio-desk-screen">
                 <div className="studio-desk-shot">
                   <Image
-                    src="/screenshots/desktop/ask-chat.png"
+                    src="/screenshots/desktop/ask-chat.webp"
                     alt="KukuNotes answering a question with a space attached as context"
                     fill
                     sizes="(max-width: 980px) 100vw, 640px"
+                    quality={60}
                   />
                 </div>
               </div>

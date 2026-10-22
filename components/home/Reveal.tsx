@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import { useLiteMode } from "./useLiteMode";
 
 type RevealProps = {
   children: ReactNode;
@@ -48,8 +49,9 @@ export function Reveal({
   style,
 }: RevealProps) {
   const reduceMotion = useReducedMotion();
+  const lite = useLiteMode();
 
-  if (reduceMotion) {
+  if (reduceMotion || lite) {
     return <div className={className} style={style}>{children}</div>;
   }
 

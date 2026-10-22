@@ -28,10 +28,11 @@ export function SmoothScroll() {
     const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
     const hoverNone = window.matchMedia("(hover: none)").matches;
     const narrowViewport = window.matchMedia("(max-width: 980px)").matches;
+    const lite = document.documentElement.classList.contains("lite");
 
     // Native scrolling on touch/narrow viewports: Lenis + nested overflow was
     // stopping the page around the FAQ and before the bottom invite section.
-    if (reduceMotion || coarsePointer || hoverNone || narrowViewport) return;
+    if (reduceMotion || coarsePointer || hoverNone || narrowViewport || lite) return;
 
     const lenis = new Lenis({
       autoRaf: true,
