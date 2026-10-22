@@ -76,6 +76,7 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
                 width={1200}
                 height={700}
                 sizes="(max-width: 980px) 100vw, 560px"
+                quality={60}
                 priority
               />
             )}

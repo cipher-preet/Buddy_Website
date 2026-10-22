@@ -34,6 +34,7 @@ export function AppFrame({
                   : "(max-width: 640px) 160px, (max-width: 980px) 188px, 240px"
             }
             className="app-frame-image"
+            quality={60}
             priority={priority ?? size === "hero"}
           />
         </div>

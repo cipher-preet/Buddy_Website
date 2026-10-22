@@ -125,10 +125,10 @@ export function Hero() {
             />
           </motion.div>
           <motion.div className="hero-orbit hero-orbit-notes" aria-hidden="true">
-            <Image src="/screenshots/notes-library.jpg" alt="" fill sizes="130px" />
+            <Image src="/screenshots/notes-library.jpg" alt="" fill sizes="130px" quality={60} />
           </motion.div>
           <motion.div className="hero-orbit hero-orbit-listen" aria-hidden="true">
-            <Image src="/screenshots/home-listening.jpg" alt="" fill sizes="116px" />
+            <Image src="/screenshots/home-listening.jpg" alt="" fill sizes="116px" quality={60} />
           </motion.div>
           <motion.div className="hero-signal" aria-hidden="true"><span>LIVE CONTEXT</span><b>●</b></motion.div>
         </motion.div>

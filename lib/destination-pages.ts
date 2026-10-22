@@ -98,7 +98,7 @@ export const destinationPages: DestinationPage[] = [
       { label: "Pricing", href: "/pricing" },
     ],
     image: {
-      src: "/screenshots/desktop/spaces-workspace.png",
+      src: "/screenshots/desktop/spaces-workspace.webp",
       alt: "KukuNotes web app showing Spaces and tasks on platform.kukunotes.com",
     },
   },
@@ -172,7 +172,7 @@ export const destinationPages: DestinationPage[] = [
       { label: "Get KukuNotes", href: "/get-kukunotes" },
     ],
     image: {
-      src: "/screenshots/desktop/meetings-library.png",
+      src: "/screenshots/desktop/meetings-library.webp",
       alt: "KukuNotes meetings library after Chrome extension recording",
     },
   },
@@ -245,7 +245,7 @@ export const destinationPages: DestinationPage[] = [
       { label: "Pricing", href: "/pricing" },
     ],
     image: {
-      src: "/screenshots/desktop/ask-chat.png",
+      src: "/screenshots/desktop/ask-chat.webp",
       alt: "KukuNotes Windows desktop workspace with AI chat",
     },
   },

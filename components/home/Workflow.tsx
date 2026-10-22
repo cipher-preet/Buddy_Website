@@ -125,6 +125,7 @@ function WorkflowCard({
           alt=""
           fill
           sizes="240px"
+          quality={60}
           className="workflow-stack-image"
         />
       </div>

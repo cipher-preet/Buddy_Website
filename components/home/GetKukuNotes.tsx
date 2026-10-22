@@ -81,6 +81,7 @@ export function GetKukuNotes() {
                 alt="KukuNotes app home screen"
                 fill
                 sizes="260px"
+                quality={60}
                 className="get-kukunotes-phone-image"
               />
             </div>

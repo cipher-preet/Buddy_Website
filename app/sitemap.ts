@@ -44,8 +44,8 @@ const homeImages = [
   url("/screenshots/home-spaces.jpg"),
   url("/screenshots/notes-library.jpg"),
   url("/screenshots/tasks-day.jpg"),
-  url("/screenshots/desktop/spaces-workspace.png"),
-  url("/screenshots/desktop/meetings-library.png"),
+  url("/screenshots/desktop/spaces-workspace.webp"),
+  url("/screenshots/desktop/meetings-library.webp"),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -72,7 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [
         url("/screenshots/home-spaces.jpg"),
         url("/screenshots/notes-library.jpg"),
-        url("/screenshots/desktop/meetings-library.png"),
+        url("/screenshots/desktop/meetings-library.webp"),
       ],
     },
     ...destinationPages.map((page) => ({

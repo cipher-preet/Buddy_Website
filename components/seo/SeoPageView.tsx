@@ -77,6 +77,7 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
                 width={1200}
                 height={800}
                 sizes="(max-width: 980px) 100vw, 520px"
+                quality={60}
                 priority
               />
             )}

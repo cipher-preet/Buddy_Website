@@ -116,7 +116,7 @@ export const smartListItems = [
     description:
       "Hit Start Listening and stay in the conversation. KukuNotes records decisions and details in the background.",
     image: "/screenshots/home-listening.jpg",
-    stack: ["/screenshots/home-listening.jpg", "/screenshots/desktop/ask-chat.png", "/screenshots/notes-library.jpg"],
+    stack: ["/screenshots/home-listening.jpg", "/screenshots/desktop/ask-chat.webp", "/screenshots/notes-library.jpg"],
     alt: "KukuNotes home screen with live listening active",
     accent: "violet",
     cta: "See listening",
@@ -154,8 +154,8 @@ export const smartListItems = [
     summary: "Answers grounded in your spaces.",
     description:
       "Summarize a day, plan tomorrow, or prepare for a meeting—KukuNotes replies from what it already heard.",
-    image: "/screenshots/desktop/ask-chat.png",
-    stack: ["/screenshots/desktop/ask-chat.png", "/screenshots/notes-library.jpg", "/screenshots/home-spaces.jpg"],
+    image: "/screenshots/desktop/ask-chat.webp",
+    stack: ["/screenshots/desktop/ask-chat.webp", "/screenshots/notes-library.jpg", "/screenshots/home-spaces.jpg"],
     alt: "KukuNotes chat conversation",
     accent: "indigo",
     cta: "Start chatting",
@@ -265,7 +265,7 @@ export const appScreens = [
   {
     title: "Workspace",
     detail: "On the big screen, a space opens with its tasks beside it.",
-    image: "/screenshots/desktop/spaces-workspace.png",
+    image: "/screenshots/desktop/spaces-workspace.webp",
     alt: "KukuNotes desktop workspace with spaces and tasks",
   },
 ];

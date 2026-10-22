@@ -15,6 +15,7 @@ const sourceSans = Source_Sans_3({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -148,6 +149,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
     >
       <body className="min-h-full">
+        <Script id="lite-mode" strategy="beforeInteractive">
+          {`(function(){try{var c=navigator.connection||navigator.mozConnection||navigator.webkitConnection;var slow=c&&(c.saveData||c.effectiveType==="slow-2g"||c.effectiveType==="2g"||c.effectiveType==="3g");var mem=navigator.deviceMemory;var cores=navigator.hardwareConcurrency;var coarse=window.matchMedia("(pointer: coarse)").matches;var lowMem=typeof mem==="number"&&mem>0&&mem<=4;var lowCpu=coarse&&typeof cores==="number"&&cores>0&&cores<=4;var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;if(slow||lowMem||lowCpu||reduce)document.documentElement.classList.add("lite");}catch(e){}})();`}
+        </Script>
         <Script id="scroll-to-top-on-reload" strategy="beforeInteractive">
           {`(function(){try{if("scrollRestoration"in history)history.scrollRestoration="manual";var n=performance.getEntriesByType("navigation")[0];if(n&&n.type==="reload"){if(location.hash)history.replaceState(null,"",location.pathname+location.search);window.scrollTo(0,0);}}catch(e){}})();`}
         </Script>
