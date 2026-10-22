@@ -3674,7 +3674,7 @@ h3 {
 
 .studio-desk-screen {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1024 / 584;
   background: #fff;
 }
 
@@ -3684,8 +3684,8 @@ h3 {
 }
 
 .studio-desk-shot img {
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center center;
 }
 
 .studio-desk-caption {
