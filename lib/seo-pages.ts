@@ -14,6 +14,16 @@ export type ComparisonRow = {
   competitor: string;
 };
 
+/** Additive multi-column table. Existing two-column `comparison` blocks are unchanged. */
+export type SeoMatrix = {
+  heading: string;
+  intro?: string;
+  columns: string[];
+  rows: { feature: string; cells: string[] }[];
+  note?: string;
+  links?: { label: string; href: string }[];
+};
+
 export type SeoPage = {
   slug: string;
   title: string;
@@ -34,10 +44,15 @@ export type SeoPage = {
     chooseKukuNotes: string[];
     chooseCompetitor: string[];
   };
+  /** Appended comparison rendered after the article body and before the FAQ. */
+  matrix?: SeoMatrix;
   localized?: { lang: string; heading: string; body: string[] };
   faqs: SeoFaq[];
   related: { label: string; href: string }[];
 };
+
+export const competitorNote =
+  "Competitor details are based on their public product pages as of October 2026 and may change; check their sites for the latest.";
 
 const listenSteps = [
   {
@@ -139,11 +154,42 @@ export const topicPages: SeoPage[] = [
         q: "What is the difference between an AI note taker and a voice recorder?",
         a: "A voice recorder saves audio. An AI note taker like KukuNotes also transcribes it, summarizes it, pulls out decisions and action items, and files them in the right place so you can act on them later.",
       },
+      {
+        q: "Is there an AI note taker without a bot?",
+        a: "Yes. KukuNotes never joins Zoom, Google Meet, or Microsoft Teams. You tap Start Listening and it records through your device microphone, then files the note in a Space. The AI meeting recorder page explains bot-free meeting notes in more detail.",
+      },
+      {
+        q: "Is there a free AI note taker with no subscription?",
+        a: `Yes. You can start with no subscription. ${priceCopy.freeDetail}. Pro and Business are optional upgrades. The pricing page lists every plan in INR.`,
+      },
     ],
+    matrix: {
+      heading: "Without a bot, and free to start",
+      intro:
+        "Hindi and Hinglish are already answered in the questions on this page. This table only covers bot-free capture and the free plan.",
+      columns: ["KukuNotes"],
+      rows: [
+        {
+          feature: "Without a bot",
+          cells: [
+            "Never joins Zoom, Google Meet, or Microsoft Teams. Recording stays on your device.",
+          ],
+        },
+        {
+          feature: "Free, no subscription required",
+          cells: [`${priceCopy.freeHours}. Pro and Business are optional.`],
+        },
+      ],
+      links: [
+        { label: "AI meeting recorder without a bot", href: "/ai-meeting-recorder" },
+        { label: "Pricing", href: "/pricing" },
+      ],
+    },
     related: [
       { label: "AI meeting recorder without bots", href: "/ai-meeting-recorder" },
       { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
       { label: "AI lecture notes for students", href: "/ai-lecture-notes" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Get KukuNotes", href: "/get-kukunotes" },
     ],
   },
@@ -223,9 +269,76 @@ export const topicPages: SeoPage[] = [
         q: "Can I share meeting notes with my team?",
         a: "Yes. You can share selected notes and tasks from a Space instead of exposing the whole recording, which keeps sensitive parts of a meeting private.",
       },
+      {
+        q: "Is KukuNotes an AI note taker without a bot?",
+        a: "Yes. KukuNotes is an AI note taker that never joins the meeting. You tap Start Listening and it records through your device microphone, then files notes and tasks in a Space. In Chrome, the extension records tab audio the same way, so nothing appears as a participant.",
+      },
+      {
+        q: "Can I get meeting notes without a bot?",
+        a: "Yes. KukuNotes writes the meeting notes without a bot: a summary, the decisions, and action items, saved in the project's Space. That covers in-person meetings and online meetings you record from your own device.",
+      },
+      {
+        q: "How do I record a meeting without bots?",
+        a: "On Android, open KukuNotes, pick a Space, and tap Start Listening. On a laptop, use the Chrome extension for Google Meet, Zoom Web, or Microsoft Teams Web. KukuNotes does not send a notetaker into the call. Tell the other people you are recording, and follow local consent rules.",
+      },
+      {
+        q: "Does KukuNotes join Zoom, Google Meet, or Microsoft Teams?",
+        a: "No. KukuNotes does not join Zoom, Google Meet, or Microsoft Teams as a bot or as a participant. Online meetings are recorded from your phone's microphone or, in Chrome, from tab audio you start yourself.",
+      },
+      {
+        q: "Does the Android app record phone calls?",
+        a: "No. The KukuNotes Android app does not record dialer or cellular phone calls. It records meetings and in-person conversations only, and only while Start Listening is on. If a meeting is on speakerphone in the room, the microphone can hear that audio. It does not capture the phone dialer.",
+      },
     ],
+    matrix: {
+      heading: "Bot vs bot-free, as of October 2026",
+      intro:
+        "KukuNotes never joins the meeting. The other columns are limited to what those products say in public, as of October 2026.",
+      columns: ["KukuNotes", "Otter.ai", "Fireflies", "Granola", "Fathom"],
+      rows: [
+        {
+          feature: "Joins the call as a bot",
+          cells: [
+            "Never",
+            "Notetaker bot for virtual meetings",
+            "Bot joins video calls",
+            "No",
+            "Bot on virtual calls; bot-free on Mac",
+          ],
+        },
+        {
+          feature: "Android app",
+          cells: [
+            "Yes. Meetings and in-person only, opt-in mic",
+            "Yes. In-person recording",
+            "Not stated here",
+            "Yes. In-person since 1 July 2026",
+            "No. iOS app for in-person since 20 October 2026",
+          ],
+        },
+        {
+          feature: "Dialer phone calls",
+          cells: [
+            "Not recorded",
+            "Not stated here",
+            "Not stated here",
+            "iOS only (outbound). Not on Android",
+            "Not recorded, per Fathom's help center",
+          ],
+        },
+      ],
+      note: `${competitorNote} Granola's Android app launched 1 July 2026 for in-person notes; phone-call capture is iOS-only. Fathom's iOS app launched 20 October 2026 for in-person notes, is not on Android, and does not record phone calls.`,
+      links: [
+        { label: "AI note taker", href: "/ai-note-taker" },
+        { label: "Chrome extension", href: "/chrome-extension" },
+        { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
+        { label: "Pricing", href: "/pricing" },
+        { label: "Get KukuNotes", href: "/get-kukunotes" },
+      ],
+    },
     related: [
       { label: "AI note taker", href: "/ai-note-taker" },
+      { label: "Chrome extension", href: "/chrome-extension" },
       { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
       { label: "Get KukuNotes", href: "/get-kukunotes" },
       { label: "Pricing", href: "/pricing" },
@@ -473,9 +586,6 @@ export const topicPages: SeoPage[] = [
     ],
   },
 ];
-
-export const competitorNote =
-  "Competitor details are based on their public product pages as of October 2026 and may change; check their sites for the latest.";
 
 export function getTopicPage(slug: string) {
   return topicPages.find((page) => page.slug === slug);

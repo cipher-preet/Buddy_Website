@@ -8772,6 +8772,26 @@ h3 {
   font-size: 0.95rem;
 }
 
+.seo-table.seo-table-matrix {
+  width: 100%;
+  min-width: 100%;
+  table-layout: fixed;
+  font-size: 0.82rem;
+}
+
+.seo-table.seo-table-matrix th,
+.seo-table.seo-table-matrix td {
+  padding: 10px 8px;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 760px) {
+  .seo-table.seo-table-matrix {
+    min-width: 680px;
+    table-layout: auto;
+  }
+}
+
 .seo-table th,
 .seo-table td {
   padding: 14px 18px;

@@ -181,6 +181,53 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
           </section>
         ) : null}
 
+        {page.matrix ? (
+          <section className="seo-block" aria-labelledby="seo-matrix-title">
+            <h2 id="seo-matrix-title">{page.matrix.heading}</h2>
+            {page.matrix.intro ? <p>{page.matrix.intro}</p> : null}
+            <div className="seo-table-wrap">
+              <table
+                className={page.matrix.columns.length >= 4 ? "seo-table seo-table-matrix" : "seo-table"}
+              >
+                <thead>
+                  <tr>
+                    <th scope="col">Feature</th>
+                    {page.matrix.columns.map((column) => (
+                      <th key={column} scope="col">
+                        {column}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {page.matrix.rows.map((row) => (
+                    <tr key={row.feature}>
+                      <th scope="row">{row.feature}</th>
+                      {row.cells.map((cell, index) => (
+                        <td key={`${row.feature}-${page.matrix?.columns[index] ?? index}`}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            {page.matrix.note ? <p className="seo-note">{page.matrix.note}</p> : null}
+            {page.matrix.links?.length ? (
+              <div className="seo-related">
+                <ul>
+                  {page.matrix.links.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href}>
+                        {link.label} <span aria-hidden="true">-&gt;</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </section>
+        ) : null}
+
         <section className="seo-block" aria-labelledby="seo-faq-title">
           <h2 id="seo-faq-title">Frequently asked questions</h2>
           <div className="studio-faq-list">
