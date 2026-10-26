@@ -285,10 +285,11 @@ export const destinationPages: DestinationPage[] = [
     ],
     sections: [
       {
-        heading: "Built for in-person and phone-first talk",
+        heading: "Built for in-person and speakerphone meetings",
         body: [
           "Most AI notetakers assume every meeting is on Zoom. KukuNotes is built for the conversations that happen in rooms, corridors, coaching classes, and client visits—the ones your laptop never hears.",
           "Tap Start Listening, finish the conversation, and leave with a summary, decisions, and tasks filed in the right Space.",
+          "The Android app does not record dialer or cellular phone calls. It listens through the microphone only after you tap Start Listening, including a speakerphone meeting in the room.",
         ],
       },
       {
@@ -311,9 +312,14 @@ export const destinationPages: DestinationPage[] = [
         q: "What Android version do I need?",
         a: "Android 9.0 (Pie) or higher. Download from Google Play for the official build.",
       },
+      {
+        q: "Does the Android app record phone calls?",
+        a: "No. The KukuNotes Android app does not record dialer or cellular phone calls. It records meetings and in-person conversations only, through the microphone after you tap Start Listening. A speakerphone meeting in the room can be captured that way. It never joins Zoom, Google Meet, or Microsoft Teams as a bot.",
+      },
     ],
     related: [
       { label: "AI note taker", href: "/ai-note-taker" },
+      { label: "AI meeting recorder", href: "/ai-meeting-recorder" },
       { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
       { label: "Chrome extension", href: "/chrome-extension" },
       { label: "Web app", href: "/platform" },
