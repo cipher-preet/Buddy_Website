@@ -67,7 +67,7 @@ export default function OpenGraphImage() {
               maxWidth: 900,
             }}
           >
-            Record on Android, get notes, decisions, and action items in English, Hindi & Hinglish.
+            Record on your device. Get notes, decisions, and action items.
           </div>
         </div>
 

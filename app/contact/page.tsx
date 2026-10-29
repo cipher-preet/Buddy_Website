@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { PageStage } from "@/components/seo/PageStage";
+import { FeatureMotion, type MotionScene } from "@/components/seo/FeatureMotion";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
@@ -79,7 +79,7 @@ export default function ContactPage() {
             </div>
           </Reveal>
 
-          <PageStage variant="contact" />
+          <FeatureMotion scene="ask" />
           <Reveal className="contact-visual" variant="scale" delay={0.08}>
             <div className="contact-visual-card">
               <div className="contact-visual-header">
@@ -107,6 +107,7 @@ export default function ContactPage() {
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h2>{reason.title}</h2>
               <p>{reason.copy}</p>
+              <FeatureMotion scene={(["shield", "ask", "devices"] as MotionScene[])[index % 3]} compact />
             </Reveal>
           ))}
         </section>

@@ -16,8 +16,8 @@ const stages: Record<string, StageCopy> = {
     label: "Meeting",
     lines: [
       { tag: "English", text: "No bot joins this call." },
-      { tag: "Hinglish", text: "Notes yahin se nikalenge." },
-      { tag: "हिंदी", text: "मीटिंग के बाद टास्क तैयार।" },
+      { tag: "Notes", text: "The useful lines are kept." },
+      { tag: "Task", text: "The next step is written down." },
     ],
     summary: "Decisions and owners, without a guest in the room.",
     chips: ["Task", "Reminder", "Calendar"],
@@ -32,15 +32,15 @@ const stages: Record<string, StageCopy> = {
     summary: "Talk becomes notes you can act on.",
     chips: ["Summary", "Task", "Space"],
   },
-  "hindi-speech-to-text": {
+  languages: {
     label: "Languages",
     lines: [
-      { tag: "English", text: "Ship the summary this week." },
-      { tag: "हिंदी", text: "कल नोट्स भेज दूंगा।" },
-      { tag: "Hinglish", text: "Pricing page kal bhej dena." },
+      { tag: "Talk", text: "People can switch languages mid-sentence." },
+      { tag: "Notes", text: "The useful lines are kept." },
+      { tag: "Plan", text: "The same languages are on every plan." },
     ],
-    summary: "One recording can mix Hindi and English.",
-    chips: ["Hindi", "English", "Hinglish"],
+    summary: "One recording can include more than one language.",
+    chips: ["Notes", "Tasks", "Spaces"],
   },
   "ai-lecture-notes": {
     label: "Lecture",
@@ -70,7 +70,7 @@ const stages: Record<string, StageCopy> = {
       { tag: "After", text: "Notes sync to your account." },
     ],
     summary: "In-person talks. Not phone or dialer calls.",
-    chips: ["Opt-in", "Hindi", "Free plan"],
+    chips: ["Opt-in", "Notes", "Free plan"],
   },
   windows: {
     label: "Windows",
@@ -130,7 +130,7 @@ const stages: Record<string, StageCopy> = {
       { tag: "Business", text: "₹999 a month for unlimited hours." },
     ],
     summary: "The same languages on every plan.",
-    chips: ["Hindi", "English", "Hinglish"],
+    chips: ["Notes", "Tasks", "Spaces"],
   },
   usecases: {
     label: "Use cases",

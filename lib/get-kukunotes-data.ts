@@ -34,7 +34,7 @@ export const getKukuNotesPlatforms: PlatformItem[] = [
     metrics: "Opt-in recording",
     highlights: [
       "Opt-in ambient listening with space-targeted memory",
-      "Hindi, English, and Hinglish speech-to-text",
+      "Speech-to-text in many languages",
       "Morning daily briefing widget for home screen",
       "Offline recording with automatic background sync",
     ],
@@ -53,7 +53,7 @@ export const getKukuNotesPlatforms: PlatformItem[] = [
     id: "desktop",
     title: "KukuNotes for Windows",
     category: "Windows",
-    tagline: "Capture Zoom, Teams, and Slack Huddles with system audio without inviting annoying meeting bots.",
+    tagline: "Record Zoom, Google Meet, and Teams from your device. No bot joins the call.",
     badge: "Power Users",
     badgeType: "popular",
     compatibility: "Windows 10 / 11 · Microsoft Store",
@@ -114,7 +114,7 @@ export const getKukuNotesPlatforms: PlatformItem[] = [
       "Deep semantic retrieval across all historical conversations",
       "Rich Markdown editor with timestamped audio playback sync",
       "Multi-space goal tracking and team project boards",
-      "One-click exports to Notion, Linear, Slack, and Docs",
+      "Review notes, tasks, and Spaces in the browser",
     ],
     primaryCta: {
       label: "Open Web Workspace",
@@ -143,15 +143,15 @@ export const getKukuNotesEcosystemFeatures = [
     icon: "shield",
   },
   {
-    title: "Hindi, English & Hinglish",
+    title: "Many languages",
     description:
-      "Speech-to-text for Hindi, English, and mixed Hinglish on mobile, desktop, and the Chrome extension.",
+      "Speech-to-text in many languages on mobile, desktop, and the Chrome extension.",
     icon: "globe",
   },
   {
-    title: "Instant Export & Integrations",
+    title: "Same notes on every device",
     description:
-      "Connect your spaces to Notion, Google Calendar, Slack, and Linear so notes and tasks flow directly into your existing toolchain.",
+      "The same notes and tasks sync across Android, Windows, Chrome, and the web.",
     icon: "zap",
   },
 ];

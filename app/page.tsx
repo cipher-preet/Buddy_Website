@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   keywords: [
     ...seoKeywords.brand,
     ...seoKeywords.brandVariants,
-    ...seoKeywords.indiaGeo,
+    ...seoKeywords.languages,
     "AI assistant",
     "personal AI assistant",
     "best AI assistant app",
@@ -30,11 +30,9 @@ export const metadata: Metadata = {
     "voice notes to tasks",
     "conversation to notes",
     "daily briefing app",
-    "Hindi English meeting notes",
-    "Hinglish meeting notes app",
     "second brain app Android",
     "Otter alternative Android",
-    "WhatsApp meeting notes app",
+    "multilingual meeting notes",
   ],
   alternates: {
     canonical: "/",

@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import { useLiteMode } from "./useLiteMode";
 
 const lines = [
-  { who: "A", lang: "English", text: "Let’s ship the Hindi summary this week." },
-  { who: "M", lang: "हिंदी", text: "कल नोट्स भेज दूंगा।" },
-  { who: "R", lang: "Hinglish", text: "Pricing page kal bhej dena." },
+  { who: "A", lang: "Speaker", text: "Ship the summary this week." },
+  { who: "M", lang: "Speaker", text: "I’ll send the notes tomorrow." },
+  { who: "R", lang: "Speaker", text: "Put the follow-up on Thursday." },
 ];
 
 export function HeroStory() {

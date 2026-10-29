@@ -1,4 +1,3 @@
-import { planFacts } from "./product-facts";
 import { allSeoKeywords } from "./seo-keywords";
 
 export const siteConfig = {
@@ -33,18 +32,16 @@ export const siteConfig = {
   platforms: ["Android", "Web", "Windows", "Chrome Extension"],
   category: "ProductivityApplication",
   geo: {
-    primaryMarket: "India",
-    regionCode: "IN",
+    primaryMarket: "Worldwide",
     coverage: "Worldwide",
-    placename: "India",
-    availableLanguages: [...planFacts.languageNames],
-    cities: ["Bengaluru", "Mumbai", "Delhi", "Hyderabad", "Pune", "Chennai", "Ahmedabad", "Kolkata"],
+    placename: "Worldwide",
+    availableLanguages: ["Multilingual"],
   },
   features: [
     "Opt-in live meeting recording without bots",
     "AI note taker with confidence scores and evidence",
     "Automated task and action item extraction",
-    `Speech-to-text in ${planFacts.languageNames.join(", ")}, plus Hinglish`,
+    "Speech-to-text in many languages",
     "Daily briefing with priorities, calendar, and focus time",
     "Context-aware Ask KukuNotes chat",
     "Dedicated Spaces for projects, life, and teams",

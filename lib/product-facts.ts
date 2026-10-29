@@ -71,15 +71,6 @@ export const planFacts = {
 
 const { free, pro, business } = planFacts;
 
-function andList(items: readonly string[], conjunction = "and") {
-  if (items.length < 2) return items.join("");
-  return `${items.slice(0, -1).join(", ")}, ${conjunction} ${items[items.length - 1]}`;
-}
-
-function languageLabel(language: (typeof supportedLanguages)[number]) {
-  return "native" in language ? `${language.en} (${language.native})` : language.en;
-}
-
 export const priceCopy = {
   freeHours: `Free includes ${free.notesRecording} of notes recording and ${free.meetingRecording} of meeting recording`,
   freeDetail: `Free includes ${free.notesRecording} of notes recording, ${free.meetingRecording} of meeting recording, ${free.mindmaps} mindmaps, ${free.documents} documents, and ${free.goals} goals`,
@@ -88,16 +79,11 @@ export const priceCopy = {
   summary: `Free includes ${free.notesRecording} of notes recording and ${free.meetingRecording} of meeting recording. Pro is ${formatInr(pro.monthlyInr)}/month (${formatInr(pro.yearlyInr)}/year). Business is ${formatInr(business.monthlyInr)}/month (${formatInr(business.yearlyInr)}/year).`,
 } as const;
 
-const everyPlanLanguages = `Every plan includes ${andList(planFacts.languageNames)}. Free, Pro, and Business all include that list.`;
+export const languageNote = "KukuNotes supports many languages on every plan.";
 
-/** Hinglish is mixed Hindi and English, not a twelfth named language and not Assamese. */
-const hinglishNote = "Hinglish, mixed Hindi and English in the same recording, is also supported.";
+export const languageNoteWithScript = languageNote;
 
-export const languageNote = `${everyPlanLanguages} ${hinglishNote}`;
-
-export const languageNoteWithScript = `Every plan includes ${andList(supportedLanguages.map(languageLabel))}. Free, Pro, and Business all include that list. ${hinglishNote}`;
-
-export const languageNoteHi = `Free, Pro और Business — हर प्लान में ${andList(supportedLanguages.map((language) => language.hi), "और")} शामिल हैं।`;
+export const languageNoteHi = languageNote;
 
 /** Two-sentence definition used near the top of the main pages. */
 export const whatIsKukuNotes =

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { PageStage } from "@/components/seo/PageStage";
+import { ExplainerVideo } from "@/components/seo/ExplainerVideo";
+import { FeatureMotion, type MotionScene } from "@/components/seo/FeatureMotion";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
@@ -96,9 +96,7 @@ export default function UseCasesPage() {
             <p className="studio-kicker">Use cases</p>
             <h1 id="use-cases-title">Something useful for <span className="brand-gradient-text">every conversation.</span></h1>
             <p className="studio-section-lead">
-              KukuNotes works best when a real conversation creates information you do
-              not want to lose. Pick a space, let KukuNotes listen, then leave with
-              notes, tasks, and answers that are easy to understand the first time.
+              Pick a Space, tap Start Listening, and leave with notes and tasks.
             </p>
             <div className="use-cases-hero-actions">
               <Link className="studio-btn studio-btn-ink" href="#use-case-list">
@@ -110,7 +108,7 @@ export default function UseCasesPage() {
             </div>
           </Reveal>
 
-          <PageStage variant="usecases" />
+          <ExplainerVideo clip="lecture" />
         </section>
 
         {/* ── Journey Steps ── */}
@@ -134,8 +132,7 @@ export default function UseCasesPage() {
             <p className="studio-kicker">Something for everyone</p>
             <h2 id="use-cases-list-title">Find where KukuNotes fits into your day.</h2>
             <p className="studio-section-lead">
-              Each use case follows the same simple pattern: capture the moment,
-              understand the useful parts, and move the next step forward.
+              Capture the talk, keep the useful parts, and move the next step.
             </p>
           </Reveal>
 
@@ -173,28 +170,9 @@ export default function UseCasesPage() {
                 </div>
 
                 {/* Right Side: High-Resolution Dedicated UI Visual */}
-                <div className="use-case-visual-container" aria-label={item.alt}>
-                  <div className="use-case-image-wrapper">
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      width={1200}
-                      height={896}
-                      className="use-case-image"
-                      sizes="(max-width: 900px) 100vw, 560px"
-                      quality={60}
-                    />
-                    <div className="use-case-image-overlay" />
-                    <div className="use-case-chips-overlay" aria-hidden="true">
-                      {item.visual.map((tag, tagIndex) => (
-                        <span key={tag} className={`use-case-chip-badge chip-${tagIndex + 1}`}>
-                          <span className="chip-dot" />
-                          <span>{tag}</span>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <FeatureMotion
+                  scene={(["lecture", "capture", "tasks", "ask", "spaces", "notes"] as MotionScene[])[index % 6]}
+                />
               </Reveal>
             ))}
           </div>

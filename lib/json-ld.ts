@@ -69,30 +69,17 @@ export function organizationJsonLd() {
       "minutes of meeting",
       "automatic speech recognition",
       "speech to text",
-      "Hindi and English code-switching",
-      "Hinglish transcription",
-      "Indian language speech to text",
+      "multilingual speech to text",
       "task extraction and action items",
       "daily briefing planner",
       "second brain productivity",
       "opt-in meeting recording",
       "bot-free meeting notes",
     ],
-    areaServed: [
-      {
-        "@type": "Country",
-        name: "India",
-      },
-      {
-        "@type": "Place",
-        name: "Worldwide",
-      },
-      ...siteConfig.geo.cities.map((name) => ({
-        "@type": "City",
-        name,
-        containedInPlace: { "@type": "Country", name: "India" },
-      })),
-    ],
+    areaServed: {
+      "@type": "Place",
+      name: "Worldwide",
+    },
     contactPoint: {
       "@type": "ContactPoint",
       email: siteConfig.email,
@@ -168,13 +155,13 @@ export function softwareApplicationJsonLd() {
     description: siteConfig.description,
     featureList: [...siteConfig.features],
     keywords: entityKeywords.join(", "),
-    inLanguage: [...planFacts.languageCodes],
-    countriesSupported: "IN, Worldwide",
+    inLanguage: "en",
+    countriesSupported: "Worldwide",
     audience: {
       "@type": "Audience",
       geographicArea: {
-        "@type": "AdministrativeArea",
-        name: "India",
+        "@type": "Place",
+        name: "Worldwide",
       },
     },
     dateModified: siteConfig.contentUpdated,

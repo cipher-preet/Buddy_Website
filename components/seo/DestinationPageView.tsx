@@ -8,14 +8,27 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import type { DestinationPage } from "@/lib/destination-pages";
 import { siteConfig } from "@/lib/site";
 import { HiArrowUpRight, HiCheck } from "react-icons/hi2";
-import { PageStage } from "./PageStage";
+import { ExplainerVideo, type ExplainerClip } from "./ExplainerVideo";
+import { FeatureMotion, type MotionScene } from "./FeatureMotion";
+
+function firstSentence(text: string) {
+  const match = text.match(/^.{1,160}?[.!?](\s|$)/);
+  return match ? match[0].trim() : text.slice(0, 140).trim();
+}
 
 type DestinationPageViewProps = {
   page: DestinationPage;
   jsonLd: Record<string, unknown>;
 };
 
-const updatedLabel = new Date(siteConfig.contentUpdated).toLocaleDateString("en-IN", {
+const sectionScenes: MotionScene[] = ["capture", "notes", "tasks", "devices"];
+
+function clipFor(slug: string): ExplainerClip {
+  if (slug === "android" || slug === "windows" || slug === "chrome-extension") return "meeting";
+  return "notes";
+}
+
+const updatedLabel = new Date(siteConfig.contentUpdated).toLocaleDateString("en", {
   day: "numeric",
   month: "long",
   year: "numeric",
@@ -44,7 +57,7 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
             <h1 id="destination-title">
               {page.h1} <span className="brand-gradient-text">{page.h1Accent}</span>
             </h1>
-            <p className="studio-section-lead">{page.lead}</p>
+            <p className="studio-section-lead">{firstSentence(page.lead)}</p>
             <div className="seo-hero-actions">
               <a
                 className="studio-btn studio-btn-accent"
@@ -62,16 +75,22 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
               ) : null}
             </div>
           </div>
-          <PageStage variant={page.slug} />
+          <div className="hero-visuals">
+            <ExplainerVideo clip={clipFor(page.slug)} />
+          </div>
         </section>
 
-        <section className="seo-answer" aria-label="Direct answer">
-          <p className="seo-answer-label">In short</p>
-          <p>{page.answer}</p>
-          <p className="seo-updated">Updated {updatedLabel}</p>
+        <section className="seo-answer seo-split" aria-label="Direct answer">
+          <div>
+            <p className="seo-answer-label">In short</p>
+            <p>{firstSentence(page.answer)}</p>
+            <p className="seo-updated">Updated {updatedLabel}</p>
+          </div>
+          <FeatureMotion scene="shield" />
         </section>
 
-        <section className="seo-block destination-highlights" aria-labelledby="highlights-title">
+        <section className="seo-block destination-highlights seo-split" aria-labelledby="highlights-title">
+          <div>
           <h2 id="highlights-title">Key capabilities</h2>
           <ul className="destination-highlight-list" role="list">
             {page.highlights.map((item) => (
@@ -81,18 +100,22 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
               </li>
             ))}
           </ul>
+          </div>
+          <FeatureMotion scene="devices" />
         </section>
 
-        {page.sections.map((section) => (
-          <Reveal key={section.heading} className="seo-block">
-            <h2>{section.heading}</h2>
-            {section.body.map((para) => (
-              <p key={para.slice(0, 40)}>{para}</p>
-            ))}
+        {page.sections.map((section, index) => (
+          <Reveal key={section.heading} className="seo-block seo-split">
+            <div>
+              <h2>{section.heading}</h2>
+              <p>{firstSentence(section.body[0] ?? "")}</p>
+            </div>
+            <FeatureMotion scene={sectionScenes[index % sectionScenes.length]} />
           </Reveal>
         ))}
 
-        <section className="seo-block" aria-labelledby="destination-faq-title">
+        <section className="seo-block seo-split" aria-labelledby="destination-faq-title">
+          <div>
           <h2 id="destination-faq-title">FAQ</h2>
           <div className="destination-faq-list">
             {page.faqs.map((faq) => (
@@ -102,9 +125,12 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
               </details>
             ))}
           </div>
+          </div>
+          <FeatureMotion scene="ask" />
         </section>
 
-        <nav className="seo-block seo-related" aria-labelledby="destination-related-title">
+        <nav className="seo-block seo-related seo-split" aria-labelledby="destination-related-title">
+          <div>
           <h2 id="destination-related-title">Related</h2>
           <ul>
             {page.related.map((link) => (
@@ -115,6 +141,8 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
               </li>
             ))}
           </ul>
+          </div>
+          <FeatureMotion scene="spaces" />
         </nav>
       </main>
       <KukuNotesFooter />

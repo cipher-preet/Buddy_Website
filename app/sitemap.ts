@@ -19,7 +19,6 @@ const lastModifiedByPath: Record<string, string> = {
   "/use-cases": "2026-10-16",
   "/ai-note-taker": "2026-10-29",
   "/ai-meeting-recorder": "2026-10-29",
-  "/hindi-speech-to-text": "2026-10-16",
   "/ai-personal-assistant": "2026-10-16",
   "/ai-lecture-notes": "2026-10-16",
   "/about": "2026-10-16",

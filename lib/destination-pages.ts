@@ -260,7 +260,7 @@ export const destinationPages: DestinationPage[] = [
       "AI note taker Android",
       "meeting recorder Android",
       "AI notes app Android",
-      "Hindi voice notes Android",
+      "in-person meeting recorder Android",
       "download KukuNotes",
       "Kuku Notes app",
     ],
@@ -269,7 +269,7 @@ export const destinationPages: DestinationPage[] = [
     h1Accent: "the phone in your pocket.",
     lead: "KukuNotes on Android captures meetings, classes, and everyday conversations when you tap Start Listening—then turns them into notes, tasks, and Spaces. Free to start on Google Play.",
     answer:
-      `KukuNotes is an AI note taker and meeting recorder for Android, available on Google Play. It records only when you opt in, supports English, Hindi, and Hinglish, and extracts action items into Spaces. ${priceCopy.freeHours}.`,
+      `KukuNotes is an AI note taker and meeting recorder for Android, available on Google Play. It records only when you opt in, supports many languages, and extracts action items into Spaces. ${priceCopy.freeHours}.`,
     cta: {
       label: "Get on Google Play",
       href: siteConfig.playStoreUrl,
@@ -279,7 +279,7 @@ export const destinationPages: DestinationPage[] = [
     badge: "Google Play",
     highlights: [
       "Opt-in listening — never always-on",
-      "English, Hindi, and Hinglish",
+      "Many languages",
       "Notes, tasks, Spaces, daily briefing",
       "Free plan to start",
     ],
@@ -304,7 +304,7 @@ export const destinationPages: DestinationPage[] = [
         a: `Yes. ${priceCopy.summary}`,
       },
       {
-        q: "Does KukuNotes work in Hindi?",
+        q: "Does KukuNotes support more than one language?",
         a: languageNote,
       },
       {
@@ -314,7 +314,7 @@ export const destinationPages: DestinationPage[] = [
     ],
     related: [
       { label: "AI note taker", href: "/ai-note-taker" },
-      { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
+      { label: "AI note taker", href: "/ai-note-taker" },
       { label: "Chrome extension", href: "/chrome-extension" },
       { label: "Web app", href: "/platform" },
     ],

@@ -7,13 +7,14 @@ import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
 import { SmoothScroll } from "@/components/home/SmoothScroll";
-import { definitionFacts, definitionLead, languageNote, priceCopy } from "@/lib/product-facts";
+import { ExplainerVideo } from "@/components/seo/ExplainerVideo";
+import { FeatureMotion } from "@/components/seo/FeatureMotion";
+import { languageNote, priceCopy } from "@/lib/product-facts";
 import { siteConfig } from "@/lib/site";
 import {
   pricingPlans,
   comparisonCategories,
   pricingFaqs,
-  ALL_INDIAN_LANGUAGES,
   type BillingCycle,
 } from "@/lib/pricing-data";
 
@@ -29,8 +30,6 @@ import {
 import { FaCrown, FaGooglePlay } from "react-icons/fa6";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { FaqItem } from "@/components/home/FaqItem";
-import { PageStage } from "@/components/seo/PageStage";
-
 // ─── Billing Toggle ───────────────────────────────────────────────────────────
 
 function BillingToggle({ value, onChange }: { value: BillingCycle; onChange: (v: BillingCycle) => void }) {
@@ -67,20 +66,20 @@ export default function PricingPage() {
 
         {/* ── Hero ── */}
         <section className="pricing-hero" aria-labelledby="pricing-title">
-          <Reveal className="pricing-hero-copy">
-            <p className="studio-kicker">Simple, Transparent Pricing</p>
-            <h1 id="pricing-title">
-              Start free.<br />
-              Upgrade when you&apos;re <span className="brand-gradient-text">ready.</span>
-            </h1>
-            <p className="context-kept">
-              {definitionLead} {definitionFacts} {priceCopy.summary}
-            </p>
-          </Reveal>
-          <Reveal className="pricing-hero-toggle" variant="scale" delay={0.06}>
-            <BillingToggle value={billing} onChange={setBilling} />
-          </Reveal>
-          <PageStage variant="pricing" />
+          <div className="pricing-hero-copy">
+            <Reveal>
+              <p className="studio-kicker">Simple, Transparent Pricing</p>
+              <h1 id="pricing-title">
+                Start free.<br />
+                Upgrade when you&apos;re <span className="brand-gradient-text">ready.</span>
+              </h1>
+              <p className="context-kept">{priceCopy.freeHours}.</p>
+            </Reveal>
+            <Reveal className="pricing-hero-toggle" variant="scale" delay={0.06}>
+              <BillingToggle value={billing} onChange={setBilling} />
+            </Reveal>
+          </div>
+          <ExplainerVideo clip="tasks" />
         </section>
 
         {/* ── Plan Cards Grid ── */}
@@ -202,11 +201,7 @@ export default function PricingPage() {
                   {/* Languages Footer */}
                   <div className="plan-card-footer">
                     <p className="plan-langs-title">Languages</p>
-                    <div className="plan-langs-wrap">
-                      {plan.languages.map((language) => (
-                        <span key={language} className="plan-lang-chip">{language}</span>
-                      ))}
-                    </div>
+                    <p>Many languages on every plan.</p>
                   </div>
                 </Reveal>
               );
@@ -234,9 +229,9 @@ export default function PricingPage() {
         <section className="pricing-language-section" aria-labelledby="pricing-lang-title">
           <Reveal className="pricing-language-card">
             <div className="pricing-language-copy">
-              <p className="studio-kicker">Regional AI Intelligence</p>
+              <p className="studio-kicker">Languages</p>
               <h2 id="pricing-lang-title">
-                11 Indian languages,<br />
+                Many languages,<br />
                 one seamless memory.
               </h2>
               <p className="studio-section-lead">{languageNote}</p>
@@ -251,13 +246,7 @@ export default function PricingPage() {
                 <HiArrowUpRight className="pricing-btn-arrow" />
               </a>
             </div>
-            <div className="pricing-language-visual" aria-hidden="true">
-              <div className="pricing-lang-grid">
-                {ALL_INDIAN_LANGUAGES.map((lang) => (
-                  <span key={lang} className="pricing-lang-pill">{lang}</span>
-                ))}
-              </div>
-            </div>
+            <FeatureMotion scene="languages" />
           </Reveal>
         </section>
 

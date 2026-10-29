@@ -9,7 +9,8 @@ import { aboutJsonLd } from "@/lib/json-ld";
 import { languageNote, priceCopy } from "@/lib/product-facts";
 import { pageAlternates, socialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
-import { PageStage } from "@/components/seo/PageStage";
+import { ExplainerVideo } from "@/components/seo/ExplainerVideo";
+import { FeatureMotion } from "@/components/seo/FeatureMotion";
 
 const title = "About KukuNotes, the AI Note Taker";
 const description =
@@ -88,24 +89,24 @@ export default function AboutPage() {
               KukuNotes helps you keep <span className="brand-gradient-text">the day you actually lived.</span>
             </h1>
             <p className="studio-section-lead">
-              Important things get said in meetings, classes, and calls, and then forgotten.
-              KukuNotes exists so the useful parts of those conversations become notes, tasks,
-              and plans you can trust.
+              Meetings and classes become notes, tasks, and plans you can trust.
             </p>
           </div>
-          <PageStage variant="about" />
+          <ExplainerVideo clip="notes" />
         </section>
 
-        <section className="seo-answer" aria-label="Quick answer">
-          <p className="seo-answer-label">In one sentence</p>
-          <p>
-            KukuNotes is a private AI note taker and meeting recorder for Android, Windows,
-            Chrome, and web. It turns English, Hindi, and Hinglish conversations into summaries,
-            action items, and a daily briefing, without sending a bot into your meetings.
-          </p>
+        <section className="seo-answer seo-split" aria-label="Quick answer">
+          <div>
+            <p className="seo-answer-label">In one sentence</p>
+            <p>
+              KukuNotes is a private AI note taker and meeting recorder for Android, Windows, Chrome, and web.
+            </p>
+          </div>
+          <FeatureMotion scene="shield" />
         </section>
 
-        <section className="seo-block" aria-labelledby="about-facts-title">
+        <section className="seo-block seo-split" aria-labelledby="about-facts-title">
+          <div>
           <h2 id="about-facts-title">KukuNotes at a glance</h2>
           <dl className="seo-facts">
             {facts.map((fact) => (
@@ -115,19 +116,25 @@ export default function AboutPage() {
               </div>
             ))}
           </dl>
+          </div>
+          <FeatureMotion scene="devices" />
         </section>
 
-        <section className="seo-block" aria-labelledby="about-principles-title">
+        <section className="seo-block seo-split" aria-labelledby="about-principles-title">
+          <div>
           <h2 id="about-principles-title">What we believe</h2>
           <ul className="seo-bullets">
             <li>Recording should always be your choice, so listening is strictly opt-in.</li>
             <li>A summary is only useful if you can check it, so every highlight links to its evidence.</li>
             <li>Notes belong in context, so everything lives in a Space.</li>
-            <li>Indian conversations mix languages, so Hindi and Hinglish are first-class.</li>
+            <li>It supports many languages on every plan.</li>
           </ul>
+          </div>
+          <FeatureMotion scene="languages" />
         </section>
 
-        <section className="seo-block" aria-labelledby="about-faq-title">
+        <section className="seo-block seo-split" aria-labelledby="about-faq-title">
+          <div>
           <h2 id="about-faq-title">Common questions about KukuNotes</h2>
           <div className="studio-faq-list">
             {aboutFaqs.map((faq, index) => (
@@ -140,9 +147,12 @@ export default function AboutPage() {
               </details>
             ))}
           </div>
+          </div>
+          <FeatureMotion scene="ask" />
         </section>
 
-        <nav className="seo-block seo-related" aria-labelledby="about-related-title">
+        <nav className="seo-block seo-related seo-split" aria-labelledby="about-related-title">
+          <div>
           <h2 id="about-related-title">Explore KukuNotes</h2>
           <ul>
             <li><Link href="/ai-note-taker">AI note taker <span aria-hidden="true">-&gt;</span></Link></li>
@@ -150,8 +160,10 @@ export default function AboutPage() {
             <li><Link href="/android">Android app <span aria-hidden="true">-&gt;</span></Link></li>
             <li><Link href="/chrome-extension">Chrome extension <span aria-hidden="true">-&gt;</span></Link></li>
             <li><Link href="/platform">Web app <span aria-hidden="true">-&gt;</span></Link></li>
-            <li><Link href="/hindi-speech-to-text">Hindi speech to text <span aria-hidden="true">-&gt;</span></Link></li>
+            <li><Link href="/pricing">Pricing <span aria-hidden="true">-&gt;</span></Link></li>
           </ul>
+          </div>
+          <FeatureMotion scene="spaces" />
         </nav>
       </main>
       <KukuNotesFooter />

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { FeatureMotion } from "@/components/seo/FeatureMotion";
 
 export type LegalSection = {
   id: string;
@@ -27,11 +28,14 @@ export function LegalDocument({
 }: LegalDocumentProps) {
   return (
     <article className="legal-page">
-      <header className="legal-hero">
-        <p className="studio-kicker">{kicker}</p>
-        <h1>{title}</h1>
-        <p className="legal-intro">{intro}</p>
-        <p className="legal-meta">Last updated: {updated}</p>
+      <header className="legal-hero legal-hero-split">
+        <div>
+          <p className="studio-kicker">{kicker}</p>
+          <h1>{title}</h1>
+          <p className="legal-intro">{intro}</p>
+          <p className="legal-meta">Last updated: {updated}</p>
+        </div>
+        <FeatureMotion scene="shield" />
       </header>
 
       <div className="legal-layout">

@@ -45,9 +45,6 @@ export function seoPageMetadata(page: MetaSource, path: string): Metadata {
     en: path,
     "x-default": path,
   };
-  // The Hindi page is one URL with an English article plus a Hindi section.
-  // Point hi at that same URL so it is the hreflang target. There is no
-  // separate Hindi-only URL.
   if (page.localized?.lang) {
     languages[page.localized.lang] = path;
   }

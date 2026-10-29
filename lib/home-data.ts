@@ -1,4 +1,4 @@
-import { brandSplit, captureFact, definitionLead, languageNote, priceCopy } from "./product-facts";
+import { brandSplit, captureFact, definitionLead, priceCopy } from "./product-facts";
 
 export const navItems = [
   { label: "Use cases", href: "/use-cases" },
@@ -15,7 +15,6 @@ export const productSectionLinks = [
 export const solutionLinks = [
   { label: "AI note taker", href: "/ai-note-taker" },
   { label: "AI meeting recorder", href: "/ai-meeting-recorder" },
-  { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
   { label: "Personal AI assistant", href: "/ai-personal-assistant" },
   { label: "AI lecture notes", href: "/ai-lecture-notes" },
 ];
@@ -187,8 +186,8 @@ export const faqItems = [
     a: captureFact,
   },
   {
-    q: "Can KukuNotes transcribe Hindi, English, and other Indian languages?",
-    a: `Yes. ${languageNote}`,
+    q: "Which languages can KukuNotes transcribe?",
+    a: "KukuNotes supports many languages on every plan.",
   },
   {
     q: "How is KukuNotes different from tools like Otter.ai, Fireflies, or Granola?",

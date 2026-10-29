@@ -4,45 +4,45 @@ import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
 import { faqItems, useCaseItems } from "@/lib/home-data";
-import { definitionLead, formatInr, planFacts, supportedLanguages } from "@/lib/product-facts";
+import { formatInr, planFacts } from "@/lib/product-facts";
 import { FaqItem } from "./FaqItem";
-import { HeroStory } from "./HeroStory";
+import { ExplainerVideo } from "@/components/seo/ExplainerVideo";
+import { FeatureMotion, type MotionScene } from "@/components/seo/FeatureMotion";
 import { useLiteMode } from "./useLiteMode";
 
 const features = [
   {
     title: "Record from the device already in the room",
     body: "Android, Windows, or Chrome. You tap Start Listening. Nothing new joins Zoom, Meet, or Teams.",
-    art: "record",
+    scene: "capture" as MotionScene,
   },
   {
     title: "Read it in the language people used",
-    body: "Hindi, English, and Hinglish can share one transcript. You stay in the conversation.",
-    art: "lines",
+    body: "Words land as people talk. You stay in the conversation.",
+    scene: "notes" as MotionScene,
   },
   {
     title: "Leave with work, not a recording",
-    body: "A summary, tasks, a reminder, and a calendar item. The Android app does not record phone or dialer calls.",
-    art: "tasks",
+    body: "A summary, tasks, and a reminder. The Android app does not record phone or dialer calls.",
+    scene: "tasks" as MotionScene,
   },
   {
     title: "Keep each project in its own Space",
-    body: "A client, a class, or a product thread. Notes and tasks stay put. Sharing is a choice.",
-    art: "spaces",
+    body: "A client, a class, or a product thread. Notes and tasks stay put.",
+    scene: "spaces" as MotionScene,
   },
 ];
 
-const platforms = [
-  { name: "Android", href: "/android", body: "Google Play. In-person meetings and classes, when you tap Start Listening." },
-  { name: "Windows", href: "/windows", body: "Microsoft Store. Record on the desktop without a bot in the call." },
-  { name: "Chrome", href: "/chrome-extension", body: "The meeting recorder for the browser tab you already have open." },
-  { name: "Web", href: "/platform", body: "Review Spaces, notes, tasks, and Ask KukuNotes in the browser." },
+const platforms: { name: string; href: string; body: string; scene: MotionScene }[] = [
+  { name: "Android", href: "/android", body: "Google Play. In-person talks, when you tap Start Listening.", scene: "capture" },
+  { name: "Windows", href: "/windows", body: "Microsoft Store. Record on the desktop. No bot joins.", scene: "devices" },
+  { name: "Chrome", href: "/chrome-extension", body: "The recorder for the browser tab you already have open.", scene: "notes" },
+  { name: "Web", href: "/platform", body: "Review Spaces, notes, tasks, and Ask KukuNotes.", scene: "ask" },
 ];
 
 const related = [
   { label: "AI meeting recorder", href: "/ai-meeting-recorder" },
   { label: "AI note taker", href: "/ai-note-taker" },
-  { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
   { label: "Lecture notes", href: "/ai-lecture-notes" },
   { label: "Personal assistant", href: "/ai-personal-assistant" },
   { label: "Use cases", href: "/use-cases" },
@@ -85,17 +85,17 @@ export function KukuNotesLanding() {
           </h1>
           <p className="hero-kicker">Meeting notes, without a bot in the room.</p>
           <p className="studio-hero-lead">
-            Record the meeting on your device. {definitionLead}
+            Record on your device. Tap Start Listening. No bot joins the call.
           </p>
           <div className="studio-hero-actions">
             <Link className="studio-btn studio-btn-accent" href="/get-kukunotes">Get KukuNotes free</Link>
             <a className="studio-btn studio-btn-ghost" href="#product">See it work</a>
           </div>
           <p className="hero-fact">
-            Private and opt-in. Hindi, English, and Hinglish. The Android app does not record phone or dialer calls.
+            Private and opt-in. Many languages. The Android app does not record phone or dialer calls.
           </p>
         </div>
-        <HeroStory />
+        <ExplainerVideo />
       </section>
 
       <section className="logo-band" aria-label="Platforms and languages">
@@ -104,31 +104,30 @@ export function KukuNotesLanding() {
           <li>Windows</li>
           <li>Chrome</li>
           <li>Web</li>
-          <li>Hindi</li>
-          <li>English</li>
-          <li>Hinglish</li>
+          <li>Many languages</li>
           <li>Opt-in</li>
           <li>No bot</li>
         </ul>
       </section>
 
       <section className="promise" id="listen">
-        <Rise>
-          <h2>Before the meeting. During it. After it.</h2>
-          <p>
-            Start listening on your own device. Read the transcript while people talk. Leave with a summary, tasks, and a reminder.
-          </p>
-          <a className="studio-btn studio-btn-ghost" href="#product">Watch the flow</a>
-        </Rise>
+        <div className="promise-grid">
+          <Rise>
+            <h2>Before the meeting. During it. After it.</h2>
+            <p>Start listening on your own device. Leave with a summary, tasks, and a reminder.</p>
+            <a className="studio-btn studio-btn-ghost" href="#product">Watch the flow</a>
+          </Rise>
+          <ExplainerVideo clip="tasks" />
+        </div>
       </section>
 
       <section className="feature-grid" id="product" aria-labelledby="feature-title">
         <h2 id="feature-title" className="sr-only">What happens to the meeting</h2>
         {features.map((feature) => (
-          <article key={feature.title} className={`feat feat-${feature.art}`}>
+          <article key={feature.title} className={`feat feat-${feature.scene}`}>
             <h3>{feature.title}</h3>
             <p>{feature.body}</p>
-            <div className={`feat-art feat-art-${feature.art}`} aria-hidden="true" />
+            <FeatureMotion scene={feature.scene} />
           </article>
         ))}
         <div className="feature-cta">
@@ -171,15 +170,12 @@ export function KukuNotesLanding() {
           <article className="bento-dark">
             <h3>No bot in the call</h3>
             <p>KukuNotes never joins Zoom, Google Meet, or Teams. Recording stays on your device.</p>
+            <FeatureMotion scene="shield" compact />
           </article>
           <article className="bento-light">
-            <h3>11 languages, every plan</h3>
-            <ul>
-              {supportedLanguages.map((language) => (
-                <li key={language.code}>{language.en}</li>
-              ))}
-              <li>Hinglish</li>
-            </ul>
+            <h3>Many languages</h3>
+            <p>Every plan can transcribe more than one language.</p>
+            <FeatureMotion scene="languages" compact />
           </article>
           <article className="bento-grad">
             <p className="bento-stat">{free.meetingRecording}</p>
@@ -189,6 +185,7 @@ export function KukuNotesLanding() {
           <article className="bento-dark">
             <h3>Not a phone-call recorder</h3>
             <p>The Android app does not record phone or dialer calls. It records meetings and in-person conversations when you ask.</p>
+            <FeatureMotion scene="capture" compact />
           </article>
         </div>
       </section>
@@ -201,6 +198,7 @@ export function KukuNotesLanding() {
             <Link key={item.name} href={item.href} className="platform-card">
               <strong>{item.name}</strong>
               <span>{item.body}</span>
+              <FeatureMotion scene={item.scene} compact />
             </Link>
           ))}
         </div>
@@ -208,7 +206,7 @@ export function KukuNotesLanding() {
 
       <section className="price-band" aria-labelledby="price-title">
         <h2 id="price-title">Free for the first hours. Clear prices after that.</h2>
-        <p>Every plan includes the same languages. Prices are in rupees.</p>
+        <p>Every plan includes the same languages. Prices are shown in INR.</p>
         <div className="price-row">
           <article>
             <h3>Free</h3>
@@ -246,11 +244,16 @@ export function KukuNotesLanding() {
       </section>
 
       <section className="studio-faq faq-band" id="faq" aria-labelledby="faq-title">
-        <h2 id="faq-title">Questions, answered plainly.</h2>
-        <div className="studio-faq-list">
-          {faqItems.map((item, index) => (
-            <FaqItem key={item.q} q={item.q} a={item.a} defaultOpen={index === 0} />
-          ))}
+        <div className="faq-grid">
+          <div>
+            <h2 id="faq-title">Questions, answered plainly.</h2>
+            <div className="studio-faq-list">
+              {faqItems.map((item, index) => (
+                <FaqItem key={item.q} q={item.q} a={item.a} defaultOpen={index === 0} />
+              ))}
+            </div>
+          </div>
+          <FeatureMotion scene="ask" />
         </div>
       </section>
 

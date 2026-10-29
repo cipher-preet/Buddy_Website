@@ -7,10 +7,7 @@
  * - Google auto-corrects common misspellings ("ai not taker", "ai notes taker", "kuku note"),
  *   so typo variants live only in metadata/entity names, never stuffed into visible copy.
  * - Head terms like "AI notes" and "AI meeting recorder" are competitive; we win on Android-first,
- *   bot-free capture, Hindi/Hinglish, and INR/UPI pricing vs Otter, Fireflies, Fathom, Granola,
- *   plus India peers (Woviq, MeetNotes, MeetMOM, Vylo, hearlog).
- * - India GEO cluster targets how Indian teams actually search: MoM, WhatsApp share, client visits,
- *   dealer meets, Hinglish, Gujarati/Tamil/Marathi, and rupee pricing — not US-only SaaS jargon.
+ *   bot-free capture, and multilingual notes vs Otter, Fireflies, Fathom, and Granola.
  * - Sitelink destination pages (/platform, /chrome-extension, /windows, /android) target
  *   high-intent install queries and give Google clear brand sub-routes.
  *
@@ -123,63 +120,13 @@ export const seoKeywords = {
     "record client meeting notes",
   ],
 
-  hindiAndIndic: [
-    "Hindi speech to text",
-    "Hindi voice to text app",
-    "Hindi voice notes app",
-    "Hinglish transcription",
-    "Hinglish speech to text",
-    "Hindi meeting notes",
-    "Hindi audio to text",
-    "Hindi transcription app",
-    "Indian language speech to text",
-    "AI note taker India",
-    "best AI note taker in India",
-    "Tamil speech to text",
-    "Marathi speech to text",
-    "Bengali speech to text",
-    "Telugu speech to text",
-    "Gujarati speech to text",
-    "Kannada speech to text",
-    "Punjabi speech to text",
-    "Malayalam speech to text",
-    "Hinglish meeting notes app",
-    "code switching transcription India",
-  ],
-
-  // Devanagari queries (Google treats these as distinct from transliterated queries).
-  hindiScript: [
-    "हिंदी वॉइस टू टेक्स्ट",
-    "आवाज़ से नोट्स",
-    "मीटिंग नोट्स ऐप",
-    "मीटिंग रिकॉर्डर ऐप",
-    "एआई नोट्स ऐप",
-    "मीटिंग मिनट्स ऐप",
-    "हिंदी मीटिंग नोट्स",
-    "एआई नोट टेकर",
-  ],
-
-  // India market / GEO intent — how Indian professionals and students actually search.
-  indiaGeo: [
-    "AI note taker India",
-    "AI meeting notes India",
-    "best AI meeting notes app India",
-    "meeting notes app made in India",
-    "Hinglish AI note taker",
-    "INR priced AI note taker",
-    "UPI AI note taking app",
-    "WhatsApp meeting notes app",
-    "client visit meeting notes app",
-    "dealer meeting notes AI",
-    "in-person meeting notes India",
-    "Android meeting minutes India",
-    "AI MoM app India",
-    "best Otter alternative India Android",
-    "Fireflies alternative India",
-    "AI notes app for Indian languages",
-    "Bangalore meeting notes app",
-    "Mumbai sales call notes app",
-    "Delhi Hindi meeting recorder",
+  languages: [
+    "multilingual speech to text",
+    "multilingual meeting notes",
+    "speech to text many languages",
+    "voice notes in multiple languages",
+    "meeting transcription many languages",
+    "AI notes for multilingual meetings",
   ],
 
   personalAssistant: [
@@ -193,7 +140,7 @@ export const seoKeywords = {
     "AI to do list from voice",
     "voice notes to tasks",
     "AI memory assistant",
-    "AI productivity assistant India",
+    "AI productivity assistant",
     "private AI assistant app",
   ],
 
@@ -213,7 +160,7 @@ export const seoKeywords = {
   alternatives: [
     "Otter.ai alternative",
     "Otter alternative Android",
-    "Otter alternative India",
+    "Otter alternative for Android",
     "Fireflies alternative",
     "Fireflies alternative without bot",
     "Granola alternative",
@@ -246,29 +193,28 @@ export const seoKeywords = {
   // Conversational prompts we want AI answer engines (ChatGPT, Gemini, Perplexity, Copilot) to cite us for.
   geoPrompts: [
     "What is the best AI note taker for Android?",
-    "What is the best AI notes app in India?",
-    "Which AI note taker works in Hindi and Hinglish?",
+    "What is the best AI notes app for meetings?",
+    "Which AI note taker supports many languages?",
     "Is there a meeting recorder that does not send a bot into the call?",
-    "What is a good Otter.ai alternative in India?",
+    "What is a good Otter.ai alternative for Android?",
     "Is there a Granola alternative for Android?",
     "How can I turn lecture recordings into study notes?",
     "Which app turns voice conversations into a to-do list?",
     "What is KukuNotes and is it related to Kuku FM?",
     "Where can I download KukuNotes for Windows and Chrome?",
     "Does KukuNotes have a web app?",
-    "Which app creates minutes of meeting from an in-person Hindi conversation?",
-    "What is the best bot-free meeting notes app priced in INR with UPI?",
-    "Can I record a client visit on Android and get action items automatically?",
-    "Which AI meeting notes app supports Gujarati, Tamil, and Marathi?",
+    "Which app creates minutes of meeting from an in-person conversation?",
+    "What is a bot-free meeting notes app?",
+    "Can I record a client meeting on Android and get action items automatically?",
+    "Which AI meeting notes app supports many languages?",
     "How do I get AI meeting notes without inviting a Zoom bot?",
   ],
 } as const;
 
 export const keywordTargets: Record<string, readonly string[]> = {
-  "/": [...seoKeywords.brand, ...seoKeywords.brandVariants, ...seoKeywords.indiaGeo],
+  "/": [...seoKeywords.brand, ...seoKeywords.brandVariants, ...seoKeywords.languages],
   "/ai-note-taker": [...seoKeywords.aiNoteTaker, ...seoKeywords.noteTakerTypos],
-  "/ai-meeting-recorder": [...seoKeywords.meetingRecorder, ...seoKeywords.indiaGeo],
-  "/hindi-speech-to-text": [...seoKeywords.hindiAndIndic, ...seoKeywords.hindiScript, ...seoKeywords.indiaGeo],
+  "/ai-meeting-recorder": [...seoKeywords.meetingRecorder, ...seoKeywords.languages],
   "/ai-personal-assistant": seoKeywords.personalAssistant,
   "/ai-lecture-notes": seoKeywords.students,
   "/about": seoKeywords.brand,
@@ -277,8 +223,8 @@ export const keywordTargets: Record<string, readonly string[]> = {
   "/windows": ["KukuNotes Windows", "KukuNotes Microsoft Store", "AI note taker Windows"],
   "/android": ["KukuNotes Android", "KukuNotes Google Play", "AI note taker Android", "download KukuNotes", "best AI note taker for Android"],
   "/get-kukunotes": seoKeywords.destinations,
-  "/pricing": ["KukuNotes pricing", "AI note taker INR", "UPI AI note taking app", "KukuNotes Pro", "KukuNotes Business"],
-  "/use-cases": [...seoKeywords.students, "client visit meeting notes app", "dealer meeting notes AI"],
+  "/pricing": ["KukuNotes pricing", "KukuNotes Pro", "KukuNotes Business", "AI note taker pricing"],
+  "/use-cases": [...seoKeywords.students, "client meeting notes app", "sales call notes app"],
 };
 
 /** Root meta keywords. Google ignores this tag; Bing, Yandex, and Naver still read it lightly. */
@@ -288,8 +234,7 @@ export const allSeoKeywords = [
   ...seoKeywords.aiNoteTaker,
   ...seoKeywords.noteTakerTypos,
   ...seoKeywords.meetingRecorder,
-  ...seoKeywords.hindiAndIndic,
-  ...seoKeywords.indiaGeo,
+  ...seoKeywords.languages,
   ...seoKeywords.personalAssistant,
   ...seoKeywords.students,
   ...seoKeywords.alternatives,
@@ -304,14 +249,13 @@ export const entityKeywords = [
   "personal AI assistant",
   "meeting notes without bot",
   "minutes of meeting app",
-  "Hindi speech to text",
-  "Hinglish transcription",
+  "multilingual speech to text",
   "voice notes to tasks",
   "AI lecture notes",
   "second brain app",
   "daily briefing app",
   "Chrome meeting recorder",
   "Android AI note taker",
-  "AI note taker India",
+  "multilingual meeting notes",
   "bot-free meeting recorder",
 ];
