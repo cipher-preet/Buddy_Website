@@ -89,7 +89,7 @@ export default function UseCasesPage() {
       <SmoothScroll />
       <ScrollProgress />
       <Navbar />
-      <main className="studio use-cases-page">
+      <main className="studio use-cases-page" id="main-content">
         {/* ── Hero ── */}
         <section className="use-cases-hero" aria-labelledby="use-cases-title">
           <Reveal className="use-cases-hero-copy">

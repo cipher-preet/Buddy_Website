@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Sora, Source_Sans_3 } from "next/font/google";
+import { Schibsted_Grotesk, Source_Sans_3 } from "next/font/google";
 import Script from "next/script";
 import { ScrollToTop } from "@/components/home/ScrollToTop";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
+import "./marketing.css";
 
-const sora = Sora({
+const display = Schibsted_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
@@ -145,10 +146,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang={siteConfig.language}
-      className={`${sora.variable} ${sourceSans.variable} min-h-full antialiased`}
+      className={`${display.variable} ${sourceSans.variable} min-h-full antialiased`}
       data-scroll-behavior="smooth"
     >
-      <body className="min-h-full">
+      <body className="kn min-h-full">
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
         <Script id="lite-mode" strategy="beforeInteractive">
           {`(function(){try{var c=navigator.connection||navigator.mozConnection||navigator.webkitConnection;var slow=c&&(c.saveData||c.effectiveType==="slow-2g"||c.effectiveType==="2g"||c.effectiveType==="3g");var mem=navigator.deviceMemory;var cores=navigator.hardwareConcurrency;var coarse=window.matchMedia("(pointer: coarse)").matches;var lowMem=typeof mem==="number"&&mem>0&&mem<=4;var lowCpu=coarse&&typeof cores==="number"&&cores>0&&cores<=4;var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;if(slow||lowMem||lowCpu||reduce)document.documentElement.classList.add("lite");}catch(e){}})();`}
         </Script>

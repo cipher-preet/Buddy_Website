@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { appDestinationLinks, solutionLinks } from "@/lib/home-data";
-import { siteConfig } from "@/lib/site";
 
 export function KukuNotesFooter() {
   return (
@@ -18,16 +17,13 @@ export function KukuNotesFooter() {
                 Kuku<span className="brand-word-accent">Notes</span>
               </strong>
             </Link>
-            <h2>Keep the day you actually lived.</h2>
-            <p>One place for conversations, plans, and the next useful step.</p>
-            <a
-              className="footer-cta"
-              href={siteConfig.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <h2>Record the meeting. Keep the notes.</h2>
+            <p>
+              A private AI meeting recorder for Android, Windows, Chrome, and the web. No bot joins the call.
+            </p>
+            <Link className="footer-cta" href="/get-kukunotes">
               Get KukuNotes
-            </a>
+            </Link>
           </div>
 
           <nav className="footer-columns" aria-label="Footer">

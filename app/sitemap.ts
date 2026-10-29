@@ -9,16 +9,16 @@ import { siteConfig } from "@/lib/site";
  * Legal pages were last edited 2026-10-01. Product pages below were edited on the dates shown.
  */
 const lastModifiedByPath: Record<string, string> = {
-  "/": "2026-10-16",
+  "/": "2026-10-29",
   "/pricing": "2026-10-16",
   "/get-kukunotes": "2026-10-16",
   "/platform": "2026-10-16",
   "/chrome-extension": "2026-10-16",
   "/windows": "2026-10-16",
-  "/android": "2026-10-16",
+  "/android": "2026-10-29",
   "/use-cases": "2026-10-16",
-  "/ai-note-taker": "2026-10-16",
-  "/ai-meeting-recorder": "2026-10-16",
+  "/ai-note-taker": "2026-10-29",
+  "/ai-meeting-recorder": "2026-10-29",
   "/hindi-speech-to-text": "2026-10-16",
   "/ai-personal-assistant": "2026-10-16",
   "/ai-lecture-notes": "2026-10-16",

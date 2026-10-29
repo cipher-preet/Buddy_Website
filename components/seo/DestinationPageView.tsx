@@ -31,7 +31,7 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
       <SmoothScroll />
       <ScrollProgress />
       <Navbar />
-      <main className="studio seo-page destination-page">
+      <main className="studio seo-page destination-page" id="main-content">
         <nav className="seo-breadcrumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           <span aria-hidden="true">/</span>

@@ -285,10 +285,10 @@ export const destinationPages: DestinationPage[] = [
     ],
     sections: [
       {
-        heading: "Built for in-person and phone-first talk",
+        heading: "Built for in-person conversations",
         body: [
           "Most AI notetakers assume every meeting is on Zoom. KukuNotes is built for the conversations that happen in rooms, corridors, coaching classes, and client visits—the ones your laptop never hears.",
-          "Tap Start Listening, finish the conversation, and leave with a summary, decisions, and tasks filed in the right Space.",
+          "Tap Start Listening, finish the conversation, and leave with a summary, decisions, and tasks filed in the right Space. The Android app does not record phone or dialer calls.",
         ],
       },
       {

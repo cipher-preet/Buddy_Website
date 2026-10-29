@@ -8,13 +8,13 @@
   --white: #ffffff;
   --card-bg: #ffffff;
 
-  --primary: #4338ca;
-  --primary-dark: #3730a3;
-  --primary-purple: #8b5cf6;
-  --primary-purple-dark: #6d28d9;
-  --primary-light: #eef2ff;
-  --primary-soft: #f5f3ff;
-  --primary-mid: #7c3aed;
+  --primary: #0b5fff;
+  --primary-dark: #0847c7;
+  --primary-purple: #0b5fff;
+  --primary-purple-dark: #0847c7;
+  --primary-light: #e8f0ff;
+  --primary-soft: #f4f7fb;
+  --primary-mid: #0b5fff;
   --accent-cyan: #15c7e8;
   --tab-inactive: #7e8795;
 
@@ -65,10 +65,7 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  background:
-    radial-gradient(ellipse 60% 40% at 0% 0%, rgba(139, 92, 246, 0.12), transparent 50%),
-    radial-gradient(ellipse 50% 35% at 100% 0%, rgba(21, 199, 232, 0.1), transparent 45%),
-    linear-gradient(180deg, var(--gradient-start) 0%, var(--gradient-mid) 35%, var(--white) 100%);
+  background: #f7f8fa;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

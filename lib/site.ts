@@ -27,7 +27,7 @@ export const siteConfig = {
   apiUrl: "https://buddy-node-backend-scz7pyp3ha-el.a.run.app",
   keywords: allSeoKeywords,
   alternateNames: ["Kuku Notes", "KukuNotes AI", "KukuNotes App", "KukuNotes AI Note Taker", "KukuNote"],
-  contentUpdated: "2026-10-16",
+  contentUpdated: "2026-10-29",
   /** Bump when brand icons change so Google/Bing drop cached favicons. */
   assetVersion: "20261013",
   platforms: ["Android", "Web", "Windows", "Chrome Extension"],

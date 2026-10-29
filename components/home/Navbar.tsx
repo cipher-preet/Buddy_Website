@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { BrandMark } from "./BrandMark";
 import { HiChevronRight, HiArrowUpRight } from "react-icons/hi2";
-import { FaGooglePlay } from "react-icons/fa6";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -23,19 +22,22 @@ export function Navbar() {
 
   useEffect(() => {
     openRef.current = open;
-    if (open) {
-      hiddenRef.current = false;
-      setHidden(false);
-    }
+    if (!open) return;
+    hiddenRef.current = false;
+    const frame = requestAnimationFrame(() => setHidden(false));
+    return () => cancelAnimationFrame(frame);
   }, [open]);
 
   useEffect(() => {
-    setOpen(false);
-    setHidden(false);
     hiddenRef.current = false;
     travel.current = 0;
-    lastY.current = typeof window !== "undefined" ? window.scrollY : 0;
-    setScrolled(lastY.current > 8);
+    lastY.current = window.scrollY;
+    const frame = requestAnimationFrame(() => {
+      setOpen(false);
+      setHidden(false);
+      setScrolled(window.scrollY > 8);
+    });
+    return () => cancelAnimationFrame(frame);
   }, [pathname]);
 
   useEffect(() => {
@@ -125,10 +127,9 @@ export function Navbar() {
   }, []);
 
   const isRouteActive = (href: string) => {
-    if (!pathname) return false;
+    if (!pathname || href.includes("#")) return false;
     const current = pathname.replace(/\/$/, "") || "/";
-    const target =
-      (href.split("#")[0].split("?")[0] || "/").replace(/\/$/, "") || "/";
+    const target = (href.split("?")[0] || "/").replace(/\/$/, "") || "/";
     return target === "/"
       ? current === "/"
       : current === target || current.startsWith(`${target}/`);
@@ -185,23 +186,20 @@ export function Navbar() {
           >
             Login
           </a>
-          <a
-            className="nav-cta"
-            href={siteConfig.platformUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-          >
-            <span>Start for Free</span>
-            <i aria-hidden="true">↗</i>
-          </a>
+          <Link className="nav-cta" href="/get-kukunotes" onClick={() => setOpen(false)}>
+            <span>Get KukuNotes</span>
+          </Link>
           <button
             type="button"
             className="nav-menu-btn"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="studio-mobile-nav"
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => {
+              hiddenRef.current = false;
+              setHidden(false);
+              setOpen((v) => !v);
+            }}
           >
             <span />
             <span />
@@ -244,28 +242,18 @@ export function Navbar() {
             href={siteConfig.platformUrl}
             onClick={() => setOpen(false)}
           >
-            <span>Login to Web Studio</span>
+            <span>Log in</span>
             <HiArrowUpRight className="nav-drawer-action-arrow" aria-hidden="true" />
           </a>
 
-          <a
-            className="nav-drawer-cta"
-            href={siteConfig.platformUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-          >
-            <span className="nav-drawer-cta-left">
-              <FaGooglePlay className="nav-drawer-play-icon" aria-hidden="true" />
-              <span>Start for Free</span>
-            </span>
-            <span className="nav-drawer-cta-badge">Get App ↗</span>
-          </a>
+          <Link className="nav-drawer-cta" href="/get-kukunotes" onClick={() => setOpen(false)}>
+            Get KukuNotes free
+          </Link>
 
           <div className="nav-drawer-subtext">
-            <span>Free plan on Android</span>
+            <span>Free plan</span>
             <span className="nav-drawer-dot-sep">•</span>
-            <span>No credit card needed</span>
+            <span>2 hours of notes, 10 hours of meetings</span>
           </div>
         </div>
       </div>

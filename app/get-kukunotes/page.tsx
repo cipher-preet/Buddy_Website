@@ -29,7 +29,6 @@ import {
   HiArrowUpRight,
   HiArrowRight,
   HiSparkles,
-  HiDevicePhoneMobile,
   HiGlobeAlt,
 } from "react-icons/hi2";
 import {
@@ -89,7 +88,7 @@ export default function GetKukuNotesPage() {
       <ScrollProgress />
       <Navbar />
 
-      <main className="studio get-kukunotes-page">
+      <main className="studio get-kukunotes-page" id="main-content">
 
         {/* ── Hero ── */}
         <section className="get-kukunotes-hero" aria-labelledby="get-kukunotes-title">

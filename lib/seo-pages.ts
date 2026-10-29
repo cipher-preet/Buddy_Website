@@ -106,7 +106,7 @@ export const topicPages: SeoPage[] = [
       {
         heading: "Built for real conversations, not just video calls",
         body: [
-          "A lot of AI note takers only work when a meeting happens inside Zoom, Google Meet, or Microsoft Teams. Many of the conversations worth remembering happen elsewhere: a lecture, a doctor's appointment, a site visit, a call on speakerphone, a quick chat in the corridor.",
+          "A lot of AI note takers only work when a meeting happens inside Zoom, Google Meet, or Microsoft Teams. Many of the conversations worth remembering happen elsewhere: a lecture, a doctor's appointment, a site visit, a quick chat in the corridor.",
           "Because KukuNotes runs on your Android phone and records only while you have listening on, it works in all of those places, with no meeting bot and no calendar integration required.",
         ],
       },
@@ -191,7 +191,7 @@ export const topicPages: SeoPage[] = [
       {
         heading: "Meetings that happen anywhere",
         body: [
-          "Stand-ups, client visits, board meetings, interviews, sales calls on speaker, and hybrid meetings where half the room is offline. If you can hear it on your phone, KukuNotes can turn it into notes.",
+          "Stand-ups, client visits, board meetings, interviews, and hybrid meetings where half the room is offline. If the room can be heard through the device microphone while Start Listening is on, KukuNotes can turn it into notes. The Android app does not record phone or dialer calls.",
         ],
       },
       {

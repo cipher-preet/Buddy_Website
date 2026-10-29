@@ -32,7 +32,7 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
       <SmoothScroll />
       <ScrollProgress />
       <Navbar />
-      <main className="studio seo-page">
+      <main className="studio seo-page" id="main-content">
         <nav className="seo-breadcrumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           {breadcrumb ? (

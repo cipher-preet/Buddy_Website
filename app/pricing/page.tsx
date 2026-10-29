@@ -62,7 +62,7 @@ export default function PricingPage() {
       <ScrollProgress />
       <Navbar />
 
-      <main className="studio pricing-page">
+      <main className="studio pricing-page" id="main-content">
 
         {/* ── Hero ── */}
         <section className="pricing-hero" aria-labelledby="pricing-title">

@@ -13,7 +13,7 @@ export function NotFoundView() {
   return (
     <div className="site-shell studio-page not-found-shell">
       <Navbar />
-      <main className="not-found-main">
+      <main className="not-found-main" id="main-content">
         <section className="not-found-copy">
           <p className="studio-kicker">404</p>
           <h1>This page didn’t make it into <span className="brand-gradient-text">your notes.</span></h1>

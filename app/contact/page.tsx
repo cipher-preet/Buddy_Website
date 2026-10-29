@@ -58,7 +58,7 @@ export default function ContactPage() {
       <SmoothScroll />
       <ScrollProgress />
       <Navbar />
-      <main className="studio contact-page">
+      <main className="studio contact-page" id="main-content">
         <section className="contact-hero" aria-labelledby="contact-title">
           <Reveal className="contact-hero-copy">
             <p className="studio-kicker">Contact KukuNotes</p>

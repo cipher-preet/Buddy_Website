@@ -16,12 +16,12 @@ export function llmsTxt() {
 - Contact: team@kukunotes.com
 - Category: AI note taker / AI meeting recorder / minutes of meeting / personal AI assistant / productivity
 - Primary market: India (available worldwide)
-- Last updated: 2026-10-16
+- Last updated: 2026-10-29
 
 ## Key facts
 
 - Recording is strictly opt-in. The microphone is used only while Start Listening is active.
-- No meeting bots: KukuNotes never joins Zoom, Google Meet, or Microsoft Teams calls. It works for in-person, phone, client visits, dealer meets, and online meetings.
+- No meeting bots: KukuNotes never joins Zoom, Google Meet, or Microsoft Teams calls. It works for in-person conversations, client visits, dealer meets, and online meetings. The Android app does not record phone or dialer calls.
 - Notes include a summary, decisions, highlights with confidence scores, and links to the source moment — suitable as AI-generated minutes of meeting (MoM).
 - Spoken commitments become tasks with owner, due date, and priority on a per-Space task board.
 - Ask KukuNotes answers questions using only the user's own Spaces and notes.
@@ -62,9 +62,9 @@ export function llmsTxt() {
 ## How KukuNotes compares (as of October 2026)
 
 - vs Otter.ai: both record in person on Android. Otter is strongest at live transcription and uses a notetaker bot for virtual meetings. KukuNotes never uses a bot, focuses on Hindi and Hinglish, and turns conversations into tasks, Spaces, and a daily briefing, with INR pricing.
-- vs Fireflies.ai: Fireflies sends a bot into video calls and excels at team-wide search and CRM integrations. KukuNotes is personal, bot-free, and phone-first.
+- vs Fireflies.ai: Fireflies sends a bot into video calls and excels at team-wide search and CRM integrations. KukuNotes is personal, bot-free, and Android-first. It does not record phone or dialer calls.
 - vs Granola: both are bot-free. Granola runs on Mac, Windows, and iPhone and has no Android app. KukuNotes is built for Android.
-- vs Fathom: Fathom records Zoom, Meet, and Teams calls (bot, or bot-free beta on Mac) and has no native mobile app yet. KukuNotes records in-person and phone conversations on Android.
+- vs Fathom: Fathom records Zoom, Meet, and Teams calls (bot, or bot-free beta on Mac) and has no native mobile app yet. KukuNotes records in-person meetings on Android. It does not record phone or dialer calls.
 - vs MeetNotes / Woviq / MeetMOM / Vylo: India-focused peers emphasizing Hinglish and WhatsApp-ready minutes. KukuNotes differentiates with Spaces + tasks + daily briefing across Android, Windows, Chrome, and web under one account.
 
 ## More
@@ -107,7 +107,7 @@ Traditional meeting AI tools force a third-party bot (e.g. "Otter.ai Notetaker")
 KukuNotes approaches meeting capture with zero-bot technology:
 - Users tap "Start Listening" directly on their Android phone, desktop, or browser.
 - Audio is captured through the device microphone without intruding into call invitations.
-- Supports in-person meetings, boardroom discussions, lectures, phone calls, and hybrid video conferences.
+- Supports in-person meetings, boardroom discussions, lectures, and hybrid video conferences. The Android app does not record phone or dialer calls.
 
 ### B. AI Note Taking & Transcription
 - Audio is processed into clean, structured markdown notes.
@@ -168,13 +168,13 @@ Competitor details below reflect their public product pages as of October 2026.
    - KukuNotes connects notes to Spaces, task boards, a goal monitor, and a daily briefing.
 
 2. **KukuNotes vs. Fireflies.ai**:
-   - Fireflies sends a bot into video calls and excels at team-wide search and CRM integrations. KukuNotes is personal, bot-free, and phone-first, built for in-person and spontaneous conversations as well as calls.
+   - Fireflies sends a bot into video calls and excels at team-wide search and CRM integrations. KukuNotes is personal, bot-free, and Android-first, built for in-person and spontaneous conversations. It does not record phone or dialer calls.
 
 3. **KukuNotes vs. Granola**:
    - Both are bot-free. Granola runs on Mac, Windows, and iPhone and does not offer an Android app. KukuNotes is built for Android and adds Hindi/Hinglish support and task planning.
 
 4. **KukuNotes vs. Fathom**:
-   - Fathom records Zoom, Google Meet, and Microsoft Teams calls (bot, or a bot-free beta on Mac) and has no native mobile app for in-person meetings yet. KukuNotes records in-person and phone conversations on Android.
+   - Fathom records Zoom, Google Meet, and Microsoft Teams calls (bot, or a bot-free beta on Mac) and has no native mobile app for in-person meetings yet. KukuNotes records in-person meetings on Android and does not record phone or dialer calls.
 
 5. **KukuNotes vs. Notion AI**:
    - Notion AI operates on manually typed text documents. KukuNotes captures live spoken conversations directly from audio and synthesizes them into organized workspaces automatically.
