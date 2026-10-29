@@ -1,6 +1,6 @@
 "use client";
 
-import { navItems } from "@/lib/home-data";
+import { appDestinationLinks, navItems, solutionLinks } from "@/lib/home-data";
 import { siteConfig } from "@/lib/site";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,6 +11,7 @@ import { HiChevronRight, HiArrowUpRight } from "react-icons/hi2";
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState<string | null>(null);
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -147,6 +148,7 @@ export function Navbar() {
         />
       )}
       <header
+        onMouseLeave={() => setMenu(null)}
         ref={headerRef}
         className={[
           "site-header",
@@ -161,9 +163,53 @@ export function Navbar() {
           setHidden(false);
         }}
       >
+      {pathname === "/" ? (
+        <div className="announce">
+          <span>Meetings, recorded on your device. No bot joins the call.</span>
+          <Link href="/get-kukunotes">Get it free</Link>
+        </div>
+      ) : null}
       <nav className="nav-shell" aria-label="Primary navigation">
         <BrandMark />
         <div className="nav-links">
+          <div className="nav-menus">
+            <div className="nav-drop">
+              <button
+                type="button"
+                aria-expanded={menu === "product"}
+                onClick={() => setMenu((current) => (current === "product" ? null : "product"))}
+              >
+                Product
+              </button>
+              {menu === "product" ? (
+                <div className="nav-drop-panel">
+                  {solutionLinks.map((item) => (
+                    <Link key={item.href} href={item.href} onClick={() => setMenu(null)}>
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+            <div className="nav-drop">
+              <button
+                type="button"
+                aria-expanded={menu === "platforms"}
+                onClick={() => setMenu((current) => (current === "platforms" ? null : "platforms"))}
+              >
+                Platforms
+              </button>
+              {menu === "platforms" ? (
+                <div className="nav-drop-panel">
+                  {appDestinationLinks.map((item) => (
+                    <Link key={item.href} href={item.href} onClick={() => setMenu(null)}>
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          </div>
           {navItems.map((item) => {
             const active = isRouteActive(item.href);
             return (
@@ -216,7 +262,7 @@ export function Navbar() {
         </div>
 
         <div className="nav-drawer-links" role="list">
-          {navItems.map((item, index) => {
+          {[...solutionLinks, ...appDestinationLinks, ...navItems].map((item, index) => {
             const active = isRouteActive(item.href);
             return (
               <Link

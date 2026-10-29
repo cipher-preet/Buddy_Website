@@ -1,64 +1,78 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { useReducedMotion } from "framer-motion";
-import { RoomScene } from "./scenes";
 import { useLiteMode } from "./useLiteMode";
 
-const phases = ["Listening", "Transcript", "Summary", "Tasks"] as const;
+const lines = [
+  { who: "A", lang: "English", text: "Let’s ship the Hindi summary this week." },
+  { who: "M", lang: "हिंदी", text: "कल नोट्स भेज दूंगा।" },
+  { who: "R", lang: "Hinglish", text: "Pricing page kal bhej dena." },
+];
 
 export function HeroStory() {
   const reduce = useReducedMotion();
   const lite = useLiteMode();
   const calm = Boolean(reduce || lite);
-  const [phase, setPhase] = useState(0);
-  const shown = calm ? 3 : phase;
+  const [step, setStep] = useState(calm ? 4 : 0);
 
   useEffect(() => {
     if (calm) return;
-    const id = window.setInterval(() => {
-      setPhase((current) => (current + 1) % 4);
-    }, 2800);
+    const id = window.setInterval(() => setStep((n) => (n + 1) % 5), 2200);
     return () => window.clearInterval(id);
   }, [calm]);
 
-  const visible = (step: number) => shown >= step;
+  const shown = calm ? 4 : step;
 
   return (
-    <figure className="story">
-      <div className="story-stage">
-        <RoomScene idPrefix="hero" />
-        <div className={`story-stack ${visible(1) ? "is-on" : ""}`}>
-          <p className="bubble bubble-en"><span>English</span>Ship the Hindi summary this week.</p>
-          <p className="bubble bubble-hi"><span>हिंदी</span>कल नोट्स भेज दूंगा।</p>
-          <p className="bubble bubble-mix"><span>Hinglish</span>Pricing page kal bhej dena.</p>
+    <figure className="theater">
+      <div className="theater-stage" aria-hidden="true">
+        <div className="theater-top">
+          <span className="theater-live"><i /> Listening</span>
+          <span>Sample meeting</span>
         </div>
-        <div className={`story-summary ${visible(2) ? "is-on" : ""}`}>
-          <p>Summary</p>
-          <strong>Ship the summary. Send the pricing page tomorrow.</strong>
+        <div className="theater-avatars">
+          <span>A</span>
+          <span>M</span>
+          <span>R</span>
         </div>
-        <ul className={`story-chips ${visible(3) ? "is-on" : ""}`}>
-          <li><span>Task</span>Send pricing page<em>Tomorrow</em></li>
-          <li><span>Reminder</span>Morning follow-up<em>9:00</em></li>
-          <li><span>Calendar</span>Review notes<em>Thu 10:00</em></li>
+        <ul className="theater-lines">
+          {lines.map((line, index) => (
+            <motion.li
+              key={line.lang}
+              initial={false}
+              animate={{ opacity: shown >= index ? 1 : 0, y: shown >= index ? 0 : 8 }}
+              transition={{ duration: calm ? 0 : 0.35 }}
+            >
+              <b>{line.who}</b>
+              <span>
+                <small>{line.lang}</small>
+                {line.text}
+              </span>
+            </motion.li>
+          ))}
         </ul>
+        <motion.div
+          className="theater-summary"
+          initial={false}
+          animate={{ opacity: shown >= 3 ? 1 : 0, y: shown >= 3 ? 0 : 10 }}
+          transition={{ duration: calm ? 0 : 0.35 }}
+        >
+          <small>Summary</small>
+          <strong>Ship the summary. Send the pricing page tomorrow.</strong>
+        </motion.div>
+        <motion.ul
+          className="theater-chips"
+          initial={false}
+          animate={{ opacity: shown >= 4 ? 1 : 0, y: shown >= 4 ? 0 : 10 }}
+          transition={{ duration: calm ? 0 : 0.35 }}
+        >
+          <li>Task · Send pricing page</li>
+          <li>Reminder · 9:00</li>
+          <li>Thu · 10:00</li>
+        </motion.ul>
       </div>
-      <div className="story-controls" role="group" aria-label="Meeting story">
-        {phases.map((label, index) => (
-          <button
-            key={label}
-            type="button"
-            className={shown === index ? "is-on" : ""}
-            aria-pressed={shown === index}
-            onClick={() => setPhase(index)}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-      <figcaption>
-        Illustrated sample. A meeting on the table becomes a transcript, a summary, tasks, a reminder, and a calendar item. Not a customer recording.
-      </figcaption>
+      <figcaption>Illustrated sample of a meeting becoming a transcript, a summary, and follow-ups. Not a customer recording.</figcaption>
     </figure>
   );
 }

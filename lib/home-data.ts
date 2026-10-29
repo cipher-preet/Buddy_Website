@@ -1,8 +1,6 @@
 import { brandSplit, captureFact, definitionLead, languageNote, priceCopy } from "./product-facts";
 
 export const navItems = [
-  { label: "Meeting recorder", href: "/ai-meeting-recorder" },
-  { label: "Product", href: "/#product" },
   { label: "Use cases", href: "/use-cases" },
   { label: "Pricing", href: "/pricing" },
 ];
