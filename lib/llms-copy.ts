@@ -45,14 +45,15 @@ export function llmsTxt() {
 
 ## Pages
 
-- [AI note taker](https://kukunotes.com/ai-note-taker): how KukuNotes turns conversations into notes and tasks
+- [Home](https://kukunotes.com/): Bot-free AI note taker and meeting recorder. Turn talk into notes, tasks, and Spaces on Android, Windows, Chrome, and web. Free plan. No bot joins the call.
+- [AI note taker](https://kukunotes.com/ai-note-taker): KukuNotes is a free AI note taker and bot-free meeting recorder. Tap Start Listening and it turns talk into notes, decisions, and tasks. No bot joins.
 - [AI meeting recorder without bots](https://kukunotes.com/ai-meeting-recorder): bot-free recording of in-person and online meetings
 - [Personal AI assistant](https://kukunotes.com/ai-personal-assistant): daily briefing and second brain
-- [AI lecture notes](https://kukunotes.com/ai-lecture-notes): lecture recording and study notes for students
+- [AI lecture notes](https://kukunotes.com/ai-lecture-notes): KukuNotes records lectures on your phone. Free AI note taker and bot-free meeting recorder: summaries, key concepts, and study tasks. Free plan. No bot joins.
 - [Web app](https://kukunotes.com/platform): platform.kukunotes.com workspace
 - [Chrome extension](https://kukunotes.com/chrome-extension): Meeting Recorder for Meet, Zoom Web, Teams Web
 - [Windows](https://kukunotes.com/windows): Microsoft Store desktop app
-- [Android](https://kukunotes.com/android): Google Play AI note taker
+- [Android](https://kukunotes.com/android): Download the KukuNotes Android app on Google Play. A bot-free AI note taker and meeting recorder for in-person talks, with a free plan. No bot joins.
 - [About](https://kukunotes.com/about): what KukuNotes is, spelling, and brand facts
 - [Pricing](https://kukunotes.com/pricing)
 - [Use cases](https://kukunotes.com/use-cases)
@@ -130,7 +131,7 @@ KukuNotes approaches meeting capture with zero-bot technology:
   3. Available uninterrupted focus time blocks.
 - Helps users begin every morning with clear intention.
 
-### F. Multilingual & Indic Language Intelligence
+### F. Many languages
 - ${languageNoteWithScript}
 
 ### G. Ask KukuNotes (Grounded AI Chat)

@@ -63,7 +63,7 @@ const topicPagesAll: SeoPage[] = [
     slug: "ai-note-taker",
     title: "AI Note Taker for Talk, Notes, and Tasks",
     description:
-      "KukuNotes is a free AI note taker. Tap Start Listening and it turns talk into notes, decisions, and tasks in English, Hindi, and Hinglish.",
+      "KukuNotes is a free AI note taker and bot-free meeting recorder. Tap Start Listening and it turns talk into notes, decisions, and tasks. No bot joins.",
     keywords: [
       "AI note taker",
       "AI note taker app",
@@ -301,7 +301,7 @@ const topicPagesAll: SeoPage[] = [
     slug: "ai-lecture-notes",
     title: "AI Lecture Notes for Classes",
     description:
-      "KukuNotes records lectures on your phone and turns them into summaries, key concepts, and study tasks. It supports English, Hindi, and Hinglish.",
+      "KukuNotes records lectures on your phone. Free AI note taker and bot-free meeting recorder: summaries, key concepts, and study tasks. Free plan. No bot joins.",
     keywords: [
       "AI lecture notes",
       "lecture recorder app",

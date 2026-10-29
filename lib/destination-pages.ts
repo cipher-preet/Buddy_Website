@@ -253,7 +253,7 @@ export const destinationPages: DestinationPage[] = [
     slug: "android",
     title: "Android App on Google Play",
     description:
-      "Download the KukuNotes Android app on Google Play. It records in-person talks in Hindi, English, and Hinglish, with a free plan.",
+      "Download the KukuNotes Android app on Google Play. A bot-free AI note taker and meeting recorder for in-person talks, with a free plan. No bot joins.",
     keywords: [
       "KukuNotes Android",
       "KukuNotes Google Play",

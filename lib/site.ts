@@ -5,10 +5,10 @@ export const siteConfig = {
   shortName: "KukuNotes",
   brandName: "KukuNotes",
   tagline: "Capture. Organize. Grow.",
-  title: "KukuNotes — Bot-free AI Note Taker for Hindi & English",
+  title: "KukuNotes — Bot-free AI Note Taker & Meeting Recorder",
   titleTemplate: "%s | KukuNotes",
   description:
-    "Bot-free AI note taker and meeting recorder for Android. Capture Hindi, English, and Hinglish conversations into notes, tasks, and Spaces.",
+    "Bot-free AI note taker and meeting recorder. Turn talk into notes, tasks, and Spaces on Android, Windows, Chrome, and web. Free plan. No bot joins the call.",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://kukunotes.com").replace(/\/$/, ""),
   locale: "en_US",
   language: "en",
