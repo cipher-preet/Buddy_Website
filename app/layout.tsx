@@ -7,6 +7,7 @@ import "./globals.css";
 import "./marketing.css";
 import "./home.css";
 import "./pages.css";
+import "./layout-system.css";
 
 const display = Schibsted_Grotesk({
   subsets: ["latin"],

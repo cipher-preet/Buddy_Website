@@ -1,0 +1,422 @@
+/* One width for the nav, every page, and the footer. */
+
+body.kn {
+  --kn-max: 1120px;
+  --kn-gutter: 24px;
+  --kn-section: 72px;
+  --kn-gap: 24px;
+  --kn-radius: 24px;
+  --kn-h1: clamp(2.5rem, 4.2vw, 3.5rem);
+}
+
+@media (max-width: 768px) {
+  body.kn {
+    --kn-gutter: 16px;
+    --kn-section: 48px;
+    --kn-gap: 16px;
+  }
+}
+
+body.kn .kn-shell,
+body.kn .home .studio-hero.home-hero,
+body.kn .logo-band,
+body.kn .promise,
+body.kn .feature-grid,
+body.kn .usecases,
+body.kn .bento,
+body.kn .platforms,
+body.kn .faq-band,
+body.kn .seo-page,
+body.kn .pricing-page,
+body.kn .use-cases-page,
+body.kn .contact-page,
+body.kn .get-kukunotes-page,
+body.kn .legal-main,
+body.kn .not-found-main {
+  width: min(var(--kn-max), calc(100% - 2 * var(--kn-gutter)));
+  max-width: var(--kn-max);
+  margin-inline: auto;
+  padding-inline: 0;
+  box-sizing: border-box;
+}
+
+body.kn .site-header,
+body.kn .studio-page .site-header {
+  padding: 0;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+body.kn .announce {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  padding: 8px var(--kn-gutter);
+  text-wrap: balance;
+}
+
+body.kn .nav-shell {
+  gap: 16px;
+  min-height: 68px;
+  padding-inline: 0;
+}
+
+body.kn .nav-links {
+  min-width: 0;
+}
+
+body.kn .price-band,
+body.kn .closer {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  padding-block: var(--kn-section);
+  padding-inline: max(var(--kn-gutter), calc((100% - var(--kn-max)) / 2));
+}
+
+body.kn .studio-page .kukunotes-footer .site-footer-inner {
+  width: min(var(--kn-max), calc(100% - 2 * var(--kn-gutter)));
+  padding-inline: 0;
+}
+
+body.kn .get-kukunotes-hero,
+body.kn .seo-hero,
+body.kn .pricing-hero,
+body.kn .use-cases-hero,
+body.kn .contact-hero,
+body.kn .legal-hero,
+body.kn .seo-split,
+body.kn .pricing-hero-copy {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  text-align: left;
+  min-height: 0;
+}
+
+body.kn .seo-hero,
+body.kn .pricing-hero,
+body.kn .use-cases-hero,
+body.kn .contact-hero,
+body.kn .get-kukunotes-hero,
+body.kn .home .studio-hero.home-hero {
+  align-items: center;
+  gap: var(--kn-gap);
+  padding-top: var(--kn-section);
+  padding-bottom: var(--space-4);
+}
+
+body.kn .get-kukunotes-hero-copy,
+body.kn .get-kukunotes-hero-copy h1,
+body.kn .get-kukunotes-hero-lead,
+body.kn .pricing-hero-copy,
+body.kn .pricing-hero-copy h1,
+body.kn .use-cases-hero,
+body.kn .use-cases-hero h1,
+body.kn .contact-hero,
+body.kn .contact-hero h1 {
+  text-align: left;
+  align-items: flex-start;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+}
+
+body.kn .get-kukunotes-filter-bar {
+  grid-column: 1 / -1;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+body.kn .get-kukunotes-filters {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+body.kn .home .studio-hero,
+body.kn .home .studio-hero-copy,
+body.kn .home .studio-hero h1,
+body.kn .home .studio-hero-lead,
+body.kn .home .hero-kicker,
+body.kn .home .hero-fact,
+body.kn .seo-hero,
+body.kn .seo-hero-copy {
+  margin-inline: 0;
+  text-align: left;
+}
+
+body.kn .home .studio-hero-copy,
+body.kn .seo-hero-copy {
+  width: 100%;
+  max-width: none;
+}
+
+body.kn .home .studio-hero h1,
+body.kn .seo-hero h1,
+body.kn .pricing-hero h1,
+body.kn .use-cases-hero h1,
+body.kn .contact-hero h1,
+body.kn .get-kukunotes-hero h1,
+body.kn .legal-hero h1,
+body.kn .not-found-main h1 {
+  font-size: var(--kn-h1);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  max-width: none;
+}
+
+body.kn .studio-section-lead,
+body.kn .home .studio-hero-lead,
+body.kn .hero-fact,
+body.kn .legal-intro,
+body.kn .context-kept,
+body.kn .get-kukunotes-hero-lead {
+  max-width: 62ch;
+  margin-left: 0;
+  text-wrap: pretty;
+}
+
+body.kn .promise,
+body.kn .usecases,
+body.kn .bento,
+body.kn .platforms,
+body.kn .faq-band {
+  padding-block: var(--kn-section);
+}
+
+body.kn .seo-answer,
+body.kn .seo-block {
+  width: 100%;
+  margin-block: var(--space-6);
+}
+
+body.kn .seo-hero > *,
+body.kn .pricing-hero > *,
+body.kn .use-cases-hero > *,
+body.kn .contact-hero > *,
+body.kn .get-kukunotes-hero > *,
+body.kn .home-hero > *,
+body.kn .promise-grid > *,
+body.kn .faq-grid > *,
+body.kn .seo-split > *,
+body.kn .legal-hero-split > *,
+body.kn .plan-cards-grid > *,
+body.kn .feature-grid > *,
+body.kn .bento-grid > *,
+body.kn .platform-grid > *,
+body.kn .price-row > *,
+body.kn .use-cases-grid > *,
+body.kn .get-kukunotes-grid > *,
+body.kn .contact-options > *,
+body.kn .footer-main > *,
+body.kn .footer-columns > *,
+body.kn .explainer,
+body.kn .motion-card {
+  min-width: 0;
+  max-width: 100%;
+}
+
+body.kn .explainer {
+  margin: 0;
+}
+
+body.kn .explainer-video,
+body.kn .explainer-still {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--kn-radius);
+}
+
+body.kn .explainer-video { display: block; }
+body.kn .explainer-still { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  body.kn .explainer-video { display: none; }
+  body.kn .explainer-still { display: block; }
+}
+
+body.kn .seo-split > .motion-card,
+body.kn .legal-hero-split > .motion-card,
+body.kn .promise-grid > .motion-card,
+body.kn .faq-grid > .motion-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: 3 / 2;
+}
+
+body.kn .plan-cards-grid,
+body.kn .feature-grid,
+body.kn .bento-grid,
+body.kn .platform-grid,
+body.kn .price-row,
+body.kn .use-cases-grid,
+body.kn .get-kukunotes-grid,
+body.kn .contact-options,
+body.kn .seo-steps,
+body.kn .seo-choose {
+  align-items: stretch;
+  gap: var(--kn-gap);
+}
+
+body.kn .plan-card,
+body.kn .feat,
+body.kn .platform-card,
+body.kn .price-row article,
+body.kn .use-case-card,
+body.kn .get-kukunotes-card,
+body.kn .contact-option,
+body.kn .bento-grid > article,
+body.kn .seo-steps li,
+body.kn .seo-choose > div {
+  height: 100%;
+  border-radius: var(--kn-radius);
+}
+
+body.kn .studio-btn,
+body.kn .home .studio-btn,
+body.kn .studio-page .studio-btn {
+  min-height: 48px;
+  padding-inline: 18px;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+body.kn .studio-hero-actions,
+body.kn .home .studio-hero-actions,
+body.kn .seo-hero-actions,
+body.kn .use-cases-hero-actions,
+body.kn .contact-hero-actions {
+  justify-content: flex-start;
+}
+
+@media (max-width: 640px) {
+  body.kn .home .studio-hero-actions,
+  body.kn .seo-hero-actions,
+  body.kn .use-cases-hero-actions,
+  body.kn .contact-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body.kn .home .studio-hero-actions .studio-btn,
+  body.kn .seo-hero-actions .studio-btn {
+    width: 100%;
+  }
+}
+
+body.kn .logo-band ul {
+  justify-content: flex-start;
+  gap: 12px 28px;
+}
+
+body.kn .pricing-compare-section,
+body.kn .pricing-compare-wrap,
+body.kn .get-kukunotes-specs-table-wrap,
+body.kn .seo-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+body.kn .pricing-compare-table,
+body.kn .get-kukunotes-specs-table,
+body.kn .seo-table {
+  width: 100%;
+  min-width: 0;
+}
+
+body.kn .seo-table {
+  table-layout: fixed;
+}
+
+body.kn .seo-table th,
+body.kn .seo-table td,
+body.kn .pricing-compare-feature-name,
+body.kn .pricing-compare-feature-desc,
+body.kn .pricing-compare-val,
+body.kn .specs-col {
+  overflow-wrap: anywhere;
+}
+
+body.kn .pricing-compare-cols,
+body.kn .pricing-compare-row,
+body.kn .specs-table-row {
+  grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 0.8fr));
+}
+
+body.kn .not-found-main {
+  padding-block: var(--kn-section);
+}
+
+body.kn .not-found-copy {
+  max-width: 40rem;
+}
+
+@media (max-width: 1100px) {
+  body.kn .nav-login {
+    display: none;
+  }
+
+  body.kn .nav-links a,
+  body.kn .nav-drop > button {
+    padding-inline: 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body.kn .home .studio-hero.home-hero,
+  body.kn .seo-hero,
+  body.kn .pricing-hero,
+  body.kn .use-cases-hero,
+  body.kn .contact-hero,
+  body.kn .get-kukunotes-hero,
+  body.kn .promise-grid,
+  body.kn .faq-grid,
+  body.kn .legal-hero-split,
+  body.kn .seo-split,
+  body.kn .studio-page .kukunotes-footer .footer-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  body.kn .plan-cards-grid,
+  body.kn .feature-grid,
+  body.kn .bento-grid,
+  body.kn .platform-grid,
+  body.kn .price-row,
+  body.kn .use-cases-grid,
+  body.kn .get-kukunotes-grid,
+  body.kn .contact-options,
+  body.kn .use-cases-map,
+  body.kn .legal-layout,
+  body.kn .seo-related ul,
+  body.kn .related ul {
+    grid-template-columns: 1fr;
+  }
+
+  body.kn .use-cases-map-step + .use-cases-map-step {
+    border-left: 0;
+    border-top: 1px solid var(--kn-line);
+  }
+
+  body.kn .studio-page .kukunotes-footer .footer-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  body.kn .studio-page .kukunotes-footer .footer-columns {
+    grid-template-columns: 1fr;
+  }
+}

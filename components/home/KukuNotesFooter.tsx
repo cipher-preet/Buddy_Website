@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { Shell } from "@/components/layout/Shell";
 import { appDestinationLinks, solutionLinks } from "@/lib/home-data";
 
 export function KukuNotesFooter() {
   return (
     <footer className="site-footer kukunotes-footer">
-      <div className="site-footer-inner">
+      <Shell className="site-footer-inner">
         <div className="footer-main">
           <div className="footer-intro">
             <Link className="site-footer-brand" href="/" aria-label="KukuNotes home">
@@ -65,7 +66,7 @@ export function KukuNotesFooter() {
           <p>© {new Date().getFullYear()} KukuNotes. All rights reserved.</p>
           <p>Capture · Organize · Grow</p>
         </div>
-      </div>
+      </Shell>
     </footer>
   );
 }

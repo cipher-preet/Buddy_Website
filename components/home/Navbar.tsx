@@ -167,7 +167,7 @@ export function Navbar() {
         <span>Meetings, recorded on your device. No bot joins the call.</span>
         <Link href="/get-kukunotes">Get it free</Link>
       </div>
-      <nav className="nav-shell" aria-label="Primary navigation">
+      <nav className="nav-shell kn-shell" aria-label="Primary navigation">
         <BrandMark />
         <div className="nav-links">
           <div className="nav-menus">
