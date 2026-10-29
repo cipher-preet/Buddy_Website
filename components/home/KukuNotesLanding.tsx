@@ -1,5 +1,8 @@
-import Image from "next/image";
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { faqItems } from "@/lib/home-data";
 import {
   definitionFacts,
@@ -8,11 +11,11 @@ import {
   planFacts,
   supportedLanguages,
 } from "@/lib/product-facts";
-import { AppFrame } from "./AppFrame";
 import { FaqItem } from "./FaqItem";
-import { HowItWorks } from "./HowItWorks";
-import { MeetingStage } from "./MeetingStage";
-import { NoBotContrast } from "./NoBotContrast";
+import { FeatureTabs } from "./FeatureTabs";
+import { HeroStory } from "./HeroStory";
+import { NoBotScene, ShieldMark } from "./scenes";
+import { useLiteMode } from "./useLiteMode";
 
 const comparisons = [
   {
@@ -37,12 +40,47 @@ const comparisons = [
   },
 ];
 
+const steps = [
+  {
+    n: "1",
+    title: "Tap Start Listening",
+    body: "Recording begins only when you choose. The microphone is off until then.",
+  },
+  {
+    n: "2",
+    title: "Stay in the conversation",
+    body: "A live transcript builds in Hindi, English, or Hinglish while you talk.",
+  },
+  {
+    n: "3",
+    title: "Leave with the work",
+    body: "Summary, tasks, reminders, and calendar items are waiting in the right Space.",
+  },
+];
+
+function Rise({ children, className }: { children: ReactNode; className?: string }) {
+  const reduce = useReducedMotion();
+  const lite = useLiteMode();
+  const calm = Boolean(reduce || lite);
+  return (
+    <motion.div
+      className={className}
+      initial={calm ? false : { y: 22 }}
+      whileInView={{ y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export function KukuNotesLanding() {
   const { free, pro, business } = planFacts;
 
   return (
     <main className="studio home" id="main-content">
-      <section className="studio-hero" id="top" aria-labelledby="home-title">
+      <section className="studio-hero home-hero" id="top" aria-labelledby="home-title">
         <div className="studio-hero-copy">
           <h1 id="home-title">
             Capture.
@@ -65,9 +103,7 @@ export function KukuNotesLanding() {
               See how it works
             </a>
           </div>
-          <p className="hero-for">
-            For students, founders, and teams who work in Hindi, English, or Hinglish.
-          </p>
+          <p className="hero-for">For students, founders, and teams working in Hindi, English, or Hinglish.</p>
           <p className="hero-platforms">
             <Link href="/android">Android</Link>
             <Link href="/windows">Windows</Link>
@@ -75,253 +111,189 @@ export function KukuNotesLanding() {
             <Link href="/platform">Web</Link>
           </p>
         </div>
-        <MeetingStage />
+        <HeroStory />
       </section>
 
-      <section className="trust" aria-label="What KukuNotes is">
+      <section className="trust-band" aria-label="What you can count on">
         <ul>
           <li>
-            <strong>Opt-in</strong>
-            <span>The mic is on only while you are listening.</span>
+            <ShieldMark className="trust-icon" />
+            <div>
+              <strong>Opt-in</strong>
+              <span>The mic is on only while you are listening.</span>
+            </div>
           </li>
           <li>
-            <strong>No bot</strong>
-            <span>It never joins Zoom, Meet, or Teams.</span>
+            <span className="trust-icon trust-icon-bot" aria-hidden="true" />
+            <div>
+              <strong>No bot in the call</strong>
+              <span>It never joins Zoom, Meet, or Teams.</span>
+            </div>
           </li>
           <li>
-            <strong>11 languages</strong>
-            <span>Hindi, English, Hinglish, and more, on every plan.</span>
+            <span className="trust-icon trust-icon-lang" aria-hidden="true">अ</span>
+            <div>
+              <strong>Every plan, same languages</strong>
+              <span>11 languages, including Hindi and English, plus Hinglish.</span>
+            </div>
           </li>
           <li>
-            <strong>Free to start</strong>
-            <span>
-              {free.notesRecording} of notes, {free.meetingRecording} of meetings.
-            </span>
+            <span className="trust-icon trust-icon-free" aria-hidden="true">₹0</span>
+            <div>
+              <strong>{free.notesRecording} notes · {free.meetingRecording} meetings</strong>
+              <span>Free to start. Upgrade only when you need more hours.</span>
+            </div>
           </li>
         </ul>
       </section>
 
-      <HowItWorks />
-      <NoBotContrast />
-
-      <section className="split band" id="listen" aria-labelledby="listen-title">
-        <div className="split-copy">
-          <h2 id="listen-title">Record the meeting from the device already in the room.</h2>
-          <p>
-            Tap Start Listening on Android, Windows, or Chrome. KukuNotes uses that device’s microphone or tab audio. It does not enter the call, and the Android app does not record phone or dialer calls.
-          </p>
-          <p>
-            Online meetings, rooms, classes, and client visits all work the same way: you start it, you stop it, the notes are yours.
-          </p>
-          <Link className="text-link" href="/ai-meeting-recorder">
-            AI meeting recorder
-          </Link>
-        </div>
-        <AppFrame
-          src="/screenshots/home-listening.jpg"
-          alt="KukuNotes home screen with live listening turned on"
-          size="hero"
-          priority={false}
-        />
+      <section className="how-band" id="how" aria-labelledby="how-title">
+        <Rise>
+          <div className="section-intro">
+            <h2 id="how-title">Three steps. Then the meeting is written down.</h2>
+            <p>KukuNotes stays on your device. You start it, you talk, and the notes are ready when you stop.</p>
+          </div>
+          <ol className="how-row">
+            {steps.map((step) => (
+              <li key={step.n}>
+                <div className={`how-visual how-visual-${step.n}`} aria-hidden="true" />
+                <span>{step.n}</span>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </li>
+            ))}
+          </ol>
+        </Rise>
       </section>
 
-      <section className="split band is-flip" aria-labelledby="notes-title">
-        <div className="split-copy">
-          <h2 id="notes-title">A transcript, then notes and tasks you can check.</h2>
-          <p>
-            After the conversation, KukuNotes writes a summary, the decisions, and the commitments. Each point can be traced back to what was said.
+      <section className="feature-band" id="product" aria-labelledby="product-title">
+        <Rise>
+          <div className="section-intro">
+            <h2 id="product-title">From the words in the room to the work after it.</h2>
+            <p id="listen">Pick a part of the product. Each one is the same meeting, a step further along.</p>
+          </div>
+          <FeatureTabs />
+          <p className="feature-links">
+            <Link href="/ai-meeting-recorder">AI meeting recorder</Link>
+            <Link href="/ai-note-taker">AI note taker</Link>
           </p>
-          <p>
-            Tasks keep an owner, a priority, and a date. Calendar reminders follow the same thread, so the meeting does not die in a doc.
-          </p>
-          <Link className="text-link" href="/ai-note-taker">
-            AI note taker
-          </Link>
-        </div>
-        <figure className="shot">
-          <Image
-            src="/screenshots/tasks-day.jpg"
-            alt="KukuNotes tasks with priority and dates"
-            width={453}
-            height={1024}
-            sizes="(max-width: 800px) 80vw, 320px"
-          />
-        </figure>
+        </Rise>
       </section>
 
-      <section className="split band" id="spaces" aria-labelledby="spaces-title">
-        <div className="split-copy">
-          <h2 id="spaces-title">Spaces keep one project from mixing with the next.</h2>
-          <p>
-            A Space is the home for a client, a class, a meeting series, or a part of life. Notes, tasks, and goals stay inside it.
-          </p>
-          <p>You choose what to share. Everything else stays in that Space.</p>
-        </div>
-        <figure className="shot shot-wide">
-          <Image
-            src="/screenshots/desktop/spaces-workspace.webp"
-            alt="KukuNotes workspace with a space and its tasks"
-            width={1440}
-            height={900}
-            sizes="(max-width: 800px) 100vw, 560px"
-          />
-        </figure>
+      <section className="nobot-band" id="no-bot" aria-labelledby="nobot-title">
+        <Rise>
+          <div className="section-intro">
+            <h2 id="nobot-title">No bot in your Zoom, Meet, or Teams call.</h2>
+            <p>
+              Other tools add a notetaker that sits in the participant list. KukuNotes never does. You record on your own device. The Android app does not record phone or dialer calls.
+            </p>
+          </div>
+          <NoBotScene idPrefix="nobot" className="nobot-svg" />
+          <div className="nobot-captions">
+            <p>A bot joins the room.</p>
+            <p>Same people. Recording stays on your device.</p>
+          </div>
+        </Rise>
       </section>
 
-      <section className="split band is-flip" id="ask" aria-labelledby="ask-title">
-        <div className="split-copy">
-          <h2 id="ask-title">Ask what was decided. Get an answer from your notes.</h2>
-          <p>
-            Ask KukuNotes about a meeting, an open task, or the day ahead. Answers come from your Spaces, not from a generic chat.
-          </p>
-          <p>
-            The daily briefing lines up priorities, your calendar, and time you can actually focus.
-          </p>
-        </div>
-        <figure className="shot shot-wide">
-          <Image
-            src="/screenshots/desktop/ask-chat.webp"
-            alt="Ask KukuNotes answering from a space"
-            width={1440}
-            height={900}
-            sizes="(max-width: 800px) 100vw, 560px"
-          />
-        </figure>
-      </section>
-
-      <section className="product-band band" id="product" aria-labelledby="product-title">
-        <div className="product-band-copy">
-          <h2 id="product-title">The same notes on your phone and on the web.</h2>
-          <p>
-            Android, Windows, the Chrome extension, and the web workspace stay on one account. Open a Space wherever you left it.
-          </p>
-        </div>
-        <div className="product-shots">
-          <figure className="shot">
-            <Image
-              src="/screenshots/notes-library.jpg"
-              alt="KukuNotes notes library grouped by space"
-              width={453}
-              height={1024}
-              sizes="240px"
-            />
-            <figcaption>Notes</figcaption>
-          </figure>
-          <figure className="shot">
-            <Image
-              src="/screenshots/home-spaces.jpg"
-              alt="KukuNotes home with spaces"
-              width={453}
-              height={1024}
-              sizes="240px"
-            />
-            <figcaption>Spaces</figcaption>
-          </figure>
-          <figure className="shot shot-wide">
-            <Image
-              src="/screenshots/desktop/meetings-library.webp"
-              alt="KukuNotes meetings library on a larger screen"
-              width={1440}
-              height={900}
-              sizes="(max-width: 800px) 100vw, 520px"
-            />
-            <figcaption>Meetings</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className="langs band" aria-labelledby="langs-title">
-        <h2 id="langs-title">Hindi, English, and Hinglish. Plus every language on the plan.</h2>
-        <p>{definitionFacts}</p>
-        <ul>
-          {supportedLanguages.map((language) => (
-            <li key={language.code}>
-              {language.en}
-              {"native" in language ? <span>{language.native}</span> : null}
+      <section className="lang-band" aria-labelledby="lang-title">
+        <Rise>
+          <div className="section-intro">
+            <h2 id="lang-title">Built for the way meetings in India actually sound.</h2>
+            <p>{definitionFacts}</p>
+          </div>
+          <ul className="lang-grid">
+            {supportedLanguages.map((language) => (
+              <li key={language.code}>
+                {language.en}
+                {"native" in language ? <span>{language.native}</span> : null}
+              </li>
+            ))}
+            <li>
+              Hinglish
+              <span>Hindi and English together</span>
             </li>
-          ))}
-          <li>
-            Hinglish
-            <span>Hindi and English together</span>
-          </li>
-        </ul>
-        <Link className="text-link" href="/hindi-speech-to-text">
-          Hindi speech to text
-        </Link>
+          </ul>
+          <Link className="text-link" href="/hindi-speech-to-text">
+            Hindi speech to text
+          </Link>
+        </Rise>
       </section>
 
-      <section className="compare band" aria-labelledby="compare-title">
-        <h2 id="compare-title">How it differs from Otter, Fireflies, Granola, and Fathom.</h2>
-        <p className="compare-note">
-          These are KukuNotes’ own notes on public product differences. They are not a scoreboard, and they are not customer reviews.
-        </p>
-        <div className="compare-list">
-          {comparisons.map((item) => (
-            <article key={item.name}>
-              <h3>KukuNotes and {item.name}</h3>
-              <p>{item.body}</p>
-              <Link href={item.href}>Read the meeting recorder</Link>
+      <section className="split-band" id="spaces">
+        <Rise className="split-card">
+          <h2>Spaces keep one project from mixing with the next.</h2>
+          <p>A client, a class, or a product thread gets its own notes, tasks, and goals. Sharing is a choice, not the default.</p>
+        </Rise>
+        <Rise className="split-card" >
+          <h2 id="ask">A briefing before the day runs ahead of you.</h2>
+          <p>Priorities, calendar, and focus time in one morning view. Ask what was decided, and the answer comes from your Spaces.</p>
+        </Rise>
+      </section>
+
+      <section className="compare-band" aria-labelledby="compare-title">
+        <Rise>
+          <div className="section-intro">
+            <h2 id="compare-title">How it differs from Otter, Fireflies, Granola, and Fathom.</h2>
+            <p>These are KukuNotes’ own notes on public product differences. They are not a scoreboard or customer reviews.</p>
+          </div>
+          <div className="compare-grid">
+            {comparisons.map((item) => (
+              <article key={item.name}>
+                <h3>{item.name}</h3>
+                <p>{item.body}</p>
+                <Link href={item.href}>Read more</Link>
+              </article>
+            ))}
+          </div>
+        </Rise>
+      </section>
+
+      <section className="price-band" aria-labelledby="price-title">
+        <Rise>
+          <div className="section-intro light">
+            <h2 id="price-title">Start free. Add hours when the work needs them.</h2>
+            <p>Every plan includes the same languages. Prices are in rupees.</p>
+          </div>
+          <div className="price-row">
+            <article>
+              <h3>Free</h3>
+              <p className="price-figure">{formatInr(free.monthlyInr)}<span>/month</span></p>
+              <ul>
+                <li>{free.notesRecording} of notes</li>
+                <li>{free.meetingRecording} of meetings</li>
+                <li>{free.mindmaps} mindmaps</li>
+                <li>{free.goals} goals</li>
+              </ul>
             </article>
-          ))}
-        </div>
+            <article className="is-pro">
+              <h3>Pro</h3>
+              <p className="price-figure">{formatInr(pro.monthlyInr)}<span>/month</span></p>
+              <p className="price-year">{formatInr(pro.yearlyInr)} billed yearly</p>
+              <ul>
+                <li>{pro.notesRecording} of notes</li>
+                <li>{pro.meetingRecording} of meetings</li>
+                <li>{pro.mindmaps} mindmaps</li>
+                <li>{pro.goals} goals</li>
+              </ul>
+            </article>
+            <article>
+              <h3>Business</h3>
+              <p className="price-figure">{formatInr(business.monthlyInr)}<span>/month</span></p>
+              <p className="price-year">{formatInr(business.yearlyInr)} billed yearly</p>
+              <ul>
+                <li>{business.notesRecording} notes</li>
+                <li>{business.meetingRecording} meetings</li>
+                <li>{business.mindmaps} mindmaps</li>
+                <li>{business.goals} goals</li>
+              </ul>
+            </article>
+          </div>
+          <Link className="studio-btn studio-btn-accent" href="/pricing">See full pricing</Link>
+        </Rise>
       </section>
 
-      <section className="prices band" aria-labelledby="prices-title">
-        <div className="prices-intro">
-          <h2 id="prices-title">Start free. Move up when the hours run out.</h2>
-          <p>
-            Free includes {free.notesRecording} of notes recording and {free.meetingRecording} of meeting recording. Every plan includes the same languages.
-          </p>
-        </div>
-        <div className="price-grid">
-          <article>
-            <h3>Free</h3>
-            <p className="price-amount">
-              {formatInr(free.monthlyInr)}
-              <span>/month</span>
-            </p>
-            <ul>
-              <li>{free.notesRecording} of notes</li>
-              <li>{free.meetingRecording} of meetings</li>
-              <li>{free.mindmaps} mindmaps</li>
-              <li>{free.goals} goals</li>
-            </ul>
-          </article>
-          <article className="is-pro">
-            <h3>Pro</h3>
-            <p className="price-amount">
-              {formatInr(pro.monthlyInr)}
-              <span>/month</span>
-            </p>
-            <p className="price-year">{formatInr(pro.yearlyInr)} billed yearly</p>
-            <ul>
-              <li>{pro.notesRecording} of notes</li>
-              <li>{pro.meetingRecording} of meetings</li>
-              <li>{pro.mindmaps} mindmaps</li>
-              <li>{pro.goals} goals</li>
-            </ul>
-          </article>
-          <article>
-            <h3>Business</h3>
-            <p className="price-amount">
-              {formatInr(business.monthlyInr)}
-              <span>/month</span>
-            </p>
-            <p className="price-year">{formatInr(business.yearlyInr)} billed yearly</p>
-            <ul>
-              <li>{business.notesRecording} notes</li>
-              <li>{business.meetingRecording} meetings</li>
-              <li>{business.mindmaps} mindmaps</li>
-              <li>{business.goals} goals</li>
-            </ul>
-          </article>
-        </div>
-        <Link className="studio-btn studio-btn-ink" href="/pricing">
-          See full pricing
-        </Link>
-      </section>
-
-      <section className="studio-faq band" id="faq" aria-labelledby="faq-title">
+      <section className="studio-faq faq-band" id="faq" aria-labelledby="faq-title">
         <h2 id="faq-title">Questions about recording and notes</h2>
         <div className="studio-faq-list">
           {faqItems.map((item, index) => (
@@ -330,16 +302,12 @@ export function KukuNotesLanding() {
         </div>
       </section>
 
-      <section className="close band" id="cta" aria-labelledby="cta-title">
+      <section className="close-band" id="cta" aria-labelledby="cta-title">
         <h2 id="cta-title">Record the next meeting without putting a bot in the room.</h2>
-        <p>Android, Windows, Chrome, and the web. Free includes real recording time.</p>
+        <p>Android, Windows, Chrome, and the web. The free plan includes real recording time.</p>
         <div className="studio-hero-actions">
-          <Link className="studio-btn studio-btn-accent" href="/get-kukunotes">
-            Get KukuNotes free
-          </Link>
-          <Link className="studio-btn studio-btn-ghost" href="/pricing">
-            Compare plans
-          </Link>
+          <Link className="studio-btn studio-btn-accent" href="/get-kukunotes">Get KukuNotes free</Link>
+          <Link className="studio-btn studio-btn-ghost close-ghost" href="/pricing">Compare plans</Link>
         </div>
       </section>
     </main>
