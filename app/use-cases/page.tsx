@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { AppFrame } from "@/components/home/AppFrame";
+import { PageStage } from "@/components/seo/PageStage";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
@@ -110,19 +110,7 @@ export default function UseCasesPage() {
             </div>
           </Reveal>
 
-          <Reveal className="use-cases-hero-visual" variant="scale" delay={0.08}>
-            <div className="use-cases-orbit" aria-hidden="true">
-              <span>Class</span>
-              <span>Client</span>
-              <span>Team</span>
-              <span>Home</span>
-            </div>
-            <AppFrame
-              src="/screenshots/home-spaces.jpg"
-              alt="KukuNotes home screen showing spaces"
-              size="hero"
-            />
-          </Reveal>
+          <PageStage variant="usecases" />
         </section>
 
         {/* ── Journey Steps ── */}

@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import { AppFrame } from "@/components/home/AppFrame";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
@@ -10,6 +8,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import type { DestinationPage } from "@/lib/destination-pages";
 import { siteConfig } from "@/lib/site";
 import { HiArrowUpRight, HiCheck } from "react-icons/hi2";
+import { PageStage } from "./PageStage";
 
 type DestinationPageViewProps = {
   page: DestinationPage;
@@ -23,8 +22,6 @@ const updatedLabel = new Date(siteConfig.contentUpdated).toLocaleDateString("en-
 });
 
 export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) {
-  const isPhoneScreenshot = page.image.src.startsWith("/screenshots/") && !page.image.src.includes("/desktop/");
-
   return (
     <div className="site-shell studio-page">
       <JsonLd data={jsonLd} />
@@ -65,22 +62,7 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
               ) : null}
             </div>
           </div>
-          <div className="seo-hero-visual">
-            {isPhoneScreenshot ? (
-              <AppFrame src={page.image.src} alt={page.image.alt} size="hero" />
-            ) : (
-              <Image
-                className="seo-hero-image"
-                src={page.image.src}
-                alt={page.image.alt}
-                width={1200}
-                height={700}
-                sizes="(max-width: 980px) 100vw, 560px"
-                quality={60}
-                priority
-              />
-            )}
-          </div>
+          <PageStage variant={page.slug} />
         </section>
 
         <section className="seo-answer" aria-label="Direct answer">

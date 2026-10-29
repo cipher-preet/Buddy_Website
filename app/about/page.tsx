@@ -9,6 +9,7 @@ import { aboutJsonLd } from "@/lib/json-ld";
 import { languageNote, priceCopy } from "@/lib/product-facts";
 import { pageAlternates, socialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
+import { PageStage } from "@/components/seo/PageStage";
 
 const title = "About KukuNotes, the AI Note Taker";
 const description =
@@ -80,7 +81,7 @@ export default function AboutPage() {
           <span aria-current="page">About</span>
         </nav>
 
-        <section className="seo-hero seo-hero-single" aria-labelledby="about-title">
+        <section className="seo-hero" aria-labelledby="about-title">
           <div className="seo-hero-copy">
             <p className="studio-kicker">About KukuNotes</p>
             <h1 id="about-title">
@@ -92,6 +93,7 @@ export default function AboutPage() {
               and plans you can trust.
             </p>
           </div>
+          <PageStage variant="about" />
         </section>
 
         <section className="seo-answer" aria-label="Quick answer">

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
+import { PageStage } from "@/components/seo/PageStage";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
@@ -106,6 +107,7 @@ export default function GetKukuNotesPage() {
               dedicated spaces seamlessly across your phone, desktop, browser, and cloud.
             </p>
           </Reveal>
+          <PageStage variant="download" />
 
           {/* Platform Filters */}
           <Reveal className="get-kukunotes-filter-bar" variant="scale" delay={0.06}>

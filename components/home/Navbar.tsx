@@ -163,12 +163,10 @@ export function Navbar() {
           setHidden(false);
         }}
       >
-      {pathname === "/" ? (
-        <div className="announce">
-          <span>Meetings, recorded on your device. No bot joins the call.</span>
-          <Link href="/get-kukunotes">Get it free</Link>
-        </div>
-      ) : null}
+      <div className="announce">
+        <span>Meetings, recorded on your device. No bot joins the call.</span>
+        <Link href="/get-kukunotes">Get it free</Link>
+      </div>
       <nav className="nav-shell" aria-label="Primary navigation">
         <BrandMark />
         <div className="nav-links">

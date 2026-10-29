@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import { AppFrame } from "@/components/home/AppFrame";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
@@ -10,6 +8,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { definitionFacts, definitionLead, priceCopy } from "@/lib/product-facts";
 import { competitorNote, type SeoPage } from "@/lib/seo-pages";
 import { siteConfig } from "@/lib/site";
+import { PageStage } from "./PageStage";
 
 type SeoPageViewProps = {
   page: SeoPage;
@@ -24,8 +23,6 @@ const updatedLabel = new Date(siteConfig.contentUpdated).toLocaleDateString("en-
 });
 
 export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
-  const isPhoneScreenshot = page.image.src.startsWith("/screenshots/");
-
   return (
     <div className="site-shell studio-page">
       <JsonLd data={jsonLd} />
@@ -66,22 +63,7 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
               </Link>
             </div>
           </div>
-          <div className="seo-hero-visual">
-            {isPhoneScreenshot ? (
-              <AppFrame src={page.image.src} alt={page.image.alt} size="hero" />
-            ) : (
-              <Image
-                className="seo-hero-image"
-                src={page.image.src}
-                alt={page.image.alt}
-                width={1200}
-                height={800}
-                sizes="(max-width: 980px) 100vw, 520px"
-                quality={60}
-                priority
-              />
-            )}
-          </div>
+          <PageStage variant={page.slug} />
         </section>
 
         <section className="seo-answer" aria-label="Quick answer">

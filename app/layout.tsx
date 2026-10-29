@@ -6,6 +6,7 @@ import { siteConfig } from "@/lib/site";
 import "./globals.css";
 import "./marketing.css";
 import "./home.css";
+import "./pages.css";
 
 const display = Schibsted_Grotesk({
   subsets: ["latin"],

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { PageStage } from "@/components/seo/PageStage";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
@@ -78,6 +79,7 @@ export default function ContactPage() {
             </div>
           </Reveal>
 
+          <PageStage variant="contact" />
           <Reveal className="contact-visual" variant="scale" delay={0.08}>
             <div className="contact-visual-card">
               <div className="contact-visual-header">

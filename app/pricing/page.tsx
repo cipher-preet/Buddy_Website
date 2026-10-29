@@ -29,6 +29,7 @@ import {
 import { FaCrown, FaGooglePlay } from "react-icons/fa6";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { FaqItem } from "@/components/home/FaqItem";
+import { PageStage } from "@/components/seo/PageStage";
 
 // ─── Billing Toggle ───────────────────────────────────────────────────────────
 
@@ -79,6 +80,7 @@ export default function PricingPage() {
           <Reveal className="pricing-hero-toggle" variant="scale" delay={0.06}>
             <BillingToggle value={billing} onChange={setBilling} />
           </Reveal>
+          <PageStage variant="pricing" />
         </section>
 
         {/* ── Plan Cards Grid ── */}
