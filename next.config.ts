@@ -46,6 +46,11 @@ const nextConfig: NextConfig = {
         destination: "/get-kukunotes",
         permanent: true,
       },
+      {
+        source: "/hindi-speech-to-text",
+        destination: "/ai-note-taker",
+        statusCode: 301,
+      },
     ];
   },
 };

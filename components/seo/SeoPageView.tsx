@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import { AppFrame } from "@/components/home/AppFrame";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
@@ -10,6 +8,13 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { definitionFacts, definitionLead, priceCopy } from "@/lib/product-facts";
 import { competitorNote, type SeoPage } from "@/lib/seo-pages";
 import { siteConfig } from "@/lib/site";
+import { ExplainerVideo, type ExplainerClip } from "./ExplainerVideo";
+import { FeatureMotion, type MotionScene } from "./FeatureMotion";
+
+function firstSentence(text: string) {
+  const match = text.match(/^.{1,160}?[.!?](\s|$)/);
+  return match ? match[0].trim() : text.slice(0, 140).trim();
+}
 
 type SeoPageViewProps = {
   page: SeoPage;
@@ -17,22 +22,29 @@ type SeoPageViewProps = {
   breadcrumb?: { label: string; href: string };
 };
 
-const updatedLabel = new Date(siteConfig.contentUpdated).toLocaleDateString("en-IN", {
+const sectionScenes: MotionScene[] = ["notes", "tasks", "spaces", "ask"];
+
+function clipFor(slug: string): ExplainerClip {
+  if (slug.includes("lecture")) return "lecture";
+  if (slug.includes("assistant")) return "ask";
+  if (slug.includes("meeting")) return "meeting";
+  return "notes";
+}
+
+const updatedLabel = new Date(siteConfig.contentUpdated).toLocaleDateString("en", {
   day: "numeric",
   month: "long",
   year: "numeric",
 });
 
 export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
-  const isPhoneScreenshot = page.image.src.startsWith("/screenshots/");
-
   return (
     <div className="site-shell studio-page">
       <JsonLd data={jsonLd} />
       <SmoothScroll />
       <ScrollProgress />
       <Navbar />
-      <main className="studio seo-page">
+      <main className="studio seo-page" id="main-content">
         <nav className="seo-breadcrumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           {breadcrumb ? (
@@ -51,7 +63,7 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
             <h1 id="seo-title">
               {page.h1} <span className="brand-gradient-text">{page.h1Accent}</span>
             </h1>
-            <p className="studio-section-lead">{page.lead}</p>
+            <p className="studio-section-lead">{firstSentence(page.lead)}</p>
             <div className="seo-hero-actions">
               <a
                 className="studio-btn studio-btn-accent"
@@ -66,40 +78,31 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
               </Link>
             </div>
           </div>
-          <div className="seo-hero-visual">
-            {isPhoneScreenshot ? (
-              <AppFrame src={page.image.src} alt={page.image.alt} size="hero" />
-            ) : (
-              <Image
-                className="seo-hero-image"
-                src={page.image.src}
-                alt={page.image.alt}
-                width={1200}
-                height={800}
-                sizes="(max-width: 980px) 100vw, 520px"
-                quality={60}
-                priority
-              />
-            )}
-          </div>
+          <ExplainerVideo clip={clipFor(page.slug)} />
         </section>
 
-        <section className="seo-answer" aria-label="Quick answer">
-          <p className="seo-answer-label">What is KukuNotes</p>
-          <p>{definitionLead}</p>
-          <p>{definitionFacts}</p>
-          <p className="seo-answer-label">Quick answer</p>
-          <p>{page.answer}</p>
-          <p className="seo-updated">
-            Last updated <time dateTime={siteConfig.contentUpdated}>{updatedLabel}</time>
-          </p>
+        <section className="seo-answer seo-split" aria-label="Quick answer">
+          <div>
+            <p className="seo-answer-label">What is KukuNotes</p>
+            <p>{firstSentence(definitionLead)}</p>
+            <p>{firstSentence(definitionFacts)}</p>
+            <p className="seo-answer-label">Quick answer</p>
+            <p>{firstSentence(page.answer)}</p>
+            <p className="seo-updated">
+              Last updated <time dateTime={siteConfig.contentUpdated}>{updatedLabel}</time>
+            </p>
+          </div>
+          <FeatureMotion scene="shield" />
         </section>
 
         {page.comparison ? (
           <section className="seo-block" aria-labelledby="seo-compare-title">
-            <h2 id="seo-compare-title">
-              KukuNotes vs {page.comparison.competitor} at a glance
-            </h2>
+            <div className="seo-split">
+              <h2 id="seo-compare-title">
+                KukuNotes vs {page.comparison.competitor} at a glance
+              </h2>
+              <FeatureMotion scene="devices" compact />
+            </div>
             <div className="seo-table-wrap">
               <table className="seo-table">
                 <thead>
@@ -141,24 +144,19 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
           </section>
         ) : null}
 
-        {page.sections.map((section) => (
-          <Reveal key={section.heading} className="seo-block">
-            <h2>{section.heading}</h2>
-            {section.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            {section.bullets ? (
-              <ul className="seo-bullets">
-                {section.bullets.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            ) : null}
+        {page.sections.map((section, index) => (
+          <Reveal key={section.heading} className="seo-block seo-split">
+            <div>
+              <h2>{section.heading}</h2>
+              <p>{firstSentence(section.body[0] ?? "")}</p>
+            </div>
+            <FeatureMotion scene={sectionScenes[index % sectionScenes.length]} />
           </Reveal>
         ))}
 
         {page.steps ? (
-          <section className="seo-block" aria-labelledby="seo-steps-title">
+          <section className="seo-block seo-split" aria-labelledby="seo-steps-title">
+            <div>
             <h2 id="seo-steps-title">How it works</h2>
             <ol className="seo-steps">
               {page.steps.map((step, index) => (
@@ -169,6 +167,8 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
                 </li>
               ))}
             </ol>
+            </div>
+            <FeatureMotion scene="capture" />
           </section>
         ) : null}
 
@@ -181,7 +181,8 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
           </section>
         ) : null}
 
-        <section className="seo-block" aria-labelledby="seo-faq-title">
+        <section className="seo-block seo-split" aria-labelledby="seo-faq-title">
+          <div>
           <h2 id="seo-faq-title">Frequently asked questions</h2>
           <div className="studio-faq-list">
             {page.faqs.map((faq, index) => (
@@ -194,20 +195,25 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
               </details>
             ))}
           </div>
+          </div>
+          <FeatureMotion scene="ask" />
         </section>
 
-        <nav className="seo-block seo-related" aria-labelledby="seo-related-title">
-          <h2 id="seo-related-title">Related</h2>
-          <ul>
-            {page.related.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href}>
-                  {link.label} <span aria-hidden="true">-&gt;</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          {page.comparison ? <p className="seo-note">{competitorNote}</p> : null}
+        <nav className="seo-block seo-related seo-split" aria-labelledby="seo-related-title">
+          <div>
+            <h2 id="seo-related-title">Related</h2>
+            <ul>
+              {page.related.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href}>
+                    {link.label} <span aria-hidden="true">-&gt;</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {page.comparison ? <p className="seo-note">{competitorNote}</p> : null}
+          </div>
+          <FeatureMotion scene="spaces" />
         </nav>
 
         <section className="studio-invite-section" aria-labelledby="seo-cta-title">
@@ -215,7 +221,7 @@ export function SeoPageView({ page, jsonLd, breadcrumb }: SeoPageViewProps) {
             <p className="studio-kicker studio-invite-kicker">Start free</p>
             <h2 id="seo-cta-title">Keep every conversation that matters.</h2>
             <p className="studio-invite-lead">
-              {priceCopy.freeHours} on Android, in English, Hindi, and Hinglish.
+              {priceCopy.freeHours}. It supports many languages.
             </p>
             <div className="studio-invite-actions">
               <a

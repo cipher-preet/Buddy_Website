@@ -11,32 +11,33 @@ type RevealProps = {
   delay?: number;
   once?: boolean;
   style?: React.CSSProperties;
+  id?: string;
 };
 
 const variants = {
   "fade-up": {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 1, y: 16 },
     show: { opacity: 1, y: 0 },
   },
   "fade-left": {
-    hidden: { opacity: 0, x: -48 },
+    hidden: { opacity: 1, x: -16 },
     show: { opacity: 1, x: 0 },
   },
   "fade-right": {
-    hidden: { opacity: 0, x: 48 },
+    hidden: { opacity: 1, x: 16 },
     show: { opacity: 1, x: 0 },
   },
   scale: {
-    hidden: { opacity: 0, scale: 0.92 },
-    show: { opacity: 1, scale: 1 },
+    hidden: { opacity: 1, y: 12 },
+    show: { opacity: 1, y: 0 },
   },
   "clip-up": {
-    hidden: { opacity: 0, clipPath: "inset(100% 0 0 0)" },
-    show: { opacity: 1, clipPath: "inset(0% 0 0 0)" },
+    hidden: { opacity: 1, y: 16 },
+    show: { opacity: 1, y: 0 },
   },
   blur: {
-    hidden: { opacity: 0, filter: "blur(12px)", y: 24 },
-    show: { opacity: 1, filter: "blur(0px)", y: 0 },
+    hidden: { opacity: 1, y: 12 },
+    show: { opacity: 1, y: 0 },
   },
 };
 
@@ -47,16 +48,18 @@ export function Reveal({
   delay = 0,
   once = true,
   style,
+  id,
 }: RevealProps) {
   const reduceMotion = useReducedMotion();
   const lite = useLiteMode();
 
   if (reduceMotion || lite) {
-    return <div className={className} style={style}>{children}</div>;
+    return <div id={id} className={className} style={style}>{children}</div>;
   }
 
   return (
     <motion.div
+      id={id}
       className={className}
       style={style}
       variants={variants[variant]}

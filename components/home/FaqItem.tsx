@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { HiPlus } from "react-icons/hi2";
 
 type FaqItemProps = {
   q: string;
@@ -27,8 +28,7 @@ export function FaqItem({ q, a, defaultOpen = false }: FaqItemProps) {
       >
         <span className="faq-accordion-question">{q}</span>
         <span className="faq-accordion-icon" aria-hidden="true">
-          <span className="faq-accordion-bar faq-accordion-bar--h" />
-          <span className="faq-accordion-bar faq-accordion-bar--v" />
+          <HiPlus />
         </span>
       </button>
 

@@ -1,4 +1,4 @@
-import { languageNote, languageNoteHi, languageNoteWithScript, priceCopy } from "@/lib/product-facts";
+import { priceCopy } from "@/lib/product-facts";
 
 export type SeoFaq = { q: string; a: string };
 
@@ -58,12 +58,12 @@ const listenSteps = [
   },
 ];
 
-export const topicPages: SeoPage[] = [
+const topicPagesAll: SeoPage[] = [
   {
     slug: "ai-note-taker",
     title: "AI Note Taker for Talk, Notes, and Tasks",
     description:
-      "KukuNotes is a free AI note taker. Tap Start Listening and it turns talk into notes, decisions, and tasks in English, Hindi, and Hinglish.",
+      "KukuNotes is a free AI note taker and bot-free meeting recorder. Tap Start Listening and it turns talk into notes, decisions, and tasks. No bot joins.",
     keywords: [
       "AI note taker",
       "AI note taker app",
@@ -80,7 +80,7 @@ export const topicPages: SeoPage[] = [
     h1Accent: "notes you can act on.",
     lead: "Stop typing while people talk. KukuNotes listens when you ask it to, then gives you a summary, the decisions that were made, and the tasks you agreed to, organized in the right Space.",
     answer:
-      "KukuNotes is an AI note taker app for Android that records a conversation when you tap Start Listening and turns it into a structured note: a short summary, key decisions, highlights, and extracted action items. Every point links back to the part of the conversation it came from, with a confidence score. It is free to start and understands English, Hindi, and Hinglish.",
+      "KukuNotes is an AI note taker app for Android that records a conversation when you tap Start Listening and turns it into a structured note: a short summary, key decisions, highlights, and extracted action items. Every point links back to the part of the conversation it came from, with a confidence score. It is free to start and supports many languages.",
     image: { src: "/screenshots/notes-library.jpg", alt: "KukuNotes notes library grouped by space" },
     sections: [
       {
@@ -106,7 +106,7 @@ export const topicPages: SeoPage[] = [
       {
         heading: "Built for real conversations, not just video calls",
         body: [
-          "A lot of AI note takers only work when a meeting happens inside Zoom, Google Meet, or Microsoft Teams. Many of the conversations worth remembering happen elsewhere: a lecture, a doctor's appointment, a site visit, a call on speakerphone, a quick chat in the corridor.",
+          "A lot of AI note takers only work when a meeting happens inside Zoom, Google Meet, or Microsoft Teams. Many of the conversations worth remembering happen elsewhere: a lecture, a doctor's appointment, a site visit, a quick chat in the corridor.",
           "Because KukuNotes runs on your Android phone and records only while you have listening on, it works in all of those places, with no meeting bot and no calendar integration required.",
         ],
       },
@@ -128,10 +128,6 @@ export const topicPages: SeoPage[] = [
         a: "You can start a recording without a connection. KukuNotes processes the audio into notes and tasks once your phone is back online and syncs the results to your Spaces.",
       },
       {
-        q: "Can KukuNotes take notes in Hindi or Hinglish?",
-        a: `Yes. ${languageNote}`,
-      },
-      {
         q: "How accurate are the AI notes?",
         a: "Accuracy depends on audio quality, but KukuNotes shows a confidence score on each highlight and links it to the source moment, so you can check anything important instead of trusting the summary blindly.",
       },
@@ -142,7 +138,6 @@ export const topicPages: SeoPage[] = [
     ],
     related: [
       { label: "AI meeting recorder without bots", href: "/ai-meeting-recorder" },
-      { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
       { label: "AI lecture notes for students", href: "/ai-lecture-notes" },
       { label: "Get KukuNotes", href: "/get-kukunotes" },
     ],
@@ -191,7 +186,7 @@ export const topicPages: SeoPage[] = [
       {
         heading: "Meetings that happen anywhere",
         body: [
-          "Stand-ups, client visits, board meetings, interviews, sales calls on speaker, and hybrid meetings where half the room is offline. If you can hear it on your phone, KukuNotes can turn it into notes.",
+          "Stand-ups, client visits, board meetings, interviews, and hybrid meetings where half the room is offline. If the room can be heard through the device microphone while Start Listening is on, KukuNotes can turn it into notes. The Android app does not record phone or dialer calls.",
         ],
       },
       {
@@ -216,112 +211,15 @@ export const topicPages: SeoPage[] = [
         a: "Recording laws vary by country and state. KukuNotes is opt-in by design, and we recommend telling participants you are recording and following local consent rules.",
       },
       {
-        q: "Can KukuNotes record meetings held in Hindi?",
-        a: `Yes. Meetings in English, Hindi, or a mix of both are supported. ${languageNote}`,
-      },
-      {
         q: "Can I share meeting notes with my team?",
         a: "Yes. You can share selected notes and tasks from a Space instead of exposing the whole recording, which keeps sensitive parts of a meeting private.",
       },
     ],
     related: [
       { label: "AI note taker", href: "/ai-note-taker" },
-      { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
+      { label: "AI note taker", href: "/ai-note-taker" },
       { label: "Get KukuNotes", href: "/get-kukunotes" },
       { label: "Pricing", href: "/pricing" },
-    ],
-  },
-  {
-    slug: "hindi-speech-to-text",
-    title: "Hindi and Hinglish Speech to Text",
-    description:
-      "Convert Hindi and Hinglish speech to text, notes, and tasks with KukuNotes. Built for Indian conversations that mix Hindi and English.",
-    keywords: [
-      "Hindi speech to text",
-      "Hindi voice to text app",
-      "Hinglish transcription",
-      "Hindi meeting notes",
-      "Hindi voice notes app",
-      "Hindi audio to text",
-      "AI note taker India",
-      "हिंदी वॉइस टू टेक्स्ट",
-    ],
-    kicker: "Hindi & Hinglish speech to text",
-    h1: "Hindi speech to text that understands",
-    h1Accent: "how India really talks.",
-    lead: "Real meetings in India switch between Hindi and English mid-sentence. KukuNotes is built for that, turning Hindi and Hinglish conversations into clear notes and tasks.",
-    answer:
-      `KukuNotes converts Hindi, English, and mixed Hinglish speech into text, then goes further than plain transcription: it writes a summary, lists decisions, and extracts action items. ${languageNote}`,
-    image: { src: "/screenshots/home-listening.jpg", alt: "KukuNotes home screen while listening is on" },
-    sections: [
-      {
-        heading: "Why most speech-to-text apps struggle with Hinglish",
-        body: [
-          "Many transcription tools expect you to pick one language before you start. A typical Indian conversation does not work that way: a review might start in English, move to Hindi to debate priorities, and come back to English for the action items.",
-          "KukuNotes handles that code-switching inside the same recording, so you do not lose the parts of the conversation that happened in the 'other' language.",
-        ],
-      },
-      {
-        heading: "More than a transcript",
-        body: [
-          "A Hindi transcript is only the starting point. KukuNotes turns it into something you can use:",
-        ],
-        bullets: [
-          "A clear summary of the conversation",
-          "Decisions and commitments, with who agreed to what",
-          "Action items with due dates on your task board",
-          "Answers to follow-up questions through Ask KukuNotes",
-        ],
-      },
-      {
-        heading: "Supported Indian languages",
-        body: [
-          languageNoteWithScript,
-        ],
-      },
-      {
-        heading: "Priced for India",
-        body: [
-          `${priceCopy.summary} Payments go through Razorpay with UPI, cards, and NetBanking.`,
-        ],
-      },
-    ],
-    localized: {
-      lang: "hi",
-      heading: "हिंदी में: आवाज़ से नोट्स और टास्क",
-      body: [
-        "KukuNotes आपकी हिंदी, अंग्रेज़ी और हिंग्लिश बातचीत को टेक्स्ट, साफ़ नोट्स और टास्क में बदलता है। मीटिंग, क्लास या क्लाइंट कॉल के दौरान बस “Start Listening” दबाएँ। बातचीत खत्म होते ही आपको सारांश, लिए गए फ़ैसले और करने वाले काम मिल जाते हैं।",
-        "रिकॉर्डिंग पूरी तरह आपकी मर्ज़ी से होती है। माइक्रोफ़ोन तभी चालू होता है जब आप सुनना शुरू करते हैं। शुरुआत मुफ़्त है, और Android पर Google Play से डाउनलोड किया जा सकता है।",
-        languageNoteHi,
-      ],
-    },
-    faqs: [
-      {
-        q: "Can KukuNotes convert Hindi audio to text for free?",
-        a: `Yes. Hindi, English, and Hinglish speech to text are included. ${priceCopy.freeHours}.`,
-      },
-      {
-        q: "Does KukuNotes understand Hinglish (mixed Hindi and English)?",
-        a: "Yes. KukuNotes is designed for conversations that switch between Hindi and English in the same sentence, so you do not need to choose one language before recording.",
-      },
-      {
-        q: "Which Indian languages does KukuNotes support?",
-        a: languageNote,
-      },
-      {
-        q: "Can I get the summary in English for a Hindi meeting?",
-        a: "KukuNotes produces structured notes and tasks from Hindi and Hinglish conversations. Ask KukuNotes can then answer questions about the conversation in plain English.",
-      },
-      {
-        q: "Is there a Hindi voice notes app for Android?",
-        a: "KukuNotes is available on Android through Google Play and works as a Hindi voice notes app that also extracts tasks and organizes notes into Spaces.",
-      },
-    ],
-    related: [
-      { label: "AI note taker", href: "/ai-note-taker" },
-      { label: "AI meeting recorder", href: "/ai-meeting-recorder" },
-      { label: "Get KukuNotes", href: "/get-kukunotes" },
-      { label: "Pricing in ₹", href: "/pricing" },
     ],
   },
   {
@@ -403,7 +301,7 @@ export const topicPages: SeoPage[] = [
     slug: "ai-lecture-notes",
     title: "AI Lecture Notes for Classes",
     description:
-      "KukuNotes records lectures on your phone and turns them into summaries, key concepts, and study tasks. It supports English, Hindi, and Hinglish.",
+      "KukuNotes records lectures on your phone. Free AI note taker and bot-free meeting recorder: summaries, key concepts, and study tasks. Free plan. No bot joins.",
     keywords: [
       "AI lecture notes",
       "lecture recorder app",
@@ -418,7 +316,7 @@ export const topicPages: SeoPage[] = [
     h1Accent: "Let AI write the notes.",
     lead: "KukuNotes records your lecture, coaching class, or study group and turns it into a summary, key concepts, and a list of what to revise or submit next.",
     answer:
-      `KukuNotes is an AI lecture notes app for students on Android. Tap Start Listening at the beginning of a class and KukuNotes records through your phone, then produces a summary, key concepts, and study tasks such as assignments and exam dates, all filed in a Space for that subject. It supports English, Hindi, and Hinglish. ${priceCopy.freeHours}.`,
+      `KukuNotes is an AI lecture notes app for students on Android. Tap Start Listening at the beginning of a class and KukuNotes records through your phone, then produces a summary, key concepts, and study tasks such as assignments and exam dates, all filed in a Space for that subject. It supports many languages. ${priceCopy.freeHours}.`,
     image: { src: "/use-cases/education.jpg", alt: "AI lecture notes and study tasks for students" },
     sections: [
       {
@@ -436,7 +334,7 @@ export const topicPages: SeoPage[] = [
           "Lecture summary and key concepts",
           "Assignments and deadlines extracted as tasks",
           "Searchable notes with evidence links to the moment in class",
-          "Hindi and Hinglish lectures supported",
+          "Many languages supported",
         ],
       },
       {
@@ -453,10 +351,6 @@ export const topicPages: SeoPage[] = [
         a: `Yes. ${priceCopy.freeHours}, which covers several lectures a week for most students.`,
       },
       {
-        q: "Can it record lectures in Hindi?",
-        a: "Yes. KukuNotes supports English, Hindi, and Hinglish lectures.",
-      },
-      {
         q: "Do I need permission to record a lecture?",
         a: "Policies differ between institutions. Check your college or coaching centre's rules and ask the lecturer when in doubt.",
       },
@@ -467,12 +361,13 @@ export const topicPages: SeoPage[] = [
     ],
     related: [
       { label: "AI note taker", href: "/ai-note-taker" },
-      { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
       { label: "Use cases", href: "/use-cases" },
       { label: "Pricing", href: "/pricing" },
     ],
   },
 ];
+
+export const topicPages = topicPagesAll;
 
 export const competitorNote =
   "Competitor details are based on their public product pages as of October 2026 and may change; check their sites for the latest.";

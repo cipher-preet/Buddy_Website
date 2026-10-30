@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -68,7 +67,7 @@ export default function OpenGraphImage() {
               maxWidth: 900,
             }}
           >
-            Record on Android, get notes, decisions, and action items in English, Hindi & Hinglish.
+            Record on your device. Get notes, decisions, and action items.
           </div>
         </div>
 

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import { KukuNotesFooter } from "@/components/home/KukuNotesFooter";
+import { ExplainerVideo } from "@/components/seo/ExplainerVideo";
+import { FeatureMotion } from "@/components/seo/FeatureMotion";
 import { Navbar } from "@/components/home/Navbar";
 import { Reveal } from "@/components/home/Reveal";
 import { ScrollProgress } from "@/components/home/ScrollProgress";
@@ -29,7 +31,6 @@ import {
   HiArrowUpRight,
   HiArrowRight,
   HiSparkles,
-  HiDevicePhoneMobile,
   HiGlobeAlt,
 } from "react-icons/hi2";
 import {
@@ -89,7 +90,7 @@ export default function GetKukuNotesPage() {
       <ScrollProgress />
       <Navbar />
 
-      <main className="studio get-kukunotes-page">
+      <main className="studio get-kukunotes-page" id="main-content">
 
         {/* ── Hero ── */}
         <section className="get-kukunotes-hero" aria-labelledby="get-kukunotes-title">
@@ -103,10 +104,10 @@ export default function GetKukuNotesPage() {
               <span className="brand-gradient-text">talk, think, and work.</span>
             </h1>
             <p className="studio-section-lead get-kukunotes-hero-lead">
-              Capture live conversations, auto-generate action items, and sync
-              dedicated spaces seamlessly across your phone, desktop, browser, and cloud.
+              One account on your phone, desktop, browser, and the web.
             </p>
           </Reveal>
+          <ExplainerVideo clip="meeting" />
 
           {/* Platform Filters */}
           <Reveal className="get-kukunotes-filter-bar" variant="scale" delay={0.06}>
@@ -163,7 +164,7 @@ export default function GetKukuNotesPage() {
             <span className="get-kukunotes-trust-dot" aria-hidden="true">•</span>
             <div className="get-kukunotes-trust-pill">
               <HiGlobeAlt className="trust-icon" />
-              <span>Hindi & Hinglish</span>
+              <span>Many languages</span>
             </div>
             <span className="get-kukunotes-trust-dot" aria-hidden="true">•</span>
             <div className="get-kukunotes-trust-pill">
@@ -276,10 +277,9 @@ export default function GetKukuNotesPage() {
             <p className="studio-kicker">Unified Architecture</p>
             <h2 id="ecosystem-title">Your notes. Everywhere you go.</h2>
             <p className="studio-section-lead">
-              Your conversations are never locked to a single device. Start recording on
-              Chrome during a team standup, review your action list on your Android commute,
-              and organize long-term space goals on Desktop.
+              Record on one device. The notes and tasks show up on the others.
             </p>
+            <FeatureMotion scene="devices" />
           </Reveal>
 
           <div className="get-kukunotes-ecosystem-grid">

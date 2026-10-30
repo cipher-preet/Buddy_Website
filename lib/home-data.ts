@@ -1,11 +1,9 @@
-import { brandSplit, captureFact, definitionLead, languageNote, priceCopy } from "./product-facts";
+import { brandSplit, captureFact, definitionLead, priceCopy } from "./product-facts";
 
 export const navItems = [
-  { label: "Product", href: "/#product" },
-  { label: "Use Cases", href: "/use-cases" },
-  { label: "Get KukuNotes", href: "/get-kukunotes" },
+  { label: "Use cases", href: "/use-cases" },
+  { label: "Download", href: "/get-kukunotes" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const productSectionLinks = [
@@ -18,7 +16,6 @@ export const productSectionLinks = [
 export const solutionLinks = [
   { label: "AI note taker", href: "/ai-note-taker" },
   { label: "AI meeting recorder", href: "/ai-meeting-recorder" },
-  { label: "Hindi speech to text", href: "/hindi-speech-to-text" },
   { label: "Personal AI assistant", href: "/ai-personal-assistant" },
   { label: "AI lecture notes", href: "/ai-lecture-notes" },
 ];
@@ -33,6 +30,7 @@ export const appDestinationLinks = [
 
 export const useCaseItems = [
   {
+    id: "education",
     title: "Students & educators",
     eyebrow: "Education",
     summary: "Lectures, study sessions, and mentoring become organized notes and study tasks.",
@@ -45,6 +43,7 @@ export const useCaseItems = [
     alt: "AI lecture notes and study tasks dashboard for students and educators",
   },
   {
+    id: "teams",
     title: "Founders & teams",
     eyebrow: "Meetings",
     summary: "Turn planning calls into decisions, owners, priorities, and next actions.",
@@ -57,6 +56,7 @@ export const useCaseItems = [
     alt: "Startup meeting takeaways, sprint action items, and roadmap interface",
   },
   {
+    id: "sales",
     title: "Sales & client work",
     eyebrow: "Follow-up",
     summary: "Keep client context, objections, requests, and promised next steps in one place.",
@@ -69,6 +69,7 @@ export const useCaseItems = [
     alt: "Client meeting intelligence dashboard with sentiment, commitments, and follow-up timeline",
   },
   {
+    id: "personal",
     title: "Personal planning",
     eyebrow: "Life admin",
     summary: "Use KukuNotes for family plans, appointments, ideas, goals, and day-to-day reminders.",
@@ -81,6 +82,7 @@ export const useCaseItems = [
     alt: "Personal life admin dashboard with daily briefing, calendar blocks, and life spaces",
   },
   {
+    id: "creators",
     title: "Creators & media",
     eyebrow: "Content",
     summary: "Interviews and brainstorms become themes, quotes to revisit, and production tasks.",
@@ -190,8 +192,8 @@ export const faqItems = [
     a: captureFact,
   },
   {
-    q: "Can KukuNotes transcribe Hindi, English, and other Indian languages?",
-    a: `Yes. ${languageNote}`,
+    q: "Which languages can KukuNotes transcribe?",
+    a: "KukuNotes supports many languages on every plan.",
   },
   {
     q: "How is KukuNotes different from tools like Otter.ai, Fireflies, or Granola?",

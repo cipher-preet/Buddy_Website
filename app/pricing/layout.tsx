@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     "Otter alternative pricing",
     "INR priced AI note taker",
     "UPI AI note taking app",
-    "AI note taker India pricing",
   ],
   alternates: pageAlternates("/pricing"),
   ...socialMetadata(socialTitle, description, "/pricing"),

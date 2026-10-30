@@ -1,4 +1,3 @@
-import { planFacts } from "./product-facts";
 import { allSeoKeywords } from "./seo-keywords";
 
 export const siteConfig = {
@@ -6,10 +5,10 @@ export const siteConfig = {
   shortName: "KukuNotes",
   brandName: "KukuNotes",
   tagline: "Capture. Organize. Grow.",
-  title: "KukuNotes — Bot-free AI Note Taker for Hindi & English",
+  title: "KukuNotes — Bot-free AI Note Taker & Meeting Recorder",
   titleTemplate: "%s | KukuNotes",
   description:
-    "Bot-free AI note taker and meeting recorder for Android. Capture Hindi, English, and Hinglish conversations into notes, tasks, and Spaces.",
+    "Bot-free AI note taker and meeting recorder. Turn talk into notes, tasks, and Spaces on Android, Windows, Chrome, and web. Free plan. No bot joins the call.",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://kukunotes.com").replace(/\/$/, ""),
   locale: "en_US",
   language: "en",
@@ -27,24 +26,22 @@ export const siteConfig = {
   apiUrl: "https://buddy-node-backend-scz7pyp3ha-el.a.run.app",
   keywords: allSeoKeywords,
   alternateNames: ["Kuku Notes", "KukuNotes AI", "KukuNotes App", "KukuNotes AI Note Taker", "KukuNote"],
-  contentUpdated: "2026-10-16",
+  contentUpdated: "2026-10-29",
   /** Bump when brand icons change so Google/Bing drop cached favicons. */
   assetVersion: "20261013",
   platforms: ["Android", "Web", "Windows", "Chrome Extension"],
   category: "ProductivityApplication",
   geo: {
-    primaryMarket: "India",
-    regionCode: "IN",
+    primaryMarket: "Worldwide",
     coverage: "Worldwide",
-    placename: "India",
-    availableLanguages: [...planFacts.languageNames],
-    cities: ["Bengaluru", "Mumbai", "Delhi", "Hyderabad", "Pune", "Chennai", "Ahmedabad", "Kolkata"],
+    placename: "Worldwide",
+    availableLanguages: ["Multilingual"],
   },
   features: [
     "Opt-in live meeting recording without bots",
     "AI note taker with confidence scores and evidence",
     "Automated task and action item extraction",
-    `Speech-to-text in ${planFacts.languageNames.join(", ")}, plus Hinglish`,
+    "Speech-to-text in many languages",
     "Daily briefing with priorities, calendar, and focus time",
     "Context-aware Ask KukuNotes chat",
     "Dedicated Spaces for projects, life, and teams",

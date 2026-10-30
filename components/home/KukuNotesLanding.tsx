@@ -1,404 +1,213 @@
 "use client";
 
-import { faqItems } from "@/lib/home-data";
-import { definitionFacts, definitionLead } from "@/lib/product-facts";
-import { siteConfig } from "@/lib/site";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import { AppFrame } from "./AppFrame";
+import { useState, type ReactNode } from "react";
+import { faqItems, useCaseItems } from "@/lib/home-data";
+import { formatInr, planFacts } from "@/lib/product-facts";
 import { FaqItem } from "./FaqItem";
-import { ProductTheater } from "./ProductTheater";
-import { Reveal } from "./Reveal";
+import { ExplainerVideo } from "@/components/seo/ExplainerVideo";
+import { FeatureMotion, type MotionScene } from "@/components/seo/FeatureMotion";
+import { useLiteMode } from "./useLiteMode";
 
-const dayBeats = [
-  { time: "07:45", label: "Daily briefing ready" },
-  { time: "10:30", label: "Listening in Product Launch" },
-  { time: "14:10", label: "Notes captured" },
-  { time: "16:40", label: "Tasks extracted" },
-];
-
-const captureSteps = [
+const features = [
   {
-    number: "01",
-    title: "Listen when it matters",
-    copy: "Start capture for a meeting, a walk, or a working session. Listening is a choice, not a background habit.",
-    image: "/screenshots/home-listening.jpg",
-    alt: "KukuNotes home with live listening and your spaces",
-    meta: "Opt-in capture",
+    title: "Record from the device already in the room",
+    body: "Android, Windows, or Chrome. You tap Start Listening. Nothing new joins Zoom, Meet, or Teams.",
+    scene: "capture" as MotionScene,
   },
   {
-    number: "02",
-    title: "Keep the useful parts",
-    copy: "KukuNotes turns the conversation into notes with confidence, dates, and the space they belong to.",
-    image: "/screenshots/notes-library.jpg",
-    alt: "KukuNotes notes grouped by space",
-    meta: "Searchable memory",
+    title: "Read it in the language people used",
+    body: "Words land as people talk. You stay in the conversation.",
+    scene: "notes" as MotionScene,
   },
   {
-    number: "03",
-    title: "Move the next step",
-    copy: "Commitments become prioritized tasks, still attached to the original context so follow-through stays honest.",
-    image: "/screenshots/tasks-week.jpg",
-    alt: "KukuNotes tasks with dates, priority, and space context",
-    meta: "Clear next actions",
+    title: "Leave with work, not a recording",
+    body: "A summary, tasks, and a reminder. The Android app does not record phone or dialer calls.",
+    scene: "tasks" as MotionScene,
+  },
+  {
+    title: "Keep each project in its own Space",
+    body: "A client, a class, or a product thread. Notes and tasks stay put.",
+    scene: "spaces" as MotionScene,
   },
 ];
 
-const spacePrinciples = [
-  {
-    title: "One space, one context",
-    copy: "A project, a person, a meeting series, or a part of life gets its own home—so notes do not bleed across work.",
-  },
-  {
-    title: "Everything stays connected",
-    copy: "Briefing, calendar, notes, tasks, and goals all point back to the same space instead of living in separate tools.",
-  },
-  {
-    title: "Sharing stays selective",
-    copy: "You choose the exact notes and tasks that belong in a handoff. The rest stays private to the space.",
-  },
+const platforms: { name: string; href: string; body: string; scene: MotionScene }[] = [
+  { name: "Android", href: "/android", body: "Google Play. In-person talks, when you tap Start Listening.", scene: "capture" },
+  { name: "Windows", href: "/windows", body: "Microsoft Store. Record on the desktop. No bot joins.", scene: "devices" },
+  { name: "Chrome", href: "/chrome-extension", body: "The recorder for the browser tab you already have open.", scene: "notes" },
+  { name: "Web", href: "/platform", body: "Review Spaces, notes, tasks, and Ask KukuNotes.", scene: "ask" },
 ];
 
-const prompts = [
-  "What did we decide in this morning’s sync?",
-  "What are my open tasks in Product Launch?",
-  "Help me plan tomorrow from today’s notes.",
-];
-
-const ease = [0.22, 1, 0.36, 1] as const;
+function Rise({ children, className }: { children: ReactNode; className?: string }) {
+  const reduce = useReducedMotion();
+  const lite = useLiteMode();
+  const calm = Boolean(reduce || lite);
+  return (
+    <motion.div
+      className={className}
+      initial={calm ? false : { y: 20 }}
+      whileInView={{ y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export function KukuNotesLanding() {
-  const platformHost = siteConfig.platformUrl.replace(/^https?:\/\//, "");
+  const { free, pro, business } = planFacts;
+  const [useCase, setUseCase] = useState(0);
+  const activeCase = useCaseItems[useCase];
 
   return (
-    <main className="studio">
-      <section className="studio-hero" id="top">
+    <main className="studio home" id="main-content">
+      <section className="studio-hero home-hero" id="top">
         <div className="studio-hero-copy">
-          <motion.p
-            className="studio-kicker"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease }}
-          >
-            Personal context, kept
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.06, ease }}
-          >
+          <h1 id="home-title">
             Capture.
             <br />
             Organize.
             <br />
-            <em>Grow.</em>
-          </motion.h1>
-          <p className="context-kept">
-            {definitionLead} {definitionFacts}
+            <span className="hero-accent">Grow.</span>
+          </h1>
+          <p className="hero-kicker">Meeting notes, without a bot in the room.</p>
+          <p className="studio-hero-lead">
+            Record on your device. Tap Start Listening. No bot joins the call.
           </p>
-          <motion.div
-            className="studio-hero-actions"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.24, ease }}
-          >
-            <a
-              className="studio-btn studio-btn-ink"
-              href={siteConfig.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get KukuNotes
-            </a>
-            <a className="studio-text-link" href="#product">
-              See the product <span aria-hidden="true">→</span>
-            </a>
-          </motion.div>
-        </div>
-
-        <motion.div
-          className="studio-hero-visual"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.12, ease }}
-        >
-          <ol className="studio-dayline" aria-label="A day with KukuNotes">
-            {dayBeats.map((beat) => (
-              <li key={beat.time}>
-                <time>{beat.time}</time>
-                <span>{beat.label}</span>
-              </li>
-            ))}
-          </ol>
-
-          <div className="studio-hero-stage">
-            <AppFrame
-              src="/screenshots/home-spaces.jpg"
-              alt="KukuNotes home with live listening and your spaces"
-              size="hero"
-            />
-            <div className="studio-hero-chips">
-              <div className="studio-chip studio-chip-live">
-                <i />
-                Listening
-              </div>
-              <div className="studio-chip studio-chip-focus">
-                <b>18</b>
-                <span>notes</span>
-              </div>
-              <div className="studio-chip studio-chip-priority">
-                <b>7</b>
-                <span>tasks</span>
-              </div>
-            </div>
+          <div className="studio-hero-actions">
+            <Link className="studio-btn studio-btn-accent" href="/get-kukunotes">Get KukuNotes free</Link>
+            <a className="studio-btn studio-btn-ghost" href="#product">See it work</a>
           </div>
-        </motion.div>
-      </section>
-
-      {/* ── Daily Briefing ── */}
-      <section className="studio-briefing" aria-labelledby="briefing-title">
-        <Reveal className="studio-briefing-copy">
-          <p className="studio-kicker">Tasks</p>
-          <h2 id="briefing-title">The day, already sorted into work.</h2>
-          <p className="studio-section-lead">
-            Open tasks stay with the space they came from, dated and prioritized, so you
-            can see what is waiting without rebuilding the list.
+          <p className="hero-fact">
+            Private and opt-in. Many languages. The Android app does not record phone or dialer calls.
           </p>
-          <ul className="studio-feature-list">
-            <li>Dated on your calendar</li>
-            <li>Grouped by space</li>
-            <li>Priority on every item</li>
-          </ul>
-        </Reveal>
-        <Reveal className="studio-briefing-stage" variant="scale" delay={0.08}>
-            <AppFrame
-              src="/screenshots/tasks-day.jpg"
-              alt="KukuNotes tasks for the day with dates, priority, and space context"
-              size="hero"
-              priority={false}
-            />
-        </Reveal>
+        </div>
       </section>
 
-      {/* ── Capability Strip ── */}
-      <section className="studio-strip" aria-label="What KukuNotes holds">
-        <p className="studio-strip-label">Built for the shape of a real day</p>
-        <ul className="studio-strip-list">
-          <li>Live listening</li>
-          <li>Notes</li>
-          <li>Tasks</li>
-          <li>Meetings</li>
-          <li>Documents</li>
-          <li>Mindmaps</li>
+      <section className="logo-band" aria-label="Platforms and languages">
+        <ul>
+          <li>Android</li>
+          <li>Windows</li>
+          <li>Chrome</li>
+          <li>Web</li>
+          <li>Many languages</li>
+          <li>Opt-in</li>
+          <li>No bot</li>
         </ul>
       </section>
 
-      {/* ── Product Theater ── */}
-      <ProductTheater />
-
-      {/* ── Capture Sequence ── */}
-      <section className="studio-capture" id="listen" aria-labelledby="capture-title">
-        <Reveal className="studio-capture-intro">
-          <p className="studio-kicker">From conversation to next step</p>
-          <h2 id="capture-title">Capture once. Stay oriented.</h2>
-          <p className="studio-section-lead">
-            When a conversation matters, KukuNotes listens with you, then keeps the
-            details where the rest of your day already lives.
-          </p>
-        </Reveal>
-
-        <div className="studio-capture-track">
-          {captureSteps.map((step, index) => (
-            <Reveal key={step.number} className="studio-capture-step" delay={index * 0.08}>
-              <div className="studio-capture-meta">
-                <span>{step.number}</span>
-                <small>{step.meta}</small>
-              </div>
-              <h3>{step.title}</h3>
-              <p>{step.copy}</p>
-              <div className="studio-capture-frame">
-                <AppFrame src={step.image} alt={step.alt} size="showcase" />
-              </div>
-            </Reveal>
-          ))}
-        </div>
+      <section className="promise" id="listen">
+        <Rise>
+          <h2>Before the meeting. During it. After it.</h2>
+          <p>Start listening on your own device. Leave with a summary, tasks, and a reminder.</p>
+          <a className="studio-btn studio-btn-ghost" href="#product">Watch the flow</a>
+        </Rise>
       </section>
 
-      {/* ── Spaces ── */}
-      <section className="studio-spaces" id="spaces" aria-labelledby="spaces-title">
-        <Reveal className="studio-spaces-copy">
-          <p className="studio-kicker">Spaces</p>
-          <h2 id="spaces-title">Give each part of your life a place to land.</h2>
-          <p className="studio-section-lead">
-            KukuNotes is organized around spaces, not a single infinite feed. Context
-            stays where it belongs, and the rest of the app can stay quiet.
-          </p>
-          <ol className="studio-spaces-list">
-            {spacePrinciples.map((item, index) => (
-              <li key={item.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.copy}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </Reveal>
-        <Reveal className="studio-spaces-stage" variant="scale" delay={0.08}>
-          <div className="studio-desk-window studio-inline-window">
-            <div className="studio-desk-bar" aria-hidden="true">
-              <span className="studio-desk-dots">
-                <i />
-                <i />
-                <i />
-              </span>
-              <span className="studio-desk-url">
-                <b>{platformHost}</b>/home
-              </span>
-              <span className="studio-desk-bar-end" />
-            </div>
-            <div className="studio-desk-screen">
-              <div className="studio-desk-shot">
-                <Image
-                  src="/screenshots/desktop/spaces-workspace.webp"
-                  alt="KukuNotes workspace with spaces and the tasks inside one space"
-                  fill
-                  sizes="(max-width: 980px) 100vw, 560px"
-                  quality={60}
-                />
-              </div>
-            </div>
+      <section className="feature-grid" id="product" aria-labelledby="feature-title">
+        <h2 id="feature-title" className="sr-only">What happens to the meeting</h2>
+        <article className="feat feat-span feat-capture">
+          <div className="feat-copy">
+            <h3>{features[0].title}</h3>
+            <p>{features[0].body}</p>
           </div>
-        </Reveal>
-      </section>
-
-      {/* ── Ask KukuNotes ── */}
-      <section className="studio-ask" id="ask" aria-labelledby="ask-title">
-        <div className="studio-ask-card">
-          <Reveal className="studio-ask-copy">
-            <p className="studio-kicker">Ask KukuNotes</p>
-            <h2 id="ask-title">Ask from what you already lived, not a blank chat.</h2>
-            <p className="studio-section-lead">
-              Questions are answered from the spaces, notes, and tasks KukuNotes already
-              holds—so you spend less time reconstructing the day.
-            </p>
-            <ul className="studio-prompts">
-              {prompts.map((prompt) => (
-                <li key={prompt}>{prompt}</li>
-              ))}
-            </ul>
-          </Reveal>
-          <Reveal className="studio-ask-stage" variant="scale" delay={0.08}>
-            <div className="studio-desk-window studio-inline-window">
-              <div className="studio-desk-bar" aria-hidden="true">
-                <span className="studio-desk-dots">
-                  <i />
-                  <i />
-                  <i />
-                </span>
-                <span className="studio-desk-url">
-                  <b>{platformHost}</b>/chat
-                </span>
-                <span className="studio-desk-bar-end" />
-              </div>
-              <div className="studio-desk-screen">
-                <div className="studio-desk-shot">
-                  <Image
-                    src="/screenshots/desktop/ask-chat.webp"
-                    alt="KukuNotes answering a question with a space attached as context"
-                    fill
-                    sizes="(max-width: 980px) 100vw, 640px"
-                    quality={60}
-                  />
-                </div>
-              </div>
-            </div>
-          </Reveal>
+          <ExplainerVideo />
+        </article>
+        {features.slice(1, 3).map((feature) => (
+          <article key={feature.title} className={`feat feat-${feature.scene}`}>
+            <h3>{feature.title}</h3>
+            <p>{feature.body}</p>
+            <FeatureMotion scene={feature.scene} />
+          </article>
+        ))}
+        <article className="feat feat-span feat-spaces">
+          <div className="feat-copy">
+            <h3>{features[3].title}</h3>
+            <p>{features[3].body}</p>
+          </div>
+          <ExplainerVideo clip="tasks" />
+        </article>
+        <div className="feature-cta">
+          <Link className="studio-btn studio-btn-accent" href="/get-kukunotes">Get KukuNotes free</Link>
         </div>
       </section>
 
-      {/* ── Charter / Principles ── */}
-      <section className="studio-charter" aria-labelledby="charter-title">
-        <Reveal className="studio-charter-head">
-          <p className="studio-kicker">You stay in control</p>
-          <h2 id="charter-title">Useful only when it respects the room.</h2>
-          <p className="studio-section-lead">
-            Privacy and agency are built into every level of KukuNotes&apos; interaction model.
-          </p>
-        </Reveal>
-        <div className="studio-charter-grid">
-          <Reveal delay={0.04}>
-            <article>
-              <span>01</span>
-              <h3>Listening is opt-in</h3>
-              <p>Capture starts when you decide a conversation is worth keeping, and it belongs to a specific space.</p>
-            </article>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <article>
-              <span>02</span>
-              <h3>Spaces stay separate</h3>
-              <p>Projects, people, and personal planning do not collapse into one stream of memory.</p>
-            </article>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <article>
-              <span>03</span>
-              <h3>Sharing is a choice</h3>
-              <p>Select the exact notes and tasks someone else should see. Nothing else leaves the space.</p>
-            </article>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── FAQ ── */}
-      <section className="studio-faq" id="faq" aria-labelledby="faq-title">
-        <Reveal className="studio-faq-head">
-          <p className="studio-kicker">Good to know</p>
-          <h2 id="faq-title">A few questions, answered plainly.</h2>
-          <p className="studio-section-lead">
-            Everything you need to know about how KukuNotes captures, remembers, and acts on your conversations.{" "}
-            <Link className="studio-inline-link" href="/ai-note-taker">AI note taker</Link>
-            {", "}
-            <Link className="studio-inline-link" href="/ai-meeting-recorder">meeting recorder</Link>
-            {", "}
-            <Link className="studio-inline-link" href="/hindi-speech-to-text">Hindi speech to text</Link>
-            {", "}
-            <Link className="studio-inline-link" href="/ai-lecture-notes">lecture notes</Link>
-            {", "}
-            <Link className="studio-inline-link" href="/ai-personal-assistant">personal assistant</Link>
-            {", and "}
-            <Link className="studio-inline-link" href="/pricing">pricing</Link>.
-          </p>
-        </Reveal>
-        <div className="studio-faq-list">
-          {faqItems.map((item, index) => (
-            <FaqItem key={item.q} q={item.q} a={item.a} defaultOpen={index === 0} />
-          ))}
-        </div>
-      </section>
-
-      {/* ── Invite / Bottom CTA Card ── */}
-      <section className="studio-invite-section" id="cta" aria-labelledby="invite-title">
-        <Reveal className="studio-invite-card" variant="scale">
-          <p className="studio-kicker studio-invite-kicker">Android, Windows, Chrome & web</p>
-          <h2 id="invite-title">Your next conversation, already useful.</h2>
-          <p className="studio-invite-lead">
-            Bring KukuNotes into the rooms where work actually happens, and leave with the day still intact.
-          </p>
-          <div className="studio-invite-actions">
-            <a
-              className="studio-btn studio-btn-accent"
-              href={siteConfig.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+      <section className="usecases" id="spaces" aria-labelledby="usecase-title">
+        <h2 id="usecase-title">Whoever is talking, the notes still land.</h2>
+        <div className="usecase-pills" role="tablist" aria-label="Use cases">
+          {useCaseItems.map((item, index) => (
+            <button
+              key={item.title}
+              type="button"
+              role="tab"
+              aria-selected={index === useCase}
+              className={index === useCase ? "is-on" : ""}
+              onClick={() => setUseCase(index)}
             >
-              Get it on Google Play
-            </a>
+              {item.title.split(" ")[0]}
+            </button>
+          ))}
+        </div>
+        <div className="usecase-stage" role="tabpanel">
+          <div className="usecase-orb" aria-hidden="true" />
+          <h3>{activeCase.title}</h3>
+          <p>{activeCase.summary}</p>
+        </div>
+      </section>
+
+      <section className="bento" aria-labelledby="bento-title">
+        <h2 id="bento-title">What you can count on.</h2>
+        <p className="bento-lead">No customer logos and no made-up numbers. These are the product facts.</p>
+        <div className="bento-grid">
+          <article className="bento-dark">
+            <h3>No bot in the call</h3>
+            <p>KukuNotes never joins Zoom, Google Meet, or Teams. Recording stays on your device.</p>
+            <FeatureMotion scene="shield" compact />
+          </article>
+          <article className="bento-light">
+            <h3>Many languages</h3>
+            <p>Every plan can transcribe more than one language.</p>
+            <FeatureMotion scene="languages" compact />
+          </article>
+          <article className="bento-grad">
+            <p className="bento-stat">{free.meetingRecording}</p>
+            <h3>of meetings on the free plan</h3>
+            <p>Plus {free.notesRecording} of notes. Pro is {formatInr(pro.monthlyInr)}/month. Business is {formatInr(business.monthlyInr)}/month.</p>
+          </article>
+          <article className="bento-dark">
+            <h3>Not a phone-call recorder</h3>
+            <p>The Android app does not record phone or dialer calls. It records meetings and in-person conversations when you ask.</p>
+            <FeatureMotion scene="capture" compact />
+          </article>
+        </div>
+      </section>
+
+      <section className="platforms" id="ask" aria-labelledby="platform-title">
+        <h2 id="platform-title">On the devices you already use.</h2>
+        <p>One account. Android, Windows, Chrome, and the web.</p>
+        <div className="platform-grid">
+          {platforms.map((item) => (
+            <Link key={item.name} href={item.href} className="platform-card">
+              <strong>{item.name}</strong>
+              <span>{item.body}</span>
+              <FeatureMotion scene={item.scene} compact />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="studio-faq faq-band" id="faq" aria-labelledby="faq-title">
+        <div className="faq-grid">
+          <h2 id="faq-title">Questions, answered plainly.</h2>
+          <div className="studio-faq-list">
+            {faqItems.map((item, index) => (
+              <FaqItem key={item.q} q={item.q} a={item.a} defaultOpen={index === 0} />
+            ))}
           </div>
-        </Reveal>
+        </div>
       </section>
     </main>
   );

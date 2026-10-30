@@ -48,7 +48,7 @@ export type PricingPlan = {
   isExternal?: boolean;
 };
 
-export const ALL_INDIAN_LANGUAGES = [...planFacts.languageNames];
+const supportedLanguageNames = [...planFacts.languageNames];
 
 export const pricingPlans: PricingPlan[] = [
   {
@@ -80,13 +80,13 @@ export const pricingPlans: PricingPlan[] = [
       { text: `${planFacts.free.meetingRecording} of meeting recording`, included: true },
       { text: `${planFacts.free.mindmaps} mindmaps and ${planFacts.free.documents} documents`, included: true },
       { text: `${planFacts.free.goals} goal tracking`, included: true },
-      { text: `${planFacts.languageNames.length} Indian languages included`, included: true },
+      { text: "Many languages included", included: true },
       { text: "Marketplace browse only", included: true },
       { text: `${planFacts.pro.notesRecording} of notes and meeting recording`, included: false },
       { text: "Limited marketplace installs", included: false },
       { text: "Unlimited capture & full marketplace", included: false },
     ],
-    languages: ALL_INDIAN_LANGUAGES,
+    languages: supportedLanguageNames,
     ctaLabel: "Start for free",
     ctaHref: siteConfig.platformUrl,
     isExternal: true,
@@ -123,13 +123,13 @@ export const pricingPlans: PricingPlan[] = [
       { text: `${planFacts.pro.meetingRecording} of meeting recording`, included: true, highlight: true },
       { text: `${planFacts.pro.mindmaps} mindmaps and ${planFacts.pro.documents} documents`, included: true, highlight: true },
       { text: `${planFacts.pro.goals} goal tracking`, included: true },
-      { text: `${planFacts.languageNames.length} Indian languages included`, included: true },
+      { text: "Many languages included", included: true },
       { text: "Limited marketplace access", included: true, highlight: true },
       { text: "Unlimited notes & meeting recording", included: false },
       { text: "Unlimited mindmaps & documents", included: false },
       { text: "Full marketplace access", included: false },
     ],
-    languages: ALL_INDIAN_LANGUAGES,
+    languages: supportedLanguageNames,
     ctaLabel: "Get KukuNotes Pro",
     ctaHref: siteConfig.platformUrl,
     isExternal: true,
@@ -165,12 +165,12 @@ export const pricingPlans: PricingPlan[] = [
       { text: `${planFacts.business.meetingRecording} meeting recording`, included: true, highlight: true },
       { text: `${planFacts.business.mindmaps} mindmaps and documents`, included: true, highlight: true },
       { text: `${planFacts.business.goals} goal tracking`, included: true },
-      { text: `${planFacts.languageNames.length} Indian languages included`, included: true },
+      { text: "Many languages included", included: true },
       { text: "Full marketplace access", included: true, highlight: true },
       { text: "Priority support", included: true },
       { text: "Everything in Pro included", included: true },
     ],
-    languages: ALL_INDIAN_LANGUAGES,
+    languages: supportedLanguageNames,
     ctaLabel: "Upgrade to Business",
     ctaHref: siteConfig.platformUrl,
     isExternal: true,
@@ -240,8 +240,8 @@ export const comparisonCategories: CompareCategory[] = [
         business: "Full access",
       },
       {
-        name: "Indian languages",
-        description: `${ALL_INDIAN_LANGUAGES.join(", ")}. Included on Free, Pro, and Business.`,
+        name: "Languages",
+        description: "Many languages. Included on Free, Pro, and Business.",
         free: true,
         pro: true,
         business: true,

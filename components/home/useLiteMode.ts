@@ -7,7 +7,10 @@ export function useLiteMode() {
   const [lite, setLite] = useState(false);
 
   useEffect(() => {
-    setLite(document.documentElement.classList.contains("lite"));
+    const frame = requestAnimationFrame(() => {
+      setLite(document.documentElement.classList.contains("lite"));
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   return lite;

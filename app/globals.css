@@ -8,17 +8,37 @@
   --white: #ffffff;
   --card-bg: #ffffff;
 
-  --primary: #4338ca;
-  --primary-dark: #3730a3;
-  --primary-purple: #8b5cf6;
-  --primary-purple-dark: #6d28d9;
-  --primary-light: #eef2ff;
-  --primary-soft: #f5f3ff;
-  --primary-mid: #7c3aed;
+  --primary: #1c62fc;
+  --primary-dark: #1246c8;
+  --primary-purple: #aa5dfd;
+  --primary-purple-dark: #7a3de0;
+  --primary-light: #e8f1ff;
+  --primary-soft: #f4f7fb;
+  --primary-mid: #228efd;
+
+  --kn-navy: #09103b;
+  --kn-blue: #1c62fc;
+  --kn-sky: #228efd;
+  --kn-violet: #aa5dfd;
+  --kn-yellow: #fee33f;
+  --kn-pink: #fa97a1;
+  --kn-ink: #09103b;
+  --kn-muted: #3d4a63;
+  --kn-line: #e4e8f2;
+  --kn-soft: #f4f6fb;
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 72px;
+  --space-8: 96px;
+  --container: 1120px;
   --accent-cyan: #15c7e8;
   --tab-inactive: #7e8795;
 
-  --foreground: #0f172a;
+  --foreground: #09103b;
   --text-secondary: #334155;
   --sub-text: #64748b;
   --muted: #94a3b8;
@@ -31,11 +51,11 @@
   --purple-light: #f3e8ff;
   --shadow-deep: #162b75;
 
-  --brand-navy: #08103a;
-  --brand-blue: #2f7bff;
-  --brand-violet: #8b5cf6;
-  --brand-amber: #ffc53d;
-  --brand-gradient: linear-gradient(120deg, var(--brand-blue) 0%, var(--brand-violet) 55%, #f59e7a 80%, var(--brand-amber) 100%);
+  --brand-navy: #09103b;
+  --brand-blue: #1c62fc;
+  --brand-violet: #aa5dfd;
+  --brand-amber: #fee33f;
+  --brand-gradient: linear-gradient(120deg, #228efd 0%, #aa5dfd 42%, #fa97a1 74%, #fee33f 100%);
 
   --radius: 16px;
   --content: 1120px;
@@ -65,10 +85,7 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  background:
-    radial-gradient(ellipse 60% 40% at 0% 0%, rgba(139, 92, 246, 0.12), transparent 50%),
-    radial-gradient(ellipse 50% 35% at 100% 0%, rgba(21, 199, 232, 0.1), transparent 45%),
-    linear-gradient(180deg, var(--gradient-start) 0%, var(--gradient-mid) 35%, var(--white) 100%);
+  background: #f7f8fa;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
