@@ -93,6 +93,7 @@ export default function PricingPage() {
 
               return (
                 <Reveal
+                  id={`plan-${plan.id}`}
                   key={plan.id}
                   className={`plan-card plan-card--${plan.id}${plan.isPopular ? " plan-card--popular" : ""}`}
                   variant="scale"

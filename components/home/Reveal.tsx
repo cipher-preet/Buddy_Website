@@ -11,6 +11,7 @@ type RevealProps = {
   delay?: number;
   once?: boolean;
   style?: React.CSSProperties;
+  id?: string;
 };
 
 const variants = {
@@ -47,16 +48,18 @@ export function Reveal({
   delay = 0,
   once = true,
   style,
+  id,
 }: RevealProps) {
   const reduceMotion = useReducedMotion();
   const lite = useLiteMode();
 
   if (reduceMotion || lite) {
-    return <div className={className} style={style}>{children}</div>;
+    return <div id={id} className={className} style={style}>{children}</div>;
   }
 
   return (
     <motion.div
+      id={id}
       className={className}
       style={style}
       variants={variants[variant]}

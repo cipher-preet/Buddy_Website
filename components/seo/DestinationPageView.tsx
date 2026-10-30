@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import type { DestinationPage } from "@/lib/destination-pages";
 import { siteConfig } from "@/lib/site";
 import { HiArrowUpRight, HiCheck } from "react-icons/hi2";
+import { DownloadCardPage } from "@/components/download/DownloadCardPage";
 import { ExplainerVideo, type ExplainerClip } from "./ExplainerVideo";
 import { FeatureMotion, type MotionScene } from "./FeatureMotion";
 
@@ -42,6 +43,10 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
       <ScrollProgress />
       <Navbar />
       <main className="studio seo-page destination-page" id="main-content">
+        {page.slug === "windows" || page.slug === "platform" ? (
+          <DownloadCardPage page={page} />
+        ) : (
+        <>
         <nav className="seo-breadcrumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           <span aria-hidden="true">/</span>
@@ -144,6 +149,8 @@ export function DestinationPageView({ page, jsonLd }: DestinationPageViewProps) 
           </div>
           <FeatureMotion scene="spaces" />
         </nav>
+        </>
+        )}
       </main>
       <KukuNotesFooter />
     </div>

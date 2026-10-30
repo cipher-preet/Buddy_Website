@@ -40,16 +40,6 @@ const platforms: { name: string; href: string; body: string; scene: MotionScene 
   { name: "Web", href: "/platform", body: "Review Spaces, notes, tasks, and Ask KukuNotes.", scene: "ask" },
 ];
 
-const related = [
-  { label: "AI meeting recorder", href: "/ai-meeting-recorder" },
-  { label: "AI note taker", href: "/ai-note-taker" },
-  { label: "Lecture notes", href: "/ai-lecture-notes" },
-  { label: "Personal assistant", href: "/ai-personal-assistant" },
-  { label: "Use cases", href: "/use-cases" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Download", href: "/get-kukunotes" },
-];
-
 function Rise({ children, className }: { children: ReactNode; className?: string }) {
   const reduce = useReducedMotion();
   const lite = useLiteMode();
@@ -81,7 +71,7 @@ export function KukuNotesLanding() {
             <br />
             Organize.
             <br />
-            Grow.
+            <span className="hero-accent">Grow.</span>
           </h1>
           <p className="hero-kicker">Meeting notes, without a bot in the room.</p>
           <p className="studio-hero-lead">
@@ -95,7 +85,6 @@ export function KukuNotesLanding() {
             Private and opt-in. Many languages. The Android app does not record phone or dialer calls.
           </p>
         </div>
-        <ExplainerVideo />
       </section>
 
       <section className="logo-band" aria-label="Platforms and languages">
@@ -111,25 +100,36 @@ export function KukuNotesLanding() {
       </section>
 
       <section className="promise" id="listen">
-        <div className="promise-grid">
-          <Rise>
-            <h2>Before the meeting. During it. After it.</h2>
-            <p>Start listening on your own device. Leave with a summary, tasks, and a reminder.</p>
-            <a className="studio-btn studio-btn-ghost" href="#product">Watch the flow</a>
-          </Rise>
-          <ExplainerVideo clip="tasks" />
-        </div>
+        <Rise>
+          <h2>Before the meeting. During it. After it.</h2>
+          <p>Start listening on your own device. Leave with a summary, tasks, and a reminder.</p>
+          <a className="studio-btn studio-btn-ghost" href="#product">Watch the flow</a>
+        </Rise>
       </section>
 
       <section className="feature-grid" id="product" aria-labelledby="feature-title">
         <h2 id="feature-title" className="sr-only">What happens to the meeting</h2>
-        {features.map((feature) => (
+        <article className="feat feat-span feat-capture">
+          <div className="feat-copy">
+            <h3>{features[0].title}</h3>
+            <p>{features[0].body}</p>
+          </div>
+          <ExplainerVideo />
+        </article>
+        {features.slice(1, 3).map((feature) => (
           <article key={feature.title} className={`feat feat-${feature.scene}`}>
             <h3>{feature.title}</h3>
             <p>{feature.body}</p>
             <FeatureMotion scene={feature.scene} />
           </article>
         ))}
+        <article className="feat feat-span feat-spaces">
+          <div className="feat-copy">
+            <h3>{features[3].title}</h3>
+            <p>{features[3].body}</p>
+          </div>
+          <ExplainerVideo clip="tasks" />
+        </article>
         <div className="feature-cta">
           <Link className="studio-btn studio-btn-accent" href="/get-kukunotes">Get KukuNotes free</Link>
         </div>
@@ -155,11 +155,6 @@ export function KukuNotesLanding() {
           <div className="usecase-orb" aria-hidden="true" />
           <h3>{activeCase.title}</h3>
           <p>{activeCase.summary}</p>
-          <div className="usecase-nav">
-            <button type="button" aria-label="Previous use case" onClick={() => setUseCase((n) => (n + useCaseItems.length - 1) % useCaseItems.length)}>←</button>
-            <Link href="/use-cases">See use cases</Link>
-            <button type="button" aria-label="Next use case" onClick={() => setUseCase((n) => (n + 1) % useCaseItems.length)}>→</button>
-          </div>
         </div>
       </section>
 
@@ -204,75 +199,14 @@ export function KukuNotesLanding() {
         </div>
       </section>
 
-      <section className="price-band" aria-labelledby="price-title">
-        <h2 id="price-title">Free for the first hours. Clear prices after that.</h2>
-        <p>Every plan includes the same languages. Prices are shown in INR.</p>
-        <div className="price-row">
-          <article>
-            <h3>Free</h3>
-            <p className="price-figure">{formatInr(free.monthlyInr)}<span>/month</span></p>
-            <ul>
-              <li>{free.notesRecording} of notes</li>
-              <li>{free.meetingRecording} of meetings</li>
-              <li>{free.mindmaps} mindmaps · {free.goals} goals</li>
-            </ul>
-            <Link href="/get-kukunotes">Get KukuNotes free</Link>
-          </article>
-          <article>
-            <h3>Pro</h3>
-            <p className="price-figure">{formatInr(pro.monthlyInr)}<span>/month</span></p>
-            <p className="price-note">{formatInr(pro.yearlyInr)} billed yearly</p>
-            <ul>
-              <li>{pro.notesRecording} of notes</li>
-              <li>{pro.meetingRecording} of meetings</li>
-              <li>{pro.goals} goals</li>
-            </ul>
-            <Link href="/pricing">See Pro</Link>
-          </article>
-          <article>
-            <h3>Business</h3>
-            <p className="price-figure">{formatInr(business.monthlyInr)}<span>/month</span></p>
-            <p className="price-note">{formatInr(business.yearlyInr)} billed yearly</p>
-            <ul>
-              <li>{business.notesRecording} notes</li>
-              <li>{business.meetingRecording} meetings</li>
-              <li>{business.goals} goals</li>
-            </ul>
-            <Link href="/pricing">See Business</Link>
-          </article>
-        </div>
-      </section>
-
       <section className="studio-faq faq-band" id="faq" aria-labelledby="faq-title">
         <div className="faq-grid">
-          <div>
-            <h2 id="faq-title">Questions, answered plainly.</h2>
-            <div className="studio-faq-list">
-              {faqItems.map((item, index) => (
-                <FaqItem key={item.q} q={item.q} a={item.a} defaultOpen={index === 0} />
-              ))}
-            </div>
-          </div>
-          <FeatureMotion scene="ask" />
-        </div>
-      </section>
-
-      <section className="closer" id="cta">
-        <div className="closer-ovals" aria-hidden="true">
-          <i /><i /><i /><i /><i /><i /><i />
-        </div>
-        <h2>The next meeting can leave the notes behind.</h2>
-        <div className="studio-hero-actions">
-          <Link className="studio-btn closer-primary" href="/get-kukunotes">Get KukuNotes free</Link>
-          <Link className="studio-btn closer-secondary" href="/pricing">Compare plans</Link>
-        </div>
-        <div className="related">
-          <h3>Keep reading</h3>
-          <ul>
-            {related.map((item) => (
-              <li key={item.href}><Link href={item.href}>{item.label}</Link></li>
+          <h2 id="faq-title">Questions, answered plainly.</h2>
+          <div className="studio-faq-list">
+            {faqItems.map((item, index) => (
+              <FaqItem key={item.q} q={item.q} a={item.a} defaultOpen={index === 0} />
             ))}
-          </ul>
+          </div>
         </div>
       </section>
     </main>

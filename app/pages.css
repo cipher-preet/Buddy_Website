@@ -516,13 +516,15 @@ body.kn .legal-hero-split > .motion-card {
   box-sizing: border-box;
 }
 body.kn .motion-chip {
-  white-space: nowrap;
+  max-width: 100%;
   padding: 7px 12px;
   border-radius: 999px;
   background: var(--kn-navy);
   color: #fff;
   font-size: 0.82rem;
   font-weight: 750;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 body.kn .motion-lines { display: grid; gap: 8px; width: min(240px, 80%); }
 body.kn .motion-lines i {
@@ -577,11 +579,14 @@ body.kn .motion-checks li::before {
   background: var(--kn-blue);
 }
 body.kn .motion-folders,
-body.kn .motion-devices { display: flex; gap: 10px; align-items: flex-end; }
+body.kn .motion-devices { display: flex; gap: 10px; align-items: flex-end; justify-content: center; width: 100%; max-width: 280px; }
 body.kn .motion-folders span {
   display: grid;
   place-items: center;
-  width: 84px;
+  flex: 1 1 0;
+  width: auto;
+  max-width: 84px;
+  min-width: 0;
   height: 96px;
   border-radius: 16px 16px 12px 12px;
   background: #fff;
@@ -595,7 +600,24 @@ body.kn .motion-folders span:nth-child(2) { height: 112px; background: var(--kn-
 body.kn .motion-folders span:nth-child(3) { background: var(--kn-yellow); animation-delay: 0.3s; }
 body.kn .motion-laptop,
 body.kn .motion-handset { display: block; background: var(--kn-navy); }
-body.kn .motion-laptop { width: 120px; height: 76px; border-radius: 10px 10px 4px 4px; box-shadow: 0 16px 0 -6px var(--kn-blue); }
+body.kn .motion-devices { padding-bottom: 12px; }
+body.kn .motion-laptop {
+  position: relative;
+  width: 108px;
+  height: 68px;
+  border-radius: 8px 8px 3px 3px;
+}
+body.kn .motion-laptop::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 120px;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--kn-blue);
+  transform: translateX(-50%);
+}
 body.kn .motion-handset { width: 42px; height: 78px; border-radius: 10px; background: var(--kn-blue); }
 body.kn .motion-orb {
   width: 92px;

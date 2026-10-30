@@ -2,6 +2,7 @@ import { brandSplit, captureFact, definitionLead, priceCopy } from "./product-fa
 
 export const navItems = [
   { label: "Use cases", href: "/use-cases" },
+  { label: "Download", href: "/get-kukunotes" },
   { label: "Pricing", href: "/pricing" },
 ];
 
@@ -29,6 +30,7 @@ export const appDestinationLinks = [
 
 export const useCaseItems = [
   {
+    id: "education",
     title: "Students & educators",
     eyebrow: "Education",
     summary: "Lectures, study sessions, and mentoring become organized notes and study tasks.",
@@ -41,6 +43,7 @@ export const useCaseItems = [
     alt: "AI lecture notes and study tasks dashboard for students and educators",
   },
   {
+    id: "teams",
     title: "Founders & teams",
     eyebrow: "Meetings",
     summary: "Turn planning calls into decisions, owners, priorities, and next actions.",
@@ -53,6 +56,7 @@ export const useCaseItems = [
     alt: "Startup meeting takeaways, sprint action items, and roadmap interface",
   },
   {
+    id: "sales",
     title: "Sales & client work",
     eyebrow: "Follow-up",
     summary: "Keep client context, objections, requests, and promised next steps in one place.",
@@ -65,6 +69,7 @@ export const useCaseItems = [
     alt: "Client meeting intelligence dashboard with sentiment, commitments, and follow-up timeline",
   },
   {
+    id: "personal",
     title: "Personal planning",
     eyebrow: "Life admin",
     summary: "Use KukuNotes for family plans, appointments, ideas, goals, and day-to-day reminders.",
@@ -77,6 +82,7 @@ export const useCaseItems = [
     alt: "Personal life admin dashboard with daily briefing, calendar blocks, and life spaces",
   },
   {
+    id: "creators",
     title: "Creators & media",
     eyebrow: "Content",
     summary: "Interviews and brainstorms become themes, quotes to revisit, and production tasks.",

@@ -57,6 +57,11 @@ export function llmsTxt() {
 - [About](https://kukunotes.com/about): what KukuNotes is, spelling, and brand facts
 - [Pricing](https://kukunotes.com/pricing)
 - [Use cases](https://kukunotes.com/use-cases)
+- [Students and educators](https://kukunotes.com/use-cases/education)
+- [Founders and teams](https://kukunotes.com/use-cases/teams)
+- [Sales and client work](https://kukunotes.com/use-cases/sales)
+- [Personal planning](https://kukunotes.com/use-cases/personal)
+- [Creators and media](https://kukunotes.com/use-cases/creators)
 - [Download](https://kukunotes.com/get-kukunotes)
 
 ## How KukuNotes compares (as of October 2026)
@@ -219,6 +224,11 @@ A: Listening is strictly opt-in. KukuNotes does not listen in the background wit
 - Android (Google Play): https://kukunotes.com/android
 - About: https://kukunotes.com/about
 - Use Cases: https://kukunotes.com/use-cases
+- Education: https://kukunotes.com/use-cases/education
+- Teams: https://kukunotes.com/use-cases/teams
+- Sales and client work: https://kukunotes.com/use-cases/sales
+- Personal planning: https://kukunotes.com/use-cases/personal
+- Creators: https://kukunotes.com/use-cases/creators
 - Pricing: https://kukunotes.com/pricing
 - Download & Platforms: https://kukunotes.com/get-kukunotes
 - Contact & Support: https://kukunotes.com/contact

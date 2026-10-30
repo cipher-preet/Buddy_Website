@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { destinationPages } from "@/lib/destination-pages";
 import { topicPages } from "@/lib/seo-pages";
 import { siteConfig } from "@/lib/site";
+import { useCaseStories } from "@/lib/use-case-stories";
 
 /**
  * Per-URL lastmod. Change a date only when that URL's content changes.
@@ -16,7 +17,12 @@ const lastModifiedByPath: Record<string, string> = {
   "/chrome-extension": "2026-10-16",
   "/windows": "2026-10-16",
   "/android": "2026-10-29",
-  "/use-cases": "2026-10-16",
+  "/use-cases": "2026-10-30",
+  "/use-cases/education": "2026-10-30",
+  "/use-cases/teams": "2026-10-30",
+  "/use-cases/sales": "2026-10-30",
+  "/use-cases/personal": "2026-10-30",
+  "/use-cases/creators": "2026-10-30",
   "/ai-note-taker": "2026-10-29",
   "/ai-meeting-recorder": "2026-10-29",
   "/ai-personal-assistant": "2026-10-16",
@@ -94,6 +100,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url("/use-cases/creators.jpg"),
       ],
     },
+    ...useCaseStories.map((story) => ({
+      url: url(story.path),
+      lastModified: lastModified(story.path),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+      images: [url(story.image)],
+    })),
     ...topicPages.map((page) => ({
       url: url(`/${page.slug}`),
       lastModified: lastModified(`/${page.slug}`),

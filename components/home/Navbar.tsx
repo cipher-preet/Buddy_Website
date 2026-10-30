@@ -1,17 +1,108 @@
 "use client";
 
-import { appDestinationLinks, navItems, solutionLinks } from "@/lib/home-data";
+import { useCaseItems } from "@/lib/home-data";
 import { siteConfig } from "@/lib/site";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { BrandMark } from "./BrandMark";
-import { HiChevronRight, HiArrowUpRight } from "react-icons/hi2";
+import {
+  HiArrowUpRight,
+  HiChevronDown,
+  HiChevronRight,
+  HiOutlineAcademicCap,
+  HiOutlineBriefcase,
+  HiOutlineCalendarDays,
+  HiOutlineComputerDesktop,
+  HiOutlineDevicePhoneMobile,
+  HiOutlineGlobeAlt,
+  HiOutlineMicrophone,
+  HiOutlinePuzzlePiece,
+  HiOutlineSparkles,
+  HiOutlineUserGroup,
+} from "react-icons/hi2";
+import type { IconType } from "react-icons";
+
+const useCaseTones: Record<string, string> = {
+  violet: "blue",
+  indigo: "indigo",
+  cyan: "sky",
+  green: "teal",
+  rose: "slate",
+};
+
+const useCaseIcons: Record<string, IconType> = {
+  violet: HiOutlineAcademicCap,
+  indigo: HiOutlineUserGroup,
+  cyan: HiOutlineBriefcase,
+  green: HiOutlineCalendarDays,
+  rose: HiOutlineMicrophone,
+};
+
+type FlyoutItem = {
+  title: string;
+  description: string;
+  href: string;
+  icon: IconType;
+  tone: string;
+  external?: boolean;
+};
+
+const navMenus: { label: string; href: string; heading: string; items: FlyoutItem[] }[] = [
+  {
+    label: "Use cases",
+    href: "/use-cases",
+    heading: "Something for everyone",
+    items: useCaseItems.map((item) => ({
+      title: item.title,
+      description: item.summary,
+      href: `/use-cases/${item.id}`,
+      icon: useCaseIcons[item.accent] ?? HiOutlineSparkles,
+      tone: useCaseTones[item.accent] ?? "blue",
+    })),
+  },
+  {
+    label: "Download",
+    href: "/get-kukunotes",
+    heading: "Download KukuNotes",
+    items: [
+      {
+        title: "Android",
+        description: "Get the app on Google Play. Recording stays opt-in.",
+        href: siteConfig.playStoreUrl,
+        icon: HiOutlineDevicePhoneMobile,
+        tone: "blue",
+        external: true,
+      },
+      {
+        title: "Windows",
+        description: "Record the meeting on your computer. No bot joins the call.",
+        href: "/windows",
+        icon: HiOutlineComputerDesktop,
+        tone: "indigo",
+      },
+      {
+        title: "Chrome",
+        description: "Add the extension from the Chrome Web Store.",
+        href: siteConfig.chromeStoreUrl,
+        icon: HiOutlinePuzzlePiece,
+        tone: "sky",
+        external: true,
+      },
+      {
+        title: "Web",
+        description: "Review spaces, notes, and tasks in the browser.",
+        href: "/platform",
+        icon: HiOutlineGlobeAlt,
+        tone: "teal",
+      },
+    ],
+  },
+];
 
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [menu, setMenu] = useState<string | null>(null);
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -148,7 +239,6 @@ export function Navbar() {
         />
       )}
       <header
-        onMouseLeave={() => setMenu(null)}
         ref={headerRef}
         className={[
           "site-header",
@@ -163,64 +253,74 @@ export function Navbar() {
           setHidden(false);
         }}
       >
-      <div className="announce">
-        <span>Meetings, recorded on your device. No bot joins the call.</span>
-        <Link href="/get-kukunotes">Get it free</Link>
-      </div>
       <nav className="nav-shell kn-shell" aria-label="Primary navigation">
         <BrandMark />
         <div className="nav-links">
-          <div className="nav-menus">
-            <div className="nav-drop">
-              <button
-                type="button"
-                aria-expanded={menu === "product"}
-                onClick={() => setMenu((current) => (current === "product" ? null : "product"))}
-              >
-                Product
-              </button>
-              {menu === "product" ? (
-                <div className="nav-drop-panel">
-                  {solutionLinks.map((item) => (
-                    <Link key={item.href} href={item.href} onClick={() => setMenu(null)}>
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-            <div className="nav-drop">
-              <button
-                type="button"
-                aria-expanded={menu === "platforms"}
-                onClick={() => setMenu((current) => (current === "platforms" ? null : "platforms"))}
-              >
-                Platforms
-              </button>
-              {menu === "platforms" ? (
-                <div className="nav-drop-panel">
-                  {appDestinationLinks.map((item) => (
-                    <Link key={item.href} href={item.href} onClick={() => setMenu(null)}>
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-          </div>
-          {navItems.map((item) => {
-            const active = isRouteActive(item.href);
+          {navMenus.map((menu) => {
+            const active = isRouteActive(menu.href);
             return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={active ? "is-active" : undefined}
-                aria-current={active ? "page" : undefined}
-              >
-                {item.label}
-              </Link>
+              <div className="nav-menu" key={menu.href}>
+                <Link
+                  href={menu.href}
+                  className={`nav-trigger${active ? " is-active" : ""}`}
+                  aria-current={active ? "page" : undefined}
+                  aria-haspopup="true"
+                >
+                  {menu.label}
+                  <HiChevronDown aria-hidden="true" />
+                </Link>
+                <div className="nav-flyout">
+                  <div className="nav-flyout-card">
+                    <p className="nav-flyout-heading">{menu.heading}</p>
+                    <div className="nav-flyout-list">
+                      {menu.items.map((item) => {
+                        const Icon = item.icon;
+                        const body = (
+                          <>
+                            <span className={`nav-flyout-icon tone-${item.tone}`} aria-hidden="true">
+                              <Icon />
+                            </span>
+                            <span className="nav-flyout-copy">
+                              <span className="nav-flyout-title">
+                                {item.title}
+                                {item.external ? <HiArrowUpRight aria-hidden="true" /> : null}
+                              </span>
+                              <span className="nav-flyout-desc">{item.description}</span>
+                            </span>
+                          </>
+                        );
+                        if (item.external) {
+                          return (
+                            <a
+                              key={item.title}
+                              href={item.href}
+                              className="nav-flyout-link"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {body}
+                            </a>
+                          );
+                        }
+                        return (
+                          <Link key={item.title} href={item.href} className="nav-flyout-link">
+                            {body}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </div>
             );
           })}
+          <Link
+            href="/pricing"
+            className={isRouteActive("/pricing") ? "is-active" : undefined}
+            aria-current={isRouteActive("/pricing") ? "page" : undefined}
+          >
+            Pricing
+          </Link>
         </div>
         <div className="nav-end">
           <a
@@ -260,7 +360,7 @@ export function Navbar() {
         </div>
 
         <div className="nav-drawer-links" role="list">
-          {[...solutionLinks, ...appDestinationLinks, ...navItems].map((item, index) => {
+          {[...navMenus, { label: "Pricing", href: "/pricing" }].map((item, index) => {
             const active = isRouteActive(item.href);
             return (
               <Link
